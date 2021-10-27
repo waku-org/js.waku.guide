@@ -11,5 +11,6 @@
     - [Encrypt Messages Using Waku Message Version 1](guides/encrypt_messages_version_1.md)
     - [Receive and Send Messages Using Waku Relay With ReactJS](guides/reactjs_relay.md)
     - [Retrieve Messages Using Waku Store With ReactJS](guides/reactjs_store.md)
+- [Examples](examples.md)
 
 [Implemented Waku Protocols](waku_protocols.md)
