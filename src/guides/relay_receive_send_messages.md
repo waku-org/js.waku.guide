@@ -23,7 +23,7 @@ In order to interact with the Waku network, you first need a Waku instance:
 ```js
 import { Waku } from 'js-waku';
 
-const wakuNode = await Waku.create({ bootstrap: true });
+const waku = await Waku.create({ bootstrap: true });
 ```
 
 Passing the `bootstrap` option will connect your node to predefined Waku nodes.
@@ -32,7 +32,7 @@ If you want to bootstrap to your own nodes, you can pass an array of multiaddres
 ```js
 import { Waku } from 'js-waku';
 
-const wakuNode = await Waku.create({
+const waku = await Waku.create({
   bootstrap: [
     '/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm',
     '/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ'
