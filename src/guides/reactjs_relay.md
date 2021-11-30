@@ -4,7 +4,7 @@ It is easy to use DappConnect with ReactJS.
 In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages. 
 
 Before starting, you need to choose a _Content Topic_ for your dApp.
-Check out the [how to choose a content topic guide](choose-content-topic.md) to learn more about content topics.
+Check out the [how to choose a content topic guide](./choose_content_topic.md) to learn more about content topics.
 For this guide, we are using a single content topic: `/min-react-js-chat/1/chat/proto`.
 
 # Setup
@@ -28,7 +28,7 @@ Start the dev server and open the dApp in your browser:
 npm run start
 ```
 
-Note: We have noticed some issues with React bundling due to `npm` pulling an old version of babel.
+Note: We have noticed some [issues](https://github.com/status-im/js-waku/issues/165) with React bundling due to `npm` pulling an old version of babel.
 If you are getting an error about the [optional chaining (?.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 character not being valid, try cleaning up and re-installing your dependencies:
 
@@ -297,4 +297,4 @@ function App() {
 And Voilà! You should now be able to send and receive messages.
 Try out by opening the app from different browsers.
 
-You can see the complete code in the [Minimal ReactJS Chat App](/examples/min-react-js-chat).
+You can see the complete code in the [Minimal ReactJS Chat App](https://github.com/status-im/js-waku/tree/main/examples/min-react-js-chat).

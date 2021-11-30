@@ -21,7 +21,7 @@ For example, when the dApp starts.
 In this guide, we'll review how you can use Waku Store to retrieve messages.
 
 Before starting, you need to choose a _Content Topic_ for your dApp.
-Check out the [how to choose a content topic guide](choose-content-topic.md) to learn more about content topics.
+Check out the [how to choose a content topic guide](./choose_content_topic.md) to learn more about content topics.
 
 # Setup
 
@@ -44,7 +44,7 @@ Start the dev server and open the dApp in your browser:
 npm run start
 ```
 
-Note: We have noticed some issues with React bundling due to `npm` pulling an old version of babel.
+Note: We have noticed some [issues](https://github.com/status-im/js-waku/issues/165) with React bundling due to `npm` pulling an old version of babel.
 If you are getting an error about the [optional chaining (?.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 character not being valid, try cleaning up and re-installing your dependencies:
 
@@ -273,7 +273,7 @@ Depending on your use case, you may not need to retrieve 30 days worth of messag
 
 [Waku Message](https://rfc.vac.dev/spec/14/) defines an optional unencrypted `timestamp` field.
 The timestamp is set by the sender.
-By default, js-waku [sets the timestamp of outgoing message to the current time](https://github.com/status-im/js-waku/blob/a056227538f9409aa9134c7ef0df25f602dbea58/src/lib/waku_message/index.ts#L76).
+By default, js-waku sets the timestamp of outgoing message to the current time.
 
 You can filter messages that include a timestamp within given bounds with the `timeFilter` option.
 
@@ -293,4 +293,4 @@ waku.store
 
 ## End result
 
-You can see the complete code in the [Minimal ReactJS Waku Store App](/examples/store-reactjs-chat).
+You can see the complete code in the [Minimal ReactJS Waku Store App](https://github.com/status-im/js-waku/tree/main/examples/store-reactjs-chat).

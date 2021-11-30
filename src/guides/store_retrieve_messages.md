@@ -3,7 +3,7 @@
 DApps running on a phone or in a browser are often offline:
 The browser could be closed or mobile app in the background.
 
-[Waku Relay](https://rfc.vac.dev/spec/18/) is a gossip protocol.
+[Waku Relay](https://rfc.vac.dev/spec/11/) is a gossip protocol.
 As a user, it means that your peers forward you messages they just received.
 If you cannot be reached by your peers, then messages are not relayed;
 relay peers do **not** save messages for later.
@@ -18,7 +18,7 @@ For example, when the dApp starts.
 In this guide, we'll review how you can use Waku Store to retrieve messages.
 
 Before starting, you need to choose a _Content Topic_ for your dApp.
-Check out the [how to choose a content topic guide](choose-content-topic.md) to learn more about content topics.
+Check out the [how to choose a content topic guide](./choose_content_topic.md) to learn more about content topics.
 
 For this guide, we are using a single content topic: `/store-guide/1/news/proto`.
 
@@ -172,9 +172,9 @@ It will throw an error if no store node is available.
 By default, Waku Store nodes store messages for 30 days.
 Depending on your use case, you may not need to retrieve 30 days worth of messages.
 
-[Waku Message](https://rfc.vac.dev/spec/14/) defiles an optional unencrypted `timestamp` field.
+[Waku Message](https://rfc.vac.dev/spec/14/) defines an optional unencrypted `timestamp` field.
 The timestamp is set by the sender.
-By default, js-waku [sets the timestamp of outgoing message to the current time](https://github.com/status-im/js-waku/blob/a056227538f9409aa9134c7ef0df25f602dbea58/src/lib/waku_message/index.ts#L76).
+By default, js-waku sets the timestamp of outgoing message to the current time.
 
 You can filter messages that include a timestamp within given bounds with the `timeFilter` option.
 
@@ -199,4 +199,4 @@ waku.store
 
 ## End result
 
-You can see a similar example implemented in ReactJS in the [Minimal ReactJS Waku Store App](/examples/store-reactjs-chat).
+You can see a similar example implemented in ReactJS in the [Minimal ReactJS Waku Store App](https://github.com/status-im/js-waku/tree/main/examples/store-reactjs-chat).
