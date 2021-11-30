@@ -2,22 +2,24 @@
 
 DappConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
 
-Waku is decentralized, censorship-resistant, network and protocol family.
+Waku is a decentralized, censorship-resistant, network and protocol family.
 It enables you to add communication features to your dApp in a decentralized manner,
-ensuring your users that they will not be censored or deplatformed.
+ensuring to your users that they will not be censored or de-platformed.
 
 Waku can be used for chat purposes and for many machine-to-machine use cases.
 You can learn more about Waku at [waku.vac.dev](https://waku.vac.dev).
 
-The [get started](./overview) documentation introduces the js-waku library and the main API you would need to start building.
 JS-Waku is the TypeScript implementation of the Waku protocol,
 built for browser environment.
 
-The [guides](./guides) describe specific usages of js-waku in more details.
+The [quick start](./quick_start.md) presents an easy way to send and receive messages using js-waku.
 
-The js-waku repository also holds a number of [examples](./examples.md).
-The examples are working proof-of-concepts that demonstrate several features of Waku.
-Check out the [example list](./examples.md) to see what feature each example demonstrates. 
+The [guides](./guides) explain specific js-waku features
+and how it can be used with popular web frameworks.
+
+The js-waku repository also holds a number of [examples](https://github.com/status-im/js-waku/tree/main/examples).
+The examples are working Proof-of-Concepts that demonstrate how to use js-waku.
+Check out the [example list](./examples.md) to see what usage each example demonstrates. 
 
 Finally, if you want to learn how Waku works under the hoods, check the specs at [rfc.vac.dev](https://rfc.vac.dev/).
 
