@@ -4,7 +4,7 @@ Waku Relay is a gossip protocol that enables you to send and receive messages.
 You can find Waku Relay's specifications on [Vac RFC](https://rfc.vac.dev/spec/11/).
 
 Before starting, you need to choose a _Content Topic_ for your dApp.
-Check out the [how to choose a content topic guide](choose-content-topic.md) to learn more about content topics.
+Check out the [how to choose a content topic guide](./choose_content_topic.md) to learn more about content topics.
 
 For this guide, we are using a single content topic: `/relay-guide/1/chat/proto`.
 
@@ -50,11 +50,12 @@ use the following function:
 await waku.waitForConnectedPeer();
 ```
 
-The returned Promise will resolve once you are connected to a Waku Relay peer.
+The returned `Promise` will resolve once you are connected to a Waku Relay peer.
 
 # Receive messages
 
-To watch messages for your app, you need to register an observer on relay for your app's content topic:
+To receive messages for your app,
+you need to register an observer on relay for your app's content topic:
 
 ```js
 const processIncomingMessage = (wakuMessage) => {
@@ -185,7 +186,7 @@ waku.relay.addObserver(processIncomingMessage, ['/relay-guide/1/chat/proto']);
 
 That is it! Now, you know how to send and receive messages over Waku using the Waku Relay protocol.
 
-Feel free to check out other [guides](menu.md) or [examples](/examples/examples.md).
+Feel free to check out other [guides](./) or [examples](/examples.md).
 
 Here is the final code:
 
