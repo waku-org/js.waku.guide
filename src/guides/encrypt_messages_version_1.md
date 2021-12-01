@@ -74,7 +74,7 @@ pass the key in the `symKey` property to `WakuMessage.fromBytes`.
 
 Same as Waku Messages version 0 (unencrypted),
 `payload` is your message payload and `contentTopic` is the content topic for your dApp.
-See [Receive and Send Messages Using Waku Relay](relay-receive-send-messages.md) for details.
+See [Receive and Send Messages Using Waku Relay](./relay_receive_send_messages.md) for details.
 
 ```js
 import { WakuMessage } from 'js-waku';
@@ -84,7 +84,7 @@ const message = await WakuMessage.fromBytes(payload, contentTopic, {
 });
 ```
 
-The Waku Message can then be sent to the Waku network using [Waku Relay](relay-receive-send-messages.md) or Waku Light Push:
+The Waku Message can then be sent to the Waku network using Waku Relay or Waku Light Push:
 
 ```js
 await waku.lightPush.push(message);
@@ -141,7 +141,7 @@ to do so, pass it in the `encPublicKey` property to `WakuMessage.fromBytes`.
 
 Same as clear Waku Messages,
 `payload` is your message payload and `contentTopic` is the content topic for your dApp.
-See [Receive and Send Messages Using Waku Relay](relay-receive-send-messages.md) for details.
+See [Receive and Send Messages Using Waku Relay](./relay_receive_send_messages.md) for details.
 
 ```js
 import { WakuMessage } from 'js-waku';
@@ -151,7 +151,7 @@ const message = await WakuMessage.fromBytes(payload, contentTopic, {
 });
 ```
 
-The Waku Message can then be sent to the Waku network using [Waku Relay](relay-receive-send-messages.md) or Waku Light Push:
+The Waku Message can then be sent to the Waku network using Waku Relay or Waku Light Push:
 
 ```js
 await waku.lightPush.push(message);

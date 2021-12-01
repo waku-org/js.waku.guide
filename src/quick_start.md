@@ -4,8 +4,6 @@ In this section you will learn how to receive and send messages using Waku Relay
 
 A more in depth guide for Waku Relay can be found [here](guides/relay_receive_send_messages.md).
 
-For an overview of the js-waku API, go [there](overview.md).
-
 ## Install
 
 Install the `js-waku` package:
@@ -50,3 +48,7 @@ import { WakuMessage } from 'js-waku';
 const msg = await WakuMessage.fromUtf8String("Here is a message!", "/my-cool-app/1/my-use-case/proto")
 await waku.relay.send(msg);
 ```
+
+### Building an app
+
+Check out the [ReactJS Waku Relay guide](./guides/reactjs_relay.md) to learn how you can use the code above in a React app. 
