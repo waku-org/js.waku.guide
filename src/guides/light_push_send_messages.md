@@ -4,12 +4,13 @@ Waku Light Push enables a client to receive a confirmation when sending a messag
 
 The Waku Relay protocol sends messages to connected peers but does not provide any information on whether said peers have received messages.
 This can be an issue when facing potential connectivity issues.
+For example, when the connection drops easily, or it is connected to a small number of relay peers.
 
 Waku Light Push allows a client to get a response from a remote peer when sending a message.
 Note this only guarantees that the remote peer has received the message,
 it cannot guarantee propagation to the network.
 
-It also mean weaker privacy properties as the remote peer knows the client is the originator of the message.
+It also means weaker privacy properties as the remote peer knows the client is the originator of the message.
 Whereas with Waku Relay, a remote peer would not know whether the client created or forwarded the message.
 
 You can find Waku Light Push's specifications on [Vac RFC](https://rfc.vac.dev/spec/19/).
