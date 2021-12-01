@@ -12,7 +12,7 @@ Demonstrates:
 - Group chat
 - React/JavaScript
 - Waku Relay
-- Protobuf using `protons`
+- Protobuf using [protons](https://www.npmjs.com/package/protons)
 - No async/await syntax
 
 ## Minimal ReactJS Waku Store App
@@ -23,7 +23,7 @@ Demonstrates:
 
 - Waku Store
 - React/JavaScript
-- Protobuf using `protons`.
+- Protobuf using [protons](https://www.npmjs.com/package/protons)
 
 ## Vanilla Javascript Using Minified Library
 
@@ -74,3 +74,15 @@ Demonstrates:
 - Asymmetric Encryption
 - Usage of `eth_decrypt` Web3 Wallet API
 - Protobuf using [protobufjs](https://www.npmjs.com/package/protobufjs)
+
+## Uber-like minimalistic car sharing app suing Vue.js
+
+Repo: [TheBojda/waku-uber](https://github.com/TheBojda/waku-uber).
+
+Article: [Decentralized Uber: Here's How I Built It With Status.im, Waku, and Vue.js](https://hackernoon.com/decentralized-uber-heres-how-i-built-it-with-statusim-waku-and-vuejs).
+
+Demonstrates:
+
+- Vue.js
+- Waku Relay
+- Protobuf using [protons](https://www.npmjs.com/package/protons)
