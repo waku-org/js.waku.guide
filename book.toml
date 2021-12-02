@@ -12,3 +12,7 @@ path = "book/"
 additional-css = ["custom.css"]
 git-repository-url = "https://github.com/vacp2p/docs.dappconnect.dev"
 git-branch = "master"
+
+[output.html.fold]
+enable = true
+level = 2
