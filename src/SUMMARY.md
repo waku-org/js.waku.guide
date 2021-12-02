@@ -13,4 +13,5 @@
     - [Send Messages Using Waku Light Push](guides/light_push_send_messages.md)
 - [Examples](examples.md)
 
+[Cryptographic Libraries](crypto_libraries.md)
 [Implemented Waku Protocols](waku_protocols.md)

@@ -6,6 +6,8 @@ confidentiality, authenticity and integrity.
 
 You can find more details about Waku Message Payload Encryption in [26/WAKU-PAYLOAD](https://rfc.vac.dev/spec/26/).
 
+See [Cryptographic Libraries](../crypto_libraries.md) for more details on the cryptographic libraries used by js-waku.
+
 ## What data is encrypted
 
 With Waku Message Version 1, the entire payload is encrypted.
