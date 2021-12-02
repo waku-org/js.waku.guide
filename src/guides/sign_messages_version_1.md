@@ -68,7 +68,7 @@ const message = await WakuMessage.fromBytes(payload, myAppContentTopic, {
 });
 ```
 
-#### Verify Waku Message signatures
+## Verify Waku Message signatures
 
 Two fields are available on signed `WakuMessage`s:
 
