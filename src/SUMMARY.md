@@ -8,6 +8,7 @@
     - [Receive and Send Messages Using Waku Relay](guides/relay_receive_send_messages.md)
     - [Retrieve Messages Using Waku Store](guides/store_retrieve_messages.md)
     - [Encrypt Messages Using Waku Message Version 1](guides/encrypt_messages_version_1.md)
+    - [Sign Messages Using Waku Message Version 1](guides/sign_messages_version_1.md)
     - [Receive and Send Messages Using Waku Relay With ReactJS](guides/reactjs_relay.md)
     - [Retrieve Messages Using Waku Store With ReactJS](guides/reactjs_store.md)
     - [Send Messages Using Waku Light Push](guides/light_push_send_messages.md)
