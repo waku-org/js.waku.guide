@@ -1,14 +1,15 @@
 [book]
 authors = ["DappConnect Team"]
 language = "en"
-multilingual = false
 src = "src"
 title = "DappConnect Docs"
 
 [output.html]
 cname = "docs.dappconnect.dev"
 default-theme = "light"
-path = "book/"
 additional-css = ["custom.css"]
 git-repository-url = "https://github.com/vacp2p/docs.dappconnect.dev"
 git-branch = "master"
+
+[build]
+build-dir = "book"
