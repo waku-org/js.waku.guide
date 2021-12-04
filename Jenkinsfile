@@ -22,7 +22,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mdbook build'
+        sh 'mdbook build; cd es && mdbook build'
       }
     }
 
