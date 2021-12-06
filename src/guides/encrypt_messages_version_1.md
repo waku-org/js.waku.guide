@@ -3,8 +3,12 @@
 The Waku Message format provides an easy way to encrypt messages using symmetric or asymmetric encryption.
 The encryption comes with several handy [design requirements](https://rfc.vac.dev/spec/26/#design-requirements):
 confidentiality, authenticity and integrity.
+It also allows the sender to sign messages,
+see [Sign Messages Using Waku Message Version 1](./sign_messages_version_1.md) to learn how.
 
 You can find more details about Waku Message Payload Encryption in [26/WAKU-PAYLOAD](https://rfc.vac.dev/spec/26/).
+
+See [Cryptographic Libraries](../crypto_libraries.md) for more details on the cryptographic libraries used by js-waku.
 
 ## What data is encrypted
 
