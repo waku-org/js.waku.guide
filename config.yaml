@@ -1,0 +1,47 @@
+baseURL: "https://docs.dappconnect.dev/"
+languageCode: "en-us"
+title: "DappConnect Docs"
+theme: "hugo-book"
+enableGitInfo: true
+
+menu:
+  before: []
+  after:
+    - name: "Vac Team"
+      url: "https://vac.dev/"
+      weight: 10
+    - name: "Vac RFCs"
+      url: "https://rfc.vac.dev/"
+      weight: 20
+    - name: "Status.im"
+      url: "https://status.im/"
+      weight: 30
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 1
+
+params:
+  BookTheme: 'dark'
+  BookToC: true
+  BookSection: 'docs'
+  BookDateFormat: '2006/02/01'
+  BookSearch: true
+
+  # GitHub edit links
+  BookRepo: 'https://github.com/vacp2p/docs.dappconnect.dev'
+  BookCommitPath: 'commit'
+  BookEditPath: 'edit/develop'
+
+languages:
+  en:
+    languageName: English
+    contentDir: content
+    weight: 1
+  es:
+    languageName: Spanish
+    contentDir: content.es
+    weight: 2
