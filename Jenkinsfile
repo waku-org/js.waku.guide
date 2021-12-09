@@ -22,7 +22,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mdbook build'
+        sh "hugo ${env.GIT_BRANCH ==~ /.*master/ ? '' : "-b https://${DEV_SITE}"}"
       }
     }
 
@@ -30,7 +30,7 @@ pipeline {
       when { expression { env.GIT_BRANCH ==~ /.*master/ } }
       steps {
         sshagent(credentials: ['status-im-auto-ssh']) {
-          sh "ghp-import -p book"
+          sh "ghp-import -p public"
         }
       }
     }
@@ -40,7 +40,7 @@ pipeline {
       steps {
         sshagent(credentials: ['jenkins-ssh']) {
           sh """
-            rsync -e 'ssh -o ${SCP_OPTS}' -r --delete book/. \
+            rsync -e 'ssh -o ${SCP_OPTS}' -r --delete public/. \
               ${env.DEV_HOST}:/var/www/${env.DEV_SITE}/
           """
         }

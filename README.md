@@ -2,17 +2,19 @@
 
 This repository is the source for https://docs.dappconnect.dev/.
 
-It is built using [mdBook](https://rust-lang.github.io/mdBook/).
+It is built using [Hugo](https://gohugo.io/) static site generator.
 
 # Development
 
-You will need to [install mdBook](https://github.com/rust-lang/mdBook#installation).
-
+You will need to [install Hugo](https://gohugo.io/getting-started/installing) and pull submodules:
+```sh
+git submodule update --init
+```
 To start a server that also builds the page use:
+```sh
+hugo server
 ```
-mdbook serve
-```
-Will expose the built page under http://localhost:3000/.
+Will expose the built page under http://localhost:1313/.
 
 # Continuous Integration
 
