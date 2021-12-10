@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/01_choose_content_topic/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/introduction/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://docs.dappconnect.dev/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.dappconnect.dev/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://docs.dappconnect.dev/es/docs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.dappconnect.dev/docs/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/quick_start/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/02_relay_receive_send_messages/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/03_store_retrieve_messages/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/04_encrypt_messages_version_1/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/examples/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/crypto_libraries/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/05_sign_messages_version_1/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/waku_protocols/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/06_light_push_send_messages/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/07_reactjs_relay/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/docs/guides/08_reactjs_store/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://docs.dappconnect.dev/es/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.dappconnect.dev/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.dappconnect.dev/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://docs.dappconnect.dev/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.dappconnect.dev/tags/"
+                />
+  </url>
+  
+</urlset>
