@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Quick Start In this section you will learn how to receive and send messages using Waku Relay.
+A more in depth guide for Waku Relay can be found here.
+Install Install the js-waku package:
+npm install js-waku # or with yarn yarn add js-waku Start a waku node import { Waku } from &#39;js-waku&#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages The contentTopic is a metadata string that allows categorization of messages on the waku network.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Quick Start" />
+<meta property="og:description" content="Quick Start In this section you will learn how to receive and send messages using Waku Relay.
+A more in depth guide for Waku Relay can be found here.
+Install Install the js-waku package:
+npm install js-waku # or with yarn yarn add js-waku Start a waku node import { Waku } from &#39;js-waku&#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages The contentTopic is a metadata string that allows categorization of messages on the waku network." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.dappconnect.dev/docs/quick_start/" />
+<meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
+<meta property="article:modified_time" content="2021-12-09T15:27:58+01:00" />
+<title>Quick Start | DappConnect Docs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f5334c44f5cf59e95e7e3727937b1ab51209089ee42a7b7b0a2bf524485dab42.css" integrity="sha256-9TNMRPXPWelefjcnk3satRIJCJ7kKnt7Civ1JEhdq0I=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.1dff71c8a5ea6762b846ee9b751f05265289b826803807a7d75bda5d15e51e80.js" integrity="sha256-Hf9xyKXqZ2K4Ru6bdR8FJlKJuCaAOAen11vaXRXlHoA=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>DappConnect Docs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://docs.dappconnect.dev/es/">
+          Spanish
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/introduction/" class="">Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/quick_start/" class=" active">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/" class="">Guides</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/01_choose_content_topic/" class="">How to Choose a Content Topic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/02_relay_receive_send_messages/" class="">Receive and Send Messages Using Waku Relay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/03_store_retrieve_messages/" class="">Retrieve Messages Using Waku Store</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/04_encrypt_messages_version_1/" class="">Encrypt Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/05_sign_messages_version_1/" class="">Sign Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/06_light_push_send_messages/" class="">Send Messages Using Waku Light Push</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/07_reactjs_relay/" class="">Receive and Send Messages Using Waku Relay With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/guides/08_reactjs_store/" class="">Retrieve Messages Using Waku Store With ReactJS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/crypto_libraries/" class="">Cryptographic Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.dappconnect.dev/docs/waku_protocols/" class="">Implemented Waku Protocols</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://vac.dev/" target="_blank" rel="noopener">
+        Vac Team
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://rfc.vac.dev/" target="_blank" rel="noopener">
+        Vac RFCs
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://status.im/" target="_blank" rel="noopener">
+        Status.im
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Quick Start</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#quick-start">Quick Start</a>
+      <ul>
+        <li><a href="#install">Install</a>
+          <ul>
+            <li><a href="#start-a-waku-node">Start a waku node</a></li>
+            <li><a href="#listen-for-messages">Listen for messages</a></li>
+            <li><a href="#send-messages">Send messages</a></li>
+            <li><a href="#building-an-app">Building an app</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="quick-start">Quick Start</h1>
+<p>In this section you will learn how to receive and send messages using Waku Relay.</p>
+<p>A more in depth guide for Waku Relay can be found <a href="/docs/guides/02_relay_receive_send_messages/">here</a>.</p>
+<h2 id="install">Install</h2>
+<p>Install the <code>js-waku</code> package:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
+<span style="color:#75715e"># or with yarn</span>
+yarn add js-waku
+</code></pre></div><h3 id="start-a-waku-node">Start a waku node</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">waku</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span>: <span style="color:#66d9ef">true</span> });
+</code></pre></div><h3 id="listen-for-messages">Listen for messages</h3>
+<p>The <code>contentTopic</code> is a metadata <code>string</code> that allows categorization of messages on the waku network.
+Depending on your use case, you can either create one (or several) new <code>contentTopic</code>(s)
+or look at the <a href="https://rfc.vac.dev/">RFCs</a> and use an existing <code>contentTopic</code>.
+See <a href="/docs/guides/01_choose_content_topic/">How to Choose a Content Topic</a> for more details.</p>
+<p>For example, if you were to use a new <code>contentTopic</code> such as <code>/my-cool-app/1/my-use-case/proto</code>,
+here is how to listen to new messages received via <a href="https://rfc.vac.dev/spec/11/">Waku v2 Relay</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">addObserver</span>((<span style="color:#a6e22e">msg</span>) <span style="color:#f92672">=&gt;</span> {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Message received:&#34;</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">payloadAsUtf8</span>)
+}, [<span style="color:#e6db74">&#34;/my-cool-app/1/my-use-case/proto&#34;</span>]);
+</code></pre></div><h3 id="send-messages">Send messages</h3>
+<p>Messages are wrapped in a <code>WakuMessage</code> envelop.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromUtf8String</span>(<span style="color:#e6db74">&#34;Here is a message!&#34;</span>, <span style="color:#e6db74">&#34;/my-cool-app/1/my-use-case/proto&#34;</span>)
+<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">msg</span>);
+</code></pre></div><h3 id="building-an-app">Building an app</h3>
+<p>Check out the <a href="/docs/guides/07_reactjs_relay/">ReactJS Waku Relay guide</a> to learn how you can use the code above in a React app.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.dappconnect.dev/commit/89334e6efdcfefe0894f99f92b4b6352003f3aa3" title='Last modified by Jakub Sokołowski | 2021/09/12' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2021/09/12</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.dappconnect.dev/edit/develop/content/docs/quick_start.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
+document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#quick-start">Quick Start</a>
+      <ul>
+        <li><a href="#install">Install</a>
+          <ul>
+            <li><a href="#start-a-waku-node">Start a waku node</a></li>
+            <li><a href="#listen-for-messages">Listen for messages</a></li>
+            <li><a href="#send-messages">Send messages</a></li>
+            <li><a href="#building-an-app">Building an app</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
