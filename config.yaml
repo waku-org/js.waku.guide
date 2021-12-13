@@ -1,5 +1,6 @@
 baseURL: "https://docs.dappconnect.dev/"
 languageCode: "en-us"
+defaultContentLang: en
 title: "DappConnect Docs"
 theme: "hugo-book"
 enableGitInfo: true
@@ -42,6 +43,10 @@ languages:
     contentDir: content
     weight: 1
   es:
-    languageName: Spanish
+    languageName: Español
     contentDir: content.es
     weight: 2
+  pt:
+    languageName: Português
+    contentDir: content.pt
+    weight: 3
