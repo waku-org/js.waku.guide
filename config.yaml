@@ -1,7 +1,7 @@
 baseURL: "https://docs.dappconnect.dev/"
 languageCode: "en-us"
 defaultContentLang: en
-title: "DappConnect Docs"
+title: "WakuConnect Docs"
 theme: "hugo-book"
 enableGitInfo: true
 
