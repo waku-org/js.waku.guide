@@ -3,9 +3,9 @@ title: Introduction
 date: 2021-12-09T14:00:00+01:00
 weight: 1
 ---
-# DappConnect Docs
+# WakuConnect Docs
 
-DappConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
+WakuConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
 
 Waku is a decentralized, censorship-resistant, network and protocol family.
 It enables you to add communication features to your dApp in a decentralized manner,

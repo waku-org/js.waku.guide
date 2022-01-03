@@ -18,7 +18,7 @@ The format for content topics is as follows:
 - `dapp-name`: The name of your dApp, it must be unique to avoid conflict with other dApps.
 - `version`: We usually start at `1`, useful when introducing breaking changes in your messages.
 - `content-topic-name`: The actual content topic name to use for filtering.
-  If your dApp uses DappConnect for several features,
+  If your dApp uses WakuConnect for several features,
   you should use a content topic per feature.
 - `encoding`: The encoding format of the message, Protobuf is most often used: `proto`.
 

@@ -5,7 +5,7 @@ weight: 7
 ---
 # Receive and Send Messages Using Waku Relay With ReactJS
 
-It is easy to use DappConnect with ReactJS.
+It is easy to use WakuConnect with ReactJS.
 In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages. 
 
 Before starting, you need to choose a _Content Topic_ for your dApp.
