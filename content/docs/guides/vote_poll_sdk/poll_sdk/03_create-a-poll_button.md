@@ -85,7 +85,7 @@ export function Poll({signer, theme}: PollProps) {
 }
 ```
 
-Now updated the `PollPage` component to render the new `Poll` component:
+Now update the `PollPage` component to render the new `Poll` component:
 
 `index.tsx`:
 ```tsx
