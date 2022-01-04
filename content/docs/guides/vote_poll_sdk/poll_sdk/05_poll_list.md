@@ -80,6 +80,9 @@ The example above uses webpack 5 instead of react-app-rewired.
 It also allows passing a token contract address in the url, as described in the [README](https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/main/examples/mainnet-poll/README.md). 
 {{< /hint >}}
 
+The final gif:
+
+![Poll demo](/assets/poll_sdk/wakuconnect-poll-demo.gif)
 
 
 {{< button relref="./04_poll_creation"  >}}Back{{< /button >}}
