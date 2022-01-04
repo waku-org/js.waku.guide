@@ -106,5 +106,7 @@ You can now see the poll creation modal when clicking on the button:
 
 ![Create a poll modal](/assets/poll_sdk/create-a-poll-component.png)
 
+![Confirmation modal](/assets/poll_sdk/poll-created.png)
+
 {{< button relref="./03_create-a-poll_button"  >}}Back{{< /button >}}
-{{< button relref="./"  >}}Next: TODO{{< /button >}}
+{{< button relref="./05_poll_list"  >}}Next: Poll List Component{{< /button >}}
