@@ -11,7 +11,7 @@ weight: 11
 Create the new React app using the `typescript` template.
 Install the Waku Poll SDK packages.
 
-In this guide, we use [useDApp](https://usedapp.io/) to easily access the Ethereum blockchain in our React dApp.
+In this guide, we use [useDApp](https://usedapp.io/) to access the blockchain.
 
 
 ```shell
@@ -37,9 +37,14 @@ Said polyfills must be explicitly declared when using webpack 5.
 
 The latest `react-scripts` version uses webpack 5.
 
-We will describe below a method to setup polyfills when using `create-react-app`/`react-scripts`.
+We will describe below a method to configure polyfills when using `create-react-app`/`react-scripts` or webpack 5.
+This may not be necessary if you do not use `react-scripts` or if you use webpack 4.
 
-This may not be necessary if you do not use `react-scripts` or `webpack` or if you use webpack 4.
+Start by installing the polyfill libraries:
+
+```shell
+yarn add assert buffer crypto-browserify stream-browserify
+```
 
 ### Webpack 5
 
@@ -54,12 +59,6 @@ Install `react-app-rewired`:
 
 ```shell
 yarn add -D react-app-rewired
-```
-
-Install polyfill libraries:
-
-```shell
-yarn add assert buffer crypto-browserify stream-browserify
 ```
 
 Create a `config-overrides.js` file at the root of your app:

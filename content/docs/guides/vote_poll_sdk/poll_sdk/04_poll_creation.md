@@ -18,7 +18,7 @@ It takes in a `WakuPolling` hook that can created with `useWakuPolling`.
 - `provider`: The Web3 provider to access the blockchain.
 - `multicallAddress`: Address to this blockchain's multicall contract.
 
-Add these parameters to `PollProps`.
+Add these parameters to `PollProps` and call `useWakuPolling`.
 
 `components/Poll.tsx`
 ```tsx

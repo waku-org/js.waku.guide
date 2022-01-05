@@ -9,7 +9,7 @@ weight: 15
 To display existing polls, the `PollList` component is provided.
 
 Simply add it to the `Poll` function to render it.
-It needs the `account` variable that can be passed as a property:
+It needs the `account` variable that can be passed as a property to `Poll`:
 
 `components/Poll.tsx`:
 ```tsx

@@ -13,7 +13,7 @@ You can then adapt the steps depending on your dApp configuration and build setu
 The resulting code of this guide can be found at
 https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/examples/mainnet-poll.
 
-Here is the dApp we will build:
+Here is a preview of the end result:
 
 ![Poll demo](/assets/poll_sdk/wakuconnect-poll-demo.gif)
 

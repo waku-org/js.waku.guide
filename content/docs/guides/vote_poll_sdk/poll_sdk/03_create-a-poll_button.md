@@ -53,6 +53,7 @@ The button is disabled if `signer` is undefined.
 To give a visual clue to the user, also make the button grey when disabled.
 
 Upon clicking the button, we set `showPollCreation` to true.
+`showPollCreation` will control when to render the poll creation modal.
 
 `components/Poll.tsx`:
 ```tsx
@@ -119,7 +120,7 @@ export function PollPage() {
 }
 ```
 
-You should now see a button:
+Now, you have a button:
 
 ![Create a poll button](/assets/poll_sdk/create-poll-button.png)
 
