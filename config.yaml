@@ -32,7 +32,7 @@ params:
   BookTheme: 'dark'
   BookToC: true
   BookSection: 'docs'
-  BookDateFormat: '2006/02/01'
+  BookDateFormat: 'Jan 2, 2006'
   BookSearch: true
 
   # GitHub edit links
