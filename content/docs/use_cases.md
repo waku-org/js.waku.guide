@@ -156,4 +156,13 @@ to create a ride-sharing or tradings apps.
 
 <--->
 
+## Social Media Platform
+
+| _Idea_ |
+|--------|
+
+[Chat Messenger](#chat-messenger) is one form of social media that can be empowered by Waku to be decentralized
+and censorship-resistant.
+Other form of social media: news feed, blogposts, audio or video sharing, can also benefit of Waku.
+
 {{< /columns >}}
