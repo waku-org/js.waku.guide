@@ -34,7 +34,7 @@ The developer using the SDK can configure which ERC-20 token contract is used.
 ## WakuConnect Vote SDK
 
 The WakuConnect Vote SDK allows you to leverage Waku to save gas fees for most voters.
-It uses Waku to broadcast and aggregates votes.
+It uses Waku to broadcast and aggregate votes.
 Most token holders will not need to spend gas to vote.
 
 Only the party that starts an election and submit the end results need to interact with the blockchain.
@@ -64,7 +64,7 @@ Tracked with [status-im/wakuconnect-vote-poll-sdk#11](https://github.com/status-
 
 ## WakuConnect Poll SDK
 
-The WakuConnect Poll SDK allows you to leverage Waku and enable token holder to create, answer and view polls.
+The WakuConnect Poll SDK allows you to leverage Waku and enable token holders to create, answer and view polls.
 The polls are not committed to the blockchain and hence do not cost gas.
 
 As the polls use Waku, they do maintain properties expected from dApps: decentralized and censorship-resistant.

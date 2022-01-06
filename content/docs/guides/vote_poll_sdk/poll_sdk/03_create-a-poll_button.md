@@ -6,8 +6,8 @@ weight: 13
 
 # Create-A-Poll Button
 
-Create the `Poll` component,
-it will allow the user to create a new poll, view polls and answer them.
+Create the `Poll` component.
+It will allow the user to create a new poll, view polls and answer them.
 We'll start by adding a button to create a poll.
 
 ```shell
