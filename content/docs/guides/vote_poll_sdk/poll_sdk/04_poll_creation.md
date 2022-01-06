@@ -6,7 +6,7 @@ weight: 14
 
 # Poll Creation Component
 
-The Poll SDK provide an off-the-shelf component to create a new poll: `PollCreation`.
+The Poll SDK provides an off-the-shelf component to create a new poll: `PollCreation`.
 It takes in a `WakuPolling` hook that can created with `useWakuPolling`.
 
 `useWakuPolling` takes:
