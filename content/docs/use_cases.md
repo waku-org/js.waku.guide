@@ -18,7 +18,7 @@ Legend:
 - _Live_: We are aware of projects who have implemented this use case.
 - _SDK Available_: An SDK is available to easily implement this use case.
 - _Work In Progress_: We are aware of projects working to implement this use case.
-- _Proof of Concept_: A Proof-of-Concept was created, sometimes as part of a hackathon.
+- _Proof of Concept_: A Proof of concept was created, sometimes as part of a hackathon.
 - _Idea_: This is an unexplored use case, more research and work may be needed.
 ---
 
