@@ -24,7 +24,7 @@ For that, create a `PollPage` component that includes the top bar and will inclu
 The component uses `ethers` to connect to the user's wallet:
 
 ```tsx
-export function PollPage() {
+function PollPage() {
     const {account, library, activateBrowserWallet, deactivate} = useEthers()
     const [signer, setSigner] = useState<undefined | JsonRpcSigner>(undefined)
 
@@ -102,7 +102,7 @@ const Wrapper = styled.div`
 Finally, create the `App` component:
 
 ```tsx
-export function App() {
+function App() {
     return (
         <Wrapper>
             <GlobalStyle/>
@@ -130,7 +130,7 @@ import styled from 'styled-components'
 const config = {
     readOnlyChainId: ChainId.Mainnet,
     readOnlyUrls: {
-        [ChainId.Mainnet]: 'https://mainnet.infura.io/v3/b4451d780cc64a078ccf2181e872cfcf',
+        [ChainId.Mainnet]: 'https://mainnet.infura.io/v3/your-infura-token',
     },
     multicallAddresses: {
         1: '0xeefba1e63905ef1d7acba5a8513c70307c1ce441',
@@ -144,7 +144,7 @@ const config = {
     },
 }
 
-export function PollPage() {
+function PollPage() {
     const {account, library, activateBrowserWallet, deactivate} = useEthers()
     const [signer, setSigner] = useState<undefined | JsonRpcSigner>(undefined)
 
@@ -172,7 +172,7 @@ export function PollPage() {
     )
 }
 
-export function App() {
+function App() {
     return (
         <Wrapper>
             <GlobalStyle/>
