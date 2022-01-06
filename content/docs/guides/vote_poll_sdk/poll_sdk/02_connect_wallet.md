@@ -104,6 +104,7 @@ const Wrapper = styled.div`
 Finally, create the `App` component:
 
 ```tsx
+<<<<<<< HEAD
 export function App() {
   return (
     <Wrapper>
@@ -113,6 +114,17 @@ export function App() {
       </DAppProvider>
     </Wrapper>
   );
+=======
+function App() {
+    return (
+        <Wrapper>
+            <GlobalStyle/>
+            <DAppProvider config={config}>
+                <PollPage/>
+            </DAppProvider>
+        </Wrapper>
+    )
+>>>>>>> 8ce7ef5 (Remove exports and infura token)
 }
 ```
 
@@ -130,6 +142,7 @@ import { DEFAULT_CONFIG } from "@usedapp/core/dist/cjs/src/model/config/default"
 import styled from "styled-components";
 
 const config = {
+<<<<<<< HEAD
   readOnlyChainId: ChainId.Mainnet,
   readOnlyUrls: {
     [ChainId.Mainnet]:
@@ -186,6 +199,61 @@ export function App() {
       </DAppProvider>
     </Wrapper>
   );
+=======
+    readOnlyChainId: ChainId.Mainnet,
+    readOnlyUrls: {
+        [ChainId.Mainnet]: 'https://mainnet.infura.io/v3/your-infura-token',
+    },
+    multicallAddresses: {
+        1: '0xeefba1e63905ef1d7acba5a8513c70307c1ce441',
+        3: '0x53c43764255c17bd724f74c4ef150724ac50a3ed',
+        1337: process.env.GANACHE_MULTICALL_CONTRACT ?? '0x0000000000000000000000000000000000000000',
+    },
+    supportedChains: [...DEFAULT_CONFIG.supportedChains, 1337],
+    notifications: {
+        checkInterval: 500,
+        expirationPeriod: 50000,
+    },
+}
+
+function PollPage() {
+    const {account, library, activateBrowserWallet, deactivate} = useEthers()
+    const [signer, setSigner] = useState<undefined | JsonRpcSigner>(undefined)
+
+    useEffect(() => {
+        if (account) {
+            setSigner(library?.getSigner())
+        } else {
+            // Deactivate signer if signed out
+            setSigner(undefined)
+        }
+    }, [account])
+
+    return (
+        <div>
+            <TopBar
+                logo={""}
+                logoWidth={84}
+                title={'Poll dApp'}
+                theme={orangeTheme}
+                activate={activateBrowserWallet}
+                account={account}
+                deactivate={deactivate}
+            />
+        </div>
+    )
+}
+
+function App() {
+    return (
+        <Wrapper>
+            <GlobalStyle/>
+            <DAppProvider config={config}>
+                <PollPage/>
+            </DAppProvider>
+        </Wrapper>
+    )
+>>>>>>> 8ce7ef5 (Remove exports and infura token)
 }
 
 const Wrapper = styled.div`
