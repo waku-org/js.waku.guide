@@ -10,6 +10,9 @@ To demonstrate how to use the Waku Connect Poll SDK in your dApp, we will create
 
 You can then adapt the steps depending on your dApp configuration and build setup.
 
+Only token holders can create & answer polls.
+Hence, you need to have an ERC-20 token contract address ready.
+
 The resulting code of this guide can be found at
 https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/examples/mainnet-poll.
 
