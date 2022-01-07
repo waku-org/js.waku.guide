@@ -49,7 +49,8 @@ Start the dev server and open the dApp in your browser:
 npm run start
 ```
 
-Note: We have noticed some [issues](https://github.com/status-im/js-waku/issues/165) with React bundling due to `npm` pulling an old version of babel.
+{{< hint info >}}
+We have noticed some [issues](https://github.com/status-im/js-waku/issues/165) with React bundling due to `npm` pulling an old version of babel.
 If you are getting an error about the [optional chaining (?.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
 character not being valid, try cleaning up and re-installing your dependencies:
 
@@ -57,6 +58,7 @@ character not being valid, try cleaning up and re-installing your dependencies:
 rm -rf node_modules package-lock.json
 npm install
 ```
+{{< /hint >}}
 
 # Create Waku Instance
 
