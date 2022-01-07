@@ -29,6 +29,7 @@ that is [only supported by modern browsers](https://developer.mozilla.org/en-US/
 To ensure that `react-scripts` properly transpile your webapp code, update the `package.json` file:
 
 ```json
+{
   "browserslist": {
     "production": [
       ">0.2%",
@@ -36,7 +37,9 @@ To ensure that `react-scripts` properly transpile your webapp code, update the `
       "not android <= 4.4.4",
       "not dead",
       "not op_mini all"
-    ],
+    ]
+  }
+}
 ```
 
 ## Setup polyfills
