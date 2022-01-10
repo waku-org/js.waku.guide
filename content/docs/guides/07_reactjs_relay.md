@@ -17,8 +17,8 @@ For this guide, we are using a single content topic: `/min-react-js-chat/1/chat/
 Create a new React app:
 
 ```shell
-npx create-react-app min-react-js-chat
-cd min-react-js-chat
+npx create-react-app relay-reactjs-chat
+cd relay-reactjs-chat
 ```
 
 ## `BigInt`
@@ -55,7 +55,7 @@ This may not be necessary if you do not use `react-scripts` or if you use webpac
 Start by installing the polyfill libraries:
 
 ```shell
-yarn add assert buffer crypto-browserify stream-browserify
+npm install assert buffer crypto-browserify stream-browserify
 ```
 
 ### Webpack 5

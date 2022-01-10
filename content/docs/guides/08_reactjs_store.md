@@ -33,8 +33,140 @@ Check out the [how to choose a content topic guide](/docs/guides/01_choose_conte
 Create a new React app:
 
 ```shell
-npx create-react-app my-app
-cd my-app
+npx create-react-app store-reactjs-chat
+cd store-reactjs-chat
+```
+
+## `BigInt`
+
+Some of js-waku's dependencies use [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+that is [only supported by modern browsers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#browser_compatibility).
+
+To ensure that `react-scripts` properly transpile your webapp code, update the `package.json` file:
+
+```json
+{
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not ie <= 99",
+      "not android <= 4.4.4",
+      "not dead",
+      "not op_mini all"
+    ]
+  }
+}
+```
+
+## Setup polyfills
+
+A number of Web3 dependencies need polyfills.
+Said polyfills must be explicitly declared when using webpack 5.
+
+The latest `react-scripts` version uses webpack 5.
+
+We will describe below a method to configure polyfills when using `create-react-app`/`react-scripts` or webpack 5.
+This may not be necessary if you do not use `react-scripts` or if you use webpack 4.
+
+Start by installing the polyfill libraries:
+
+```shell
+npm install assert buffer crypto-browserify stream-browserify
+```
+
+### Webpack 5
+
+If you directly use webpack 5,
+then you can inspire yourself from this [webpack.config.js](https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/main/examples/mainnet-poll/webpack.config.js).
+
+### cra-webpack-rewired
+
+An alternative is to let `react-scripts` control the webpack 5 config and only override some elements using `cra-webpack-rewired`.
+
+Install `cra-webpack-rewired`:
+
+```shell
+npm install -D cra-webpack-rewired
+```
+
+Create a `config/webpack.extend.js` file at the root of your app:
+
+```js
+const webpack = require('webpack');
+
+module.exports = {
+    dev: (config) => {
+        // Override webpack 5 config from react-scripts to load polyfills
+        if (!config.resolve) config.resolve = {};
+        if (!config.resolve.fallback) config.resolve.fallback = {};
+        Object.assign(config.resolve.fallback, {
+            buffer: require.resolve('buffer'),
+            crypto: require.resolve('crypto-browserify'),
+            stream: require.resolve('stream-browserify'),
+        });
+
+        if (!config.plugins) config.plugins = [];
+        config.plugins.push(
+            new webpack.DefinePlugin({
+                'process.env.ENV': JSON.stringify('dev'),
+            })
+        );
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                process: 'process/browser.js',
+                Buffer: ['buffer', 'Buffer'],
+            })
+        );
+
+        if (!config.ignoreWarnings) config.ignoreWarnings = [];
+        config.ignoreWarnings.push(/Failed to parse source map/);
+
+        return config;
+    },
+    prod: (config) => {
+        // Override webpack 5 config from react-scripts to load polyfills
+        if (!config.resolve) config.resolve = {};
+        if (!config.resolve.fallback) config.resolve.fallback = {};
+        Object.assign(config.resolve.fallback, {
+            buffer: require.resolve('buffer'),
+            crypto: require.resolve('crypto-browserify'),
+            stream: require.resolve('stream-browserify'),
+        });
+
+        if (!config.plugins) config.plugins = [];
+        config.plugins.push(
+            new webpack.DefinePlugin({
+                'process.env.ENV': JSON.stringify('prod'),
+            })
+        );
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                process: 'process/browser.js',
+                Buffer: ['buffer', 'Buffer'],
+            })
+        );
+
+        if (!config.ignoreWarnings) config.ignoreWarnings = [];
+        config.ignoreWarnings.push(/Failed to parse source map/);
+
+        return config;
+    },
+};
+```
+
+Use `cra-webpack-rewired` in the `package.json`, instead of `react-scripts`:
+
+```
+   "scripts": {
+-    "start": "react-scripts start",
+-    "build": "react-scripts build",
+-    "test": "react-scripts test",
+-    "eject": "react-scripts eject"
++    "start": "cra-webpack-rewired start",
++    "build": "cra-webpack-rewired build",
++    "test": "cra-webpack-rewired test",
++    "eject": "cra-webpack-rewired eject"
+   },
 ```
 
 Then, install [js-waku](https://npmjs.com/package/js-waku):
@@ -92,12 +224,13 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        // Display the status on the web page
         <p>{wakuStatus}</p>
       </header>
     </div>
   );
 }
+
+export default App;
 ```
 
 # Wait to be connected
@@ -219,40 +352,43 @@ const processMessages = (retrievedMessages) => {
 };
 ```
 
-Finally, pass `processMessage` in `WakuStore.queryHistory` as the `callback` value:
+Pass `processMessage` in `WakuStore.queryHistory` as the `callback` value:
 
 ```js
 waku.store
   .queryHistory([ContentTopic], { callback: processMessages });
 ```
 
-All together, you should now have:
+Finally, create a `Messages` component to render the messages:
 
-```js
-const ContentTopic = '/toy-chat/2/huilong/proto';
+```tsx
+function Messages(props) {
+    return props.messages.map(({ text, timestamp, nick }) => {
+        return (
+            <li>
+                ({formatDate(timestamp)}) {nick}: {text}
+            </li>
+        );
+    });
+}
 
+function formatDate(timestamp) {
+    return timestamp.toLocaleString([], {
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+    });
+}
+```
+
+Use `Messages` in the `App` function:
+
+```tsx
 function App() {
   // [..]
-  // Store messages in the state
-  const [messages, setMessages] = React.useState([]);
-
-  React.useEffect(() => {
-    if (wakuStatus !== 'Connected') return;
-
-    const processMessages = (retrievedMessages) => {
-      const messages = retrievedMessages.map(decodeMessage).filter(Boolean);
-
-      setMessages((currentMessages) => {
-        return currentMessages.concat(messages.reverse());
-      });
-    };
-
-    waku.store
-      .queryHistory([ContentTopic], { callback: processMessages })
-      .catch((e) => {
-        console.log('Failed to retrieve messages', e);
-      });
-  }, [waku, wakuStatus]);
 
   return (
     <div className='App'>
@@ -266,12 +402,137 @@ function App() {
     </div>
   );
 }
+```
 
+All together, you should now have:
+
+```js
+import { Waku } from 'js-waku';
+import * as React from 'react';
+import protons from 'protons';
+
+const ContentTopic = '/toy-chat/2/huilong/proto';
+
+const proto = protons(`
+message ChatMessage {
+  uint64 timestamp = 1;
+  string nick = 2;
+  bytes text = 3;
+}
+`);
+
+function App() {
+    const [waku, setWaku] = React.useState(undefined);
+    const [wakuStatus, setWakuStatus] = React.useState('None');
+    const [messages, setMessages] = React.useState([]);
+
+    // Start Waku
+    React.useEffect(() => {
+        // If Waku status not None, it means we are already starting Waku
+        if (wakuStatus !== 'None') return;
+
+        setWakuStatus('Starting');
+
+        // Create Waku
+        Waku.create({ bootstrap: true }).then((waku) => {
+            // Once done, put it in the state
+            setWaku(waku);
+            // And update the status
+            setWakuStatus('Connecting');
+        });
+    }, [waku, wakuStatus]);
+
+
+    React.useEffect(() => {
+        if (!waku) return;
+
+        if (wakuStatus === 'Connected') return;
+
+        waku.waitForConnectedPeer().then(() => {
+            setWakuStatus('Connected');
+        });
+    }, [waku, wakuStatus]);
+
+    React.useEffect(() => {
+        if (wakuStatus !== 'Connected') return;
+
+        const processMessages = (retrievedMessages) => {
+            const messages = retrievedMessages.map(decodeMessage).filter(Boolean);
+
+            setMessages((currentMessages) => {
+                return currentMessages.concat(messages.reverse());
+            });
+        };
+
+        waku.store
+            .queryHistory([ContentTopic], { callback: processMessages })
+            .catch((e) => {
+                console.log('Failed to retrieve messages', e);
+            });
+    }, [waku, wakuStatus]);
+
+    return (
+        <div className='App'>
+            <header className='App-header'>
+                <h2>{wakuStatus}</h2>
+                <h3>Messages</h3>
+                <ul>
+                    <Messages messages={messages} />
+                </ul>
+            </header>
+        </div>
+    );
+}
+
+export default App;
+
+function decodeMessage(wakuMessage) {
+    if (!wakuMessage.payload) return;
+
+    const { timestamp, nick, text } = proto.ChatMessage.decode(
+        wakuMessage.payload
+    );
+
+    // All fields in protobuf are optional so be sure to check
+    if (!timestamp || !text || !nick) return;
+
+    const time = new Date();
+    time.setTime(timestamp);
+
+    const utf8Text = Buffer.from(text).toString('utf-8');
+
+    return { text: utf8Text, timestamp: time, nick };
+}
+
+function Messages(props) {
+    return props.messages.map(({ text, timestamp, nick }) => {
+        return (
+            <li>
+                ({formatDate(timestamp)}) {nick}: {text}
+            </li>
+        );
+    });
+}
+
+function formatDate(timestamp) {
+    return timestamp.toLocaleString([], {
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+    });
+}
 ```
 
 Note that `WakuStore.queryHistory` select an available store node for you.
 However, it can only select a connected node, which is why the bootstrapping is necessary.
 It will throw an error if no store node is available.
+
+If no message are returned,
+then you can use https://status-im.github.io/js-waku/ to send some messages on the
+toy chat topic and refresh your app.
 
 ## Filter messages by send time
 
