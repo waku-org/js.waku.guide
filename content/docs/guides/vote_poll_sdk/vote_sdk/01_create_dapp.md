@@ -31,6 +31,27 @@ WakuConnect Vote & Poll SDK will be upgraded to the latest version of `@usedapp/
 is released with the [latest version of `ethers`](https://github.com/EthWorks/Waffle/pull/603).
 {{< /hint >}}
 
+## `BigInt`
+
+Some of js-waku's dependencies use [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+that is [only supported by modern browsers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#browser_compatibility).
+
+To ensure that `react-scripts` properly transpile your webapp code, update the `package.json` file:
+
+```json
+{
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not ie <= 99",
+      "not android <= 4.4.4",
+      "not dead",
+      "not op_mini all"
+    ]
+  }
+}
+```
+
 ## Setup polyfills
 
 A number of Web3 dependencies need polyfills.
@@ -44,7 +65,7 @@ This may not be necessary if you do not use `react-scripts` or if you use webpac
 Start by installing the polyfill libraries:
 
 ```shell
-yarn add assert buffer crypto-browserify stream-browserify
+yarn add assert buffer crypto-browserify stream-browserify process
 ```
 
 ### Webpack 5
@@ -52,45 +73,82 @@ yarn add assert buffer crypto-browserify stream-browserify
 If you directly use webpack 5,
 then you can inspire yourself from this [webpack.config.js](https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/main/examples/mainnet-poll/webpack.config.js).
 
-### React-App-Rewired
+### cra-webpack-rewired
 
-An alternative is to let `react-scripts` control the webpack 5 config and only override some elements using `react-app-rewired`.
+An alternative is to let `react-scripts` control the webpack 5 config and only override some elements using `cra-webpack-rewired`.
 
-Install `react-app-rewired`:
+Install `cra-webpack-rewired`:
 
 ```shell
-yarn add -D react-app-rewired
+yarn add -D cra-webpack-rewired
 ```
 
-Create a `config-overrides.js` file at the root of your app:
+Create a `config/webpack.extend.js` file at the root of your app:
 
 ```js
 const webpack = require('webpack');
 
-module.exports = (config) => {
+module.exports = {
+    dev: (config) => {
+        // Override webpack 5 config from react-scripts to load polyfills
+        if (!config.resolve) config.resolve = {};
+        if (!config.resolve.fallback) config.resolve.fallback = {};
+        Object.assign(config.resolve.fallback, {
+            buffer: require.resolve('buffer'),
+            crypto: require.resolve('crypto-browserify'),
+            stream: require.resolve('stream-browserify'),
+        });
 
-    // Override webpack 5 config from react-scripts to load polyfills
-    if (!config.resolve) config.resolve = {};
-    if (!config.resolve.fallback) config.resolve.fallback = {};
-    Object.assign(config.resolve.fallback, {
-            "buffer": require.resolve("buffer"),
-            "crypto": require.resolve("crypto-browserify"),
-            "stream": require.resolve("stream-browserify"),
-            "assert": require.resolve("assert")
-        }
-    )
+        if (!config.plugins) config.plugins = [];
+        config.plugins.push(
+            new webpack.DefinePlugin({
+                'process.env.ENV': JSON.stringify('dev'),
+            })
+        );
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                process: 'process/browser.js',
+                Buffer: ['buffer', 'Buffer'],
+            })
+        );
 
-    if (!config.plugins) config.plugins = []
-    config.plugins.push(
-        new webpack.ProvidePlugin({
-            Buffer: ['buffer', 'Buffer'],
-        }));
+        if (!config.ignoreWarnings) config.ignoreWarnings = [];
+        config.ignoreWarnings.push(/Failed to parse source map/);
 
-    return config;
-}
+        return config;
+    },
+    prod: (config) => {
+        // Override webpack 5 config from react-scripts to load polyfills
+        if (!config.resolve) config.resolve = {};
+        if (!config.resolve.fallback) config.resolve.fallback = {};
+        Object.assign(config.resolve.fallback, {
+            buffer: require.resolve('buffer'),
+            crypto: require.resolve('crypto-browserify'),
+            stream: require.resolve('stream-browserify'),
+        });
+
+        if (!config.plugins) config.plugins = [];
+        config.plugins.push(
+            new webpack.DefinePlugin({
+                'process.env.ENV': JSON.stringify('prod'),
+            })
+        );
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                process: 'process/browser.js',
+                Buffer: ['buffer', 'Buffer'],
+            })
+        );
+
+        if (!config.ignoreWarnings) config.ignoreWarnings = [];
+        config.ignoreWarnings.push(/Failed to parse source map/);
+
+        return config;
+    },
+};
 ```
 
-Use `react-app-rewired` in the `package.json`, instead of `react-scripts`:
+Use `cra-webpack-rewired` in the `package.json`, instead of `react-scripts`:
 
 ```
    "scripts": {
@@ -98,10 +156,10 @@ Use `react-app-rewired` in the `package.json`, instead of `react-scripts`:
 -    "build": "react-scripts build",
 -    "test": "react-scripts test",
 -    "eject": "react-scripts eject"
-+    "start": "react-app-rewired start",
-+    "build": "react-app-rewired build",
-+    "test": "react-app-rewired test",
-+    "eject": "react-app-rewired eject"
++    "start": "cra-webpack-rewired start",
++    "build": "cra-webpack-rewired build",
++    "test": "cra-webpack-rewired test",
++    "eject": "cra-webpack-rewired eject"
    },
 ```
 
