@@ -17,8 +17,140 @@ For this guide, we are using a single content topic: `/min-react-js-chat/1/chat/
 Create a new React app:
 
 ```shell
-npx create-react-app min-react-js-chat
-cd min-react-js-chat
+npx create-react-app relay-reactjs-chat
+cd relay-reactjs-chat
+```
+
+## `BigInt`
+
+Some of js-waku's dependencies use [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+that is [only supported by modern browsers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#browser_compatibility).
+
+To ensure that `react-scripts` properly transpile your webapp code, update the `package.json` file:
+
+```json
+{
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not ie <= 99",
+      "not android <= 4.4.4",
+      "not dead",
+      "not op_mini all"
+    ]
+  }
+}
+```
+
+## Setup polyfills
+
+A number of Web3 dependencies need polyfills.
+Said polyfills must be explicitly declared when using webpack 5.
+
+The latest `react-scripts` version uses webpack 5.
+
+We will describe below a method to configure polyfills when using `create-react-app`/`react-scripts` or webpack 5.
+This may not be necessary if you do not use `react-scripts` or if you use webpack 4.
+
+Start by installing the polyfill libraries:
+
+```shell
+npm install assert buffer crypto-browserify stream-browserify
+```
+
+### Webpack 5
+
+If you directly use webpack 5,
+then you can inspire yourself from this [webpack.config.js](https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/main/examples/mainnet-poll/webpack.config.js).
+
+### cra-webpack-rewired
+
+An alternative is to let `react-scripts` control the webpack 5 config and only override some elements using `cra-webpack-rewired`.
+
+Install `cra-webpack-rewired`:
+
+```shell
+npm install -D cra-webpack-rewired
+```
+
+Create a `config/webpack.extend.js` file at the root of your app:
+
+```js
+const webpack = require('webpack');
+
+module.exports = {
+    dev: (config) => {
+        // Override webpack 5 config from react-scripts to load polyfills
+        if (!config.resolve) config.resolve = {};
+        if (!config.resolve.fallback) config.resolve.fallback = {};
+        Object.assign(config.resolve.fallback, {
+            buffer: require.resolve('buffer'),
+            crypto: require.resolve('crypto-browserify'),
+            stream: require.resolve('stream-browserify'),
+        });
+
+        if (!config.plugins) config.plugins = [];
+        config.plugins.push(
+            new webpack.DefinePlugin({
+                'process.env.ENV': JSON.stringify('dev'),
+            })
+        );
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                process: 'process/browser.js',
+                Buffer: ['buffer', 'Buffer'],
+            })
+        );
+
+        if (!config.ignoreWarnings) config.ignoreWarnings = [];
+        config.ignoreWarnings.push(/Failed to parse source map/);
+
+        return config;
+    },
+    prod: (config) => {
+        // Override webpack 5 config from react-scripts to load polyfills
+        if (!config.resolve) config.resolve = {};
+        if (!config.resolve.fallback) config.resolve.fallback = {};
+        Object.assign(config.resolve.fallback, {
+            buffer: require.resolve('buffer'),
+            crypto: require.resolve('crypto-browserify'),
+            stream: require.resolve('stream-browserify'),
+        });
+
+        if (!config.plugins) config.plugins = [];
+        config.plugins.push(
+            new webpack.DefinePlugin({
+                'process.env.ENV': JSON.stringify('prod'),
+            })
+        );
+        config.plugins.push(
+            new webpack.ProvidePlugin({
+                process: 'process/browser.js',
+                Buffer: ['buffer', 'Buffer'],
+            })
+        );
+
+        if (!config.ignoreWarnings) config.ignoreWarnings = [];
+        config.ignoreWarnings.push(/Failed to parse source map/);
+
+        return config;
+    },
+};
+```
+
+Use `cra-webpack-rewired` in the `package.json`, instead of `react-scripts`:
+
+```
+   "scripts": {
+-    "start": "react-scripts start",
+-    "build": "react-scripts build",
+-    "test": "react-scripts test",
+-    "eject": "react-scripts eject"
++    "start": "cra-webpack-rewired start",
++    "build": "cra-webpack-rewired build",
++    "test": "cra-webpack-rewired test",
++    "eject": "cra-webpack-rewired eject"
+   },
 ```
 
 Then, install [js-waku](https://npmjs.com/package/js-waku):
@@ -31,15 +163,6 @@ Start the dev server and open the dApp in your browser:
 
 ```shell
 npm run start
-```
-
-Note: We have noticed some [issues](https://github.com/status-im/js-waku/issues/165) with React bundling due to `npm` pulling an old version of babel.
-If you are getting an error about the [optional chaining (?.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-character not being valid, try cleaning up and re-installing your dependencies:
-
-```shell
-rm -rf node_modules package-lock.json
-npm install
 ```
 
 # Create Waku Instance
@@ -76,12 +199,13 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        // Display the status on the web page
-        <p>{wakuStatus}</p>
+        <p>Waku node's status: {wakuStatus}</p>
       </header>
     </div>
   );
 }
+
+export default App;
 ```
 
 # Wait to be connected
@@ -136,9 +260,9 @@ Create a function that takes the Waku instance and a message to send:
 ```js
 import { WakuMessage } from 'js-waku';
 
-const ContentTopic = `/min-react-js-chat/1/chat/proto`;
+const ContentTopic = `/relay-reactjs-chat/1/chat/proto`;
 
-function sendMessage(message, timestamp, waku) {
+function sendMessage(message, waku, timestamp) {
   const time = timestamp.getTime();
 
   // Encode to protobuf
@@ -184,7 +308,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>{wakuStatus}</p>
-        <button onClick={sendMessageOnClick} disabled={wakuStatus !== 'Ready'}> // Grey the button is Waku is not yet ready.
+        <button onClick={sendMessageOnClick} disabled={wakuStatus !== 'Ready'}>
           Send Message
         </button>
       </header>
@@ -302,4 +426,4 @@ function App() {
 And Voilà! You should now be able to send and receive messages.
 Try out by opening the app from different browsers.
 
-You can see the complete code in the [Minimal ReactJS Chat App](https://github.com/status-im/js-waku/tree/main/examples/min-react-js-chat).
+You can see the complete code in the [Relay ReactJS Chat Example App](https://github.com/status-im/js-waku/tree/main/examples/relay-reactjs-chat).
