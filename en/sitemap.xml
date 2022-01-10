@@ -3,130 +3,190 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/01_choose_content_topic/</loc>
-    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/</loc>
+    <lastmod>2022-01-05T11:02:48+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/introduction/</loc>
-    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <loc>https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/</loc>
+    <lastmod>2022-01-03T11:11:07+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/</loc>
-    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <loc>https://docs.wakuconnect.dev/docs/introduction/</loc>
+    <lastmod>2022-01-10T12:30:09+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/</loc>
+    <lastmod>2022-01-10T12:30:09+11:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://docs.dappconnect.dev/es/"
+                href="https://docs.wakuconnect.dev/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.dappconnect.dev/"
+                href="https://docs.wakuconnect.dev/"
                 />
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/</loc>
-    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <loc>https://docs.wakuconnect.dev/docs/</loc>
+    <lastmod>2022-01-10T12:30:09+11:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://docs.dappconnect.dev/es/docs/"
+                href="https://docs.wakuconnect.dev/es/docs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/docs/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.dappconnect.dev/docs/"
+                href="https://docs.wakuconnect.dev/docs/"
                 />
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/quick_start/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/quick_start/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/02_relay_receive_send_messages/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</loc>
+    <lastmod>2022-01-05T14:40:44+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/docs/use_cases/</loc>
+    <lastmod>2022-01-10T15:51:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/03_store_retrieve_messages/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/guides/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/04_encrypt_messages_version_1/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/examples/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/examples/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/crypto_libraries/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/crypto_libraries/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/05_sign_messages_version_1/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/waku_protocols/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/waku_protocols/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/06_light_push_send_messages/</loc>
-    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <loc>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</loc>
+    <lastmod>2022-01-10T12:11:15+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/07_reactjs_relay/</loc>
-    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <loc>https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/</loc>
+    <lastmod>2022-01-10T12:11:15+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/docs/guides/08_reactjs_store/</loc>
-    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
+    <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/</loc>
+    <lastmod>2022-01-05T11:02:48+11:00</lastmod>
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/categories/</loc>
+    <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/</loc>
+    <lastmod>2022-01-05T11:02:48+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/</loc>
+    <lastmod>2022-01-06T13:19:14+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/</loc>
+    <lastmod>2022-01-06T13:19:14+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/</loc>
+    <lastmod>2022-01-05T11:02:48+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/</loc>
+    <lastmod>2022-01-10T12:30:09+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://docs.dappconnect.dev/es/categories/"
+                href="https://docs.wakuconnect.dev/es/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.dappconnect.dev/categories/"
+                href="https://docs.wakuconnect.dev/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/tags/</loc>
+    <loc>https://docs.wakuconnect.dev/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://docs.dappconnect.dev/es/tags/"
+                href="https://docs.wakuconnect.dev/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.dappconnect.dev/tags/"
+                href="https://docs.wakuconnect.dev/tags/"
                 />
   </url>
   

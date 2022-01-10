@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on DappConnect Docs</title>
-    <link>https://docs.dappconnect.dev/categories/</link>
-    <description>Recent content in Categories on DappConnect Docs</description>
+    <title>Categories on WakuConnect Docs</title>
+    <link>https://docs.wakuconnect.dev/categories/</link>
+    <description>Recent content in Categories on WakuConnect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://docs.dappconnect.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://docs.wakuconnect.dev/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

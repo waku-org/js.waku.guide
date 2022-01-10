@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Poll SDK on WakuConnect Docs</title>
+    <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/</link>
+    <description>Recent content in Poll SDK on WakuConnect Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jan 2022 11:00:00 +1100</lastBuildDate>
+    
+	<atom:link href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create the DApp and Install Dependencies</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/</guid>
+      <description>Create the DApp and Install Dependencies Create React App Create the new React app using the typescript template. Install the Waku Poll SDK packages.
+In this guide, we use useDApp to access the blockchain.
+yarn create react-app poll-dapp-ts --template typescript cd poll-dapp-ts yarn add \ @waku/poll-sdk-react-components @waku/poll-sdk-react-hooks @waku/vote-poll-sdk-react-components \ @usedapp/core@0.4.7 yarn add -D @types/styled-components @usedapp/core must be frozen to version 0.4.7 due to incompatibility between minor versions of ethers.
+WakuConnect Vote &amp;amp; Poll SDK will be upgraded to the latest version of @usedapp/core and ethers once ethereum-waffle is released with the latest version of ethers.</description>
+    </item>
+    
+    <item>
+      <title>Connect to the Ethereum Wallet</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/</guid>
+      <description>Connect to the Ethereum Wallet This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&amp;rsquo;s wallet.  Delete the template App component:
+rm -f App.tsx App.css App.test.tsx Top bar Use TopBar component to display wallet information. For that, create a PollPage component that includes the top bar and will include the poll elements. The component uses ethers to connect to the user&amp;rsquo;s wallet:</description>
+    </item>
+    
+    <item>
+      <title>Create-A-Poll Button</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/</guid>
+      <description>Create-A-Poll Button Create the Poll component. It will allow the user to create a new poll, view polls and answer them. We&amp;rsquo;ll start by adding a button to create a poll.
+mkdir components touch components/Poll.tsx Styled-components Again, create a Wrapper for styling:
+import styled from &amp;#39;styled-components&amp;#39; const Wrapper = styled.div` display: flex; flex-direction: column; align-items: center; max-width: 1146px; position: relative; margin: 0 auto; padding: 150px 32px 50px; width: 100%; @media (max-width: 1146px) { max-width: 780px; } @media (max-width: 600px) { padding: 132px 16px 32px; } @media (max-width: 425px) { padding: 96px 16px 84px; } ` Button Create a button that will display the PollCreation component on click.</description>
+    </item>
+    
+    <item>
+      <title>Poll Creation Component</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/</guid>
+      <description>Poll Creation Component The Poll SDK provides an off-the-shelf component to create a new poll: PollCreation. It takes in a WakuPolling hook that can created with useWakuPolling.
+useWakuPolling takes:
+ appName: Your app name. It is used to generate a unique content topic for your polls. See How to Choose a Content Topic for more information. tokenAddress: The address of your ERC-20 token. Only token holders can create and answer polls.</description>
+    </item>
+    
+    <item>
+      <title>Poll List Component</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/</guid>
+      <description>Poll List Component To display existing polls, the PollList component is provided.
+Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
+components/Poll.tsx:
+import {useState} from &amp;#39;react&amp;#39; import {useConfig} from &amp;#39;@usedapp/core&amp;#39; import {PollCreation, PollList} from &amp;#39;@waku/poll-sdk-react-components&amp;#39; import {JsonRpcSigner, Web3Provider} from &amp;#39;@ethersproject/providers&amp;#39; import {useWakuPolling} from &amp;#39;@waku/poll-sdk-react-hooks&amp;#39; import {CreateButton} from &amp;#39;@waku/vote-poll-sdk-react-components&amp;#39; import {Theme} from &amp;#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&amp;#39; import {ChainId} from &amp;#34;@usedapp/core/src/constants&amp;#34;; type PollProps = { appName: string library: Web3Provider | undefined signer: JsonRpcSigner | undefined chainId: ChainId | undefined account: string | null | undefined theme: Theme tokenAddress: string } export function Poll({appName, library, signer, chainId, account, theme, tokenAddress}: PollProps) { const config = useConfig() const [showPollCreation, setShowPollCreation] = useState(false) const wakuPolling = useWakuPolling(appName, tokenAddress, library, config?</description>
+    </item>
+    
+  </channel>
+</rss>

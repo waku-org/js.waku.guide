@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Receive and Send Messages Using Waku Relay With ReactJS It is easy to use DappConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
+<meta name="description" content="Receive and Send Messages Using Waku Relay With ReactJS It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics. For this guide, we are using a single content topic: /min-react-js-chat/1/chat/proto.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Receive and Send Messages Using Waku Relay With ReactJS" />
-<meta property="og:description" content="Receive and Send Messages Using Waku Relay With ReactJS It is easy to use DappConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
+<meta property="og:description" content="Receive and Send Messages Using Waku Relay With ReactJS It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics. For this guide, we are using a single content topic: /min-react-js-chat/1/chat/proto." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.dappconnect.dev/docs/guides/07_reactjs_relay/" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
-<meta property="article:modified_time" content="2021-12-09T15:27:58+01:00" />
-<title>Receive and Send Messages Using Waku Relay With ReactJS | DappConnect Docs</title>
+<meta property="article:modified_time" content="2022-01-10T12:11:15+11:00" />
+<title>Receive and Send Messages Using Waku Relay With ReactJS | WakuConnect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.f5334c44f5cf59e95e7e3727937b1ab51209089ee42a7b7b0a2bf524485dab42.css" integrity="sha256-9TNMRPXPWelefjcnk3satRIJCJ7kKnt7Civ1JEhdq0I=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.1dff71c8a5ea6762b846ee9b751f05265289b826803807a7d75bda5d15e51e80.js" integrity="sha256-Hf9xyKXqZ2K4Ru6bdR8FJlKJuCaAOAen11vaXRXlHoA=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.8991ea5303abaf567bd06e115ca0a06597163e8893df4abf344ba2282c9720d3.js" integrity="sha256-iZHqUwOrr1Z70G4RXKCgZZcWPoiT30q/NEuiKCyXINM=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -34,7 +34,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/"><span>DappConnect Docs</span>
+  <a class="flex align-center" href="/"><span>WakuConnect Docs</span>
   </a>
 </h2>
 
@@ -54,6 +54,8 @@ https://github.com/alex-shpak/hugo-book
   
     
   
+    
+  
 
 
 
@@ -70,8 +72,14 @@ https://github.com/alex-shpak/hugo-book
     <ul>
       
       <li>
-        <a href="https://docs.dappconnect.dev/es/">
-          Spanish
+        <a href="https://docs.wakuconnect.dev/es/">
+          Español
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/pt/">
+          Português
         </a>
       </li>
       
@@ -103,7 +111,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/introduction/" class="">Introduction</a>
+    <a href="https://docs.wakuconnect.dev/docs/introduction/" class="">Introduction</a>
   
 
         </li>
@@ -116,7 +124,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/quick_start/" class="">Quick Start</a>
+    <a href="https://docs.wakuconnect.dev/docs/quick_start/" class="">Quick Start</a>
   
 
         </li>
@@ -129,7 +137,20 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/" class="">Guides</a>
+    <a href="https://docs.wakuconnect.dev/docs/use_cases/" class="">Use Cases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/" class="">Guides</a>
   
 
           
@@ -142,7 +163,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/01_choose_content_topic/" class="">How to Choose a Content Topic</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/" class="">How to Choose a Content Topic</a>
   
 
         </li>
@@ -155,7 +176,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/02_relay_receive_send_messages/" class="">Receive and Send Messages Using Waku Relay</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/" class="">Receive and Send Messages Using Waku Relay</a>
   
 
         </li>
@@ -168,7 +189,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/03_store_retrieve_messages/" class="">Retrieve Messages Using Waku Store</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" class="">Retrieve Messages Using Waku Store</a>
   
 
         </li>
@@ -181,7 +202,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/04_encrypt_messages_version_1/" class="">Encrypt Messages Using Waku Message Version 1</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/" class="">Encrypt Messages Using Waku Message Version 1</a>
   
 
         </li>
@@ -194,7 +215,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/05_sign_messages_version_1/" class="">Sign Messages Using Waku Message Version 1</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/" class="">Sign Messages Using Waku Message Version 1</a>
   
 
         </li>
@@ -207,7 +228,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/06_light_push_send_messages/" class="">Send Messages Using Waku Light Push</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" class="">Send Messages Using Waku Light Push</a>
   
 
         </li>
@@ -220,7 +241,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/07_reactjs_relay/" class=" active">Receive and Send Messages Using Waku Relay With ReactJS</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" class=" active">Receive and Send Messages Using Waku Relay With ReactJS</a>
   
 
         </li>
@@ -233,8 +254,109 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/guides/08_reactjs_store/" class="">Retrieve Messages Using Waku Store With ReactJS</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/" class="">Retrieve Messages Using Waku Store With ReactJS</a>
   
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/" class="">Vote Poll Sdk</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/" class="">Create-A-Poll Button</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/" class="">Poll Creation Component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/" class="">Poll List Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
 
         </li>
       
@@ -251,7 +373,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/examples/" class="">Examples</a>
+    <a href="https://docs.wakuconnect.dev/docs/examples/" class="">Examples</a>
   
 
         </li>
@@ -264,7 +386,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/crypto_libraries/" class="">Cryptographic Libraries</a>
+    <a href="https://docs.wakuconnect.dev/docs/crypto_libraries/" class="">Cryptographic Libraries</a>
   
 
         </li>
@@ -277,7 +399,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.dappconnect.dev/docs/waku_protocols/" class="">Implemented Waku Protocols</a>
+    <a href="https://docs.wakuconnect.dev/docs/waku_protocols/" class="">Implemented Waku Protocols</a>
   
 
         </li>
@@ -366,7 +488,17 @@ https://github.com/alex-shpak/hugo-book
 <nav id="TableOfContents">
   <ul>
     <li><a href="#receive-and-send-messages-using-waku-relay-with-reactjs">Receive and Send Messages Using Waku Relay With ReactJS</a></li>
-    <li><a href="#setup">Setup</a></li>
+    <li><a href="#setup">Setup</a>
+      <ul>
+        <li><a href="#bigint"><code>BigInt</code></a></li>
+        <li><a href="#setup-polyfills">Setup polyfills</a>
+          <ul>
+            <li><a href="#webpack-5">Webpack 5</a></li>
+            <li><a href="#cra-webpack-rewired">cra-webpack-rewired</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#create-waku-instance">Create Waku Instance</a></li>
     <li><a href="#wait-to-be-connected">Wait to be connected</a></li>
     <li><a href="#define-message-format">Define Message Format</a></li>
@@ -386,24 +518,121 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="receive-and-send-messages-using-waku-relay-with-reactjs">Receive and Send Messages Using Waku Relay With ReactJS</h1>
-<p>It is easy to use DappConnect with ReactJS.
+<p>It is easy to use WakuConnect with ReactJS.
 In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.</p>
 <p>Before starting, you need to choose a <em>Content Topic</em> for your dApp.
 Check out the <a href="/docs/guides/01_choose_content_topic/">how to choose a content topic guide</a> to learn more about content topics.
 For this guide, we are using a single content topic: <code>/min-react-js-chat/1/chat/proto</code>.</p>
 <h1 id="setup">Setup</h1>
 <p>Create a new React app:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npx create-react-app min-react-js-chat
-cd min-react-js-chat
-</code></pre></div><p>Then, install <a href="https://npmjs.com/package/js-waku">js-waku</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npx create-react-app relay-reactjs-chat
+cd relay-reactjs-chat
+</code></pre></div><h2 id="bigint"><code>BigInt</code></h2>
+<p>Some of js-waku&rsquo;s dependencies use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"><code>BigInt</code></a>
+that is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#browser_compatibility">only supported by modern browsers</a>.</p>
+<p>To ensure that <code>react-scripts</code> properly transpile your webapp code, update the <code>package.json</code> file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;browserslist&#34;</span>: {
+    <span style="color:#f92672">&#34;production&#34;</span>: [
+      <span style="color:#e6db74">&#34;&gt;0.2%&#34;</span>,
+      <span style="color:#e6db74">&#34;not ie &lt;= 99&#34;</span>,
+      <span style="color:#e6db74">&#34;not android &lt;= 4.4.4&#34;</span>,
+      <span style="color:#e6db74">&#34;not dead&#34;</span>,
+      <span style="color:#e6db74">&#34;not op_mini all&#34;</span>
+    ]
+  }
+}
+</code></pre></div><h2 id="setup-polyfills">Setup polyfills</h2>
+<p>A number of Web3 dependencies need polyfills.
+Said polyfills must be explicitly declared when using webpack 5.</p>
+<p>The latest <code>react-scripts</code> version uses webpack 5.</p>
+<p>We will describe below a method to configure polyfills when using <code>create-react-app</code>/<code>react-scripts</code> or webpack 5.
+This may not be necessary if you do not use <code>react-scripts</code> or if you use webpack 4.</p>
+<p>Start by installing the polyfill libraries:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install assert buffer crypto-browserify stream-browserify
+</code></pre></div><h3 id="webpack-5">Webpack 5</h3>
+<p>If you directly use webpack 5,
+then you can inspire yourself from this <a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/main/examples/mainnet-poll/webpack.config.js">webpack.config.js</a>.</p>
+<h3 id="cra-webpack-rewired">cra-webpack-rewired</h3>
+<p>An alternative is to let <code>react-scripts</code> control the webpack 5 config and only override some elements using <code>cra-webpack-rewired</code>.</p>
+<p>Install <code>cra-webpack-rewired</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install -D cra-webpack-rewired
+</code></pre></div><p>Create a <code>config/webpack.extend.js</code> file at the root of your app:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webpack</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webpack&#39;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">dev</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+        <span style="color:#75715e">// Override webpack 5 config from react-scripts to load polyfills
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span> <span style="color:#f92672">=</span> {};
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span> <span style="color:#f92672">=</span> {};
+        Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>, {
+            <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;buffer&#39;</span>),
+            <span style="color:#a6e22e">crypto</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;crypto-browserify&#39;</span>),
+            <span style="color:#a6e22e">stream</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;stream-browserify&#39;</span>),
+        });
+
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [];
+        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
+            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">DefinePlugin</span>({
+                <span style="color:#e6db74">&#39;process.env.ENV&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#e6db74">&#39;dev&#39;</span>),
+            })
+        );
+        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
+            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">ProvidePlugin</span>({
+                <span style="color:#a6e22e">process</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;process/browser.js&#39;</span>,
+                <span style="color:#a6e22e">Buffer</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;buffer&#39;</span>, <span style="color:#e6db74">&#39;Buffer&#39;</span>],
+            })
+        );
+
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span> <span style="color:#f92672">=</span> [];
+        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">/Failed to parse source map/</span>);
+
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">config</span>;
+    },
+    <span style="color:#a6e22e">prod</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+        <span style="color:#75715e">// Override webpack 5 config from react-scripts to load polyfills
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span> <span style="color:#f92672">=</span> {};
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span> <span style="color:#f92672">=</span> {};
+        Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>, {
+            <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;buffer&#39;</span>),
+            <span style="color:#a6e22e">crypto</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;crypto-browserify&#39;</span>),
+            <span style="color:#a6e22e">stream</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;stream-browserify&#39;</span>),
+        });
+
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [];
+        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
+            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">DefinePlugin</span>({
+                <span style="color:#e6db74">&#39;process.env.ENV&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#e6db74">&#39;prod&#39;</span>),
+            })
+        );
+        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
+            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">ProvidePlugin</span>({
+                <span style="color:#a6e22e">process</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;process/browser.js&#39;</span>,
+                <span style="color:#a6e22e">Buffer</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;buffer&#39;</span>, <span style="color:#e6db74">&#39;Buffer&#39;</span>],
+            })
+        );
+
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span> <span style="color:#f92672">=</span> [];
+        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">/Failed to parse source map/</span>);
+
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">config</span>;
+    },
+};
+</code></pre></div><p>Use <code>cra-webpack-rewired</code> in the <code>package.json</code>, instead of <code>react-scripts</code>:</p>
+<pre><code>   &quot;scripts&quot;: {
+-    &quot;start&quot;: &quot;react-scripts start&quot;,
+-    &quot;build&quot;: &quot;react-scripts build&quot;,
+-    &quot;test&quot;: &quot;react-scripts test&quot;,
+-    &quot;eject&quot;: &quot;react-scripts eject&quot;
++    &quot;start&quot;: &quot;cra-webpack-rewired start&quot;,
++    &quot;build&quot;: &quot;cra-webpack-rewired build&quot;,
++    &quot;test&quot;: &quot;cra-webpack-rewired test&quot;,
++    &quot;eject&quot;: &quot;cra-webpack-rewired eject&quot;
+   },
+</code></pre><p>Then, install <a href="https://npmjs.com/package/js-waku">js-waku</a>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
 </code></pre></div><p>Start the dev server and open the dApp in your browser:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm run start
-</code></pre></div><p>Note: We have noticed some <a href="https://github.com/status-im/js-waku/issues/165">issues</a> with React bundling due to <code>npm</code> pulling an old version of babel.
-If you are getting an error about the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">optional chaining (?.)</a>
-character not being valid, try cleaning up and re-installing your dependencies:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rm -rf node_modules package-lock.json
-npm install
 </code></pre></div><h1 id="create-waku-instance">Create Waku Instance</h1>
 <p>In order to interact with the Waku network, you first need a Waku instance.
 Go to <code>App.js</code> and modify the <code>App</code> function:</p>
@@ -435,12 +664,13 @@ Go to <code>App.js</code> and modify the <code>App</code> function:</p>
   <span style="color:#66d9ef">return</span> (
     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;App&#39;</span><span style="color:#f92672">&gt;</span>
       <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">header</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;App-header&#39;</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#75715e">// Display the status on the web page
-</span><span style="color:#75715e"></span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">wakuStatus</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Waku</span> <span style="color:#a6e22e">node</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">s</span> <span style="color:#a6e22e">status</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">wakuStatus</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
       <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/header&gt;</span>
     <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
   );
 }
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
 </code></pre></div><h1 id="wait-to-be-connected">Wait to be connected</h1>
 <p>When using the <code>bootstrap</code> option, it may take some time to connect to other peers.
 To ensure that you have relay peers available to send and receive messages,
@@ -476,9 +706,9 @@ use <a href="https://www.npmjs.com/package/protons">protons</a></p>
 <p>Create a function that takes the Waku instance and a message to send:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`/min-react-js-chat/1/chat/proto`</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`/relay-reactjs-chat/1/chat/proto`</span>;
 
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sendMessage</span>(<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">timestamp</span>, <span style="color:#a6e22e">waku</span>) {
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sendMessage</span>(<span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">timestamp</span>) {
   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">timestamp</span>.<span style="color:#a6e22e">getTime</span>();
 
   <span style="color:#75715e">// Encode to protobuf
@@ -520,8 +750,8 @@ use <a href="https://www.npmjs.com/package/protons">protons</a></p>
     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
       <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">header</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App-header&#34;</span><span style="color:#f92672">&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">wakuStatus</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">sendMessageOnClick</span>} <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;Ready&#39;</span>}<span style="color:#f92672">&gt;</span> <span style="color:#75715e">// Grey the button is Waku is not yet ready.
-</span><span style="color:#75715e"></span>          <span style="color:#a6e22e">Send</span> <span style="color:#a6e22e">Message</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">sendMessageOnClick</span>} <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;Ready&#39;</span>}<span style="color:#f92672">&gt;</span>
+          <span style="color:#a6e22e">Send</span> <span style="color:#a6e22e">Message</span>
         <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
       <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/header&gt;</span>
     <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
@@ -616,7 +846,7 @@ For the sake of completeness, let&rsquo;s display received messages on the page.
 }
 </code></pre></div><p>And Voilà! You should now be able to send and receive messages.
 Try out by opening the app from different browsers.</p>
-<p>You can see the complete code in the <a href="https://github.com/status-im/js-waku/tree/main/examples/min-react-js-chat">Minimal ReactJS Chat App</a>.</p>
+<p>You can see the complete code in the <a href="https://github.com/status-im/js-waku/tree/main/examples/relay-reactjs-chat">Relay ReactJS Chat Example App</a>.</p>
 </article>
  
       
@@ -626,16 +856,16 @@ Try out by opening the app from different browsers.</p>
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.dappconnect.dev/commit/89334e6efdcfefe0894f99f92b4b6352003f3aa3" title='Last modified by Jakub Sokołowski | 2021/09/12' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/10be3e4e7f043dc232884dfb04e68068d1179004" title='Last modified by Franck R | Jan 10, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2021/09/12</span>
+      <span>Jan 10, 2022</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/vacp2p/docs.dappconnect.dev/edit/develop/content/docs/guides/07_reactjs_relay.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/07_reactjs_relay.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -673,7 +903,17 @@ document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("clic
 <nav id="TableOfContents">
   <ul>
     <li><a href="#receive-and-send-messages-using-waku-relay-with-reactjs">Receive and Send Messages Using Waku Relay With ReactJS</a></li>
-    <li><a href="#setup">Setup</a></li>
+    <li><a href="#setup">Setup</a>
+      <ul>
+        <li><a href="#bigint"><code>BigInt</code></a></li>
+        <li><a href="#setup-polyfills">Setup polyfills</a>
+          <ul>
+            <li><a href="#webpack-5">Webpack 5</a></li>
+            <li><a href="#cra-webpack-rewired">cra-webpack-rewired</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#create-waku-instance">Create Waku Instance</a></li>
     <li><a href="#wait-to-be-connected">Wait to be connected</a></li>
     <li><a href="#define-message-format">Define Message Format</a></li>

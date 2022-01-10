@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on DappConnect Docs</title>
-    <link>https://docs.dappconnect.dev/</link>
-    <description>Recent content in Introduction on DappConnect Docs</description>
+    <title>Introduction on WakuConnect Docs</title>
+    <link>https://docs.wakuconnect.dev/</link>
+    <description>Recent content in Introduction on WakuConnect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Dec 2021 14:00:00 +0100</lastBuildDate>
     
-	<atom:link href="https://docs.dappconnect.dev/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://docs.wakuconnect.dev/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to Choose a Content Topic</title>
-      <link>https://docs.dappconnect.dev/docs/guides/01_choose_content_topic/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/guides/01_choose_content_topic/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/</guid>
       <description>How to Choose a Content Topic A content topic is used for content based filtering.
 It allows you to filter out the messages that your dApp processes, both when receiving live messages (Relay) or retrieving historical messages (Store).
 The format for content topics is as follows:
@@ -26,21 +26,21 @@ The format for content topics is as follows:
     
     <item>
       <title>Introduction</title>
-      <link>https://docs.dappconnect.dev/docs/introduction/</link>
+      <link>https://docs.wakuconnect.dev/docs/introduction/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/introduction/</guid>
-      <description>DappConnect Docs DappConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
+      <guid>https://docs.wakuconnect.dev/docs/introduction/</guid>
+      <description>WakuConnect Docs WakuConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
 Waku is a decentralized, censorship-resistant, network and protocol family. It enables you to add communication features to your dApp in a decentralized manner, ensuring to your users that they will not be censored or de-platformed.
 Waku can be used for chat purposes and for many machine-to-machine use cases. You can learn more about Waku at waku.</description>
     </item>
     
     <item>
       <title>Quick Start</title>
-      <link>https://docs.dappconnect.dev/docs/quick_start/</link>
+      <link>https://docs.wakuconnect.dev/docs/quick_start/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/quick_start/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/quick_start/</guid>
       <description>Quick Start In this section you will learn how to receive and send messages using Waku Relay.
 A more in depth guide for Waku Relay can be found here.
 Install Install the js-waku package:
@@ -49,10 +49,10 @@ npm install js-waku # or with yarn yarn add js-waku Start a waku node import { W
     
     <item>
       <title>Receive and Send Messages Using Waku Relay</title>
-      <link>https://docs.dappconnect.dev/docs/guides/02_relay_receive_send_messages/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/guides/02_relay_receive_send_messages/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</guid>
       <description>Receive and Send Messages Using Waku Relay Waku Relay is a gossip protocol that enables you to send and receive messages. You can find Waku Relay&amp;rsquo;s specifications on Vac RFC.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
 For this guide, we are using a single content topic: /relay-guide/1/chat/proto.
@@ -60,11 +60,24 @@ Installation You can install js-waku using your favorite package manager:</descr
     </item>
     
     <item>
+      <title>Use Cases</title>
+      <link>https://docs.wakuconnect.dev/docs/use_cases/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/use_cases/</guid>
+      <description>Use Cases Waku is a generalized communication network. It can enable numerous use cases, both person-to-person (e.g. messenger) and machine-to-machine (e.g. state channels).
+This is a non-exhaustive list of use cases that we have considered and their current status.
+If we are aware of other projects using js-waku and other use cases that could be implemented, feel free to open a PR.
+Legend:
+ Live: We are aware of projects who have implemented this use case.</description>
+    </item>
+    
+    <item>
       <title>Retrieve Messages Using Waku Store</title>
-      <link>https://docs.dappconnect.dev/docs/guides/03_store_retrieve_messages/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/guides/03_store_retrieve_messages/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/</guid>
       <description>Retrieve Messages Using Waku Store DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received. If you cannot be reached by your peers, then messages are not relayed; relay peers do not save messages for later.
 However, Waku Store peers do save messages they relay, allowing you to retrieve them at a later time.</description>
@@ -72,10 +85,10 @@ However, Waku Store peers do save messages they relay, allowing you to retrieve 
     
     <item>
       <title>Encrypt Messages Using Waku Message Version 1</title>
-      <link>https://docs.dappconnect.dev/docs/guides/04_encrypt_messages_version_1/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/guides/04_encrypt_messages_version_1/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/</guid>
       <description>Encrypt Messages Using Waku Message Version 1 The Waku Message format provides an easy way to encrypt messages using symmetric or asymmetric encryption. The encryption comes with several handy design requirements: confidentiality, authenticity and integrity. It also allows the sender to sign messages, see Sign Messages Using Waku Message Version 1 to learn how.
 You can find more details about Waku Message Payload Encryption in 26/WAKU-PAYLOAD.
 See Cryptographic Libraries for more details on the cryptographic libraries used by js-waku.</description>
@@ -83,10 +96,10 @@ See Cryptographic Libraries for more details on the cryptographic libraries used
     
     <item>
       <title>Examples</title>
-      <link>https://docs.dappconnect.dev/docs/examples/</link>
+      <link>https://docs.wakuconnect.dev/docs/examples/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/examples/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/examples/</guid>
       <description>Examples Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the repo links.
 Minimal ReactJS Chat App Repo: min-react-js-chat.
 Demonstrates:
@@ -99,10 +112,10 @@ Demonstrates:
     
     <item>
       <title>Cryptographic Libraries</title>
-      <link>https://docs.dappconnect.dev/docs/crypto_libraries/</link>
+      <link>https://docs.wakuconnect.dev/docs/crypto_libraries/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/crypto_libraries/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/crypto_libraries/</guid>
       <description>Cryptographic Libraries A note on the cryptographic libraries used as it is a not a straightforward affair.
 Asymmetric encryption Uses ecies-geth which in turns uses SubtleCrypto Web API (browser), secp256k1 (native binding for node) or elliptic (pure JS if none of the other libraries are available).
 Symmetric encryption Uses SubtleCrypto Web API (browser) or NodeJS&amp;rsquo; crypto module.</description>
@@ -110,10 +123,10 @@ Symmetric encryption Uses SubtleCrypto Web API (browser) or NodeJS&amp;rsquo; cr
     
     <item>
       <title>Sign Messages Using Waku Message Version 1</title>
-      <link>https://docs.dappconnect.dev/docs/guides/05_sign_messages_version_1/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/guides/05_sign_messages_version_1/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/</guid>
       <description>Sign Messages Using Waku Message Version 1 The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
 It also allows the sender to encrypt messages, see Encrypt Messages Using Waku Message Version 1 to learn how.
 You can find more details about Waku Message Payload Signature in 26/WAKU-PAYLOAD.
@@ -123,43 +136,99 @@ Create new keypair Generate a new keypair to sign your messages:</description>
     
     <item>
       <title>Implemented Waku Protocols</title>
-      <link>https://docs.dappconnect.dev/docs/waku_protocols/</link>
+      <link>https://docs.wakuconnect.dev/docs/waku_protocols/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/waku_protocols/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/waku_protocols/</guid>
       <description>Waku Protocol Support You can track progress on the project board.
  ✔: Supported 🚧: Implementation in progress ⛔: Support is not planned     Spec Implementation Status     6/WAKU1 ⛔   7/WAKU-DATA ⛔   8/WAKU-MAIL ⛔   9/WAKU-RPC ⛔   10/WAKU2 🚧   11/WAKU2-RELAY ✔   12/WAKU2-FILTER    13/WAKU2-STORE ✔ (querying node only)   14/WAKU2-MESSAGE ✔   15/WAKU2-BRIDGE    16/WAKU2-RPC ⛔   17/WAKU2-RLNRELAY    18/WAKU2-SWAP    19/WAKU2-LIGHTPUSH ✔   20/TOY-ETH-PM ✔ (as example)   21/WAKU2-FTSTORE ✔   22/TOY-CHAT ✔ (as example)   25/LIBP2P-DNS-DISCOVERY 🚧   26/WAKU2-PAYLOAD ✔    </description>
     </item>
     
     <item>
       <title>Send Messages Using Waku Light Push</title>
-      <link>https://docs.dappconnect.dev/docs/guides/06_light_push_send_messages/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/guides/06_light_push_send_messages/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</guid>
       <description>Send Messages Using Waku Light Push Waku Light Push enables a client to receive a confirmation when sending a message.
 The Waku Relay protocol sends messages to connected peers but does not provide any information on whether said peers have received messages. This can be an issue when facing potential connectivity issues. For example, when the connection drops easily, or it is connected to a small number of relay peers.</description>
     </item>
     
     <item>
       <title>Receive and Send Messages Using Waku Relay With ReactJS</title>
-      <link>https://docs.dappconnect.dev/docs/guides/07_reactjs_relay/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/guides/07_reactjs_relay/</guid>
-      <description>Receive and Send Messages Using Waku Relay With ReactJS It is easy to use DappConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
+      <guid>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</guid>
+      <description>Receive and Send Messages Using Waku Relay With ReactJS It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics. For this guide, we are using a single content topic: /min-react-js-chat/1/chat/proto.</description>
     </item>
     
     <item>
       <title>Retrieve Messages Using Waku Store With ReactJS</title>
-      <link>https://docs.dappconnect.dev/docs/guides/08_reactjs_store/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.dappconnect.dev/docs/guides/08_reactjs_store/</guid>
-      <description>Retrieve Messages Using Waku Store With ReactJS It is easy to use DappConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
+      <guid>https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/</guid>
+      <description>Retrieve Messages Using Waku Store With ReactJS It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
 DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received.</description>
+    </item>
+    
+    <item>
+      <title>Create the DApp and Install Dependencies</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/</guid>
+      <description>Create the DApp and Install Dependencies Create React App Create the new React app using the typescript template. Install the Waku Poll SDK packages.
+In this guide, we use useDApp to access the blockchain.
+yarn create react-app poll-dapp-ts --template typescript cd poll-dapp-ts yarn add \ @waku/poll-sdk-react-components @waku/poll-sdk-react-hooks @waku/vote-poll-sdk-react-components \ @usedapp/core@0.4.7 yarn add -D @types/styled-components @usedapp/core must be frozen to version 0.4.7 due to incompatibility between minor versions of ethers.
+WakuConnect Vote &amp;amp; Poll SDK will be upgraded to the latest version of @usedapp/core and ethers once ethereum-waffle is released with the latest version of ethers.</description>
+    </item>
+    
+    <item>
+      <title>Connect to the Ethereum Wallet</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/</guid>
+      <description>Connect to the Ethereum Wallet This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&amp;rsquo;s wallet.  Delete the template App component:
+rm -f App.tsx App.css App.test.tsx Top bar Use TopBar component to display wallet information. For that, create a PollPage component that includes the top bar and will include the poll elements. The component uses ethers to connect to the user&amp;rsquo;s wallet:</description>
+    </item>
+    
+    <item>
+      <title>Create-A-Poll Button</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/</guid>
+      <description>Create-A-Poll Button Create the Poll component. It will allow the user to create a new poll, view polls and answer them. We&amp;rsquo;ll start by adding a button to create a poll.
+mkdir components touch components/Poll.tsx Styled-components Again, create a Wrapper for styling:
+import styled from &amp;#39;styled-components&amp;#39; const Wrapper = styled.div` display: flex; flex-direction: column; align-items: center; max-width: 1146px; position: relative; margin: 0 auto; padding: 150px 32px 50px; width: 100%; @media (max-width: 1146px) { max-width: 780px; } @media (max-width: 600px) { padding: 132px 16px 32px; } @media (max-width: 425px) { padding: 96px 16px 84px; } ` Button Create a button that will display the PollCreation component on click.</description>
+    </item>
+    
+    <item>
+      <title>Poll Creation Component</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/</guid>
+      <description>Poll Creation Component The Poll SDK provides an off-the-shelf component to create a new poll: PollCreation. It takes in a WakuPolling hook that can created with useWakuPolling.
+useWakuPolling takes:
+ appName: Your app name. It is used to generate a unique content topic for your polls. See How to Choose a Content Topic for more information. tokenAddress: The address of your ERC-20 token. Only token holders can create and answer polls.</description>
+    </item>
+    
+    <item>
+      <title>Poll List Component</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/</link>
+      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/</guid>
+      <description>Poll List Component To display existing polls, the PollList component is provided.
+Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
+components/Poll.tsx:
+import {useState} from &amp;#39;react&amp;#39; import {useConfig} from &amp;#39;@usedapp/core&amp;#39; import {PollCreation, PollList} from &amp;#39;@waku/poll-sdk-react-components&amp;#39; import {JsonRpcSigner, Web3Provider} from &amp;#39;@ethersproject/providers&amp;#39; import {useWakuPolling} from &amp;#39;@waku/poll-sdk-react-hooks&amp;#39; import {CreateButton} from &amp;#39;@waku/vote-poll-sdk-react-components&amp;#39; import {Theme} from &amp;#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&amp;#39; import {ChainId} from &amp;#34;@usedapp/core/src/constants&amp;#34;; type PollProps = { appName: string library: Web3Provider | undefined signer: JsonRpcSigner | undefined chainId: ChainId | undefined account: string | null | undefined theme: Theme tokenAddress: string } export function Poll({appName, library, signer, chainId, account, theme, tokenAddress}: PollProps) { const config = useConfig() const [showPollCreation, setShowPollCreation] = useState(false) const wakuPolling = useWakuPolling(appName, tokenAddress, library, config?</description>
     </item>
     
   </channel>

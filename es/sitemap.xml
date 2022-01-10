@@ -3,65 +3,95 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.dappconnect.dev/es/docs/introduccion/</loc>
-    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://docs.dappconnect.dev/es/</loc>
+    <loc>https://docs.wakuconnect.dev/es/docs/introduccion/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="https://docs.dappconnect.dev/"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/docs/introduccion/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://docs.dappconnect.dev/es/"
+                href="https://docs.wakuconnect.dev/es/docs/introduccion/"
                 />
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/es/docs/</loc>
+    <loc>https://docs.wakuconnect.dev/es/</loc>
     <lastmod>2021-12-09T15:27:58+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.dappconnect.dev/docs/"
+                href="https://docs.wakuconnect.dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://docs.dappconnect.dev/es/docs/"
+                href="https://docs.wakuconnect.dev/es/"
                 />
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/es/categories/</loc>
+    <loc>https://docs.wakuconnect.dev/es/docs/</loc>
+    <lastmod>2021-12-09T15:27:58+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.dappconnect.dev/categories/"
+                href="https://docs.wakuconnect.dev/docs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/docs/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://docs.dappconnect.dev/es/categories/"
+                href="https://docs.wakuconnect.dev/es/docs/"
                 />
   </url>
   
   <url>
-    <loc>https://docs.dappconnect.dev/es/tags/</loc>
+    <loc>https://docs.wakuconnect.dev/es/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.dappconnect.dev/tags/"
+                href="https://docs.wakuconnect.dev/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://docs.dappconnect.dev/es/tags/"
+                href="https://docs.wakuconnect.dev/es/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.wakuconnect.dev/es/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.wakuconnect.dev/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://docs.wakuconnect.dev/pt/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://docs.wakuconnect.dev/es/tags/"
                 />
   </url>
   
