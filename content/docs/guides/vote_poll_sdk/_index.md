@@ -58,7 +58,8 @@ You can find more information about the Vote SDK's properties in the [README](ht
 A working example dApp that includes voting feature can be found in the [repo](https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/packages/example).
 
 {{< hint warning >}}
-However, as the example is part of the yarn workspace, there may be issues with undeclared dependencies with this example.
+As the example is part of the yarn workspace,
+there may be issues with undeclared dependencies with this example.
 Tracked with [status-im/wakuconnect-vote-poll-sdk#11](https://github.com/status-im/wakuconnect-vote-poll-sdk/issues/11).
 {{< /hint >}}
 
