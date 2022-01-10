@@ -14,7 +14,7 @@ pipeline {
     GIT_COMMITTER_NAME = 'status-im-auto'
     GIT_COMMITTER_EMAIL = 'auto@status.im'
     /* dev page settings */
-    DEV_SITE = 'dev-docs.dappconnect.dev'
+    DEV_SITE = 'dev-docs.wakuconnect.dev'
     DEV_HOST = 'jenkins@node-01.do-ams3.sites.misc.statusim.net'
     SCP_OPTS = 'StrictHostKeyChecking=no'
   }

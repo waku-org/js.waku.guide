@@ -1,4 +1,4 @@
-baseURL: "https://docs.dappconnect.dev/"
+baseURL: "https://docs.wakuconnect.dev/"
 languageCode: "en-us"
 defaultContentLang: en
 title: "WakuConnect Docs"
@@ -36,7 +36,7 @@ params:
   BookSearch: true
 
   # GitHub edit links
-  BookRepo: 'https://github.com/vacp2p/docs.dappconnect.dev'
+  BookRepo: 'https://github.com/vacp2p/docs.wakuconnect.dev'
   BookCommitPath: 'commit'
   BookEditPath: 'edit/develop'
 
