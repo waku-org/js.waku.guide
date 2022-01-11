@@ -25,6 +25,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+    parser:
+      autoHeadingIDType: github
   tableOfContents:
     startLevel: 1
 
