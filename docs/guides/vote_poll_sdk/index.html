@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="WakuConnect Vote &amp; Poll SDK The WakuConnect Vote &amp; Poll SDK enables developers to add Waku powered polling and voting features to their dApp.
+<meta name="description" content="WakuConnect Vote &amp; Poll SDK #  The WakuConnect Vote &amp; Poll SDK enables developers to add Waku powered polling and voting features to their dApp.
 The repository can be found on GitHub: https://github.com/status-im/wakuconnect-vote-poll-sdk.
 The SDK can be used in two different ways: to vote (commitment to the blockchain) or poll (no interaction with the blockchain).
 For both functionalities, only ERC-20 token holders can create or answer polls/votes. The developer using the SDK can configure which ERC-20 token contract is used.">
@@ -16,9 +16,9 @@ For both functionalities, only ERC-20 token holders can create or answer polls/v
 <title>Vote Poll Sdk | WakuConnect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.f5334c44f5cf59e95e7e3727937b1ab51209089ee42a7b7b0a2bf524485dab42.css" integrity="sha256-9TNMRPXPWelefjcnk3satRIJCJ7kKnt7Civ1JEhdq0I=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0f9a1d1098d7a41dda6bb0548c09aa09f4c18ff31012b2b16a1097ec8c0d1286.js" integrity="sha256-D5odEJjXpB3aa7BUjAmqCfTBj/MQErKxahCX7IwNEoY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1d6f87ac66d2c4a52eb21b5829c8ab4c4b5fafb08e17caa4f63cd478ba1b5ea6.js" integrity="sha256-HW&#43;HrGbSxKUushtYKcirTEtfr7COF8qk9jzUeLobXqY=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/index.xml" title="WakuConnect Docs" />
 <!--
 Made with Book Theme
@@ -457,7 +457,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -521,31 +521,49 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="wakuconnect-vote--poll-sdk">WakuConnect Vote &amp; Poll SDK</h1>
+  <article class="markdown"><h1 id="wakuconnect-vote--poll-sdk">
+  WakuConnect Vote &amp; Poll SDK
+  <a class="anchor" href="#wakuconnect-vote--poll-sdk">#</a>
+</h1>
 <p>The WakuConnect Vote &amp; Poll SDK enables developers to add Waku powered polling and voting features to their dApp.</p>
 <p>The repository can be found on GitHub: <a href="https://github.com/status-im/wakuconnect-vote-poll-sdk">https://github.com/status-im/wakuconnect-vote-poll-sdk</a>.</p>
 <p>The SDK can be used in two different ways:
 to vote (commitment to the blockchain) or poll (no interaction with the blockchain).</p>
 <p>For both functionalities, only ERC-20 token holders can create or answer polls/votes.
 The developer using the SDK can configure which ERC-20 token contract is used.</p>
-<h2 id="packages">Packages</h2>
-<h3 id="common">Common</h3>
+<h2 id="packages">
+  Packages
+  <a class="anchor" href="#packages">#</a>
+</h2>
+<h3 id="common">
+  Common
+  <a class="anchor" href="#common">#</a>
+</h3>
 <ul>
 <li><code>@waku/vote-poll-sdk-core</code>: Common libraries to both vote and poll functionalities.</li>
 <li><code>@waku/vote-poll-sdk-react-components</code>: Common React components to both vote and poll functionalities.</li>
 </ul>
-<h3 id="vote">Vote</h3>
+<h3 id="vote">
+  Vote
+  <a class="anchor" href="#vote">#</a>
+</h3>
 <ul>
 <li><code>@waku/vote-sdk-react-components</code>: React components.</li>
 <li><code>@waku/vote-sdk-react-hooks</code>: React hooks.</li>
 <li><code>@waku/vote-sdk-contracts</code>: Solidity contracts.</li>
 </ul>
-<h3 id="poll">Poll</h3>
+<h3 id="poll">
+  Poll
+  <a class="anchor" href="#poll">#</a>
+</h3>
 <ul>
 <li><code>@waku/poll-sdk-react-components</code>: React components.</li>
 <li><code>@waku/poll-sdk-react-hooks</code>: React hooks.</li>
 </ul>
-<h2 id="wakuconnect-vote-sdk">WakuConnect Vote SDK</h2>
+<h2 id="wakuconnect-vote-sdk">
+  WakuConnect Vote SDK
+  <a class="anchor" href="#wakuconnect-vote-sdk">#</a>
+</h2>
 <p>The WakuConnect Vote SDK allows you to leverage Waku to save gas fees for most voters.
 It uses Waku to broadcast and aggregate votes.
 Most token holders will not need to spend gas to vote.</p>
@@ -554,7 +572,10 @@ Most token holders will not need to spend gas to vote.</p>
 where proposal creation and vote results must be committed to the blockchain.</p>
 <p>With WakuConnect Vote SDK, the DAO could be the one spending gas when creating the proposal and committing the votes,
 whereas the token holders do not spend gas when voting.</p>
-<h3 id="documentation">Documentation</h3>
+<h3 id="documentation">
+  Documentation
+  <a class="anchor" href="#documentation">#</a>
+</h3>
 <blockquote class="book-hint info">
   The documentation effort is currently in progress.
 It is tracked with <a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/issues/11">status-im/wakuconnect-vote-poll-sdk#11</a>.
@@ -569,7 +590,10 @@ there may be issues with undeclared dependencies with this example.
 Tracked with <a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/issues/11">status-im/wakuconnect-vote-poll-sdk#11</a>.
 </blockquote>
 
-<h2 id="wakuconnect-poll-sdk">WakuConnect Poll SDK</h2>
+<h2 id="wakuconnect-poll-sdk">
+  WakuConnect Poll SDK
+  <a class="anchor" href="#wakuconnect-poll-sdk">#</a>
+</h2>
 <p>The WakuConnect Poll SDK allows you to leverage Waku and enable token holders to create, answer and view polls.
 The polls are not committed to the blockchain and hence do not cost gas.</p>
 <p>As the polls use Waku, they do maintain properties expected from dApps: decentralized and censorship-resistant.</p>
@@ -588,7 +612,10 @@ The polls are not committed to the blockchain and hence do not cost gas.</p>
 </ul>
 </li>
 </ul>
-<h3 id="documentation-1">Documentation</h3>
+<h3 id="documentation-1">
+  Documentation
+  <a class="anchor" href="#documentation-1">#</a>
+</h3>
 <p>See <a href="./poll_sdk">How to Use the WakuConnect Poll SDK</a>.</p>
 </article>
  
@@ -619,8 +646,7 @@ The polls are not committed to the blockchain and hence do not cost gas.</p>
 
 
 
-  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
-document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 
 
  

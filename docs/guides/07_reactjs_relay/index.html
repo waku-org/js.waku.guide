@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Receive and Send Messages Using Waku Relay With ReactJS It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
+<meta name="description" content="Receive and Send Messages Using Waku Relay With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics. For this guide, we are using a single content topic: /min-react-js-chat/1/chat/proto.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Receive and Send Messages Using Waku Relay With ReactJS" />
-<meta property="og:description" content="Receive and Send Messages Using Waku Relay With ReactJS It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
+<meta property="og:description" content="Receive and Send Messages Using Waku Relay With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics. For this guide, we are using a single content topic: /min-react-js-chat/1/chat/proto." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
 <meta property="article:modified_time" content="2022-01-10T12:11:15+11:00" />
+
 <title>Receive and Send Messages Using Waku Relay With ReactJS | WakuConnect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.f5334c44f5cf59e95e7e3727937b1ab51209089ee42a7b7b0a2bf524485dab42.css" integrity="sha256-9TNMRPXPWelefjcnk3satRIJCJ7kKnt7Civ1JEhdq0I=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0f9a1d1098d7a41dda6bb0548c09aa09f4c18ff31012b2b16a1097ec8c0d1286.js" integrity="sha256-D5odEJjXpB3aa7BUjAmqCfTBj/MQErKxahCX7IwNEoY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1d6f87ac66d2c4a52eb21b5829c8ab4c4b5fafb08e17caa4f63cd478ba1b5ea6.js" integrity="sha256-HW&#43;HrGbSxKUushtYKcirTEtfr7COF8qk9jzUeLobXqY=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -456,7 +457,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -517,21 +518,30 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="receive-and-send-messages-using-waku-relay-with-reactjs">Receive and Send Messages Using Waku Relay With ReactJS</h1>
+  <article class="markdown"><h1 id="receive-and-send-messages-using-waku-relay-with-reactjs">
+  Receive and Send Messages Using Waku Relay With ReactJS
+  <a class="anchor" href="#receive-and-send-messages-using-waku-relay-with-reactjs">#</a>
+</h1>
 <p>It is easy to use WakuConnect with ReactJS.
 In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.</p>
 <p>Before starting, you need to choose a <em>Content Topic</em> for your dApp.
 Check out the <a href="/docs/guides/01_choose_content_topic/">how to choose a content topic guide</a> to learn more about content topics.
 For this guide, we are using a single content topic: <code>/min-react-js-chat/1/chat/proto</code>.</p>
-<h1 id="setup">Setup</h1>
+<h1 id="setup">
+  Setup
+  <a class="anchor" href="#setup">#</a>
+</h1>
 <p>Create a new React app:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npx create-react-app relay-reactjs-chat
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npx create-react-app relay-reactjs-chat
 cd relay-reactjs-chat
-</code></pre></div><h2 id="bigint"><code>BigInt</code></h2>
+</code></pre></div><h2 id="bigint">
+  <code>BigInt</code>
+  <a class="anchor" href="#bigint">#</a>
+</h2>
 <p>Some of js-waku&rsquo;s dependencies use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"><code>BigInt</code></a>
 that is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#browser_compatibility">only supported by modern browsers</a>.</p>
 <p>To ensure that <code>react-scripts</code> properly transpile your webapp code, update the <code>package.json</code> file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;browserslist&#34;</span>: {
     <span style="color:#f92672">&#34;production&#34;</span>: [
       <span style="color:#e6db74">&#34;&gt;0.2%&#34;</span>,
@@ -542,23 +552,32 @@ that is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
     ]
   }
 }
-</code></pre></div><h2 id="setup-polyfills">Setup polyfills</h2>
+</code></pre></div><h2 id="setup-polyfills">
+  Setup polyfills
+  <a class="anchor" href="#setup-polyfills">#</a>
+</h2>
 <p>A number of Web3 dependencies need polyfills.
 Said polyfills must be explicitly declared when using webpack 5.</p>
 <p>The latest <code>react-scripts</code> version uses webpack 5.</p>
 <p>We will describe below a method to configure polyfills when using <code>create-react-app</code>/<code>react-scripts</code> or webpack 5.
 This may not be necessary if you do not use <code>react-scripts</code> or if you use webpack 4.</p>
 <p>Start by installing the polyfill libraries:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install assert buffer crypto-browserify stream-browserify
-</code></pre></div><h3 id="webpack-5">Webpack 5</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install assert buffer crypto-browserify stream-browserify
+</code></pre></div><h3 id="webpack-5">
+  Webpack 5
+  <a class="anchor" href="#webpack-5">#</a>
+</h3>
 <p>If you directly use webpack 5,
 then you can inspire yourself from this <a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/main/examples/mainnet-poll/webpack.config.js">webpack.config.js</a>.</p>
-<h3 id="cra-webpack-rewired">cra-webpack-rewired</h3>
+<h3 id="cra-webpack-rewired">
+  cra-webpack-rewired
+  <a class="anchor" href="#cra-webpack-rewired">#</a>
+</h3>
 <p>An alternative is to let <code>react-scripts</code> control the webpack 5 config and only override some elements using <code>cra-webpack-rewired</code>.</p>
 <p>Install <code>cra-webpack-rewired</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install -D cra-webpack-rewired
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install -D cra-webpack-rewired
 </code></pre></div><p>Create a <code>config/webpack.extend.js</code> file at the root of your app:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webpack</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webpack&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webpack</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webpack&#39;</span>);
 
 <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">dev</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
@@ -619,7 +638,7 @@ then you can inspire yourself from this <a href="https://github.com/status-im/wa
     },
 };
 </code></pre></div><p>Use <code>cra-webpack-rewired</code> in the <code>package.json</code>, instead of <code>react-scripts</code>:</p>
-<pre><code>   &quot;scripts&quot;: {
+<pre tabindex="0"><code>   &quot;scripts&quot;: {
 -    &quot;start&quot;: &quot;react-scripts start&quot;,
 -    &quot;build&quot;: &quot;react-scripts build&quot;,
 -    &quot;test&quot;: &quot;react-scripts test&quot;,
@@ -630,13 +649,16 @@ then you can inspire yourself from this <a href="https://github.com/status-im/wa
 +    &quot;eject&quot;: &quot;cra-webpack-rewired eject&quot;
    },
 </code></pre><p>Then, install <a href="https://npmjs.com/package/js-waku">js-waku</a>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
 </code></pre></div><p>Start the dev server and open the dApp in your browser:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm run start
-</code></pre></div><h1 id="create-waku-instance">Create Waku Instance</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm run start
+</code></pre></div><h1 id="create-waku-instance">
+  Create Waku Instance
+  <a class="anchor" href="#create-waku-instance">#</a>
+</h1>
 <p>In order to interact with the Waku network, you first need a Waku instance.
 Go to <code>App.js</code> and modify the <code>App</code> function:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 <span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
@@ -671,11 +693,14 @@ Go to <code>App.js</code> and modify the <code>App</code> function:</p>
 }
 
 <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
-</code></pre></div><h1 id="wait-to-be-connected">Wait to be connected</h1>
+</code></pre></div><h1 id="wait-to-be-connected">
+  Wait to be connected
+  <a class="anchor" href="#wait-to-be-connected">#</a>
+</h1>
 <p>When using the <code>bootstrap</code> option, it may take some time to connect to other peers.
 To ensure that you have relay peers available to send and receive messages,
 use the <code>Waku.waitForConnectedPeer()</code> async function:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
   <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!!</span><span style="color:#a6e22e">waku</span>) <span style="color:#66d9ef">return</span>;
   <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;None&#39;</span>) <span style="color:#66d9ef">return</span>;
 
@@ -689,12 +714,15 @@ use the <code>Waku.waitForConnectedPeer()</code> async function:</p>
     });
   });
 }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
-</code></pre></div><h1 id="define-message-format">Define Message Format</h1>
+</code></pre></div><h1 id="define-message-format">
+  Define Message Format
+  <a class="anchor" href="#define-message-format">#</a>
+</h1>
 <p>To define the Protobuf message format,
 use <a href="https://www.npmjs.com/package/protons">protons</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install protons
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install protons
 </code></pre></div><p>Define <code>SimpleChatMessage</code> with two fields: <code>timestamp</code> and <code>text</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;protons&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;protons&#39;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">proto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">protons</span>(<span style="color:#e6db74">`
 </span><span style="color:#e6db74">message SimpleChatMessage {
@@ -702,9 +730,12 @@ use <a href="https://www.npmjs.com/package/protons">protons</a></p>
 </span><span style="color:#e6db74">  string text = 2;
 </span><span style="color:#e6db74">}
 </span><span style="color:#e6db74">`</span>);
-</code></pre></div><h1 id="send-messages">Send Messages</h1>
+</code></pre></div><h1 id="send-messages">
+  Send Messages
+  <a class="anchor" href="#send-messages">#</a>
+</h1>
 <p>Create a function that takes the Waku instance and a message to send:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`/relay-reactjs-chat/1/chat/proto`</span>;
 
@@ -724,7 +755,7 @@ use <a href="https://www.npmjs.com/package/protons">protons</a></p>
   );
 }
 </code></pre></div><p>Then, add a button to the <code>App</code> function:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
   <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">setWaku</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">undefined</span>);
   <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">wakuStatus</span>, <span style="color:#a6e22e">setWakuStatus</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;None&#39;</span>);
   <span style="color:#75715e">// Using a counter just for the messages to be different
@@ -757,13 +788,16 @@ use <a href="https://www.npmjs.com/package/protons">protons</a></p>
     <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
   );
 }
-</code></pre></div><h1 id="receive-messages">Receive Messages</h1>
+</code></pre></div><h1 id="receive-messages">
+  Receive Messages
+  <a class="anchor" href="#receive-messages">#</a>
+</h1>
 <p>To process incoming messages, you need to register an observer on Waku Relay.
 First, you need to define the observer function.</p>
 <p>You will need to remove the observer when the component unmount.
 Hence, you need the reference to the function to remain the same.
 For that, use <code>React.useCallback</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">processIncomingMessage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useCallback</span>((<span style="color:#a6e22e">wakuMessage</span>) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">processIncomingMessage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useCallback</span>((<span style="color:#a6e22e">wakuMessage</span>) =&gt; {
   <span style="color:#75715e">// Empty message?
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">payload</span>) <span style="color:#66d9ef">return</span>;
 
@@ -779,7 +813,7 @@ For that, use <code>React.useCallback</code>:</p>
 }, []);
 </code></pre></div><p>Then, add this observer to Waku Relay.
 Do not forget to delete the observer is the component is being unmounted:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
   <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">waku</span>) <span style="color:#66d9ef">return</span>;
 
   <span style="color:#75715e">// Pass the content topic to only process messages related to your dApp
@@ -790,12 +824,15 @@ Do not forget to delete the observer is the component is being unmounted:</p>
     <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">deleteObserver</span>(<span style="color:#a6e22e">processIncomingMessage</span>, [<span style="color:#a6e22e">ContentTopic</span>]);
   };
 }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>, <span style="color:#a6e22e">processIncomingMessage</span>]);
-</code></pre></div><h1 id="display-messages">Display Messages</h1>
+</code></pre></div><h1 id="display-messages">
+  Display Messages
+  <a class="anchor" href="#display-messages">#</a>
+</h1>
 <p>The Waku work is now done.
 Your dApp is able to send and receive messages using Waku.
 For the sake of completeness, let&rsquo;s display received messages on the page.</p>
 <p>First, add incoming messages to the state of the <code>App</code> component:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
   <span style="color:#75715e">//...
 </span><span style="color:#75715e"></span>
   <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">messages</span>, <span style="color:#a6e22e">setMessages</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>([]);
@@ -819,7 +856,7 @@ For the sake of completeness, let&rsquo;s display received messages on the page.
   <span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>}
 </code></pre></div><p>Then, render the messages:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
   <span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>
   <span style="color:#66d9ef">return</span> (
@@ -876,8 +913,7 @@ Try out by opening the app from different browsers.</p>
 
 
 
-  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
-document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 
 
  

@@ -5,10 +5,6 @@
     <link>https://docs.wakuconnect.dev/es/tags/</link>
     <description>Recent content in Tags on WakuConnect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://docs.wakuconnect.dev/es/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://docs.wakuconnect.dev/es/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

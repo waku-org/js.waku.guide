@@ -3,28 +3,29 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Sign Messages Using Waku Message Version 1 The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
+<meta name="description" content="Sign Messages Using Waku Message Version 1 #  The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
 It also allows the sender to encrypt messages, see Encrypt Messages Using Waku Message Version 1 to learn how.
 You can find more details about Waku Message Payload Signature in 26/WAKU-PAYLOAD.
 See Cryptographic Libraries for more details on the cryptographic libraries used by js-waku.
-Create new keypair Generate a new keypair to sign your messages:">
+Create new keypair #  Generate a new keypair to sign your messages:">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Sign Messages Using Waku Message Version 1" />
-<meta property="og:description" content="Sign Messages Using Waku Message Version 1 The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
+<meta property="og:description" content="Sign Messages Using Waku Message Version 1 #  The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
 It also allows the sender to encrypt messages, see Encrypt Messages Using Waku Message Version 1 to learn how.
 You can find more details about Waku Message Payload Signature in 26/WAKU-PAYLOAD.
 See Cryptographic Libraries for more details on the cryptographic libraries used by js-waku.
-Create new keypair Generate a new keypair to sign your messages:" />
+Create new keypair #  Generate a new keypair to sign your messages:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
 <meta property="article:modified_time" content="2021-12-09T15:27:58+01:00" />
+
 <title>Sign Messages Using Waku Message Version 1 | WakuConnect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.f5334c44f5cf59e95e7e3727937b1ab51209089ee42a7b7b0a2bf524485dab42.css" integrity="sha256-9TNMRPXPWelefjcnk3satRIJCJ7kKnt7Civ1JEhdq0I=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0f9a1d1098d7a41dda6bb0548c09aa09f4c18ff31012b2b16a1097ec8c0d1286.js" integrity="sha256-D5odEJjXpB3aa7BUjAmqCfTBj/MQErKxahCX7IwNEoY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1d6f87ac66d2c4a52eb21b5829c8ab4c4b5fafb08e17caa4f63cd478ba1b5ea6.js" integrity="sha256-HW&#43;HrGbSxKUushtYKcirTEtfr7COF8qk9jzUeLobXqY=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -462,7 +463,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -517,49 +518,67 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="sign-messages-using-waku-message-version-1">Sign Messages Using Waku Message Version 1</h1>
+  <article class="markdown"><h1 id="sign-messages-using-waku-message-version-1">
+  Sign Messages Using Waku Message Version 1
+  <a class="anchor" href="#sign-messages-using-waku-message-version-1">#</a>
+</h1>
 <p>The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.</p>
 <p>It also allows the sender to encrypt messages,
 see <a href="/docs/guides/04_encrypt_messages_version_1/">Encrypt Messages Using Waku Message Version 1</a> to learn how.</p>
 <p>You can find more details about Waku Message Payload Signature in <a href="https://rfc.vac.dev/spec/26/">26/WAKU-PAYLOAD</a>.</p>
 <p>See <a href="/docs/crypto_libraries/">Cryptographic Libraries</a> for more details on the cryptographic libraries used by js-waku.</p>
-<h2 id="create-new-keypair">Create new keypair</h2>
+<h2 id="create-new-keypair">
+  Create new keypair
+  <a class="anchor" href="#create-new-keypair">#</a>
+</h2>
 <p>Generate a new keypair to sign your messages:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">generatePrivateKey</span>, <span style="color:#a6e22e">getPublicKey</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">generatePrivateKey</span>, <span style="color:#a6e22e">getPublicKey</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">privateKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">generatePrivateKey</span>();
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">publicKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getPublicKey</span>(<span style="color:#a6e22e">privateKey</span>);
-</code></pre></div><h2 id="sign-waku-messages">Sign Waku Messages</h2>
+</code></pre></div><h2 id="sign-waku-messages">
+  Sign Waku Messages
+  <a class="anchor" href="#sign-waku-messages">#</a>
+</h2>
 <p>As per version 1&rsquo;s <a href="https://rfc.vac.dev/spec/26/">specs</a>, signatures are only included in encrypted messages.
 In the case where your app does not need encryption then you could use symmetric encryption with a trivial key.</p>
 <p>You can learn more about encryption at <a href="/docs/guides/04_encrypt_messages_version_1/">Encrypt Messages Using Waku Message Version 1</a>.</p>
-<h3 id="using-symmetric-encryption">Using symmetric encryption</h3>
+<h3 id="using-symmetric-encryption">
+  Using symmetric encryption
+  <a class="anchor" href="#using-symmetric-encryption">#</a>
+</h3>
 <p>Given <code>symKey</code> the symmetric key used for encryption:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromBytes</span>(<span style="color:#a6e22e">payload</span>, <span style="color:#a6e22e">myAppContentTopic</span>, {
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromBytes</span>(<span style="color:#a6e22e">payload</span>, <span style="color:#a6e22e">myAppContentTopic</span>, {
   <span style="color:#a6e22e">encPublicKey</span>: <span style="color:#66d9ef">symKey</span>,
   <span style="color:#a6e22e">sigPrivKey</span>: <span style="color:#66d9ef">privateKey</span>
 });
 </code></pre></div><p>If encryption is not needed for your use case,
 then you can create a symmetric key from the content topic:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">hexToBuf</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku/lib/utils&#39;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">keccak256</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;ethers/lib/utils&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">hexToBuf</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;js-waku/lib/utils&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">keccak256</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;ethers/lib/utils&#39;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">symKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">hexToBuf</span>(
-  <span style="color:#a6e22e">keccak256</span>(<span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">myAppContentTopic</span>, <span style="color:#e6db74">&#39;utf-8&#39;</span>))
+  <span style="color:#a6e22e">keccak256</span>(<span style="color:#a6e22e">Buffer</span>.<span style="color:#66d9ef">from</span>(<span style="color:#a6e22e">myAppContentTopic</span>, <span style="color:#e6db74">&#39;utf-8&#39;</span>))
 );
 </code></pre></div><p><code>symKey</code> can then be used to encrypt and decrypt messages on <code>myAppContentTopic</code> content topic.
 Read <a href="/docs/guides/01_choose_content_topic/">How to Choose a Content Topic</a> to learn more about content topics.</p>
-<h3 id="using-asymmetric-encryption">Using asymmetric encryption</h3>
+<h3 id="using-asymmetric-encryption">
+  Using asymmetric encryption
+  <a class="anchor" href="#using-asymmetric-encryption">#</a>
+</h3>
 <p>Given <code>recipientPublicKey</code> the public key of the message&rsquo;s recipient:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromBytes</span>(<span style="color:#a6e22e">payload</span>, <span style="color:#a6e22e">myAppContentTopic</span>, {
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromBytes</span>(<span style="color:#a6e22e">payload</span>, <span style="color:#a6e22e">myAppContentTopic</span>, {
   <span style="color:#a6e22e">encPublicKey</span>: <span style="color:#66d9ef">recipientPublicKey</span>,
   <span style="color:#a6e22e">sigPrivKey</span>: <span style="color:#66d9ef">privateKey</span>
 });
-</code></pre></div><h2 id="verify-waku-message-signatures">Verify Waku Message signatures</h2>
+</code></pre></div><h2 id="verify-waku-message-signatures">
+  Verify Waku Message signatures
+  <a class="anchor" href="#verify-waku-message-signatures">#</a>
+</h2>
 <p>Two fields are available on signed <code>WakuMessage</code>s:</p>
 <ul>
 <li><code>signaturePublicKey</code>: Holds the public key of the signer,</li>
@@ -569,7 +588,7 @@ Read <a href="/docs/guides/01_choose_content_topic/">How to Choose a Content Top
 you can simply compare <code>WakuMessage.signaturePublicKey</code> with Alice&rsquo;s public key.
 As comparing hex string can lead to issues (is the <code>0x</code> prefix present?),
 simply use helper function <code>equalByteArrays</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">equalByteArrays</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku/lib/utils&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">equalByteArrays</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;js-waku/lib/utils&#39;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sigPubKey</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">signaturePublicKey</span>;
 
@@ -607,8 +626,7 @@ simply use helper function <code>equalByteArrays</code>.</p>
 
 
 
-  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
-document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 
 
  

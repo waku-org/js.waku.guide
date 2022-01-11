@@ -5,18 +5,14 @@
     <link>https://docs.wakuconnect.dev/docs/guides/</link>
     <description>Recent content on WakuConnect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://docs.wakuconnect.dev/docs/guides/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://docs.wakuconnect.dev/docs/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Choose a Content Topic</title>
       <link>https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/</guid>
-      <description>How to Choose a Content Topic A content topic is used for content based filtering.
+      <description>How to Choose a Content Topic #  A content topic is used for content based filtering.
 It allows you to filter out the messages that your dApp processes, both when receiving live messages (Relay) or retrieving historical messages (Store).
 The format for content topics is as follows:
 /{dapp-name}/{version}/{content-topic-name}/{encoding}
@@ -29,10 +25,9 @@ The format for content topics is as follows:
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</guid>
-      <description>Receive and Send Messages Using Waku Relay Waku Relay is a gossip protocol that enables you to send and receive messages. You can find Waku Relay&amp;rsquo;s specifications on Vac RFC.
+      <description>Receive and Send Messages Using Waku Relay #  Waku Relay is a gossip protocol that enables you to send and receive messages. You can find Waku Relay&amp;rsquo;s specifications on Vac RFC.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
-For this guide, we are using a single content topic: /relay-guide/1/chat/proto.
-Installation You can install js-waku using your favorite package manager:</description>
+For this guide, we are using a single content topic: /relay-guide/1/chat/proto.</description>
     </item>
     
     <item>
@@ -41,9 +36,8 @@ Installation You can install js-waku using your favorite package manager:</descr
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/</guid>
-      <description>Retrieve Messages Using Waku Store DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
-Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received. If you cannot be reached by your peers, then messages are not relayed; relay peers do not save messages for later.
-However, Waku Store peers do save messages they relay, allowing you to retrieve them at a later time.</description>
+      <description>Retrieve Messages Using Waku Store #  DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
+Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received. If you cannot be reached by your peers, then messages are not relayed; relay peers do not save messages for later.</description>
     </item>
     
     <item>
@@ -52,7 +46,7 @@ However, Waku Store peers do save messages they relay, allowing you to retrieve 
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/</guid>
-      <description>Encrypt Messages Using Waku Message Version 1 The Waku Message format provides an easy way to encrypt messages using symmetric or asymmetric encryption. The encryption comes with several handy design requirements: confidentiality, authenticity and integrity. It also allows the sender to sign messages, see Sign Messages Using Waku Message Version 1 to learn how.
+      <description>Encrypt Messages Using Waku Message Version 1 #  The Waku Message format provides an easy way to encrypt messages using symmetric or asymmetric encryption. The encryption comes with several handy design requirements: confidentiality, authenticity and integrity. It also allows the sender to sign messages, see Sign Messages Using Waku Message Version 1 to learn how.
 You can find more details about Waku Message Payload Encryption in 26/WAKU-PAYLOAD.
 See Cryptographic Libraries for more details on the cryptographic libraries used by js-waku.</description>
     </item>
@@ -63,11 +57,11 @@ See Cryptographic Libraries for more details on the cryptographic libraries used
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/</guid>
-      <description>Sign Messages Using Waku Message Version 1 The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
+      <description>Sign Messages Using Waku Message Version 1 #  The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
 It also allows the sender to encrypt messages, see Encrypt Messages Using Waku Message Version 1 to learn how.
 You can find more details about Waku Message Payload Signature in 26/WAKU-PAYLOAD.
 See Cryptographic Libraries for more details on the cryptographic libraries used by js-waku.
-Create new keypair Generate a new keypair to sign your messages:</description>
+Create new keypair #  Generate a new keypair to sign your messages:</description>
     </item>
     
     <item>
@@ -76,7 +70,7 @@ Create new keypair Generate a new keypair to sign your messages:</description>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</guid>
-      <description>Send Messages Using Waku Light Push Waku Light Push enables a client to receive a confirmation when sending a message.
+      <description>Send Messages Using Waku Light Push #  Waku Light Push enables a client to receive a confirmation when sending a message.
 The Waku Relay protocol sends messages to connected peers but does not provide any information on whether said peers have received messages. This can be an issue when facing potential connectivity issues. For example, when the connection drops easily, or it is connected to a small number of relay peers.</description>
     </item>
     
@@ -86,7 +80,7 @@ The Waku Relay protocol sends messages to connected peers but does not provide a
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</guid>
-      <description>Receive and Send Messages Using Waku Relay With ReactJS It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
+      <description>Receive and Send Messages Using Waku Relay With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics. For this guide, we are using a single content topic: /min-react-js-chat/1/chat/proto.</description>
     </item>
     
@@ -96,7 +90,7 @@ Before starting, you need to choose a Content Topic for your dApp. Check out the
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/</guid>
-      <description>Retrieve Messages Using Waku Store With ReactJS It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
+      <description>Retrieve Messages Using Waku Store With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
 DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received.</description>
     </item>

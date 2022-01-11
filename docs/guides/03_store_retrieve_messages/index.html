@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Retrieve Messages Using Waku Store DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
-Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received. If you cannot be reached by your peers, then messages are not relayed; relay peers do not save messages for later.
-However, Waku Store peers do save messages they relay, allowing you to retrieve them at a later time.">
+<meta name="description" content="Retrieve Messages Using Waku Store #  DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
+Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received. If you cannot be reached by your peers, then messages are not relayed; relay peers do not save messages for later.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Retrieve Messages Using Waku Store" />
-<meta property="og:description" content="Retrieve Messages Using Waku Store DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
-Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received. If you cannot be reached by your peers, then messages are not relayed; relay peers do not save messages for later.
-However, Waku Store peers do save messages they relay, allowing you to retrieve them at a later time." />
+<meta property="og:description" content="Retrieve Messages Using Waku Store #  DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
+Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received. If you cannot be reached by your peers, then messages are not relayed; relay peers do not save messages for later." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
 <meta property="article:modified_time" content="2021-12-09T15:27:58+01:00" />
+
 <title>Retrieve Messages Using Waku Store | WakuConnect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.f5334c44f5cf59e95e7e3727937b1ab51209089ee42a7b7b0a2bf524485dab42.css" integrity="sha256-9TNMRPXPWelefjcnk3satRIJCJ7kKnt7Civ1JEhdq0I=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0f9a1d1098d7a41dda6bb0548c09aa09f4c18ff31012b2b16a1097ec8c0d1286.js" integrity="sha256-D5odEJjXpB3aa7BUjAmqCfTBj/MQErKxahCX7IwNEoY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1d6f87ac66d2c4a52eb21b5829c8ab4c4b5fafb08e17caa4f63cd478ba1b5ea6.js" integrity="sha256-HW&#43;HrGbSxKUushtYKcirTEtfr7COF8qk9jzUeLobXqY=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -458,7 +457,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -515,7 +514,10 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="retrieve-messages-using-waku-store">Retrieve Messages Using Waku Store</h1>
+  <article class="markdown"><h1 id="retrieve-messages-using-waku-store">
+  Retrieve Messages Using Waku Store
+  <a class="anchor" href="#retrieve-messages-using-waku-store">#</a>
+</h1>
 <p>DApps running on a phone or in a browser are often offline:
 The browser could be closed or mobile app in the background.</p>
 <p><a href="https://rfc.vac.dev/spec/11/">Waku Relay</a> is a gossip protocol.
@@ -532,47 +534,65 @@ For example, when the dApp starts.</p>
 <p>Before starting, you need to choose a <em>Content Topic</em> for your dApp.
 Check out the <a href="/docs/guides/01_choose_content_topic/">how to choose a content topic guide</a> to learn more about content topics.</p>
 <p>For this guide, we are using a single content topic: <code>/store-guide/1/news/proto</code>.</p>
-<h1 id="installation">Installation</h1>
+<h1 id="installation">
+  Installation
+  <a class="anchor" href="#installation">#</a>
+</h1>
 <p>You can install <a href="https://npmjs.com/package/js-waku">js-waku</a> using your favorite package manager:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
-</code></pre></div><h1 id="create-waku-instance">Create Waku Instance</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
+</code></pre></div><h1 id="create-waku-instance">
+  Create Waku Instance
+  <a class="anchor" href="#create-waku-instance">#</a>
+</h1>
 <p>In order to interact with the Waku network, you first need a Waku instance:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> });
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> });
 </code></pre></div><p>Passing the <code>bootstrap</code> option will connect your node to predefined Waku nodes.
 If you want to bootstrap to your own nodes, you can pass an array of multiaddresses instead:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({
   <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> [
     <span style="color:#e6db74">&#39;/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm&#39;</span>,
     <span style="color:#e6db74">&#39;/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ&#39;</span>
   ]
 });
-</code></pre></div><h1 id="wait-to-be-connected">Wait to be connected</h1>
+</code></pre></div><h1 id="wait-to-be-connected">
+  Wait to be connected
+  <a class="anchor" href="#wait-to-be-connected">#</a>
+</h1>
 <p>When using the <code>bootstrap</code> option, it may take some times to connect to other peers.
 To ensure that you have store peers available to retrieve historical messages from,
 use the following function:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForConnectedPeer</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForConnectedPeer</span>();
 </code></pre></div><p>The returned Promise will resolve once you are connected to a Waku Store peer.</p>
-<h1 id="use-protobuf">Use Protobuf</h1>
+<h1 id="use-protobuf">
+  Use Protobuf
+  <a class="anchor" href="#use-protobuf">#</a>
+</h1>
 <p>Waku v2 protocols use <a href="https://developers.google.com/protocol-buffers/">protobuf</a> <a href="https://rfc.vac.dev/spec/10/">by default</a>.</p>
 <p>Let&rsquo;s review how you can use protobuf to send structured data.</p>
 <p>First, define a data structure.
 For this guide, we will use a simple news article that contains a date of publication, title and body:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
   <span style="color:#a6e22e">date</span><span style="color:#f92672">:</span> Date;
   <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>;
   <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>;
 }
 </code></pre></div><p>To encode and decode protobuf payloads, you can use the <a href="https://www.npmjs.com/package/protons">protons</a> package.</p>
-<h2 id="install-protobuf-library">Install Protobuf Library</h2>
+<h2 id="install-protobuf-library">
+  Install Protobuf Library
+  <a class="anchor" href="#install-protobuf-library">#</a>
+</h2>
 <p>First, install protons:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install protons
-</code></pre></div><h2 id="protobuf-definition">Protobuf Definition</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install protons
+</code></pre></div><h2 id="protobuf-definition">
+  Protobuf Definition
+  <a class="anchor" href="#protobuf-definition">#</a>
+</h2>
 <p>Then specify the data structure:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;protons&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;protons&#39;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">proto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">protons</span>(<span style="color:#e6db74">`
 </span><span style="color:#e6db74">message ArticleMessage {
@@ -583,10 +603,13 @@ For this guide, we will use a simple news article that contains a date of public
 </span><span style="color:#e6db74">`</span>);
 </code></pre></div><p>You can learn about protobuf message definitions here:
 <a href="https://developers.google.com/protocol-buffers/docs/proto">Protocol Buffers Language Guide</a>.</p>
-<h2 id="decode-messages">Decode Messages</h2>
+<h2 id="decode-messages">
+  Decode Messages
+  <a class="anchor" href="#decode-messages">#</a>
+</h2>
 <p>To decode the messages retrieved from a Waku Store node,
 you need to extract the protobuf payload and decode it using <code>protons</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decodeWakuMessage</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">wakuMessage</span>) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decodeWakuMessage</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">wakuMessage</span>) =&gt; {
   <span style="color:#75715e">// No need to attempt to decode a message if the payload is absent
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">payload</span>) <span style="color:#66d9ef">return</span>;
 
@@ -602,12 +625,15 @@ you need to extract the protobuf payload and decode it using <code>protons</code
 
   <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">publishDate</span>, <span style="color:#a6e22e">title</span>, <span style="color:#a6e22e">body</span> };
 };
-</code></pre></div><h2 id="retrieve-messages">Retrieve messages</h2>
+</code></pre></div><h2 id="retrieve-messages">
+  Retrieve messages
+  <a class="anchor" href="#retrieve-messages">#</a>
+</h2>
 <p>You now have all the building blocks to retrieve and decode messages for a store node.</p>
 <p>Store node responses are paginated.
 The <code>WakuStore.queryHistory</code> API automatically query all the pages in a sequential manner.
 To process messages as soon as they received (page by page), use the <code>callback</code> option:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/store-guide/1/news/proto&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/store-guide/1/news/proto&#39;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">callback</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">retrievedMessages</span>) =&gt; {
   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">articles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">retrievedMessages</span>
@@ -626,7 +652,10 @@ To process messages as soon as they received (page by page), use the <code>callb
 </code></pre></div><p>Note that <code>WakuStore.queryHistory</code> select an available store node for you.
 However, it can only select a connected node, which is why the bootstrapping is necessary.
 It will throw an error if no store node is available.</p>
-<h2 id="filter-messages-by-send-time">Filter messages by send time</h2>
+<h2 id="filter-messages-by-send-time">
+  Filter messages by send time
+  <a class="anchor" href="#filter-messages-by-send-time">#</a>
+</h2>
 <p>By default, Waku Store nodes store messages for 30 days.
 Depending on your use case, you may not need to retrieve 30 days worth of messages.</p>
 <p><a href="https://rfc.vac.dev/spec/14/">Waku Message</a> defines an optional unencrypted <code>timestamp</code> field.
@@ -634,7 +663,7 @@ The timestamp is set by the sender.
 By default, js-waku sets the timestamp of outgoing message to the current time.</p>
 <p>You can filter messages that include a timestamp within given bounds with the <code>timeFilter</code> option.</p>
 <p>Retrieve messages up to a week old:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// [..] `ContentTopic` and `callback` definitions
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// [..] `ContentTopic` and `callback` definitions
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
 <span style="color:#75715e">// 7 days/week, 24 hours/day, 60min/hour, 60secs/min, 100ms/sec
@@ -648,7 +677,10 @@ By default, js-waku sets the timestamp of outgoing message to the current time.<
   .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">e</span>) =&gt; {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to retrieve messages from store&#39;</span>, <span style="color:#a6e22e">e</span>);
   });
-</code></pre></div><h2 id="end-result">End result</h2>
+</code></pre></div><h2 id="end-result">
+  End result
+  <a class="anchor" href="#end-result">#</a>
+</h2>
 <p>You can see a similar example implemented in ReactJS in the <a href="https://github.com/status-im/js-waku/tree/main/examples/store-reactjs-chat">Minimal ReactJS Waku Store App</a>.</p>
 </article>
  
@@ -679,8 +711,7 @@ By default, js-waku sets the timestamp of outgoing message to the current time.<
 
 
 
-  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
-document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 
 
  

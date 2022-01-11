@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Send Messages Using Waku Light Push Waku Light Push enables a client to receive a confirmation when sending a message.
+<meta name="description" content="Send Messages Using Waku Light Push #  Waku Light Push enables a client to receive a confirmation when sending a message.
 The Waku Relay protocol sends messages to connected peers but does not provide any information on whether said peers have received messages. This can be an issue when facing potential connectivity issues. For example, when the connection drops easily, or it is connected to a small number of relay peers.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Send Messages Using Waku Light Push" />
-<meta property="og:description" content="Send Messages Using Waku Light Push Waku Light Push enables a client to receive a confirmation when sending a message.
+<meta property="og:description" content="Send Messages Using Waku Light Push #  Waku Light Push enables a client to receive a confirmation when sending a message.
 The Waku Relay protocol sends messages to connected peers but does not provide any information on whether said peers have received messages. This can be an issue when facing potential connectivity issues. For example, when the connection drops easily, or it is connected to a small number of relay peers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
 <meta property="article:modified_time" content="2021-12-09T15:27:58+01:00" />
+
 <title>Send Messages Using Waku Light Push | WakuConnect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.f5334c44f5cf59e95e7e3727937b1ab51209089ee42a7b7b0a2bf524485dab42.css" integrity="sha256-9TNMRPXPWelefjcnk3satRIJCJ7kKnt7Civ1JEhdq0I=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0f9a1d1098d7a41dda6bb0548c09aa09f4c18ff31012b2b16a1097ec8c0d1286.js" integrity="sha256-D5odEJjXpB3aa7BUjAmqCfTBj/MQErKxahCX7IwNEoY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1d6f87ac66d2c4a52eb21b5829c8ab4c4b5fafb08e17caa4f63cd478ba1b5ea6.js" integrity="sha256-HW&#43;HrGbSxKUushtYKcirTEtfr7COF8qk9jzUeLobXqY=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -456,7 +457,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -505,7 +506,10 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="send-messages-using-waku-light-push">Send Messages Using Waku Light Push</h1>
+  <article class="markdown"><h1 id="send-messages-using-waku-light-push">
+  Send Messages Using Waku Light Push
+  <a class="anchor" href="#send-messages-using-waku-light-push">#</a>
+</h1>
 <p>Waku Light Push enables a client to receive a confirmation when sending a message.</p>
 <p>The Waku Relay protocol sends messages to connected peers but does not provide any information on whether said peers have received messages.
 This can be an issue when facing potential connectivity issues.
@@ -516,44 +520,59 @@ it cannot guarantee propagation to the network.</p>
 <p>It also means weaker privacy properties as the remote peer knows the client is the originator of the message.
 Whereas with Waku Relay, a remote peer would not know whether the client created or forwarded the message.</p>
 <p>You can find Waku Light Push&rsquo;s specifications on <a href="https://rfc.vac.dev/spec/19/">Vac RFC</a>.</p>
-<h1 id="content-topic">Content Topic</h1>
+<h1 id="content-topic">
+  Content Topic
+  <a class="anchor" href="#content-topic">#</a>
+</h1>
 <p>Before starting, you need to choose a <em>Content Topic</em> for your dApp.
 Check out the <a href="/docs/guides/01_choose_content_topic/">how to choose a content topic guide</a> to learn more about content topics.</p>
 <p>For this guide, we are using a single content topic: <code>/light-push-guide/1/guide/proto</code>.</p>
-<h1 id="installation">Installation</h1>
+<h1 id="installation">
+  Installation
+  <a class="anchor" href="#installation">#</a>
+</h1>
 <p>You can install <a href="https://npmjs.com/package/js-waku">js-waku</a> using your favorite package manager:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
-</code></pre></div><h1 id="create-waku-instance">Create Waku Instance</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
+</code></pre></div><h1 id="create-waku-instance">
+  Create Waku Instance
+  <a class="anchor" href="#create-waku-instance">#</a>
+</h1>
 <p>In order to interact with the Waku network, you first need a Waku instance:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> });
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> });
 </code></pre></div><p>Passing the <code>bootstrap</code> option will connect your node to predefined Waku nodes.
 If you want to bootstrap to your own nodes, you can pass an array of multiaddresses instead:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">waku</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">waku</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({
   <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> [
     <span style="color:#e6db74">&#39;/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm&#39;</span>,
     <span style="color:#e6db74">&#39;/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ&#39;</span>
   ]
 });
-</code></pre></div><h1 id="wait-to-be-connected">Wait to be connected</h1>
+</code></pre></div><h1 id="wait-to-be-connected">
+  Wait to be connected
+  <a class="anchor" href="#wait-to-be-connected">#</a>
+</h1>
 <p>When using the <code>bootstrap</code> option, it may take some time to connect to other peers.
 To ensure that you have a light push peer available to send messages to,
 use the following function:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForConnectedPeer</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForConnectedPeer</span>();
 </code></pre></div><p>The returned <code>Promise</code> will resolve once you are connected to a Waku peer.</p>
-<h1 id="send-messages">Send messages</h1>
+<h1 id="send-messages">
+  Send messages
+  <a class="anchor" href="#send-messages">#</a>
+</h1>
 <p>You can now send a message using Waku Light Push.
 By default, it sends the messages to a single randomly selected light push peer.
 The peer is selected among the dApp&rsquo;s connected peers.</p>
 <p>If the dApp is not connected to any light push peer, an error is thrown.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">WakuMessage</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">WakuMessage</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuMessage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromUtf8String</span>(<span style="color:#e6db74">&#39;Here is a message&#39;</span>, <span style="color:#e6db74">`/light-push-guide/1/guide/proto`</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuMessage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromUtf8String</span>(<span style="color:#e6db74">&#39;Here is a message&#39;</span>, <span style="color:#e6db74">`/light-push-guide/1/guide/proto`</span>);
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ack</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">lightPush</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">wakuMessage</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ack</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">lightPush</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">wakuMessage</span>);
 <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">ack</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">isSuccess</span>) {
     <span style="color:#75715e">// Message was not sent
 </span><span style="color:#75715e"></span>}
@@ -586,8 +605,7 @@ The peer is selected among the dApp&rsquo;s connected peers.</p>
 
 
 
-  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
-document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 
 
  

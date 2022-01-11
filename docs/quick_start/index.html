@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Quick Start In this section you will learn how to receive and send messages using Waku Relay.
+<meta name="description" content="Quick Start #  In this section you will learn how to receive and send messages using Waku Relay.
 A more in depth guide for Waku Relay can be found here.
-Install Install the js-waku package:
-npm install js-waku # or with yarn yarn add js-waku Start a waku node import { Waku } from &#39;js-waku&#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages The contentTopic is a metadata string that allows categorization of messages on the waku network.">
+Install #  Install the js-waku package:
+npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import { Waku } from &#39;js-waku&#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Quick Start" />
-<meta property="og:description" content="Quick Start In this section you will learn how to receive and send messages using Waku Relay.
+<meta property="og:description" content="Quick Start #  In this section you will learn how to receive and send messages using Waku Relay.
 A more in depth guide for Waku Relay can be found here.
-Install Install the js-waku package:
-npm install js-waku # or with yarn yarn add js-waku Start a waku node import { Waku } from &#39;js-waku&#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages The contentTopic is a metadata string that allows categorization of messages on the waku network." />
+Install #  Install the js-waku package:
+npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import { Waku } from &#39;js-waku&#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/quick_start/" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/quick_start/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
 <meta property="article:modified_time" content="2021-12-09T15:27:58+01:00" />
+
 <title>Quick Start | WakuConnect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.f5334c44f5cf59e95e7e3727937b1ab51209089ee42a7b7b0a2bf524485dab42.css" integrity="sha256-9TNMRPXPWelefjcnk3satRIJCJ7kKnt7Civ1JEhdq0I=" crossorigin="anonymous">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0f9a1d1098d7a41dda6bb0548c09aa09f4c18ff31012b2b16a1097ec8c0d1286.js" integrity="sha256-D5odEJjXpB3aa7BUjAmqCfTBj/MQErKxahCX7IwNEoY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1d6f87ac66d2c4a52eb21b5829c8ab4c4b5fafb08e17caa4f63cd478ba1b5ea6.js" integrity="sha256-HW&#43;HrGbSxKUushtYKcirTEtfr7COF8qk9jzUeLobXqY=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -460,7 +461,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -515,35 +516,53 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="quick-start">Quick Start</h1>
+  <article class="markdown"><h1 id="quick-start">
+  Quick Start
+  <a class="anchor" href="#quick-start">#</a>
+</h1>
 <p>In this section you will learn how to receive and send messages using Waku Relay.</p>
 <p>A more in depth guide for Waku Relay can be found <a href="/docs/guides/02_relay_receive_send_messages/">here</a>.</p>
-<h2 id="install">Install</h2>
+<h2 id="install">
+  Install
+  <a class="anchor" href="#install">#</a>
+</h2>
 <p>Install the <code>js-waku</code> package:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install js-waku
 <span style="color:#75715e"># or with yarn</span>
 yarn add js-waku
-</code></pre></div><h3 id="start-a-waku-node">Start a waku node</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+</code></pre></div><h3 id="start-a-waku-node">
+  Start a waku node
+  <a class="anchor" href="#start-a-waku-node">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">waku</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span>: <span style="color:#66d9ef">true</span> });
-</code></pre></div><h3 id="listen-for-messages">Listen for messages</h3>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">waku</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span>: <span style="color:#66d9ef">true</span> });
+</code></pre></div><h3 id="listen-for-messages">
+  Listen for messages
+  <a class="anchor" href="#listen-for-messages">#</a>
+</h3>
 <p>The <code>contentTopic</code> is a metadata <code>string</code> that allows categorization of messages on the waku network.
 Depending on your use case, you can either create one (or several) new <code>contentTopic</code>(s)
 or look at the <a href="https://rfc.vac.dev/">RFCs</a> and use an existing <code>contentTopic</code>.
 See <a href="/docs/guides/01_choose_content_topic/">How to Choose a Content Topic</a> for more details.</p>
 <p>For example, if you were to use a new <code>contentTopic</code> such as <code>/my-cool-app/1/my-use-case/proto</code>,
 here is how to listen to new messages received via <a href="https://rfc.vac.dev/spec/11/">Waku v2 Relay</a>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">addObserver</span>((<span style="color:#a6e22e">msg</span>) <span style="color:#f92672">=&gt;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">addObserver</span>((<span style="color:#a6e22e">msg</span>) <span style="color:#f92672">=&gt;</span> {
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Message received:&#34;</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">payloadAsUtf8</span>)
 }, [<span style="color:#e6db74">&#34;/my-cool-app/1/my-use-case/proto&#34;</span>]);
-</code></pre></div><h3 id="send-messages">Send messages</h3>
+</code></pre></div><h3 id="send-messages">
+  Send messages
+  <a class="anchor" href="#send-messages">#</a>
+</h3>
 <p>Messages are wrapped in a <code>WakuMessage</code> envelop.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromUtf8String</span>(<span style="color:#e6db74">&#34;Here is a message!&#34;</span>, <span style="color:#e6db74">&#34;/my-cool-app/1/my-use-case/proto&#34;</span>)
-<span style="color:#a6e22e">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">msg</span>);
-</code></pre></div><h3 id="building-an-app">Building an app</h3>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromUtf8String</span>(<span style="color:#e6db74">&#34;Here is a message!&#34;</span>, <span style="color:#e6db74">&#34;/my-cool-app/1/my-use-case/proto&#34;</span>)
+<span style="color:#66d9ef">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">msg</span>);
+</code></pre></div><h3 id="building-an-app">
+  Building an app
+  <a class="anchor" href="#building-an-app">#</a>
+</h3>
 <p>Check out the <a href="/docs/guides/07_reactjs_relay/">ReactJS Waku Relay guide</a> to learn how you can use the code above in a React app.</p>
 </article>
  
@@ -574,8 +593,7 @@ here is how to listen to new messages received via <a href="https://rfc.vac.dev/
 
 
 
-  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
-document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
 
 
  
