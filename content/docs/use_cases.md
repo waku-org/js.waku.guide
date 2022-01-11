@@ -118,13 +118,17 @@ Remove the need of a centralized infrastructure for gameplay communications.
 
 <--->
 
-## dApp to Wallet Notifications
+## dApp to Wallet Communication
 
-| _Idea_ |
+| _Live_ |
 |--------|
 
-Enable dApp operators and users to send notification directly in user's wallet by integration Waku in both dApps and Wallets.
-This could be used to notify governance token holder of an incoming proposal or other in-dApp events.
+Communication between a user's wallet and a dApp can be used by dApp operators to notify users
+(e.g. governance token holders get notified to vote on a proposal),
+or for a dApp to request transaction signature to the wallet.
+
+- [WalletConnect 2.0](https://walletconnect.com/)
+- [HashPack](https://www.hashpack.app/hashconnect)
 
 <--->
 
