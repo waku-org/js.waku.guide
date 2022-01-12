@@ -1,7 +1,7 @@
 ---
 title: Introduction
 date: 2021-12-09T14:00:00+01:00
-weight: 1
+weight: 10
 ---
 # WakuConnect Docs
 
@@ -18,6 +18,8 @@ JS-Waku is the TypeScript implementation of the Waku protocol,
 built for browser environment.
 
 The [quick start](/docs/quick_start/) presents an easy way to send and receive messages using js-waku.
+
+If you prefer video content, check out the [presentations](/docs/presentations).
 
 If you are looking for inspiration, check out the [use cases](/docs/use_cases) Waku can enable.
 
