@@ -26,7 +26,7 @@ markup:
     renderer:
       unsafe: true
     parser:
-      autoHeadingIDType: github
+      autoHeadingIDType: github-ascii
   tableOfContents:
     startLevel: 1
 
