@@ -21,29 +21,6 @@ The format for content topics is as follows:
     </item>
     
     <item>
-      <title>Introduction</title>
-      <link>https://docs.wakuconnect.dev/docs/introduction/</link>
-      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
-      
-      <guid>https://docs.wakuconnect.dev/docs/introduction/</guid>
-      <description>WakuConnect Docs #  WakuConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
-Waku is a decentralized, censorship-resistant, network and protocol family. It enables you to add communication features to your dApp in a decentralized manner, ensuring to your users that they will not be censored or de-platformed.
-Waku can be used for chat purposes and for many machine-to-machine use cases. You can learn more about Waku at waku.</description>
-    </item>
-    
-    <item>
-      <title>Quick Start</title>
-      <link>https://docs.wakuconnect.dev/docs/quick_start/</link>
-      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
-      
-      <guid>https://docs.wakuconnect.dev/docs/quick_start/</guid>
-      <description>Quick Start #  In this section you will learn how to receive and send messages using Waku Relay.
-A more in depth guide for Waku Relay can be found here.
-Install #  Install the js-waku package:
-npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import { Waku } from &amp;#39;js-waku&amp;#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
-    </item>
-    
-    <item>
       <title>Receive and Send Messages Using Waku Relay</title>
       <link>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
@@ -52,19 +29,6 @@ npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import 
       <description>Receive and Send Messages Using Waku Relay #  Waku Relay is a gossip protocol that enables you to send and receive messages. You can find Waku Relay&amp;rsquo;s specifications on Vac RFC.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
 For this guide, we are using a single content topic: /relay-guide/1/chat/proto.</description>
-    </item>
-    
-    <item>
-      <title>Use Cases</title>
-      <link>https://docs.wakuconnect.dev/docs/use_cases/</link>
-      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://docs.wakuconnect.dev/docs/use_cases/</guid>
-      <description>Use Cases #  Waku is a generalized communication network. It can enable numerous use cases, both person-to-person (e.g. messenger) and machine-to-machine (e.g. state channels).
-This is a non-exhaustive list of use cases that we have considered and their current status.
-If we are aware of other projects using js-waku and other use cases that could be implemented, feel free to open a PR.
-Legend:
- Live: We are aware of projects who have implemented this use case.</description>
     </item>
     
     <item>
@@ -89,31 +53,6 @@ See Cryptographic Libraries for more details on the cryptographic libraries used
     </item>
     
     <item>
-      <title>Examples</title>
-      <link>https://docs.wakuconnect.dev/docs/examples/</link>
-      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
-      
-      <guid>https://docs.wakuconnect.dev/docs/examples/</guid>
-      <description>Examples #  Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the repo links.
-Minimal ReactJS Chat App #  Repo: min-react-js-chat.
-Demonstrates:
- Group chat React/JavaScript Waku Relay Protobuf using protons No async/await syntax  Minimal ReactJS Waku Store App #  Repo: store-reactjs-chat.
-Demonstrates:
- Waku Store React/JavaScript Protobuf using protons  Vanilla Javascript Using Minified Library #  Repo: unpkg-js-store.</description>
-    </item>
-    
-    <item>
-      <title>Cryptographic Libraries</title>
-      <link>https://docs.wakuconnect.dev/docs/crypto_libraries/</link>
-      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
-      
-      <guid>https://docs.wakuconnect.dev/docs/crypto_libraries/</guid>
-      <description>Cryptographic Libraries #  A note on the cryptographic libraries used as it is a not a straightforward affair.
-Asymmetric encryption #  Uses ecies-geth which in turns uses SubtleCrypto Web API (browser), secp256k1 (native binding for node) or elliptic (pure JS if none of the other libraries are available).
-Symmetric encryption #  Uses SubtleCrypto Web API (browser) or NodeJS&#39; crypto module.</description>
-    </item>
-    
-    <item>
       <title>Sign Messages Using Waku Message Version 1</title>
       <link>https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
@@ -124,16 +63,6 @@ It also allows the sender to encrypt messages, see Encrypt Messages Using Waku M
 You can find more details about Waku Message Payload Signature in 26/WAKU-PAYLOAD.
 See Cryptographic Libraries for more details on the cryptographic libraries used by js-waku.
 Create new keypair #  Generate a new keypair to sign your messages:</description>
-    </item>
-    
-    <item>
-      <title>Implemented Waku Protocols</title>
-      <link>https://docs.wakuconnect.dev/docs/waku_protocols/</link>
-      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
-      
-      <guid>https://docs.wakuconnect.dev/docs/waku_protocols/</guid>
-      <description>Waku Protocol Support #  You can track progress on the project board.
- ✔: Supported 🚧: Implementation in progress ⛔: Support is not planned     Spec Implementation Status     6/WAKU1 ⛔   7/WAKU-DATA ⛔   8/WAKU-MAIL ⛔   9/WAKU-RPC ⛔   10/WAKU2 🚧   11/WAKU2-RELAY ✔   12/WAKU2-FILTER    13/WAKU2-STORE ✔ (querying node only)   14/WAKU2-MESSAGE ✔   15/WAKU2-BRIDGE    16/WAKU2-RPC ⛔   17/WAKU2-RLNRELAY    18/WAKU2-SWAP    19/WAKU2-LIGHTPUSH ✔   20/TOY-ETH-PM ✔ (as example)   21/WAKU2-FTSTORE ✔   22/TOY-CHAT ✔ (as example)   25/LIBP2P-DNS-DISCOVERY 🚧   26/WAKU2-PAYLOAD ✔    </description>
     </item>
     
     <item>
@@ -165,6 +94,17 @@ Before starting, you need to choose a Content Topic for your dApp. Check out the
       <description>Retrieve Messages Using Waku Store With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
 DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://docs.wakuconnect.dev/docs/introduction/</link>
+      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/introduction/</guid>
+      <description>WakuConnect Docs #  WakuConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
+Waku is a decentralized, censorship-resistant, network and protocol family. It enables you to add communication features to your dApp in a decentralized manner, ensuring to your users that they will not be censored or de-platformed.
+Waku can be used for chat purposes and for many machine-to-machine use cases. You can learn more about Waku at waku.</description>
     </item>
     
     <item>
@@ -220,6 +160,80 @@ useWakuPolling takes:
 Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
 components/Poll.tsx:
 import {useState} from &amp;#39;react&amp;#39; import {useConfig} from &amp;#39;@usedapp/core&amp;#39; import {PollCreation, PollList} from &amp;#39;@waku/poll-sdk-react-components&amp;#39; import {JsonRpcSigner, Web3Provider} from &amp;#39;@ethersproject/providers&amp;#39; import {useWakuPolling} from &amp;#39;@waku/poll-sdk-react-hooks&amp;#39; import {CreateButton} from &amp;#39;@waku/vote-poll-sdk-react-components&amp;#39; import {Theme} from &amp;#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&amp;#39; import {ChainId} from &amp;#34;@usedapp/core/src/constants&amp;#34;; type PollProps = { appName: string library: Web3Provider | undefined signer: JsonRpcSigner | undefined chainId: ChainId | undefined account: string | null | undefined theme: Theme tokenAddress: string } export function Poll({appName, library, signer, chainId, account, theme, tokenAddress}: PollProps) { const config = useConfig() const [showPollCreation, setShowPollCreation] = useState(false) const wakuPolling = useWakuPolling(appName, tokenAddress, library, config?</description>
+    </item>
+    
+    <item>
+      <title>Quick Start</title>
+      <link>https://docs.wakuconnect.dev/docs/quick_start/</link>
+      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/quick_start/</guid>
+      <description>Quick Start #  In this section you will learn how to receive and send messages using Waku Relay.
+A more in depth guide for Waku Relay can be found here.
+Install #  Install the js-waku package:
+npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import { Waku } from &amp;#39;js-waku&amp;#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
+    </item>
+    
+    <item>
+      <title>Use Cases</title>
+      <link>https://docs.wakuconnect.dev/docs/use_cases/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/use_cases/</guid>
+      <description>Use Cases #  Waku is a generalized communication network. It can enable numerous use cases, both person-to-person (e.g. messenger) and machine-to-machine (e.g. state channels).
+This is a non-exhaustive list of use cases that we have considered and their current status.
+If we are aware of other projects using js-waku and other use cases that could be implemented, feel free to open a PR.
+Legend:
+ Live: We are aware of projects who have implemented this use case.</description>
+    </item>
+    
+    <item>
+      <title>Presentations &amp; Videos</title>
+      <link>https://docs.wakuconnect.dev/docs/presentations/</link>
+      <pubDate>Wed, 12 Jan 2022 01:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/presentations/</guid>
+      <description>Presentations &amp;amp; Videos #  17 Sep 2021 - EthOnline #  Pre-recorded video for hackathon participants.
+  Slides: https://notes.status.im/eth-global-2021
+21 Jul 2021 - EthCC 2021 #  Note: DappConnect is now named WakuConnect.
+  Slides: https://notes.status.im/dappconnect-pres
+21 Jul 2021 - Ethereum Engineering Group meetup #  Note: DappConnect is now named WakuConnect.
+  Slides: https://notes.status.im/dappconnect-pres</description>
+    </item>
+    
+    <item>
+      <title>Examples</title>
+      <link>https://docs.wakuconnect.dev/docs/examples/</link>
+      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/examples/</guid>
+      <description>Examples #  Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the repo links.
+Minimal ReactJS Chat App #  Repo: min-react-js-chat.
+Demonstrates:
+ Group chat React/JavaScript Waku Relay Protobuf using protons No async/await syntax  Minimal ReactJS Waku Store App #  Repo: store-reactjs-chat.
+Demonstrates:
+ Waku Store React/JavaScript Protobuf using protons  Vanilla Javascript Using Minified Library #  Repo: unpkg-js-store.</description>
+    </item>
+    
+    <item>
+      <title>Cryptographic Libraries</title>
+      <link>https://docs.wakuconnect.dev/docs/crypto_libraries/</link>
+      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/crypto_libraries/</guid>
+      <description>Cryptographic Libraries #  A note on the cryptographic libraries used as it is a not a straightforward affair.
+Asymmetric encryption #  Uses ecies-geth which in turns uses SubtleCrypto Web API (browser), secp256k1 (native binding for node) or elliptic (pure JS if none of the other libraries are available).
+Symmetric encryption #  Uses SubtleCrypto Web API (browser) or NodeJS&#39; crypto module.</description>
+    </item>
+    
+    <item>
+      <title>Implemented Waku Protocols</title>
+      <link>https://docs.wakuconnect.dev/docs/waku_protocols/</link>
+      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/waku_protocols/</guid>
+      <description>Waku Protocol Support #  You can track progress on the project board.
+ ✔: Supported 🚧: Implementation in progress ⛔: Support is not planned     Spec Implementation Status     6/WAKU1 ⛔   7/WAKU-DATA ⛔   8/WAKU-MAIL ⛔   9/WAKU-RPC ⛔   10/WAKU2 🚧   11/WAKU2-RELAY ✔   12/WAKU2-FILTER    13/WAKU2-STORE ✔ (querying node only)   14/WAKU2-MESSAGE ✔   15/WAKU2-BRIDGE    16/WAKU2-RPC ⛔   17/WAKU2-RLNRELAY    18/WAKU2-SWAP    19/WAKU2-LIGHTPUSH ✔   20/TOY-ETH-PM ✔ (as example)   21/WAKU2-FTSTORE ✔   22/TOY-CHAT ✔ (as example)   25/LIBP2P-DNS-DISCOVERY 🚧   26/WAKU2-PAYLOAD ✔    </description>
     </item>
     
   </channel>
