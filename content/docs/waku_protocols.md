@@ -1,7 +1,7 @@
 ---
 title: Implemented Waku Protocols
 date: 2021-12-09T14:00:00+01:00
-weight: 6
+weight: 60
 ---
 ## Waku Protocol Support
 
