@@ -19,6 +19,8 @@ built for browser environment.
 
 The [quick start](/docs/quick_start/) presents an easy way to send and receive messages using js-waku.
 
+If you prefer video content, check out the [presentations](/docs/presentations).
+
 If you are looking for inspiration, check out the [use cases](/docs/use_cases) Waku can enable.
 
 The [guides](/docs/guides) explain specific js-waku features
