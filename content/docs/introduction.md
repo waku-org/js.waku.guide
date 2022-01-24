@@ -3,6 +3,7 @@ title: Introduction
 date: 2021-12-09T14:00:00+01:00
 weight: 10
 ---
+
 # WakuConnect Docs
 
 WakuConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
@@ -28,7 +29,7 @@ and how it can be used with popular web frameworks.
 
 The js-waku repository also holds a number of [examples](https://github.com/status-im/js-waku/tree/main/examples).
 The examples are working Proof-of-Concepts that demonstrate how to use js-waku.
-Check out the [example list](/docs/examples/) to see what usage each example demonstrates. 
+Check out the [example list](/docs/examples/) to see what usage each example demonstrates.
 
 Finally, if you want to learn how Waku works under the hoods, check the specs at [rfc.vac.dev](https://rfc.vac.dev/).
 

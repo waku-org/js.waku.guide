@@ -3,6 +3,7 @@ title: Retrieve Messages Using Waku Store With ReactJS
 date: 2021-12-09T14:00:00+01:00
 weight: 8
 ---
+
 # Retrieve Messages Using Waku Store With ReactJS
 
 It is easy to use WakuConnect with ReactJS.
@@ -92,65 +93,65 @@ npm install -D cra-webpack-rewired
 Create a `config/webpack.extend.js` file at the root of your app:
 
 ```js
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
-    dev: (config) => {
-        // Override webpack 5 config from react-scripts to load polyfills
-        if (!config.resolve) config.resolve = {};
-        if (!config.resolve.fallback) config.resolve.fallback = {};
-        Object.assign(config.resolve.fallback, {
-            buffer: require.resolve('buffer'),
-            crypto: require.resolve('crypto-browserify'),
-            stream: require.resolve('stream-browserify'),
-        });
+  dev: (config) => {
+    // Override webpack 5 config from react-scripts to load polyfills
+    if (!config.resolve) config.resolve = {};
+    if (!config.resolve.fallback) config.resolve.fallback = {};
+    Object.assign(config.resolve.fallback, {
+      buffer: require.resolve("buffer"),
+      crypto: require.resolve("crypto-browserify"),
+      stream: require.resolve("stream-browserify"),
+    });
 
-        if (!config.plugins) config.plugins = [];
-        config.plugins.push(
-            new webpack.DefinePlugin({
-                'process.env.ENV': JSON.stringify('dev'),
-            })
-        );
-        config.plugins.push(
-            new webpack.ProvidePlugin({
-                process: 'process/browser.js',
-                Buffer: ['buffer', 'Buffer'],
-            })
-        );
+    if (!config.plugins) config.plugins = [];
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        "process.env.ENV": JSON.stringify("dev"),
+      })
+    );
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        process: "process/browser.js",
+        Buffer: ["buffer", "Buffer"],
+      })
+    );
 
-        if (!config.ignoreWarnings) config.ignoreWarnings = [];
-        config.ignoreWarnings.push(/Failed to parse source map/);
+    if (!config.ignoreWarnings) config.ignoreWarnings = [];
+    config.ignoreWarnings.push(/Failed to parse source map/);
 
-        return config;
-    },
-    prod: (config) => {
-        // Override webpack 5 config from react-scripts to load polyfills
-        if (!config.resolve) config.resolve = {};
-        if (!config.resolve.fallback) config.resolve.fallback = {};
-        Object.assign(config.resolve.fallback, {
-            buffer: require.resolve('buffer'),
-            crypto: require.resolve('crypto-browserify'),
-            stream: require.resolve('stream-browserify'),
-        });
+    return config;
+  },
+  prod: (config) => {
+    // Override webpack 5 config from react-scripts to load polyfills
+    if (!config.resolve) config.resolve = {};
+    if (!config.resolve.fallback) config.resolve.fallback = {};
+    Object.assign(config.resolve.fallback, {
+      buffer: require.resolve("buffer"),
+      crypto: require.resolve("crypto-browserify"),
+      stream: require.resolve("stream-browserify"),
+    });
 
-        if (!config.plugins) config.plugins = [];
-        config.plugins.push(
-            new webpack.DefinePlugin({
-                'process.env.ENV': JSON.stringify('prod'),
-            })
-        );
-        config.plugins.push(
-            new webpack.ProvidePlugin({
-                process: 'process/browser.js',
-                Buffer: ['buffer', 'Buffer'],
-            })
-        );
+    if (!config.plugins) config.plugins = [];
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        "process.env.ENV": JSON.stringify("prod"),
+      })
+    );
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        process: "process/browser.js",
+        Buffer: ["buffer", "Buffer"],
+      })
+    );
 
-        if (!config.ignoreWarnings) config.ignoreWarnings = [];
-        config.ignoreWarnings.push(/Failed to parse source map/);
+    if (!config.ignoreWarnings) config.ignoreWarnings = [];
+    config.ignoreWarnings.push(/Failed to parse source map/);
 
-        return config;
-    },
+    return config;
+  },
 };
 ```
 
@@ -190,6 +191,7 @@ character not being valid, try cleaning up and re-installing your dependencies:
 rm -rf node_modules package-lock.json
 npm install
 ```
+
 {{< /hint >}}
 
 # Create Waku Instance
@@ -198,36 +200,36 @@ In order to interact with the Waku network, you first need a Waku instance.
 Go to `App.js` and modify the `App` function:
 
 ```js
-import {Waku} from 'js-waku';
-import * as React from 'react';
+import { Waku } from "js-waku";
+import * as React from "react";
 
 function App() {
-    const [waku, setWaku] = React.useState(undefined);
-    const [wakuStatus, setWakuStatus] = React.useState('None');
+  const [waku, setWaku] = React.useState(undefined);
+  const [wakuStatus, setWakuStatus] = React.useState("None");
 
-    // Start Waku
-    React.useEffect(() => {
-        // If Waku status not None, it means we are already starting Waku 
-        if (wakuStatus !== 'None') return;
+  // Start Waku
+  React.useEffect(() => {
+    // If Waku status not None, it means we are already starting Waku
+    if (wakuStatus !== "None") return;
 
-        setWakuStatus('Starting');
+    setWakuStatus("Starting");
 
-        // Create Waku
-        Waku.create({bootstrap: {default: true}}).then((waku) => {
-            // Once done, put it in the state
-            setWaku(waku);
-            // And update the status
-            setWakuStatus('Connecting');
-        });
-    }, [waku, wakuStatus]);
+    // Create Waku
+    Waku.create({ bootstrap: { default: true } }).then((waku) => {
+      // Once done, put it in the state
+      setWaku(waku);
+      // And update the status
+      setWakuStatus("Connecting");
+    });
+  }, [waku, wakuStatus]);
 
-    return (
-        <div className='App'>
-            <header className='App-header'>
-                <p>{wakuStatus}</p>
-            </header>
-        </div>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>{wakuStatus}</p>
+      </header>
+    </div>
+  );
 }
 
 export default App;
@@ -243,10 +245,10 @@ use the `Waku.waitForConnectedPeer()` async function:
 React.useEffect(() => {
   if (!waku) return;
 
-  if (wakuStatus === 'Connected') return;
+  if (wakuStatus === "Connected") return;
 
   waku.waitForConnectedPeer().then(() => {
-    setWakuStatus('Connected');
+    setWakuStatus("Connected");
   });
 }, [waku, wakuStatus]);
 ```
@@ -281,7 +283,7 @@ npm install protons
 Define the data structure with protons:
 
 ```js
-import protons from 'protons';
+import protons from "protons";
 
 const proto = protons(`
 message ChatMessage {
@@ -314,11 +316,10 @@ function decodeMessage(wakuMessage) {
   const time = new Date();
   time.setTime(timestamp);
 
-  const utf8Text = Buffer.from(text).toString('utf-8');
+  const utf8Text = Buffer.from(text).toString("utf-8");
 
   return { text: utf8Text, timestamp: time, nick };
 }
-
 ```
 
 ## Retrieve messages
@@ -355,32 +356,31 @@ const processMessages = (retrievedMessages) => {
 Pass `processMessage` in `WakuStore.queryHistory` as the `callback` value:
 
 ```js
-waku.store
-  .queryHistory([ContentTopic], { callback: processMessages });
+waku.store.queryHistory([ContentTopic], { callback: processMessages });
 ```
 
 Finally, create a `Messages` component to render the messages:
 
 ```tsx
 function Messages(props) {
-    return props.messages.map(({ text, timestamp, nick }) => {
-        return (
-            <li>
-                ({formatDate(timestamp)}) {nick}: {text}
-            </li>
-        );
-    });
+  return props.messages.map(({ text, timestamp, nick }) => {
+    return (
+      <li>
+        ({formatDate(timestamp)}) {nick}: {text}
+      </li>
+    );
+  });
 }
 
 function formatDate(timestamp) {
-    return timestamp.toLocaleString([], {
-        month: 'short',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-    });
+  return timestamp.toLocaleString([], {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
 }
 ```
 
@@ -391,8 +391,8 @@ function App() {
   // [..]
 
   return (
-    <div className='App'>
-      <header className='App-header'>
+    <div className="App">
+      <header className="App-header">
         <h2>{wakuStatus}</h2>
         <h3>Messages</h3>
         <ul>
@@ -407,11 +407,11 @@ function App() {
 All together, you should now have:
 
 ```js
-import {Waku} from 'js-waku';
-import * as React from 'react';
-import protons from 'protons';
+import { Waku } from "js-waku";
+import * as React from "react";
+import protons from "protons";
 
-const ContentTopic = '/toy-chat/2/huilong/proto';
+const ContentTopic = "/toy-chat/2/huilong/proto";
 
 const proto = protons(`
 message ChatMessage {
@@ -422,107 +422,106 @@ message ChatMessage {
 `);
 
 function App() {
-    const [waku, setWaku] = React.useState(undefined);
-    const [wakuStatus, setWakuStatus] = React.useState('None');
-    const [messages, setMessages] = React.useState([]);
+  const [waku, setWaku] = React.useState(undefined);
+  const [wakuStatus, setWakuStatus] = React.useState("None");
+  const [messages, setMessages] = React.useState([]);
 
-    // Start Waku
-    React.useEffect(() => {
-        // If Waku status not None, it means we are already starting Waku
-        if (wakuStatus !== 'None') return;
+  // Start Waku
+  React.useEffect(() => {
+    // If Waku status not None, it means we are already starting Waku
+    if (wakuStatus !== "None") return;
 
-        setWakuStatus('Starting');
+    setWakuStatus("Starting");
 
-        // Create Waku
-        Waku.create({bootstrap: {default: true}}).then((waku) => {
-            // Once done, put it in the state
-            setWaku(waku);
-            // And update the status
-            setWakuStatus('Connecting');
-        });
-    }, [waku, wakuStatus]);
+    // Create Waku
+    Waku.create({ bootstrap: { default: true } }).then((waku) => {
+      // Once done, put it in the state
+      setWaku(waku);
+      // And update the status
+      setWakuStatus("Connecting");
+    });
+  }, [waku, wakuStatus]);
 
+  React.useEffect(() => {
+    if (!waku) return;
 
-    React.useEffect(() => {
-        if (!waku) return;
+    if (wakuStatus === "Connected") return;
 
-        if (wakuStatus === 'Connected') return;
+    waku.waitForConnectedPeer().then(() => {
+      setWakuStatus("Connected");
+    });
+  }, [waku, wakuStatus]);
 
-        waku.waitForConnectedPeer().then(() => {
-            setWakuStatus('Connected');
-        });
-    }, [waku, wakuStatus]);
+  React.useEffect(() => {
+    if (wakuStatus !== "Connected") return;
 
-    React.useEffect(() => {
-        if (wakuStatus !== 'Connected') return;
+    const processMessages = (retrievedMessages) => {
+      const messages = retrievedMessages.map(decodeMessage).filter(Boolean);
 
-        const processMessages = (retrievedMessages) => {
-            const messages = retrievedMessages.map(decodeMessage).filter(Boolean);
+      setMessages((currentMessages) => {
+        return currentMessages.concat(messages.reverse());
+      });
+    };
 
-            setMessages((currentMessages) => {
-                return currentMessages.concat(messages.reverse());
-            });
-        };
+    waku.store
+      .queryHistory([ContentTopic], { callback: processMessages })
+      .catch((e) => {
+        console.log("Failed to retrieve messages", e);
+      });
+  }, [waku, wakuStatus]);
 
-        waku.store
-            .queryHistory([ContentTopic], {callback: processMessages})
-            .catch((e) => {
-                console.log('Failed to retrieve messages', e);
-            });
-    }, [waku, wakuStatus]);
-
-    return (
-        <div className='App'>
-            <header className='App-header'>
-                <h2>{wakuStatus}</h2>
-                <h3>Messages</h3>
-                <ul>
-                    <Messages messages={messages}/>
-                </ul>
-            </header>
-        </div>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h2>{wakuStatus}</h2>
+        <h3>Messages</h3>
+        <ul>
+          <Messages messages={messages} />
+        </ul>
+      </header>
+    </div>
+  );
 }
 
 export default App;
 
 function decodeMessage(wakuMessage) {
-    if (!wakuMessage.payload) return;
+  if (!wakuMessage.payload) return;
 
-    const {timestamp, nick, text} = proto.ChatMessage.decode(
-        wakuMessage.payload
-    );
+  const { timestamp, nick, text } = proto.ChatMessage.decode(
+    wakuMessage.payload
+  );
 
-    // All fields in protobuf are optional so be sure to check
-    if (!timestamp || !text || !nick) return;
+  // All fields in protobuf are optional so be sure to check
+  if (!timestamp || !text || !nick) return;
 
-    const time = new Date();
-    time.setTime(timestamp);
+  const time = new Date();
+  time.setTime(timestamp);
 
-    const utf8Text = Buffer.from(text).toString('utf-8');
+  const utf8Text = Buffer.from(text).toString("utf-8");
 
-    return {text: utf8Text, timestamp: time, nick};
+  return { text: utf8Text, timestamp: time, nick };
 }
 
 function Messages(props) {
-    return props.messages.map(({text, timestamp, nick}) => {
-        return (
-            <li>
-                ({formatDate(timestamp)}) {nick}: {text}
-            </li>
-        );
-    });
+  return props.messages.map(({ text, timestamp, nick }) => {
+    return (
+      <li>
+        ({formatDate(timestamp)}) {nick}: {text}
+      </li>
+    );
+  });
 }
 
 function formatDate(timestamp) {
-    return timestamp.toLocaleString([], {
-        month: 'short',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-    });
+  return timestamp.toLocaleString([], {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
 }
 ```
 
@@ -552,11 +551,10 @@ const startTime = new Date();
 // 7 days/week, 24 hours/day, 60min/hour, 60secs/min, 100ms/sec
 startTime.setTime(startTime.getTime() - 7 * 24 * 60 * 60 * 1000);
 
-waku.store
-  .queryHistory([ContentTopic], {
-    callback: processMessages,
-    timeFilter: { startTime, endTime: new Date() }
-  });
+waku.store.queryHistory([ContentTopic], {
+  callback: processMessages,
+  timeFilter: { startTime, endTime: new Date() },
+});
 ```
 
 ## End result

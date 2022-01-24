@@ -3,6 +3,7 @@ title: Sign Messages Using Waku Message Version 1
 date: 2021-12-09T14:00:00+01:00
 weight: 5
 ---
+
 # Sign Messages Using Waku Message Version 1
 
 The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
@@ -19,7 +20,7 @@ See [Cryptographic Libraries](/docs/crypto_libraries/) for more details on the c
 Generate a new keypair to sign your messages:
 
 ```ts
-import { generatePrivateKey, getPublicKey } from 'js-waku';
+import { generatePrivateKey, getPublicKey } from "js-waku";
 
 const privateKey = generatePrivateKey();
 const publicKey = getPublicKey(privateKey);
@@ -37,11 +38,11 @@ You can learn more about encryption at [Encrypt Messages Using Waku Message Vers
 Given `symKey` the symmetric key used for encryption:
 
 ```ts
-import { WakuMessage } from 'js-waku';
+import { WakuMessage } from "js-waku";
 
 const message = await WakuMessage.fromBytes(payload, myAppContentTopic, {
   encPublicKey: symKey,
-  sigPrivKey: privateKey
+  sigPrivKey: privateKey,
 });
 ```
 
@@ -49,12 +50,10 @@ If encryption is not needed for your use case,
 then you can create a symmetric key from the content topic:
 
 ```ts
-import { hexToBuf } from 'js-waku/lib/utils';
-import { keccak256 } from 'ethers/lib/utils';
+import { hexToBuf } from "js-waku/lib/utils";
+import { keccak256 } from "ethers/lib/utils";
 
-const symKey = hexToBuf(
-  keccak256(Buffer.from(myAppContentTopic, 'utf-8'))
-);
+const symKey = hexToBuf(keccak256(Buffer.from(myAppContentTopic, "utf-8")));
 ```
 
 `symKey` can then be used to encrypt and decrypt messages on `myAppContentTopic` content topic.
@@ -62,14 +61,14 @@ Read [How to Choose a Content Topic](/docs/guides/01_choose_content_topic/) to l
 
 ### Using asymmetric encryption
 
-Given `recipientPublicKey` the public key of the message's recipient: 
+Given `recipientPublicKey` the public key of the message's recipient:
 
 ```ts
-import { WakuMessage } from 'js-waku';
+import { WakuMessage } from "js-waku";
 
 const message = await WakuMessage.fromBytes(payload, myAppContentTopic, {
   encPublicKey: recipientPublicKey,
-  sigPrivKey: privateKey
+  sigPrivKey: privateKey,
 });
 ```
 
@@ -86,13 +85,13 @@ As comparing hex string can lead to issues (is the `0x` prefix present?),
 simply use helper function `equalByteArrays`.
 
 ```ts
-import { equalByteArrays } from 'js-waku/lib/utils';
+import { equalByteArrays } from "js-waku/lib/utils";
 
 const sigPubKey = wakuMessage.signaturePublicKey;
 
 const isSignedByAlice = sigPubKey && equalByteArrays(sigPubKey, alicePublicKey);
 
 if (!isSignedByAlice) {
-    // Message is not signed by Alice
+  // Message is not signed by Alice
 }
 ```

@@ -3,6 +3,7 @@ title: Send Messages Using Waku Light Push
 date: 2021-12-09T14:00:00+01:00
 weight: 6
 ---
+
 # Send Messages Using Waku Light Push
 
 Waku Light Push enables a client to receive a confirmation when sending a message.
@@ -40,22 +41,22 @@ npm install js-waku
 In order to interact with the Waku network, you first need a Waku instance:
 
 ```js
-import {Waku} from 'js-waku';
+import { Waku } from "js-waku";
 
-const wakuNode = await Waku.create({bootstrap: {default: true}});
+const wakuNode = await Waku.create({ bootstrap: { default: true } });
 ```
 
 Passing the `bootstrap` option will connect your node to predefined Waku nodes.
 If you want to bootstrap to your own nodes, you can pass an array of multiaddresses instead:
 
 ```js
-import { Waku } from 'js-waku';
+import { Waku } from "js-waku";
 
 const waku = await Waku.create({
   bootstrap: [
-    '/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm',
-    '/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ'
-  ]
+    "/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm",
+    "/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ",
+  ],
 });
 ```
 
@@ -80,12 +81,15 @@ The peer is selected among the dApp's connected peers.
 If the dApp is not connected to any light push peer, an error is thrown.
 
 ```ts
-import {WakuMessage} from 'js-waku';
+import { WakuMessage } from "js-waku";
 
-const wakuMessage = await WakuMessage.fromUtf8String('Here is a message', `/light-push-guide/1/guide/proto`);
+const wakuMessage = await WakuMessage.fromUtf8String(
+  "Here is a message",
+  `/light-push-guide/1/guide/proto`
+);
 
 const ack = await waku.lightPush.push(wakuMessage);
 if (!ack?.isSuccess) {
-    // Message was not sent
+  // Message was not sent
 }
 ```

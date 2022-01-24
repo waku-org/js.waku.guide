@@ -15,11 +15,13 @@ If we are aware of other projects using js-waku and other use cases that could b
 feel free to open a [PR](https://github.com/vacp2p/docs.wakuconnect.dev).
 
 Legend:
+
 - _Live_: We are aware of projects who have implemented this use case.
 - _SDK Available_: An SDK is available to easily implement this use case.
 - _Work In Progress_: We are aware of projects working to implement this use case.
 - _Proof of Concept_: A Proof of concept was created, sometimes as part of a hackathon.
 - _Idea_: This is an unexplored use case, more research and work may be needed.
+
 ---
 
 {{< columns >}}
@@ -27,7 +29,7 @@ Legend:
 ## Chat Messenger
 
 | _Work In Progress_ |
-|--------------------|
+| ------------------ |
 
 Waku can be used as the communication layer to a private, decentralized, censorship-resistant messenger.
 
@@ -38,7 +40,7 @@ Waku can be used as the communication layer to a private, decentralized, censors
 ## Polls
 
 | _SDK Available_ |
-|-----------------|
+| --------------- |
 
 Create, answer and view polls which are censorship-resistant.
 
@@ -51,7 +53,7 @@ Create, answer and view polls which are censorship-resistant.
 ## NFT Marketplace
 
 | _Live_ |
-|--------|
+| ------ |
 
 Use Waku to take NFT bids and offers off-chain and save gas.
 Add a social media layer, allowing NFT owners to like, comments, etc.
@@ -67,7 +69,7 @@ Add a social media layer, allowing NFT owners to like, comments, etc.
 ## State Channels
 
 | _Idea_ |
-|--------|
+| ------ |
 
 Use Waku to enable two parties to setup and maintain a state channel.
 
@@ -78,7 +80,7 @@ Use Waku to enable two parties to setup and maintain a state channel.
 ## Voting and Proposals
 
 | _SDK Available_ |
-|-----------------|
+| --------------- |
 
 For proposals submitted on the blockchain,
 exchange votes over Waku to save gas.
@@ -95,7 +97,7 @@ Create, answer and view polls which are censorship-resistant.
 ## Signature Exchange for Multi-Sig Wallets
 
 | _Idea_ |
-|--------|
+| ------ |
 
 Use Waku to enable several owners of a given multi-sig wallets to exchange signatures in a decentralized,
 private & censorship-resistant manner to approve transactions.
@@ -109,7 +111,7 @@ private & censorship-resistant manner to approve transactions.
 ## Gameplay Communication
 
 | _Proof of Concept_ |
-|--------------------|
+| ------------------ |
 
 Use Waku as the communication layer for a peer-to-peer, decentralize game.
 Remove the need of a centralized infrastructure for gameplay communications.
@@ -121,7 +123,7 @@ Remove the need of a centralized infrastructure for gameplay communications.
 ## dApp to Wallet Communication
 
 | _Live_ |
-|--------|
+| ------ |
 
 Communication between a user's wallet and a dApp can be used by dApp operators to notify users
 (e.g. governance token holders get notified to vote on a proposal),
@@ -135,7 +137,7 @@ or for a dApp to request transaction signature to the wallet.
 ## Layer 2 Communication
 
 | _Idea_ |
-|--------|
+| ------ |
 
 Use Waku as an existing communication network to broadcast and aggregate layer 2 transactions.
 Possibly increasing privacy, anonymity and resilience.
@@ -149,7 +151,7 @@ Possibly increasing privacy, anonymity and resilience.
 ## Generalized Marketplace
 
 | _Proof of Concept_ |
-|--------------------|
+| ------------------ |
 
 Use Waku to enable users to offer, bid, accept and trade goods and services
 to create a ride-sharing or tradings apps.
@@ -163,7 +165,7 @@ to create a ride-sharing or tradings apps.
 ## Social Media Platform
 
 | _Idea_ |
-|--------|
+| ------ |
 
 [Chat Messenger](#chat-messenger) is one form of social media that can be empowered by Waku to be decentralized
 and censorship-resistant.

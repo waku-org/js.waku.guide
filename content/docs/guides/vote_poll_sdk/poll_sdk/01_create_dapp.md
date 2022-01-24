@@ -13,7 +13,6 @@ Install the Waku Poll SDK packages.
 
 In this guide, we use [useDApp](https://usedapp.io/) to access the blockchain.
 
-
 ```shell
 yarn create react-app poll-dapp-ts --template typescript
 cd poll-dapp-ts
@@ -64,29 +63,28 @@ yarn add -D react-app-rewired
 Create a `config-overrides.js` file at the root of your app:
 
 ```js
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = (config) => {
+  // Override webpack 5 config from react-scripts to load polyfills
+  if (!config.resolve) config.resolve = {};
+  if (!config.resolve.fallback) config.resolve.fallback = {};
+  Object.assign(config.resolve.fallback, {
+    buffer: require.resolve("buffer"),
+    crypto: require.resolve("crypto-browserify"),
+    stream: require.resolve("stream-browserify"),
+    assert: require.resolve("assert"),
+  });
 
-    // Override webpack 5 config from react-scripts to load polyfills
-    if (!config.resolve) config.resolve = {};
-    if (!config.resolve.fallback) config.resolve.fallback = {};
-    Object.assign(config.resolve.fallback, {
-            "buffer": require.resolve("buffer"),
-            "crypto": require.resolve("crypto-browserify"),
-            "stream": require.resolve("stream-browserify"),
-            "assert": require.resolve("assert")
-        }
-    )
+  if (!config.plugins) config.plugins = [];
+  config.plugins.push(
+    new webpack.ProvidePlugin({
+      Buffer: ["buffer", "Buffer"],
+    })
+  );
 
-    if (!config.plugins) config.plugins = []
-    config.plugins.push(
-        new webpack.ProvidePlugin({
-            Buffer: ['buffer', 'Buffer'],
-        }));
-
-    return config;
-}
+  return config;
+};
 ```
 
 Use `react-app-rewired` in the `package.json`, instead of `react-scripts`:

@@ -3,10 +3,11 @@ title: Receive and Send Messages Using Waku Relay With ReactJS
 date: 2021-12-09T14:00:00+01:00
 weight: 7
 ---
+
 # Receive and Send Messages Using Waku Relay With ReactJS
 
 It is easy to use WakuConnect with ReactJS.
-In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages. 
+In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 
 Before starting, you need to choose a _Content Topic_ for your dApp.
 Check out the [how to choose a content topic guide](/docs/guides/01_choose_content_topic/) to learn more about content topics.
@@ -76,65 +77,65 @@ npm install -D cra-webpack-rewired
 Create a `config/webpack.extend.js` file at the root of your app:
 
 ```js
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
-    dev: (config) => {
-        // Override webpack 5 config from react-scripts to load polyfills
-        if (!config.resolve) config.resolve = {};
-        if (!config.resolve.fallback) config.resolve.fallback = {};
-        Object.assign(config.resolve.fallback, {
-            buffer: require.resolve('buffer'),
-            crypto: require.resolve('crypto-browserify'),
-            stream: require.resolve('stream-browserify'),
-        });
+  dev: (config) => {
+    // Override webpack 5 config from react-scripts to load polyfills
+    if (!config.resolve) config.resolve = {};
+    if (!config.resolve.fallback) config.resolve.fallback = {};
+    Object.assign(config.resolve.fallback, {
+      buffer: require.resolve("buffer"),
+      crypto: require.resolve("crypto-browserify"),
+      stream: require.resolve("stream-browserify"),
+    });
 
-        if (!config.plugins) config.plugins = [];
-        config.plugins.push(
-            new webpack.DefinePlugin({
-                'process.env.ENV': JSON.stringify('dev'),
-            })
-        );
-        config.plugins.push(
-            new webpack.ProvidePlugin({
-                process: 'process/browser.js',
-                Buffer: ['buffer', 'Buffer'],
-            })
-        );
+    if (!config.plugins) config.plugins = [];
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        "process.env.ENV": JSON.stringify("dev"),
+      })
+    );
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        process: "process/browser.js",
+        Buffer: ["buffer", "Buffer"],
+      })
+    );
 
-        if (!config.ignoreWarnings) config.ignoreWarnings = [];
-        config.ignoreWarnings.push(/Failed to parse source map/);
+    if (!config.ignoreWarnings) config.ignoreWarnings = [];
+    config.ignoreWarnings.push(/Failed to parse source map/);
 
-        return config;
-    },
-    prod: (config) => {
-        // Override webpack 5 config from react-scripts to load polyfills
-        if (!config.resolve) config.resolve = {};
-        if (!config.resolve.fallback) config.resolve.fallback = {};
-        Object.assign(config.resolve.fallback, {
-            buffer: require.resolve('buffer'),
-            crypto: require.resolve('crypto-browserify'),
-            stream: require.resolve('stream-browserify'),
-        });
+    return config;
+  },
+  prod: (config) => {
+    // Override webpack 5 config from react-scripts to load polyfills
+    if (!config.resolve) config.resolve = {};
+    if (!config.resolve.fallback) config.resolve.fallback = {};
+    Object.assign(config.resolve.fallback, {
+      buffer: require.resolve("buffer"),
+      crypto: require.resolve("crypto-browserify"),
+      stream: require.resolve("stream-browserify"),
+    });
 
-        if (!config.plugins) config.plugins = [];
-        config.plugins.push(
-            new webpack.DefinePlugin({
-                'process.env.ENV': JSON.stringify('prod'),
-            })
-        );
-        config.plugins.push(
-            new webpack.ProvidePlugin({
-                process: 'process/browser.js',
-                Buffer: ['buffer', 'Buffer'],
-            })
-        );
+    if (!config.plugins) config.plugins = [];
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        "process.env.ENV": JSON.stringify("prod"),
+      })
+    );
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        process: "process/browser.js",
+        Buffer: ["buffer", "Buffer"],
+      })
+    );
 
-        if (!config.ignoreWarnings) config.ignoreWarnings = [];
-        config.ignoreWarnings.push(/Failed to parse source map/);
+    if (!config.ignoreWarnings) config.ignoreWarnings = [];
+    config.ignoreWarnings.push(/Failed to parse source map/);
 
-        return config;
-    },
+    return config;
+  },
 };
 ```
 
@@ -171,38 +172,38 @@ In order to interact with the Waku network, you first need a Waku instance.
 Go to `App.js` and modify the `App` function:
 
 ```js
-import {Waku} from 'js-waku';
-import * as React from 'react';
+import { Waku } from "js-waku";
+import * as React from "react";
 
 function App() {
-    const [waku, setWaku] = React.useState(undefined);
-    const [wakuStatus, setWakuStatus] = React.useState('None');
+  const [waku, setWaku] = React.useState(undefined);
+  const [wakuStatus, setWakuStatus] = React.useState("None");
 
-    // Start Waku
-    React.useEffect(() => {
-        // If Waku is already assigned, the job is done
-        if (!!waku) return;
-        // If Waku status not None, it means we are already starting Waku 
-        if (wakuStatus !== 'None') return;
+  // Start Waku
+  React.useEffect(() => {
+    // If Waku is already assigned, the job is done
+    if (!!waku) return;
+    // If Waku status not None, it means we are already starting Waku
+    if (wakuStatus !== "None") return;
 
-        setWakuStatus('Starting');
+    setWakuStatus("Starting");
 
-        // Create Waku
-        Waku.create({bootstrap: {default: true}}).then((waku) => {
-            // Once done, put it in the state
-            setWaku(waku);
-            // And update the status
-            setWakuStatus('Started');
-        });
-    }, [waku, wakuStatus]);
+    // Create Waku
+    Waku.create({ bootstrap: { default: true } }).then((waku) => {
+      // Once done, put it in the state
+      setWaku(waku);
+      // And update the status
+      setWakuStatus("Started");
+    });
+  }, [waku, wakuStatus]);
 
-    return (
-        <div className='App'>
-            <header className='App-header'>
-                <p>Waku node's status: {wakuStatus}</p>
-            </header>
-        </div>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>Waku node's status: {wakuStatus}</p>
+      </header>
+    </div>
+  );
 }
 
 export default App;
@@ -216,18 +217,18 @@ use the `Waku.waitForConnectedPeer()` async function:
 
 ```js
 React.useEffect(() => {
-    if (!!waku) return;
-    if (wakuStatus !== 'None') return;
+  if (!!waku) return;
+  if (wakuStatus !== "None") return;
 
-    setWakuStatus('Starting');
+  setWakuStatus("Starting");
 
-    Waku.create({bootstrap: {default: true}}).then((waku) => {
-        setWaku(waku);
-        setWakuStatus('Connecting');
-        waku.waitForConnectedPeer().then(() => {
-            setWakuStatus('Ready');
-        });
+  Waku.create({ bootstrap: { default: true } }).then((waku) => {
+    setWaku(waku);
+    setWakuStatus("Connecting");
+    waku.waitForConnectedPeer().then(() => {
+      setWakuStatus("Ready");
     });
+  });
 }, [waku, wakuStatus]);
 ```
 
@@ -243,7 +244,7 @@ npm install protons
 Define `SimpleChatMessage` with two fields: `timestamp` and `text`.
 
 ```js
-import protons from 'protons';
+import protons from "protons";
 
 const proto = protons(`
 message SimpleChatMessage {
@@ -258,7 +259,7 @@ message SimpleChatMessage {
 Create a function that takes the Waku instance and a message to send:
 
 ```js
-import { WakuMessage } from 'js-waku';
+import { WakuMessage } from "js-waku";
 
 const ContentTopic = `/relay-reactjs-chat/1/chat/proto`;
 
@@ -268,7 +269,7 @@ function sendMessage(message, waku, timestamp) {
   // Encode to protobuf
   const payload = proto.SimpleChatMessage.encode({
     timestamp: time,
-    text: message
+    text: message,
   });
 
   // Wrap in a Waku Message
@@ -284,20 +285,20 @@ Then, add a button to the `App` function:
 ```js
 function App() {
   const [waku, setWaku] = React.useState(undefined);
-  const [wakuStatus, setWakuStatus] = React.useState('None');
+  const [wakuStatus, setWakuStatus] = React.useState("None");
   // Using a counter just for the messages to be different
   const [sendCounter, setSendCounter] = React.useState(0);
-  
+
   React.useEffect(() => {
     // ... creates Waku
   }, [waku, wakuStatus]);
 
   const sendMessageOnClick = () => {
     // Check Waku is started and connected first.
-    if (wakuStatus !== 'Ready') return;
+    if (wakuStatus !== "Ready") return;
 
     sendMessage(`Here is message #${sendCounter}`, waku, new Date()).then(() =>
-      console.log('Message sent')
+      console.log("Message sent")
     );
 
     // For demonstration purposes.
@@ -308,7 +309,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>{wakuStatus}</p>
-        <button onClick={sendMessageOnClick} disabled={wakuStatus !== 'Ready'}>
+        <button onClick={sendMessageOnClick} disabled={wakuStatus !== "Ready"}>
           Send Message
         </button>
       </header>
@@ -393,6 +394,7 @@ function App() {
   // ...
 }
 ```
+
 Then, render the messages:
 
 ```js
@@ -403,7 +405,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>{wakuStatus}</p>
-        <button onClick={sendMessageOnClick} disabled={wakuStatus !== 'Ready'}>
+        <button onClick={sendMessageOnClick} disabled={wakuStatus !== "Ready"}>
           Send Message
         </button>
         <ul>

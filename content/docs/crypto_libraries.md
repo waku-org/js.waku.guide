@@ -3,10 +3,10 @@ title: Cryptographic Libraries
 date: 2021-12-09T14:00:00+01:00
 weight: 50
 ---
+
 # Cryptographic Libraries
 
 A note on the cryptographic libraries used as it is a not a straightforward affair.
-
 
 ## Asymmetric encryption
 
@@ -14,7 +14,6 @@ Uses [ecies-geth](https://github.com/cyrildever/ecies-geth/)
 which in turns uses [SubtleCrypto](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto) Web API (browser),
 [secp256k1](https://www.npmjs.com/package/secp256k1) (native binding for node)
 or [elliptic](https://www.npmjs.com/package/elliptic) (pure JS if none of the other libraries are available).
-
 
 ## Symmetric encryption
 

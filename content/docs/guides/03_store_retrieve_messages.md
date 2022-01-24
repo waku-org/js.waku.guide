@@ -3,6 +3,7 @@ title: Retrieve Messages Using Waku Store
 date: 2021-12-09T14:00:00+01:00
 weight: 3
 ---
+
 # Retrieve Messages Using Waku Store
 
 DApps running on a phone or in a browser are often offline:
@@ -40,22 +41,22 @@ npm install js-waku
 In order to interact with the Waku network, you first need a Waku instance:
 
 ```js
-import {Waku} from 'js-waku';
+import { Waku } from "js-waku";
 
-const wakuNode = await Waku.create({bootstrap: {default: true}});
+const wakuNode = await Waku.create({ bootstrap: { default: true } });
 ```
 
 Passing the `bootstrap` option will connect your node to predefined Waku nodes.
 If you want to bootstrap to your own nodes, you can pass an array of multiaddresses instead:
 
 ```js
-import { Waku } from 'js-waku';
+import { Waku } from "js-waku";
 
 const wakuNode = await Waku.create({
   bootstrap: [
-    '/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm',
-    '/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ'
-  ]
+    "/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm",
+    "/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ",
+  ],
 });
 ```
 
@@ -103,7 +104,7 @@ npm install protons
 Then specify the data structure:
 
 ```js
-import protons from 'protons';
+import protons from "protons";
 
 const proto = protons(`
 message ArticleMessage {
@@ -150,7 +151,7 @@ The `WakuStore.queryHistory` API automatically query all the pages in a sequenti
 To process messages as soon as they received (page by page), use the `callback` option:
 
 ```js
-const ContentTopic = '/store-guide/1/news/proto';
+const ContentTopic = "/store-guide/1/news/proto";
 
 const callback = (retrievedMessages) => {
   const articles = retrievedMessages
@@ -160,12 +161,10 @@ const callback = (retrievedMessages) => {
   console.log(`${articles.length} articles have been retrieved`);
 };
 
-waku.store
-  .queryHistory([ContentTopic], { callback })
-  .catch((e) => {
-    // Catch any potential error
-    console.log('Failed to retrieve messages from store', e);
-  });
+waku.store.queryHistory([ContentTopic], { callback }).catch((e) => {
+  // Catch any potential error
+  console.log("Failed to retrieve messages from store", e);
+});
 ```
 
 Note that `WakuStore.queryHistory` select an available store node for you.
@@ -195,10 +194,10 @@ startTime.setTime(startTime.getTime() - 7 * 24 * 60 * 60 * 1000);
 waku.store
   .queryHistory([ContentTopic], {
     callback,
-    timeFilter: { startTime, endTime: new Date() }
+    timeFilter: { startTime, endTime: new Date() },
   })
   .catch((e) => {
-    console.log('Failed to retrieve messages from store', e);
+    console.log("Failed to retrieve messages from store", e);
   });
 ```
 

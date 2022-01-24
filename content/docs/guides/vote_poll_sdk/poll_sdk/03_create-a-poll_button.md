@@ -20,7 +20,7 @@ touch components/Poll.tsx
 Again, create a `Wrapper` for styling:
 
 ```tsx
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
   @media (max-width: 425px) {
     padding: 96px 16px 84px;
   }
-`
+`;
 ```
 
 ## Button
@@ -56,67 +56,74 @@ Upon clicking the button, we set `showPollCreation` to true.
 `showPollCreation` will control when to render the poll creation modal.
 
 `components/Poll.tsx`:
+
 ```tsx
-import {useState} from 'react'
-import {JsonRpcSigner, Web3Provider} from '@ethersproject/providers'
-import {CreateButton} from '@waku/vote-poll-sdk-react-components'
-import {Theme} from '@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes'
+import { useState } from "react";
+import { JsonRpcSigner, Web3Provider } from "@ethersproject/providers";
+import { CreateButton } from "@waku/vote-poll-sdk-react-components";
+import { Theme } from "@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes";
 
 type PollProps = {
-    signer: JsonRpcSigner | undefined
-    theme: Theme
-}
+  signer: JsonRpcSigner | undefined;
+  theme: Theme;
+};
 
-export function Poll({signer, theme}: PollProps) {
-    const [showPollCreation, setShowPollCreation] = useState(false)
+export function Poll({ signer, theme }: PollProps) {
+  const [showPollCreation, setShowPollCreation] = useState(false);
 
-    const disabled = !signer;
+  const disabled = !signer;
 
-    return (
-        <Wrapper>
-            {
-                <CreateButton style={{backgroundColor: disabled ? "lightgrey" : theme.primaryColor}} theme={theme}
-                              disabled={disabled}
-                              onClick={() => setShowPollCreation(true)}>
-                    Create a poll
-                </CreateButton>
-            }
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      {
+        <CreateButton
+          style={{
+            backgroundColor: disabled ? "lightgrey" : theme.primaryColor,
+          }}
+          theme={theme}
+          disabled={disabled}
+          onClick={() => setShowPollCreation(true)}
+        >
+          Create a poll
+        </CreateButton>
+      }
+    </Wrapper>
+  );
 }
 ```
 
 Now update the `PollPage` component to render the new `Poll` component:
 
 `index.tsx`:
+
 ```tsx
 export function PollPage() {
-    const {account, library, activateBrowserWallet, deactivate} = useEthers()
-    const [signer, setSigner] = useState<undefined | JsonRpcSigner>(undefined)
+  const { account, library, activateBrowserWallet, deactivate } = useEthers();
+  const [signer, setSigner] = useState<undefined | JsonRpcSigner>(undefined);
 
-    useEffect(() => {
-        if (account) {
-            setSigner(library?.getSigner())
-        } else {
-            // Deactivate signer if signed out
-            setSigner(undefined)
-        }
-    }, [account])
+  useEffect(() => {
+    if (account) {
+      setSigner(library?.getSigner());
+    } else {
+      // Deactivate signer if signed out
+      setSigner(undefined);
+    }
+  }, [account]);
 
-    return (
-        <div>
-            <TopBar
-                logo={""}
-                logoWidth={84}
-                title={'Poll dApp'}
-                theme={orangeTheme}
-                activate={activateBrowserWallet}
-                account={account}
-                deactivate={deactivate}
-            />
-            <Poll theme={orangeTheme} signer={signer}/>
-        </div>
-    )
+  return (
+    <div>
+      <TopBar
+        logo={""}
+        logoWidth={84}
+        title={"Poll dApp"}
+        theme={orangeTheme}
+        activate={activateBrowserWallet}
+        account={account}
+        deactivate={deactivate}
+      />
+      <Poll theme={orangeTheme} signer={signer} />
+    </div>
+  );
 }
 ```
 
