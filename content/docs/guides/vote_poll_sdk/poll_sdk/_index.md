@@ -20,4 +20,13 @@ Here is a preview of the end result:
 
 ![Poll demo](/assets/poll_sdk/wakuconnect-poll-demo.gif)
 
-{{< button relref="./01_create_dapp"  >}}Get Started{{< /button >}}
+After following a dapp creation guide you should have a dapp that can connect to wallet ready. We will continue from this point.
+
+Before starting first add poll packages:
+
+```shell
+yarn add \
+@waku/poll-sdk-react-components @waku/poll-sdk-react-hooks @waku/vote-poll-sdk-react-components
+```
+
+{{< button relref="./01_create-a-poll_button"  >}}Get Started{{< /button >}}

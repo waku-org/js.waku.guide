@@ -21,4 +21,13 @@ Here is a preview of the end result:
 
 TODO
 
-{{< button relref="./01_create_dapp"  >}}Get Started{{< /button >}}
+After following a dapp creation guide you should have a dapp that can connect to wallet ready. We will continue from this point.
+
+Before starting first add poll packages:
+
+```shell
+yarn add \
+@waku/vote-sdk-react-components @waku/vote-sdk-react-hooks @waku/vote-poll-sdk-react-components 
+```
+
+{{< button relref="./01_deploying_smart_contract"  >}}Get Started{{< /button >}}
