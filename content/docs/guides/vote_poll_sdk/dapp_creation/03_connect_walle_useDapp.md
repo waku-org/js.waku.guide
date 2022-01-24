@@ -22,7 +22,7 @@ yarn add @usedapp/core@0.4.7
 {{< hint warning >}}
 `@usedapp/core` must be frozen to version `0.4.7` due to incompatibility between minor versions of `ethers`.
 
-WakuConnect Vote & Poll SDK will be upgraded to the latest version of `@usedapp/core` and `ethers` once `ethereum-waffle`
+Waku Connect Vote & Poll SDK will be upgraded to the latest version of `@usedapp/core` and `ethers` once `ethereum-waffle`
 is released with the [latest version of `ethers`](https://github.com/EthWorks/Waffle/pull/603).
 {{< /hint >}}
 
@@ -75,29 +75,6 @@ export function PollPage() {
 Create a `config` variable that contains the Ethereum network parameters:
 
 ```tsx
-<<<<<<< HEAD:content/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet.md
-import { ChainId, DAppProvider, useEthers } from "@usedapp/core";
-import { DEFAULT_CONFIG } from "@usedapp/core/dist/cjs/src/model/config/default";
-
-const config = {
-  readOnlyChainId: ChainId.Mainnet,
-  readOnlyUrls: {
-    [ChainId.Mainnet]: "https://mainnet.infura.io/v3/your-infura-token",
-  },
-  multicallAddresses: {
-    1: "0xeefba1e63905ef1d7acba5a8513c70307c1ce441",
-    3: "0x53c43764255c17bd724f74c4ef150724ac50a3ed",
-    1337:
-      process.env.GANACHE_MULTICALL_CONTRACT ??
-      "0x0000000000000000000000000000000000000000",
-  },
-  supportedChains: [...DEFAULT_CONFIG.supportedChains, 1337],
-  notifications: {
-    checkInterval: 500,
-    expirationPeriod: 50000,
-  },
-};
-=======
 import {ChainId, DAppProvider, useEthers} from '@usedapp/core';
 
 const config = {
@@ -114,7 +91,6 @@ const config = {
         expirationPeriod: 50000,
     },
 }
->>>>>>> d4eb7a0 (Change poll docs and add voting docs):content/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_useDapp.md
 ```
 
 Replace `your-infura-token` with your [Infura API token](https://infura.io/docs/ethereum).
@@ -138,17 +114,6 @@ const Wrapper = styled.div`
 Finally, create the `App` component:
 
 ```tsx
-<<<<<<< HEAD
-export function App() {
-  return (
-    <Wrapper>
-      <GlobalStyle />
-      <DAppProvider config={config}>
-        <PollPage />
-      </DAppProvider>
-    </Wrapper>
-  );
-=======
 function App() {
     return (
         <Wrapper>
@@ -158,7 +123,6 @@ function App() {
             </DAppProvider>
         </Wrapper>
     )
->>>>>>> 8ce7ef5 (Remove exports and infura token)
 }
 ```
 
@@ -242,5 +206,4 @@ ReactDOM.render(
 );
 ```
 
-{{< button relref="./01_create_dapp"  >}}Back{{< /button >}}
-{{< button relref="./03_create-a-poll_button"  >}}Next: Create-A-Poll Button{{< /button >}}
+{{< button relref="./02_connect_wallet"  >}}Back{{< /button >}}

@@ -41,6 +41,14 @@ Use `TopBar` component to display wallet information.
 For that, create a `PollPage` component that includes the top bar and will include the poll elements.
 The component uses `ethers` to connect to the user's wallet:
 
+`MULTICALL_ADDRESS` is an address to mutical smart contract that allows aggregating multiple contract calls into one, thus reducing number of calls to blockchain needed.
+
+Example multicall addresses: 
+    - Mainnet: `0xeefba1e63905ef1d7acba5a8513c70307c1ce441`,
+    - Ropsten: `0x53c43764255c17bd724f74c4ef150724ac50a3ed`
+
+But if you want you can deploy your own multicall smart contract.
+
 ```tsx
 const MULTICALL_ADDRESS = '0xeefba1e63905ef1d7acba5a8513c70307c1ce441'
 const SUPPORTED_CHAIN_ID = 1
@@ -110,7 +118,6 @@ import { BrowserRouter, useLocation } from 'react-router-dom'
 import { Route, Switch } from 'react-router'
 import { useWeb3Connect } from './hooks/useWeb3Connect'
 
-const TOKEN_ADDRESS = '0x744d70FDBE2Ba4CF95131626614a1763DF805B9E'
 const MULTICALL_ADDRESS = '0xeefba1e63905ef1d7acba5a8513c70307c1ce441'
 const SUPPORTED_CHAIN_ID = 1
 

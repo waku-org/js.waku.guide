@@ -68,46 +68,11 @@ Then pass them in `MainPage`.
 In this example, we use `demo-poll-dapp` for the app name and the mainnet SNT token contract for the token address.
 Replace those with your own.
 
+`TOKEN_ADDRESS` can be any ERC20 token that will be used to token gate people from voting and creating polls.
+
 `index.tsx`
 
 ```tsx
-<<<<<<< HEAD:content/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation.md
-export function PollPage() {
-  const { account, library, activateBrowserWallet, deactivate, chainId } =
-    useEthers();
-  const [signer, setSigner] = useState<undefined | JsonRpcSigner>(undefined);
-
-  useEffect(() => {
-    if (account) {
-      setSigner(library?.getSigner());
-    } else {
-      // Deactivate signer if signed out
-      setSigner(undefined);
-    }
-  }, [account]);
-
-  return (
-    <div>
-      <TopBar
-        logo={""}
-        logoWidth={84}
-        title={"Poll dApp"}
-        theme={orangeTheme}
-        activate={activateBrowserWallet}
-        account={account}
-        deactivate={deactivate}
-      />
-      <Poll
-        theme={orangeTheme}
-        appName={"demo-poll-dapp"}
-        library={library}
-        signer={signer}
-        chainId={chainId}
-        tokenAddress={"0x744d70FDBE2Ba4CF95131626614a1763DF805B9E"}
-      />
-    </div>
-  );
-=======
 const TOKEN_ADDRESS = '0x744d70FDBE2Ba4CF95131626614a1763DF805B9E'
 const MULTICALL_ADDRESS = '0xeefba1e63905ef1d7acba5a8513c70307c1ce441'
 export function MainPage() {
@@ -134,7 +99,6 @@ export function MainPage() {
             />
         </div>
     )
->>>>>>> d4eb7a0 (Change poll docs and add voting docs):content/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation.md
 }
 ```
 
