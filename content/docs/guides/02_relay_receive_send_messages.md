@@ -26,9 +26,9 @@ npm install js-waku
 In order to interact with the Waku network, you first need a Waku instance:
 
 ```js
-import { Waku } from 'js-waku';
+import {Waku} from 'js-waku';
 
-const waku = await Waku.create({ bootstrap: true });
+const waku = await Waku.create({bootstrap: {default: true}});
 ```
 
 Passing the `bootstrap` option will connect your node to predefined Waku nodes.

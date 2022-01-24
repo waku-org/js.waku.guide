@@ -171,38 +171,38 @@ In order to interact with the Waku network, you first need a Waku instance.
 Go to `App.js` and modify the `App` function:
 
 ```js
-import { Waku } from 'js-waku';
+import {Waku} from 'js-waku';
 import * as React from 'react';
 
 function App() {
-  const [waku, setWaku] = React.useState(undefined);
-  const [wakuStatus, setWakuStatus] = React.useState('None');
+    const [waku, setWaku] = React.useState(undefined);
+    const [wakuStatus, setWakuStatus] = React.useState('None');
 
-  // Start Waku
-  React.useEffect(() => {
-    // If Waku is already assigned, the job is done
-    if (!!waku) return;
-    // If Waku status not None, it means we are already starting Waku 
-    if (wakuStatus !== 'None') return;
+    // Start Waku
+    React.useEffect(() => {
+        // If Waku is already assigned, the job is done
+        if (!!waku) return;
+        // If Waku status not None, it means we are already starting Waku 
+        if (wakuStatus !== 'None') return;
 
-    setWakuStatus('Starting');
+        setWakuStatus('Starting');
 
-    // Create Waku
-    Waku.create({ bootstrap: true }).then((waku) => {
-      // Once done, put it in the state
-      setWaku(waku);
-      // And update the status
-      setWakuStatus('Started');
-    });
-  }, [waku, wakuStatus]);
+        // Create Waku
+        Waku.create({bootstrap: {default: true}}).then((waku) => {
+            // Once done, put it in the state
+            setWaku(waku);
+            // And update the status
+            setWakuStatus('Started');
+        });
+    }, [waku, wakuStatus]);
 
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <p>Waku node's status: {wakuStatus}</p>
-      </header>
-    </div>
-  );
+    return (
+        <div className='App'>
+            <header className='App-header'>
+                <p>Waku node's status: {wakuStatus}</p>
+            </header>
+        </div>
+    );
 }
 
 export default App;
@@ -216,18 +216,18 @@ use the `Waku.waitForConnectedPeer()` async function:
 
 ```js
 React.useEffect(() => {
-  if (!!waku) return;
-  if (wakuStatus !== 'None') return;
+    if (!!waku) return;
+    if (wakuStatus !== 'None') return;
 
-  setWakuStatus('Starting');
+    setWakuStatus('Starting');
 
-  Waku.create({ bootstrap: true }).then((waku) => {
-    setWaku(waku);
-    setWakuStatus('Connecting');
-    waku.waitForConnectedPeer().then(() => {
-      setWakuStatus('Ready');
+    Waku.create({bootstrap: {default: true}}).then((waku) => {
+        setWaku(waku);
+        setWakuStatus('Connecting');
+        waku.waitForConnectedPeer().then(() => {
+            setWakuStatus('Ready');
+        });
     });
-  });
 }, [waku, wakuStatus]);
 ```
 
