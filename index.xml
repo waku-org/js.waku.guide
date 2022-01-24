@@ -171,7 +171,7 @@ import {useState} from &amp;#39;react&amp;#39; import {useConfig} from &amp;#39;
       <description>Quick Start #  In this section you will learn how to receive and send messages using Waku Relay.
 A more in depth guide for Waku Relay can be found here.
 Install #  Install the js-waku package:
-npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import { Waku } from &amp;#39;js-waku&amp;#39;; const waku = await Waku.create({ bootstrap: true }); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
+npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import {Waku} from &amp;#39;js-waku&amp;#39;; const waku = await Waku.create({bootstrap: {default: true}}); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
     </item>
     
     <item>
