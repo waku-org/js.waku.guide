@@ -198,36 +198,36 @@ In order to interact with the Waku network, you first need a Waku instance.
 Go to `App.js` and modify the `App` function:
 
 ```js
-import { Waku } from 'js-waku';
+import {Waku} from 'js-waku';
 import * as React from 'react';
 
 function App() {
-  const [waku, setWaku] = React.useState(undefined);
-  const [wakuStatus, setWakuStatus] = React.useState('None');
+    const [waku, setWaku] = React.useState(undefined);
+    const [wakuStatus, setWakuStatus] = React.useState('None');
 
-  // Start Waku
-  React.useEffect(() => {
-    // If Waku status not None, it means we are already starting Waku 
-    if (wakuStatus !== 'None') return;
+    // Start Waku
+    React.useEffect(() => {
+        // If Waku status not None, it means we are already starting Waku 
+        if (wakuStatus !== 'None') return;
 
-    setWakuStatus('Starting');
+        setWakuStatus('Starting');
 
-    // Create Waku
-    Waku.create({ bootstrap: true }).then((waku) => {
-      // Once done, put it in the state
-      setWaku(waku);
-      // And update the status
-      setWakuStatus('Connecting');
-    });
-  }, [waku, wakuStatus]);
+        // Create Waku
+        Waku.create({bootstrap: {default: true}}).then((waku) => {
+            // Once done, put it in the state
+            setWaku(waku);
+            // And update the status
+            setWakuStatus('Connecting');
+        });
+    }, [waku, wakuStatus]);
 
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <p>{wakuStatus}</p>
-      </header>
-    </div>
-  );
+    return (
+        <div className='App'>
+            <header className='App-header'>
+                <p>{wakuStatus}</p>
+            </header>
+        </div>
+    );
 }
 
 export default App;
@@ -407,7 +407,7 @@ function App() {
 All together, you should now have:
 
 ```js
-import { Waku } from 'js-waku';
+import {Waku} from 'js-waku';
 import * as React from 'react';
 import protons from 'protons';
 
@@ -434,7 +434,7 @@ function App() {
         setWakuStatus('Starting');
 
         // Create Waku
-        Waku.create({ bootstrap: true }).then((waku) => {
+        Waku.create({bootstrap: {default: true}}).then((waku) => {
             // Once done, put it in the state
             setWaku(waku);
             // And update the status
@@ -465,7 +465,7 @@ function App() {
         };
 
         waku.store
-            .queryHistory([ContentTopic], { callback: processMessages })
+            .queryHistory([ContentTopic], {callback: processMessages})
             .catch((e) => {
                 console.log('Failed to retrieve messages', e);
             });
@@ -477,7 +477,7 @@ function App() {
                 <h2>{wakuStatus}</h2>
                 <h3>Messages</h3>
                 <ul>
-                    <Messages messages={messages} />
+                    <Messages messages={messages}/>
                 </ul>
             </header>
         </div>
@@ -489,7 +489,7 @@ export default App;
 function decodeMessage(wakuMessage) {
     if (!wakuMessage.payload) return;
 
-    const { timestamp, nick, text } = proto.ChatMessage.decode(
+    const {timestamp, nick, text} = proto.ChatMessage.decode(
         wakuMessage.payload
     );
 
@@ -501,11 +501,11 @@ function decodeMessage(wakuMessage) {
 
     const utf8Text = Buffer.from(text).toString('utf-8');
 
-    return { text: utf8Text, timestamp: time, nick };
+    return {text: utf8Text, timestamp: time, nick};
 }
 
 function Messages(props) {
-    return props.messages.map(({ text, timestamp, nick }) => {
+    return props.messages.map(({text, timestamp, nick}) => {
         return (
             <li>
                 ({formatDate(timestamp)}) {nick}: {text}

@@ -22,9 +22,9 @@ yarn add js-waku
 ### Start a waku node
 
 ```ts
-import { Waku } from 'js-waku';
+import {Waku} from 'js-waku';
 
-const waku = await Waku.create({ bootstrap: true });
+const waku = await Waku.create({bootstrap: {default: true}});
 ```
 
 ### Listen for messages
