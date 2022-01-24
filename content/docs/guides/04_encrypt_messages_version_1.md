@@ -3,6 +3,7 @@ title: Encrypt Messages Using Waku Message Version 1
 date: 2021-12-09T14:00:00+01:00
 weight: 4
 ---
+
 # Encrypt Messages Using Waku Message Version 1
 
 The Waku Message format provides an easy way to encrypt messages using symmetric or asymmetric encryption.
@@ -71,7 +72,7 @@ To use symmetric encryption, you first need to generate a key.
 Use `generateSymmetricKey` for secure key generation:
 
 ```js
-import { generateSymmetricKey } from 'js-waku';
+import { generateSymmetricKey } from "js-waku";
 
 const symmetricKey = generateSymmetricKey();
 ```
@@ -86,10 +87,10 @@ Same as Waku Messages version 0 (unencrypted),
 See [Receive and Send Messages Using Waku Relay](/docs/guides/02_relay_receive_send_messages/) for details.
 
 ```js
-import { WakuMessage } from 'js-waku';
+import { WakuMessage } from "js-waku";
 
 const message = await WakuMessage.fromBytes(payload, contentTopic, {
-  symKey: symmetricKey
+  symKey: symmetricKey,
 });
 ```
 
@@ -108,10 +109,11 @@ add the symmetric key as a decryption key to your Waku instance.
 ```js
 waku.addDecryptionKey(symmetricKey);
 ```
+
 Alternatively, you can pass the key when creating the instance:
 
 ```js
-import { Waku } from 'js-waku';
+import { Waku } from "js-waku";
 
 const waku = Waku.create({ decryptionKeys: [symmetricKey] });
 ```
@@ -131,7 +133,7 @@ To use asymmetric encryption, you first need to generate a private key and calcu
 Use `generatePrivateKey` for secure key generation:
 
 ```js
-import { generatePrivateKey, getPublicKey } from 'js-waku';
+import { generatePrivateKey, getPublicKey } from "js-waku";
 
 const privateKey = generatePrivateKey();
 const publicKey = getPublicKey(privateKey);
@@ -153,10 +155,10 @@ Same as clear Waku Messages,
 See [Receive and Send Messages Using Waku Relay](/docs/guides/02_relay_receive_send_messages/) for details.
 
 ```js
-import { WakuMessage } from 'js-waku';
+import { WakuMessage } from "js-waku";
 
 const message = await WakuMessage.fromBytes(payload, contentTopic, {
-  encPublicKey: publicKey
+  encPublicKey: publicKey,
 });
 ```
 
@@ -177,10 +179,11 @@ add the private key as a decryption key to your Waku instance.
 ```js
 waku.addDecryptionKey(privateKey);
 ```
+
 Alternatively, you can pass the key when creating the instance:
 
 ```js
-import { Waku } from 'js-waku';
+import { Waku } from "js-waku";
 
 const waku = Waku.create({ decryptionKeys: [privateKey] });
 ```
@@ -199,10 +202,10 @@ the payload gets encrypted.
 Which means that `wakuMessage.payload` returns an encrypted payload:
 
 ```js
-import { WakuMessage } from 'js-waku';
+import { WakuMessage } from "js-waku";
 
 const message = await WakuMessage.fromBytes(payload, contentTopic, {
-  encPublicKey: publicKey
+  encPublicKey: publicKey,
 });
 
 console.log(message.payload); // This is encrypted
@@ -216,7 +219,7 @@ If a message was not successfully decrypted, then it will be dropped from the re
 Which means that `WakuMessage` instances returned by `WakuRelay` and `WakuStore` always have a clear payload (in regard to Waku Message version 1):
 
 ```js
-import { Waku } from 'js-waku';
+import { Waku } from "js-waku";
 
 const waku = Waku.create({ decryptionKeys: [privateKey] });
 
@@ -226,11 +229,13 @@ if (messages && messages[0]) {
   console.log(messages[0].payload); // This payload is decrypted
 }
 
-waku.relay.addObserver((message) => {
-  console.log(message.payload); // This payload is decrypted
-}, [contentTopic]);
+waku.relay.addObserver(
+  (message) => {
+    console.log(message.payload); // This payload is decrypted
+  },
+  [contentTopic]
+);
 ```
-
 
 ## Code Example
 

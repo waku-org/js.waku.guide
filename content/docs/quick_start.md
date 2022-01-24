@@ -3,6 +3,7 @@ title: Quick Start
 date: 2021-12-09T14:00:00+01:00
 weight: 20
 ---
+
 # Quick Start
 
 In this section you will learn how to receive and send messages using Waku Relay.
@@ -22,9 +23,9 @@ yarn add js-waku
 ### Start a waku node
 
 ```ts
-import {Waku} from 'js-waku';
+import { Waku } from "js-waku";
 
-const waku = await Waku.create({bootstrap: {default: true}});
+const waku = await Waku.create({ bootstrap: { default: true } });
 ```
 
 ### Listen for messages
@@ -38,9 +39,12 @@ For example, if you were to use a new `contentTopic` such as `/my-cool-app/1/my-
 here is how to listen to new messages received via [Waku v2 Relay](https://rfc.vac.dev/spec/11/):
 
 ```ts
-waku.relay.addObserver((msg) => {
-  console.log("Message received:", msg.payloadAsUtf8)
-}, ["/my-cool-app/1/my-use-case/proto"]);
+waku.relay.addObserver(
+  (msg) => {
+    console.log("Message received:", msg.payloadAsUtf8);
+  },
+  ["/my-cool-app/1/my-use-case/proto"]
+);
 ```
 
 ### Send messages
@@ -48,12 +52,15 @@ waku.relay.addObserver((msg) => {
 Messages are wrapped in a `WakuMessage` envelop.
 
 ```ts
-import { WakuMessage } from 'js-waku';
+import { WakuMessage } from "js-waku";
 
-const msg = await WakuMessage.fromUtf8String("Here is a message!", "/my-cool-app/1/my-use-case/proto")
+const msg = await WakuMessage.fromUtf8String(
+  "Here is a message!",
+  "/my-cool-app/1/my-use-case/proto"
+);
 await waku.relay.send(msg);
 ```
 
 ### Building an app
 
-Check out the [ReactJS Waku Relay guide](/docs/guides/07_reactjs_relay/) to learn how you can use the code above in a React app. 
+Check out the [ReactJS Waku Relay guide](/docs/guides/07_reactjs_relay/) to learn how you can use the code above in a React app.

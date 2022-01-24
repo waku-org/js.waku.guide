@@ -3,6 +3,7 @@ title: Receive and Send Messages Using Waku Relay
 date: 2021-12-09T14:00:00+01:00
 weight: 2
 ---
+
 # Receive and Send Messages Using Waku Relay
 
 Waku Relay is a gossip protocol that enables you to send and receive messages.
@@ -26,22 +27,22 @@ npm install js-waku
 In order to interact with the Waku network, you first need a Waku instance:
 
 ```js
-import {Waku} from 'js-waku';
+import { Waku } from "js-waku";
 
-const waku = await Waku.create({bootstrap: {default: true}});
+const waku = await Waku.create({ bootstrap: { default: true } });
 ```
 
 Passing the `bootstrap` option will connect your node to predefined Waku nodes.
 If you want to bootstrap to your own nodes, you can pass an array of multiaddresses instead:
 
 ```js
-import { Waku } from 'js-waku';
+import { Waku } from "js-waku";
 
 const waku = await Waku.create({
   bootstrap: [
-    '/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm',
-    '/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ'
-  ]
+    "/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm",
+    "/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ",
+  ],
 });
 ```
 
@@ -67,7 +68,7 @@ const processIncomingMessage = (wakuMessage) => {
   console.log(`Message Received: ${wakuMessage.payloadAsUtf8}`);
 };
 
-waku.relay.addObserver(processIncomingMessage, ['/relay-guide/1/chat/proto']);
+waku.relay.addObserver(processIncomingMessage, ["/relay-guide/1/chat/proto"]);
 ```
 
 # Send Messages
@@ -79,9 +80,12 @@ To send a message, you need to wrap the message in a `WakuMessage`.
 When using a basic string payload, you can use the `WakuMessage.fromUtf8String` helper:
 
 ```js
-import { WakuMessage } from 'js-waku';
+import { WakuMessage } from "js-waku";
 
-const wakuMessage = await WakuMessage.fromUtf8String('Here is a message', `/relay-guide/1/chat/proto`);
+const wakuMessage = await WakuMessage.fromUtf8String(
+  "Here is a message",
+  `/relay-guide/1/chat/proto`
+);
 ```
 
 Then, use the `relay` module to send the message to our peers,
@@ -124,7 +128,7 @@ npm install protons
 Then define the simple chat message:
 
 ```js
-import protons from 'protons';
+import protons from "protons";
 
 const proto = protons(`
 message SimpleChatMessage {
@@ -147,7 +151,7 @@ First, encode the object:
 ```js
 const payload = proto.SimpleChatMessage.encode({
   timestamp: Date.now(),
-  text: 'Here is a message'
+  text: "Here is a message",
 });
 ```
 
@@ -184,7 +188,7 @@ const processIncomingMessage = (wakuMessage) => {
 Like before, add this callback as an observer to Waku Relay:
 
 ```js
-waku.relay.addObserver(processIncomingMessage, ['/relay-guide/1/chat/proto']);
+waku.relay.addObserver(processIncomingMessage, ["/relay-guide/1/chat/proto"]);
 ```
 
 # Conclusion
@@ -194,8 +198,8 @@ That is it! Now, you know how to send and receive messages over Waku using the W
 Here is the final code:
 
 ```js
-import { getBootstrapNodes, Waku, WakuMessage } from 'js-waku';
-import protons from 'protons';
+import { getBootstrapNodes, Waku, WakuMessage } from "js-waku";
+import protons from "protons";
 
 const proto = protons(`
 message SimpleChatMessage {
@@ -220,11 +224,11 @@ const processIncomingMessage = (wakuMessage) => {
   console.log(`Message Received: ${text}, sent at ${timestamp.toString()}`);
 };
 
-waku.relay.addObserver(processIncomingMessage, ['/relay-guide/1/chat/proto']);
+waku.relay.addObserver(processIncomingMessage, ["/relay-guide/1/chat/proto"]);
 
 const payload = proto.SimpleChatMessage.encode({
   timestamp: Date.now(),
-  text: 'Here is a message'
+  text: "Here is a message",
 });
 const wakuMessage = await WakuMessage.fromBytes(payload, ContentTopic);
 await waku.relay.send(wakuMessage);

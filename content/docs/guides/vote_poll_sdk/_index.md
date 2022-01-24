@@ -1,6 +1,7 @@
 ---
 weight: 100
 ---
+
 # WakuConnect Vote & Poll SDK
 
 The WakuConnect Vote & Poll SDK enables developers to add Waku powered polling and voting features to their dApp.
@@ -42,7 +43,7 @@ Only the party that starts an election and submit the end results need to intera
 For example, it can be used by a DAO to manage proposals
 where proposal creation and vote results must be committed to the blockchain.
 
-With WakuConnect Vote SDK, the DAO could be the one spending gas when creating the proposal and committing the votes, 
+With WakuConnect Vote SDK, the DAO could be the one spending gas when creating the proposal and committing the votes,
 whereas the token holders do not spend gas when voting.
 
 ### Documentation

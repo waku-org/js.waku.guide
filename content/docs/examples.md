@@ -3,6 +3,7 @@ title: Examples
 date: 2021-12-09T14:00:00+01:00
 weight: 40
 ---
+
 # Examples
 
 Here is the list of the code examples and the features they demonstrate.
@@ -34,7 +35,7 @@ Demonstrates:
 
 Repo: [unpkg-js-store](https://github.com/status-im/js-waku/tree/main/examples/unpkg-js-store).
 
-Demonstrates: 
+Demonstrates:
 
 - How to stop retrieving results from Waku Store on condition
 - Use minified bundle from Unpkg.com
