@@ -9,7 +9,7 @@ menu:
   before: []
   after:
     - name: "JS-Waku API Doc"
-      url: "https://status-im.github.io/js-waku/docs/"
+      url: "https://js-waku.wakuconnect.dev/"
       weight: 5
     - name: "Vac Team"
       url: "https://vac.dev/"
