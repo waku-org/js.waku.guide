@@ -25,7 +25,7 @@ yarn add -D @types/styled-components
 {{< hint warning >}}
 `@usedapp/core` must be frozen to version `0.4.7` due to incompatibility between minor versions of `ethers`.
 
-WakuConnect Vote & Poll SDK will be upgraded to the latest version of `@usedapp/core` and `ethers` once `ethereum-waffle`
+Waku Connect Vote & Poll SDK will be upgraded to the latest version of `@usedapp/core` and `ethers` once `ethereum-waffle`
 is released with the [latest version of `ethers`](https://github.com/EthWorks/Waffle/pull/603).
 {{< /hint >}}
 

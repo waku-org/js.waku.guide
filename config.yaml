@@ -1,7 +1,7 @@
 baseURL: "https://docs.wakuconnect.dev/"
 languageCode: "en-us"
 defaultContentLang: en
-title: "WakuConnect Docs"
+title: "Waku Connect Docs"
 theme: "hugo-book"
 enableGitInfo: true
 

@@ -16,7 +16,7 @@ Slides: https://notes.status.im/eth-global-2021
 
 ## 21 Jul 2021 - EthCC 2021
 
-_Note: DappConnect is now named WakuConnect._
+_Note: DappConnect is now named Waku Connect._
 
 {{< youtube rQOp3qoDF0g >}}
 
@@ -24,7 +24,7 @@ Slides: https://notes.status.im/dappconnect-pres
 
 ## 21 Jul 2021 - Ethereum Engineering Group meetup
 
-_Note: DappConnect is now named WakuConnect._
+_Note: DappConnect is now named Waku Connect._
 
 {{< youtube CBknF-6Z-Ds >}}
 
