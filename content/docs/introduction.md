@@ -4,9 +4,9 @@ date: 2021-12-09T14:00:00+01:00
 weight: 10
 ---
 
-# WakuConnect Docs
+# Waku Connect Docs
 
-WakuConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
+Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
 
 Waku is a decentralized, censorship-resistant, network and protocol family.
 It enables you to add communication features to your dApp in a decentralized manner,
@@ -37,5 +37,5 @@ Finally, if you want to learn how Waku works under the hoods, check the specs at
 
 If you encounter any bug or would like to propose new features, feel free to [open an issue](https://github.com/status-im/js-waku/issues/new/).
 
-To get help, join #dappconnect-support on [Vac Discord](https://discord.gg/j5pGbn7MHZ) or [Telegram](https://t.me/dappconnectsupport).
-For more general discussion and latest news, join #dappconnect on [Vac Discord](https://discord.gg/9DgykdmpZ6) or [Telegram](https://t.me/dappconnect).
+To get help, join #wakuconnect-support on [Vac Discord](https://discord.gg/j5pGbn7MHZ) or [Telegram](https://t.me/wakuconnectsupport).
+For more general discussion and latest news, join #wakuconnect on [Vac Discord](https://discord.gg/9DgykdmpZ6) or [Telegram](https://t.me/wakuconnect).

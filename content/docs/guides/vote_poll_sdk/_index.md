@@ -2,9 +2,9 @@
 weight: 100
 ---
 
-# WakuConnect Vote & Poll SDK
+# Waku Connect Vote & Poll SDK
 
-The WakuConnect Vote & Poll SDK enables developers to add Waku powered polling and voting features to their dApp.
+The Waku Connect Vote & Poll SDK enables developers to add Waku powered polling and voting features to their dApp.
 
 The repository can be found on GitHub: https://github.com/status-im/wakuconnect-vote-poll-sdk.
 
@@ -32,9 +32,9 @@ The developer using the SDK can configure which ERC-20 token contract is used.
 - `@waku/poll-sdk-react-components`: React components.
 - `@waku/poll-sdk-react-hooks`: React hooks.
 
-## WakuConnect Vote SDK
+## Waku Connect Vote SDK
 
-The WakuConnect Vote SDK allows you to leverage Waku to save gas fees for most voters.
+The Waku Connect Vote SDK allows you to leverage Waku to save gas fees for most voters.
 It uses Waku to broadcast and aggregate votes.
 Most token holders will not need to spend gas to vote.
 
@@ -43,7 +43,7 @@ Only the party that starts an election and submit the end results need to intera
 For example, it can be used by a DAO to manage proposals
 where proposal creation and vote results must be committed to the blockchain.
 
-With WakuConnect Vote SDK, the DAO could be the one spending gas when creating the proposal and committing the votes,
+With Waku Connect Vote SDK, the DAO could be the one spending gas when creating the proposal and committing the votes,
 whereas the token holders do not spend gas when voting.
 
 ### Documentation
@@ -64,9 +64,9 @@ there may be issues with undeclared dependencies with this example.
 Tracked with [status-im/wakuconnect-vote-poll-sdk#11](https://github.com/status-im/wakuconnect-vote-poll-sdk/issues/11).
 {{< /hint >}}
 
-## WakuConnect Poll SDK
+## Waku Connect Poll SDK
 
-The WakuConnect Poll SDK allows you to leverage Waku and enable token holders to create, answer and view polls.
+The Waku Connect Poll SDK allows you to leverage Waku and enable token holders to create, answer and view polls.
 The polls are not committed to the blockchain and hence do not cost gas.
 
 As the polls use Waku, they do maintain properties expected from dApps: decentralized and censorship-resistant.
@@ -82,4 +82,4 @@ The high-level functionality is as follows:
 
 ### Documentation
 
-See [How to Use the WakuConnect Poll SDK](./poll_sdk).
+See [How to Use the Waku Connect Poll SDK](./poll_sdk).

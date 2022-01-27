@@ -33,7 +33,7 @@ Legend:
 
 Waku can be used as the communication layer to a private, decentralized, censorship-resistant messenger.
 
-- WakuConnect Chat SDK: [repo](https://github.com/status-im/dappconnect-chat-sdk)
+- Waku Connect Chat SDK: [repo](https://github.com/status-im/wakuconnect-chat-sdk)
 
 <--->
 
@@ -44,7 +44,7 @@ Waku can be used as the communication layer to a private, decentralized, censors
 
 Create, answer and view polls which are censorship-resistant.
 
-- WakuConnect Poll SDK:
+- Waku Connect Poll SDK:
   [docs](/docs/guides/vote_poll_sdk/#wakuconnect-poll-sdk),
   [repo](https://github.com/status-im/wakuconnect-vote-poll-sdk)
 
@@ -88,7 +88,7 @@ Votes can then be aggregated and submitted to the blockchain to commit the resul
 
 Create, answer and view polls which are censorship-resistant.
 
-- WakuConnect Vote SDK:
+- Waku Connect Vote SDK:
   [docs](/docs/guides/vote_poll_sdk/#wakuconnect-vote-sdk),
   [repo](https://github.com/status-im/wakuconnect-vote-poll-sdk)
 

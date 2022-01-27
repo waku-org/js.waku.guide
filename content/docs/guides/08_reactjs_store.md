@@ -6,7 +6,7 @@ weight: 8
 
 # Retrieve Messages Using Waku Store With ReactJS
 
-It is easy to use WakuConnect with ReactJS.
+It is easy to use Waku Connect with ReactJS.
 In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
 
 DApps running on a phone or in a browser are often offline:
