@@ -37,5 +37,5 @@ Finally, if you want to learn how Waku works under the hoods, check the specs at
 
 If you encounter any bug or would like to propose new features, feel free to [open an issue](https://github.com/status-im/js-waku/issues/new/).
 
-To get help, join #dappconnect-support on [Vac Discord](https://discord.gg/j5pGbn7MHZ) or [Telegram](https://t.me/dappconnectsupport).
-For more general discussion and latest news, join #dappconnect on [Vac Discord](https://discord.gg/9DgykdmpZ6) or [Telegram](https://t.me/dappconnect).
+To get help, join #wakuconnect-support on [Vac Discord](https://discord.gg/j5pGbn7MHZ) or [Telegram](https://t.me/wakuconnectsupport).
+For more general discussion and latest news, join #wakuconnect on [Vac Discord](https://discord.gg/9DgykdmpZ6) or [Telegram](https://t.me/wakuconnect).
