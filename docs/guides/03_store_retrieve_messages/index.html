@@ -12,14 +12,14 @@ Waku Relay is a gossip protocol. As a user, it means that your peers forward you
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
-<meta property="article:modified_time" content="2022-01-24T11:54:31+11:00" />
+<meta property="article:modified_time" content="2022-01-24T12:17:00+11:00" />
 
-<title>Retrieve Messages Using Waku Store | WakuConnect Docs</title>
+<title>Retrieve Messages Using Waku Store | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.4b1407834b00472136a90877f41f745236339309d01b997ad233d6436d3ce4ce.js" integrity="sha256-SxQHg0sARyE2qQh39B90UjYzkwnQG5l60jPWQ2085M4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.342db369b6a06ae4be84eda73ad08c0914f079f996313e0a0c1f709574dff631.js" integrity="sha256-NC2zabagauS&#43;hO2nOtCMCRTwefmWMT4KDB9wlXTf9jE=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -35,7 +35,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/"><span>WakuConnect Docs</span>
+  <a class="flex align-center" href="/"><span>Waku Connect Docs</span>
   </a>
 </h2>
 
@@ -435,7 +435,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
   
   <li>
-    <a href="https://status-im.github.io/js-waku/docs/" target="_blank" rel="noopener">
+    <a href="https://js-waku.wakuconnect.dev/" target="_blank" rel="noopener">
         JS-Waku API Doc
       </a>
   </li>
@@ -558,18 +558,18 @@ Check out the <a href="/docs/guides/01_choose_content_topic/">how to choose a co
   <a class="anchor" href="#create-waku-instance">#</a>
 </h1>
 <p>In order to interact with the Waku network, you first need a Waku instance:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">Waku</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;js-waku&#34;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({<span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> {<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>}});
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> { <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> } });
 </code></pre></div><p>Passing the <code>bootstrap</code> option will connect your node to predefined Waku nodes.
 If you want to bootstrap to your own nodes, you can pass an array of multiaddresses instead:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;js-waku&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuNode</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({
   <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> [
-    <span style="color:#e6db74">&#39;/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm&#39;</span>,
-    <span style="color:#e6db74">&#39;/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ&#39;</span>
-  ]
+    <span style="color:#e6db74">&#34;/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm&#34;</span>,
+    <span style="color:#e6db74">&#34;/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ&#34;</span>,
+  ],
 });
 </code></pre></div><h1 id="wait-to-be-connected">
   Wait to be connected
@@ -605,7 +605,7 @@ For this guide, we will use a simple news article that contains a date of public
   <a class="anchor" href="#protobuf-definition">#</a>
 </h2>
 <p>Then specify the data structure:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;protons&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;protons&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">proto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">protons</span>(<span style="color:#e6db74">`
 </span><span style="color:#e6db74">message ArticleMessage {
@@ -646,7 +646,7 @@ you need to extract the protobuf payload and decode it using <code>protons</code
 <p>Store node responses are paginated.
 The <code>WakuStore.queryHistory</code> API automatically query all the pages in a sequential manner.
 To process messages as soon as they received (page by page), use the <code>callback</code> option:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/store-guide/1/news/proto&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/store-guide/1/news/proto&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">callback</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">retrievedMessages</span>) =&gt; {
   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">articles</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">retrievedMessages</span>
@@ -656,12 +656,10 @@ To process messages as soon as they received (page by page), use the <code>callb
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">articles</span>.<span style="color:#a6e22e">length</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> articles have been retrieved`</span>);
 };
 
-<span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>
-  .<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], { <span style="color:#a6e22e">callback</span> })
-  .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">e</span>) =&gt; {
-    <span style="color:#75715e">// Catch any potential error
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to retrieve messages from store&#39;</span>, <span style="color:#a6e22e">e</span>);
-  });
+<span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], { <span style="color:#a6e22e">callback</span> }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">e</span>) =&gt; {
+  <span style="color:#75715e">// Catch any potential error
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Failed to retrieve messages from store&#34;</span>, <span style="color:#a6e22e">e</span>);
+});
 </code></pre></div><p>Note that <code>WakuStore.queryHistory</code> select an available store node for you.
 However, it can only select a connected node, which is why the bootstrapping is necessary.
 It will throw an error if no store node is available.</p>
@@ -685,10 +683,10 @@ By default, js-waku sets the timestamp of outgoing message to the current time.<
 <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>
   .<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], {
     <span style="color:#a6e22e">callback</span>,
-    <span style="color:#a6e22e">timeFilter</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">endTime</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date() }
+    <span style="color:#a6e22e">timeFilter</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">endTime</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date() },
   })
   .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">e</span>) =&gt; {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to retrieve messages from store&#39;</span>, <span style="color:#a6e22e">e</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Failed to retrieve messages from store&#34;</span>, <span style="color:#a6e22e">e</span>);
   });
 </code></pre></div><h2 id="end-result">
   End result
@@ -704,7 +702,7 @@ By default, js-waku sets the timestamp of outgoing message to the current time.<
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/23ba3e482981514df0e2954405c2ea33c751c4d3" title='Last modified by Franck R | Jan 24, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/41bc0a9d8058006de8bf56562b5ac5e50ab00a2f" title='Last modified by Franck R | Jan 24, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>Jan 24, 2022</span>
     </a>

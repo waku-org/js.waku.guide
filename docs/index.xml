@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on WakuConnect Docs</title>
+    <title>Introduction on Waku Connect Docs</title>
     <link>https://docs.wakuconnect.dev/docs/</link>
-    <description>Recent content in Introduction on WakuConnect Docs</description>
+    <description>Recent content in Introduction on Waku Connect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Dec 2021 14:00:00 +0100</lastBuildDate><atom:link href="https://docs.wakuconnect.dev/docs/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,9 @@
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/introduction/</guid>
-      <description>WakuConnect Docs #  WakuConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
+      <description>Waku Connect Docs #  Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
 Waku is a decentralized, censorship-resistant, network and protocol family. It enables you to add communication features to your dApp in a decentralized manner, ensuring to your users that they will not be censored or de-platformed.
-Waku can be used for chat purposes and for many machine-to-machine use cases. You can learn more about Waku at wakunetwork.</description>
+Waku can be used for chat purposes and for many machine-to-machine use cases.</description>
     </item>
     
     <item>
@@ -27,7 +27,7 @@ Waku can be used for chat purposes and for many machine-to-machine use cases. Yo
       <description>Quick Start #  In this section you will learn how to receive and send messages using Waku Relay.
 A more in depth guide for Waku Relay can be found here.
 Install #  Install the js-waku package:
-npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import {Waku} from &amp;#39;js-waku&amp;#39;; const waku = await Waku.create({bootstrap: {default: true}}); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
+npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import { Waku } from &amp;#34;js-waku&amp;#34;; const waku = await Waku.create({ bootstrap: { default: true } }); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
     </item>
     
     <item>
@@ -51,9 +51,9 @@ Legend:
       <guid>https://docs.wakuconnect.dev/docs/presentations/</guid>
       <description>Presentations &amp;amp; Videos #  17 Sep 2021 - EthOnline #  Pre-recorded video for hackathon participants.
   Slides: https://notes.status.im/eth-global-2021
-21 Jul 2021 - EthCC 2021 #  Note: DappConnect is now named WakuConnect.
+21 Jul 2021 - EthCC 2021 #  Note: DappConnect is now named Waku Connect.
   Slides: https://notes.status.im/dappconnect-pres
-21 Jul 2021 - Ethereum Engineering Group meetup #  Note: DappConnect is now named WakuConnect.
+21 Jul 2021 - Ethereum Engineering Group meetup #  Note: DappConnect is now named Waku Connect.
   Slides: https://notes.status.im/dappconnect-pres</description>
     </item>
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on WakuConnect Docs</title>
+    <title>Introduction on Waku Connect Docs</title>
     <link>https://docs.wakuconnect.dev/</link>
-    <description>Recent content in Introduction on WakuConnect Docs</description>
+    <description>Recent content in Introduction on Waku Connect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Dec 2021 14:00:00 +0100</lastBuildDate><atom:link href="https://docs.wakuconnect.dev/index.xml" rel="self" type="application/rss+xml" />
@@ -81,7 +81,7 @@ The Waku Relay protocol sends messages to connected peers but does not provide a
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</guid>
-      <description>Receive and Send Messages Using Waku Relay With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
+      <description>Receive and Send Messages Using Waku Relay With ReactJS #  It is easy to use Waku Connect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics. For this guide, we are using a single content topic: /min-react-js-chat/1/chat/proto.</description>
     </item>
     
@@ -91,7 +91,7 @@ Before starting, you need to choose a Content Topic for your dApp. Check out the
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/</guid>
-      <description>Retrieve Messages Using Waku Store With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
+      <description>Retrieve Messages Using Waku Store With ReactJS #  It is easy to use Waku Connect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
 DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received.</description>
     </item>
@@ -102,9 +102,9 @@ Waku Relay is a gossip protocol. As a user, it means that your peers forward you
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/introduction/</guid>
-      <description>WakuConnect Docs #  WakuConnect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
+      <description>Waku Connect Docs #  Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
 Waku is a decentralized, censorship-resistant, network and protocol family. It enables you to add communication features to your dApp in a decentralized manner, ensuring to your users that they will not be censored or de-platformed.
-Waku can be used for chat purposes and for many machine-to-machine use cases. You can learn more about Waku at wakunetwork.</description>
+Waku can be used for chat purposes and for many machine-to-machine use cases.</description>
     </item>
     
     <item>
@@ -136,7 +136,7 @@ rm -f App.tsx App.css App.test.tsx Top bar #  Use TopBar component to display wa
       <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/</guid>
       <description>Create-A-Poll Button #  Create the Poll component. It will allow the user to create a new poll, view polls and answer them. We&amp;rsquo;ll start by adding a button to create a poll.
 mkdir components touch components/Poll.tsx Styled-components #  Again, create a Wrapper for styling:
-import styled from &amp;#39;styled-components&amp;#39; const Wrapper = styled.div` display: flex; flex-direction: column; align-items: center; max-width: 1146px; position: relative; margin: 0 auto; padding: 150px 32px 50px; width: 100%; @media (max-width: 1146px) { max-width: 780px; } @media (max-width: 600px) { padding: 132px 16px 32px; } @media (max-width: 425px) { padding: 96px 16px 84px; } ` Button #  Create a button that will display the PollCreation component on click.</description>
+import styled from &amp;#34;styled-components&amp;#34;; const Wrapper = styled.div` display: flex; flex-direction: column; align-items: center; max-width: 1146px; position: relative; margin: 0 auto; padding: 150px 32px 50px; width: 100%; @media (max-width: 1146px) { max-width: 780px; } @media (max-width: 600px) { padding: 132px 16px 32px; } @media (max-width: 425px) { padding: 96px 16px 84px; } `; Button #  Create a button that will display the PollCreation component on click.</description>
     </item>
     
     <item>
@@ -159,7 +159,7 @@ useWakuPolling takes:
       <description>Poll List Component #  To display existing polls, the PollList component is provided.
 Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
 components/Poll.tsx:
-import {useState} from &amp;#39;react&amp;#39; import {useConfig} from &amp;#39;@usedapp/core&amp;#39; import {PollCreation, PollList} from &amp;#39;@waku/poll-sdk-react-components&amp;#39; import {JsonRpcSigner, Web3Provider} from &amp;#39;@ethersproject/providers&amp;#39; import {useWakuPolling} from &amp;#39;@waku/poll-sdk-react-hooks&amp;#39; import {CreateButton} from &amp;#39;@waku/vote-poll-sdk-react-components&amp;#39; import {Theme} from &amp;#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&amp;#39; import {ChainId} from &amp;#34;@usedapp/core/src/constants&amp;#34;; type PollProps = { appName: string library: Web3Provider | undefined signer: JsonRpcSigner | undefined chainId: ChainId | undefined account: string | null | undefined theme: Theme tokenAddress: string } export function Poll({appName, library, signer, chainId, account, theme, tokenAddress}: PollProps) { const config = useConfig() const [showPollCreation, setShowPollCreation] = useState(false) const wakuPolling = useWakuPolling(appName, tokenAddress, library, config?</description>
+import { useState } from &amp;#34;react&amp;#34;; import { useConfig } from &amp;#34;@usedapp/core&amp;#34;; import { PollCreation, PollList } from &amp;#34;@waku/poll-sdk-react-components&amp;#34;; import { JsonRpcSigner, Web3Provider } from &amp;#34;@ethersproject/providers&amp;#34;; import { useWakuPolling } from &amp;#34;@waku/poll-sdk-react-hooks&amp;#34;; import { CreateButton } from &amp;#34;@waku/vote-poll-sdk-react-components&amp;#34;; import { Theme } from &amp;#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&amp;#34;; import { ChainId } from &amp;#34;@usedapp/core/src/constants&amp;#34;; type PollProps = { appName: string; library: Web3Provider | undefined; signer: JsonRpcSigner | undefined; chainId: ChainId | undefined; account: string | null | undefined; theme: Theme; tokenAddress: string; }; export function Poll({ appName, library, signer, chainId, account, theme, tokenAddress, }: PollProps) { const config = useConfig(); const [showPollCreation, setShowPollCreation] = useState(false); const wakuPolling = useWakuPolling( appName, tokenAddress, library, config?</description>
     </item>
     
     <item>
@@ -171,7 +171,7 @@ import {useState} from &amp;#39;react&amp;#39; import {useConfig} from &amp;#39;
       <description>Quick Start #  In this section you will learn how to receive and send messages using Waku Relay.
 A more in depth guide for Waku Relay can be found here.
 Install #  Install the js-waku package:
-npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import {Waku} from &amp;#39;js-waku&amp;#39;; const waku = await Waku.create({bootstrap: {default: true}}); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
+npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import { Waku } from &amp;#34;js-waku&amp;#34;; const waku = await Waku.create({ bootstrap: { default: true } }); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
     </item>
     
     <item>
@@ -195,9 +195,9 @@ Legend:
       <guid>https://docs.wakuconnect.dev/docs/presentations/</guid>
       <description>Presentations &amp;amp; Videos #  17 Sep 2021 - EthOnline #  Pre-recorded video for hackathon participants.
   Slides: https://notes.status.im/eth-global-2021
-21 Jul 2021 - EthCC 2021 #  Note: DappConnect is now named WakuConnect.
+21 Jul 2021 - EthCC 2021 #  Note: DappConnect is now named Waku Connect.
   Slides: https://notes.status.im/dappconnect-pres
-21 Jul 2021 - Ethereum Engineering Group meetup #  Note: DappConnect is now named WakuConnect.
+21 Jul 2021 - Ethereum Engineering Group meetup #  Note: DappConnect is now named Waku Connect.
   Slides: https://notes.status.im/dappconnect-pres</description>
     </item>
     

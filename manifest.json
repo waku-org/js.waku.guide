@@ -1,6 +1,6 @@
 {
-  "name": "WakuConnect Docs",
-  "short_name": "WakuConnect Docs",
+  "name": "Waku Connect Docs",
+  "short_name": "Waku Connect Docs",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Retrieve Messages Using Waku Store With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
+<meta name="description" content="Retrieve Messages Using Waku Store With ReactJS #  It is easy to use Waku Connect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
 DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Retrieve Messages Using Waku Store With ReactJS" />
-<meta property="og:description" content="Retrieve Messages Using Waku Store With ReactJS #  It is easy to use WakuConnect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
+<meta property="og:description" content="Retrieve Messages Using Waku Store With ReactJS #  It is easy to use Waku Connect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
 DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
-<meta property="article:modified_time" content="2022-01-24T11:54:31+11:00" />
+<meta property="article:modified_time" content="2022-01-27T11:18:41+11:00" />
 
-<title>Retrieve Messages Using Waku Store With ReactJS | WakuConnect Docs</title>
+<title>Retrieve Messages Using Waku Store With ReactJS | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.4b1407834b00472136a90877f41f745236339309d01b997ad233d6436d3ce4ce.js" integrity="sha256-SxQHg0sARyE2qQh39B90UjYzkwnQG5l60jPWQ2085M4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.342db369b6a06ae4be84eda73ad08c0914f079f996313e0a0c1f709574dff631.js" integrity="sha256-NC2zabagauS&#43;hO2nOtCMCRTwefmWMT4KDB9wlXTf9jE=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,7 +37,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/"><span>WakuConnect Docs</span>
+  <a class="flex align-center" href="/"><span>Waku Connect Docs</span>
   </a>
 </h2>
 
@@ -437,7 +437,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
   
   <li>
-    <a href="https://status-im.github.io/js-waku/docs/" target="_blank" rel="noopener">
+    <a href="https://js-waku.wakuconnect.dev/" target="_blank" rel="noopener">
         JS-Waku API Doc
       </a>
   </li>
@@ -543,7 +543,7 @@ https://github.com/alex-shpak/hugo-book
   Retrieve Messages Using Waku Store With ReactJS
   <a class="anchor" href="#retrieve-messages-using-waku-store-with-reactjs">#</a>
 </h1>
-<p>It is easy to use WakuConnect with ReactJS.
+<p>It is easy to use Waku Connect with ReactJS.
 In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.</p>
 <p>DApps running on a phone or in a browser are often offline:
 The browser could be closed or mobile app in the background.</p>
@@ -610,65 +610,65 @@ then you can inspire yourself from this <a href="https://github.com/status-im/wa
 <p>Install <code>cra-webpack-rewired</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install -D cra-webpack-rewired
 </code></pre></div><p>Create a <code>config/webpack.extend.js</code> file at the root of your app:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webpack</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;webpack&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webpack</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;webpack&#34;</span>);
 
 <span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">dev</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
-        <span style="color:#75715e">// Override webpack 5 config from react-scripts to load polyfills
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span> <span style="color:#f92672">=</span> {};
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span> <span style="color:#f92672">=</span> {};
-        Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>, {
-            <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;buffer&#39;</span>),
-            <span style="color:#a6e22e">crypto</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;crypto-browserify&#39;</span>),
-            <span style="color:#a6e22e">stream</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;stream-browserify&#39;</span>),
-        });
+  <span style="color:#a6e22e">dev</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+    <span style="color:#75715e">// Override webpack 5 config from react-scripts to load polyfills
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span> <span style="color:#f92672">=</span> {};
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span> <span style="color:#f92672">=</span> {};
+    Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>, {
+      <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;buffer&#34;</span>),
+      <span style="color:#a6e22e">crypto</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;crypto-browserify&#34;</span>),
+      <span style="color:#a6e22e">stream</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;stream-browserify&#34;</span>),
+    });
 
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [];
-        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
-            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">DefinePlugin</span>({
-                <span style="color:#e6db74">&#39;process.env.ENV&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#e6db74">&#39;dev&#39;</span>),
-            })
-        );
-        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
-            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">ProvidePlugin</span>({
-                <span style="color:#a6e22e">process</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;process/browser.js&#39;</span>,
-                <span style="color:#a6e22e">Buffer</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;buffer&#39;</span>, <span style="color:#e6db74">&#39;Buffer&#39;</span>],
-            })
-        );
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
+      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">DefinePlugin</span>({
+        <span style="color:#e6db74">&#34;process.env.ENV&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#e6db74">&#34;dev&#34;</span>),
+      })
+    );
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
+      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">ProvidePlugin</span>({
+        <span style="color:#a6e22e">process</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;process/browser.js&#34;</span>,
+        <span style="color:#a6e22e">Buffer</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;buffer&#34;</span>, <span style="color:#e6db74">&#34;Buffer&#34;</span>],
+      })
+    );
 
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span> <span style="color:#f92672">=</span> [];
-        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">/Failed to parse source map/</span>);
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">/Failed to parse source map/</span>);
 
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">config</span>;
-    },
-    <span style="color:#a6e22e">prod</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
-        <span style="color:#75715e">// Override webpack 5 config from react-scripts to load polyfills
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span> <span style="color:#f92672">=</span> {};
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span> <span style="color:#f92672">=</span> {};
-        Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>, {
-            <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;buffer&#39;</span>),
-            <span style="color:#a6e22e">crypto</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;crypto-browserify&#39;</span>),
-            <span style="color:#a6e22e">stream</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;stream-browserify&#39;</span>),
-        });
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">config</span>;
+  },
+  <span style="color:#a6e22e">prod</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">config</span>) =&gt; {
+    <span style="color:#75715e">// Override webpack 5 config from react-scripts to load polyfills
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span> <span style="color:#f92672">=</span> {};
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span> <span style="color:#f92672">=</span> {};
+    Object.<span style="color:#a6e22e">assign</span>(<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">resolve</span>.<span style="color:#a6e22e">fallback</span>, {
+      <span style="color:#a6e22e">buffer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;buffer&#34;</span>),
+      <span style="color:#a6e22e">crypto</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;crypto-browserify&#34;</span>),
+      <span style="color:#a6e22e">stream</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;stream-browserify&#34;</span>),
+    });
 
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [];
-        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
-            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">DefinePlugin</span>({
-                <span style="color:#e6db74">&#39;process.env.ENV&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#e6db74">&#39;prod&#39;</span>),
-            })
-        );
-        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
-            <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">ProvidePlugin</span>({
-                <span style="color:#a6e22e">process</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;process/browser.js&#39;</span>,
-                <span style="color:#a6e22e">Buffer</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;buffer&#39;</span>, <span style="color:#e6db74">&#39;Buffer&#39;</span>],
-            })
-        );
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
+      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">DefinePlugin</span>({
+        <span style="color:#e6db74">&#34;process.env.ENV&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#e6db74">&#34;prod&#34;</span>),
+      })
+    );
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">plugins</span>.<span style="color:#a6e22e">push</span>(
+      <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webpack</span>.<span style="color:#a6e22e">ProvidePlugin</span>({
+        <span style="color:#a6e22e">process</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;process/browser.js&#34;</span>,
+        <span style="color:#a6e22e">Buffer</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;buffer&#34;</span>, <span style="color:#e6db74">&#34;Buffer&#34;</span>],
+      })
+    );
 
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span> <span style="color:#f92672">=</span> [];
-        <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">/Failed to parse source map/</span>);
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>) <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ignoreWarnings</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">/Failed to parse source map/</span>);
 
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">config</span>;
-    },
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">config</span>;
+  },
 };
 </code></pre></div><p>Use <code>cra-webpack-rewired</code> in the <code>package.json</code>, instead of <code>react-scripts</code>:</p>
 <pre tabindex="0"><code>   &quot;scripts&quot;: {
@@ -700,36 +700,36 @@ npm install
 </h1>
 <p>In order to interact with the Waku network, you first need a Waku instance.
 Go to <code>App.js</code> and modify the <code>App</code> function:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">Waku</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;js-waku&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
-    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">setWaku</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">undefined</span>);
-    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">wakuStatus</span>, <span style="color:#a6e22e">setWakuStatus</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;None&#39;</span>);
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">setWaku</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">undefined</span>);
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">wakuStatus</span>, <span style="color:#a6e22e">setWakuStatus</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#34;None&#34;</span>);
 
-    <span style="color:#75715e">// Start Waku
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
-        <span style="color:#75715e">// If Waku status not None, it means we are already starting Waku 
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;None&#39;</span>) <span style="color:#66d9ef">return</span>;
+  <span style="color:#75715e">// Start Waku
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
+    <span style="color:#75715e">// If Waku status not None, it means we are already starting Waku
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;None&#34;</span>) <span style="color:#66d9ef">return</span>;
 
-        <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#39;Starting&#39;</span>);
+    <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#34;Starting&#34;</span>);
 
-        <span style="color:#75715e">// Create Waku
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({<span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> {<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>}}).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">waku</span>) =&gt; {
-            <span style="color:#75715e">// Once done, put it in the state
-</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">setWaku</span>(<span style="color:#a6e22e">waku</span>);
-            <span style="color:#75715e">// And update the status
-</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#39;Connecting&#39;</span>);
-        });
-    }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
+    <span style="color:#75715e">// Create Waku
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> { <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> } }).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">waku</span>) =&gt; {
+      <span style="color:#75715e">// Once done, put it in the state
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setWaku</span>(<span style="color:#a6e22e">waku</span>);
+      <span style="color:#75715e">// And update the status
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#34;Connecting&#34;</span>);
+    });
+  }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
 
-    <span style="color:#66d9ef">return</span> (
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;App&#39;</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">header</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;App-header&#39;</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">wakuStatus</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
-            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/header&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
-    );
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">header</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App-header&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">wakuStatus</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/header&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+  );
 }
 
 <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
@@ -743,10 +743,10 @@ use the <code>Waku.waitForConnectedPeer()</code> async function:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
   <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">waku</span>) <span style="color:#66d9ef">return</span>;
 
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;Connected&#39;</span>) <span style="color:#66d9ef">return</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;Connected&#34;</span>) <span style="color:#66d9ef">return</span>;
 
   <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForConnectedPeer</span>().<span style="color:#a6e22e">then</span>(() =&gt; {
-    <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#39;Connected&#39;</span>);
+    <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#34;Connected&#34;</span>);
   });
 }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
 </code></pre></div><h1 id="use-protobuf">
@@ -773,7 +773,7 @@ For this guide, we will use a simple chat message that contains a timestamp, nic
   <a class="anchor" href="#protobuf-definition">#</a>
 </h2>
 <p>Define the data structure with protons:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;protons&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;protons&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">proto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">protons</span>(<span style="color:#e6db74">`
 </span><span style="color:#e6db74">message ChatMessage {
@@ -803,11 +803,10 @@ you need to extract the protobuf payload and decode it using <code>protons</code
   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
   <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">setTime</span>(<span style="color:#a6e22e">timestamp</span>);
 
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">utf8Text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">text</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;utf-8&#39;</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">utf8Text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">text</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#34;utf-8&#34;</span>);
 
   <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">utf8Text</span>, <span style="color:#a6e22e">timestamp</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">time</span>, <span style="color:#a6e22e">nick</span> };
 }
-
 </code></pre></div><h2 id="retrieve-messages">
   Retrieve messages
   <a class="anchor" href="#retrieve-messages">#</a>
@@ -832,36 +831,35 @@ You will pass <code>processMessages</code> as a <code>callback</code> option to 
   });
 };
 </code></pre></div><p>Pass <code>processMessage</code> in <code>WakuStore.queryHistory</code> as the <code>callback</code> value:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>
-  .<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], { <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">processMessages</span> });
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], { <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">processMessages</span> });
 </code></pre></div><p>Finally, create a <code>Messages</code> component to render the messages:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Messages</span>(<span style="color:#a6e22e">props</span>) {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">map</span>(({ <span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">timestamp</span>, <span style="color:#a6e22e">nick</span> }) <span style="color:#f92672">=&gt;</span> {
-        <span style="color:#66d9ef">return</span> (
-            &lt;<span style="color:#f92672">li</span>&gt;
-                ({<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">timestamp</span>)}) {<span style="color:#a6e22e">nick</span>}<span style="color:#f92672">:</span> {<span style="color:#a6e22e">text</span>}
-            &lt;/<span style="color:#f92672">li</span>&gt;
-        );
-    });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">map</span>(({ <span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">timestamp</span>, <span style="color:#a6e22e">nick</span> }) <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">return</span> (
+      &lt;<span style="color:#f92672">li</span>&gt;
+        ({<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">timestamp</span>)}) {<span style="color:#a6e22e">nick</span>}<span style="color:#f92672">:</span> {<span style="color:#a6e22e">text</span>}
+      &lt;/<span style="color:#f92672">li</span>&gt;
+    );
+  });
 }
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">timestamp</span>) {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">timestamp</span>.<span style="color:#a6e22e">toLocaleString</span>([], {
-        <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;short&#39;</span>,
-        <span style="color:#a6e22e">day</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;numeric&#39;</span>,
-        <span style="color:#a6e22e">hour</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;numeric&#39;</span>,
-        <span style="color:#a6e22e">minute</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>,
-        <span style="color:#a6e22e">second</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>,
-        <span style="color:#a6e22e">hour12</span>: <span style="color:#66d9ef">false</span>,
-    });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">timestamp</span>.<span style="color:#a6e22e">toLocaleString</span>([], {
+    <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;short&#34;</span>,
+    <span style="color:#a6e22e">day</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>,
+    <span style="color:#a6e22e">hour</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>,
+    <span style="color:#a6e22e">minute</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2-digit&#34;</span>,
+    <span style="color:#a6e22e">second</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2-digit&#34;</span>,
+    <span style="color:#a6e22e">hour12</span>: <span style="color:#66d9ef">false</span>,
+  });
 }
 </code></pre></div><p>Use <code>Messages</code> in the <code>App</code> function:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
   <span style="color:#75715e">// [..]
 </span><span style="color:#75715e"></span>
   <span style="color:#66d9ef">return</span> (
-    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;App&#39;</span>&gt;
-      &lt;<span style="color:#f92672">header</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;App-header&#39;</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span>&gt;
+      &lt;<span style="color:#f92672">header</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App-header&#34;</span>&gt;
         &lt;<span style="color:#f92672">h2</span>&gt;{<span style="color:#a6e22e">wakuStatus</span>}&lt;/<span style="color:#f92672">h2</span>&gt;
         &lt;<span style="color:#f92672">h3</span>&gt;<span style="color:#a6e22e">Messages</span>&lt;/<span style="color:#f92672">h3</span>&gt;
         &lt;<span style="color:#f92672">ul</span>&gt;
@@ -872,11 +870,11 @@ You will pass <code>processMessages</code> as a <code>callback</code> option to 
   );
 }
 </code></pre></div><p>All together, you should now have:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">Waku</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;js-waku&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;protons&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;js-waku&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;protons&#34;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/toy-chat/2/huilong/proto&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ContentTopic</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/toy-chat/2/huilong/proto&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">proto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">protons</span>(<span style="color:#e6db74">`
 </span><span style="color:#e6db74">message ChatMessage {
@@ -887,107 +885,106 @@ You will pass <code>processMessages</code> as a <code>callback</code> option to 
 </span><span style="color:#e6db74">`</span>);
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
-    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">setWaku</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">undefined</span>);
-    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">wakuStatus</span>, <span style="color:#a6e22e">setWakuStatus</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;None&#39;</span>);
-    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">messages</span>, <span style="color:#a6e22e">setMessages</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>([]);
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">setWaku</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">undefined</span>);
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">wakuStatus</span>, <span style="color:#a6e22e">setWakuStatus</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#34;None&#34;</span>);
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">messages</span>, <span style="color:#a6e22e">setMessages</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useState</span>([]);
 
-    <span style="color:#75715e">// Start Waku
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
-        <span style="color:#75715e">// If Waku status not None, it means we are already starting Waku
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;None&#39;</span>) <span style="color:#66d9ef">return</span>;
+  <span style="color:#75715e">// Start Waku
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
+    <span style="color:#75715e">// If Waku status not None, it means we are already starting Waku
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;None&#34;</span>) <span style="color:#66d9ef">return</span>;
 
-        <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#39;Starting&#39;</span>);
+    <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#34;Starting&#34;</span>);
 
-        <span style="color:#75715e">// Create Waku
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({<span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> {<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>}}).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">waku</span>) =&gt; {
-            <span style="color:#75715e">// Once done, put it in the state
-</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">setWaku</span>(<span style="color:#a6e22e">waku</span>);
-            <span style="color:#75715e">// And update the status
-</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#39;Connecting&#39;</span>);
-        });
-    }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
+    <span style="color:#75715e">// Create Waku
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> { <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> } }).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">waku</span>) =&gt; {
+      <span style="color:#75715e">// Once done, put it in the state
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setWaku</span>(<span style="color:#a6e22e">waku</span>);
+      <span style="color:#75715e">// And update the status
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#34;Connecting&#34;</span>);
+    });
+  }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
 
+  <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">waku</span>) <span style="color:#66d9ef">return</span>;
 
-    <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">waku</span>) <span style="color:#66d9ef">return</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;Connected&#34;</span>) <span style="color:#66d9ef">return</span>;
 
-        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;Connected&#39;</span>) <span style="color:#66d9ef">return</span>;
+    <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForConnectedPeer</span>().<span style="color:#a6e22e">then</span>(() =&gt; {
+      <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#34;Connected&#34;</span>);
+    });
+  }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
 
-        <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForConnectedPeer</span>().<span style="color:#a6e22e">then</span>(() =&gt; {
-            <span style="color:#a6e22e">setWakuStatus</span>(<span style="color:#e6db74">&#39;Connected&#39;</span>);
-        });
-    }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
+  <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;Connected&#34;</span>) <span style="color:#66d9ef">return</span>;
 
-    <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
-        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;Connected&#39;</span>) <span style="color:#66d9ef">return</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">processMessages</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">retrievedMessages</span>) =&gt; {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">retrievedMessages</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">decodeMessage</span>).<span style="color:#a6e22e">filter</span>(Boolean);
 
-        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">processMessages</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">retrievedMessages</span>) =&gt; {
-            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">retrievedMessages</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">decodeMessage</span>).<span style="color:#a6e22e">filter</span>(Boolean);
+      <span style="color:#a6e22e">setMessages</span>((<span style="color:#a6e22e">currentMessages</span>) =&gt; {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">currentMessages</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">reverse</span>());
+      });
+    };
 
-            <span style="color:#a6e22e">setMessages</span>((<span style="color:#a6e22e">currentMessages</span>) =&gt; {
-                <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">currentMessages</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">reverse</span>());
-            });
-        };
+    <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>
+      .<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], { <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">processMessages</span> })
+      .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">e</span>) =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Failed to retrieve messages&#34;</span>, <span style="color:#a6e22e">e</span>);
+      });
+  }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
 
-        <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>
-            .<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], {<span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">processMessages</span>})
-            .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">e</span>) =&gt; {
-                <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to retrieve messages&#39;</span>, <span style="color:#a6e22e">e</span>);
-            });
-    }, [<span style="color:#a6e22e">waku</span>, <span style="color:#a6e22e">wakuStatus</span>]);
-
-    <span style="color:#66d9ef">return</span> (
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;App&#39;</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">header</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;App-header&#39;</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h2</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">wakuStatus</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h2&gt;</span>
-                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h3</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Messages</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h3&gt;</span>
-                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ul</span><span style="color:#f92672">&gt;</span>
-                    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Messages</span> <span style="color:#a6e22e">messages</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">messages</span>}<span style="color:#f92672">/&gt;</span>
-                <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ul&gt;</span>
-            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/header&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
-    );
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">header</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;App-header&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h2</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">wakuStatus</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h2&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h3</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Messages</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h3&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ul</span><span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Messages</span> <span style="color:#a6e22e">messages</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">messages</span>} <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ul&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/header&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+  );
 }
 
 <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">decodeMessage</span>(<span style="color:#a6e22e">wakuMessage</span>) {
-    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">payload</span>) <span style="color:#66d9ef">return</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">payload</span>) <span style="color:#66d9ef">return</span>;
 
-    <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">timestamp</span>, <span style="color:#a6e22e">nick</span>, <span style="color:#a6e22e">text</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">proto</span>.<span style="color:#a6e22e">ChatMessage</span>.<span style="color:#a6e22e">decode</span>(
-        <span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">payload</span>
-    );
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">timestamp</span>, <span style="color:#a6e22e">nick</span>, <span style="color:#a6e22e">text</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">proto</span>.<span style="color:#a6e22e">ChatMessage</span>.<span style="color:#a6e22e">decode</span>(
+    <span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">payload</span>
+  );
 
-    <span style="color:#75715e">// All fields in protobuf are optional so be sure to check
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">timestamp</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">text</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">nick</span>) <span style="color:#66d9ef">return</span>;
+  <span style="color:#75715e">// All fields in protobuf are optional so be sure to check
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">timestamp</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">text</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">nick</span>) <span style="color:#66d9ef">return</span>;
 
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
-    <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">setTime</span>(<span style="color:#a6e22e">timestamp</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+  <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">setTime</span>(<span style="color:#a6e22e">timestamp</span>);
 
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">utf8Text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">text</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#39;utf-8&#39;</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">utf8Text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Buffer</span>.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">text</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#e6db74">&#34;utf-8&#34;</span>);
 
-    <span style="color:#66d9ef">return</span> {<span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">utf8Text</span>, <span style="color:#a6e22e">timestamp</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">time</span>, <span style="color:#a6e22e">nick</span>};
+  <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">utf8Text</span>, <span style="color:#a6e22e">timestamp</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">time</span>, <span style="color:#a6e22e">nick</span> };
 }
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Messages</span>(<span style="color:#a6e22e">props</span>) {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">map</span>(({<span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">timestamp</span>, <span style="color:#a6e22e">nick</span>}) =&gt; {
-        <span style="color:#66d9ef">return</span> (
-            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
-                ({<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">timestamp</span>)}) {<span style="color:#a6e22e">nick</span>}<span style="color:#f92672">:</span> {<span style="color:#a6e22e">text</span>}
-            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
-        );
-    });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">map</span>(({ <span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">timestamp</span>, <span style="color:#a6e22e">nick</span> }) =&gt; {
+    <span style="color:#66d9ef">return</span> (
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
+        ({<span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">timestamp</span>)}) {<span style="color:#a6e22e">nick</span>}<span style="color:#f92672">:</span> {<span style="color:#a6e22e">text</span>}
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
+    );
+  });
 }
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">timestamp</span>) {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">timestamp</span>.<span style="color:#a6e22e">toLocaleString</span>([], {
-        <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;short&#39;</span>,
-        <span style="color:#a6e22e">day</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;numeric&#39;</span>,
-        <span style="color:#a6e22e">hour</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;numeric&#39;</span>,
-        <span style="color:#a6e22e">minute</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>,
-        <span style="color:#a6e22e">second</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2-digit&#39;</span>,
-        <span style="color:#a6e22e">hour12</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
-    });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">timestamp</span>.<span style="color:#a6e22e">toLocaleString</span>([], {
+    <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;short&#34;</span>,
+    <span style="color:#a6e22e">day</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>,
+    <span style="color:#a6e22e">hour</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>,
+    <span style="color:#a6e22e">minute</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2-digit&#34;</span>,
+    <span style="color:#a6e22e">second</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2-digit&#34;</span>,
+    <span style="color:#a6e22e">hour12</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+  });
 }
 </code></pre></div><p>Note that <code>WakuStore.queryHistory</code> select an available store node for you.
 However, it can only select a connected node, which is why the bootstrapping is necessary.
@@ -1010,11 +1007,10 @@ By default, js-waku sets the timestamp of outgoing message to the current time.<
 <span style="color:#75715e">// 7 days/week, 24 hours/day, 60min/hour, 60secs/min, 100ms/sec
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">startTime</span>.<span style="color:#a6e22e">setTime</span>(<span style="color:#a6e22e">startTime</span>.<span style="color:#a6e22e">getTime</span>() <span style="color:#f92672">-</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>);
 
-<span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>
-  .<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], {
-    <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">processMessages</span>,
-    <span style="color:#a6e22e">timeFilter</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">endTime</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date() }
-  });
+<span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">queryHistory</span>([<span style="color:#a6e22e">ContentTopic</span>], {
+  <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">processMessages</span>,
+  <span style="color:#a6e22e">timeFilter</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">endTime</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date() },
+});
 </code></pre></div><h2 id="end-result">
   End result
   <a class="anchor" href="#end-result">#</a>
@@ -1029,9 +1025,9 @@ By default, js-waku sets the timestamp of outgoing message to the current time.<
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/23ba3e482981514df0e2954405c2ea33c751c4d3" title='Last modified by Franck R | Jan 24, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/02d5ab77d041a7324a534578b8604b82cc61deec" title='Last modified by Franck R | Jan 27, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jan 24, 2022</span>
+      <span>Jan 27, 2022</span>
     </a>
   </div>
 

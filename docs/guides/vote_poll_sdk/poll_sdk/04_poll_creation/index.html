@@ -14,14 +14,14 @@ useWakuPolling takes:
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-01-03T11:00:00+11:00" />
-<meta property="article:modified_time" content="2022-01-06T13:19:14+11:00" />
+<meta property="article:modified_time" content="2022-01-24T12:17:00+11:00" />
 
-<title>Poll Creation Component | WakuConnect Docs</title>
+<title>Poll Creation Component | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.4b1407834b00472136a90877f41f745236339309d01b997ad233d6436d3ce4ce.js" integrity="sha256-SxQHg0sARyE2qQh39B90UjYzkwnQG5l60jPWQ2085M4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.342db369b6a06ae4be84eda73ad08c0914f079f996313e0a0c1f709574dff631.js" integrity="sha256-NC2zabagauS&#43;hO2nOtCMCRTwefmWMT4KDB9wlXTf9jE=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,7 +37,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="/"><span>WakuConnect Docs</span>
+  <a class="flex align-center" href="/"><span>Waku Connect Docs</span>
   </a>
 </h2>
 
@@ -437,7 +437,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
   
   <li>
-    <a href="https://status-im.github.io/js-waku/docs/" target="_blank" rel="noopener">
+    <a href="https://js-waku.wakuconnect.dev/" target="_blank" rel="noopener">
         JS-Waku API Doc
       </a>
   </li>
@@ -534,78 +534,106 @@ Only token holders can create and answer polls.</li>
 </ul>
 <p>Add these parameters to <code>PollProps</code> and call <code>useWakuPolling</code>.</p>
 <p><code>components/Poll.tsx</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">useState</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">useConfig</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@usedapp/core&#39;</span>
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">PollCreation</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/poll-sdk-react-components&#39;</span>
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">JsonRpcSigner</span>, <span style="color:#a6e22e">Web3Provider</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@ethersproject/providers&#39;</span>
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">useWakuPolling</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/poll-sdk-react-hooks&#39;</span>
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">CreateButton</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-poll-sdk-react-components&#39;</span>
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">Theme</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#39;</span>
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">ChainId</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core/src/constants&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useConfig</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PollCreation</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/poll-sdk-react-components&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">JsonRpcSigner</span>, <span style="color:#a6e22e">Web3Provider</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ethersproject/providers&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useWakuPolling</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/poll-sdk-react-hooks&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CreateButton</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Theme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core/src/constants&#34;</span>;
 
 <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PollProps</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">appName</span>: <span style="color:#66d9ef">string</span>
-    <span style="color:#a6e22e">library</span>: <span style="color:#66d9ef">Web3Provider</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>
-    <span style="color:#a6e22e">signer</span>: <span style="color:#66d9ef">JsonRpcSigner</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>
-    <span style="color:#a6e22e">chainId</span>: <span style="color:#66d9ef">ChainId</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>
-    <span style="color:#a6e22e">theme</span>: <span style="color:#66d9ef">Theme</span>
-    <span style="color:#a6e22e">tokenAddress</span>: <span style="color:#66d9ef">string</span>
-}
+  <span style="color:#a6e22e">appName</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#a6e22e">library</span>: <span style="color:#66d9ef">Web3Provider</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
+  <span style="color:#a6e22e">signer</span>: <span style="color:#66d9ef">JsonRpcSigner</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
+  <span style="color:#a6e22e">chainId</span>: <span style="color:#66d9ef">ChainId</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
+  <span style="color:#a6e22e">theme</span>: <span style="color:#66d9ef">Theme</span>;
+  <span style="color:#a6e22e">tokenAddress</span>: <span style="color:#66d9ef">string</span>;
+};
 
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Poll</span>({<span style="color:#a6e22e">appName</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">chainId</span>, <span style="color:#a6e22e">theme</span>, <span style="color:#a6e22e">tokenAddress</span>}<span style="color:#f92672">:</span> <span style="color:#a6e22e">PollProps</span>) {
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useConfig</span>()
-    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">showPollCreation</span>, <span style="color:#a6e22e">setShowPollCreation</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>)
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuPolling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useWakuPolling</span>(<span style="color:#a6e22e">appName</span>, <span style="color:#a6e22e">tokenAddress</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">config</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">?</span>.[<span style="color:#a6e22e">chainId</span> <span style="color:#f92672">??</span> <span style="color:#ae81ff">1337</span>])
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Poll</span>({
+  <span style="color:#a6e22e">appName</span>,
+  <span style="color:#a6e22e">library</span>,
+  <span style="color:#a6e22e">signer</span>,
+  <span style="color:#a6e22e">chainId</span>,
+  <span style="color:#a6e22e">theme</span>,
+  <span style="color:#a6e22e">tokenAddress</span>,
+}<span style="color:#f92672">:</span> <span style="color:#a6e22e">PollProps</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useConfig</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">showPollCreation</span>, <span style="color:#a6e22e">setShowPollCreation</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuPolling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useWakuPolling</span>(
+    <span style="color:#a6e22e">appName</span>,
+    <span style="color:#a6e22e">tokenAddress</span>,
+    <span style="color:#a6e22e">library</span>,
+    <span style="color:#a6e22e">config</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">?</span>.[<span style="color:#a6e22e">chainId</span> <span style="color:#f92672">??</span> <span style="color:#ae81ff">1337</span>]
+  );
 
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">disabled</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">signer</span>;
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">disabled</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">signer</span>;
 
-    <span style="color:#66d9ef">return</span> (
-        &lt;<span style="color:#f92672">Wrapper</span>&gt;
-            {<span style="color:#a6e22e">showPollCreation</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">signer</span> <span style="color:#f92672">&amp;&amp;</span> (
-                &lt;<span style="color:#f92672">PollCreation</span> <span style="color:#a6e22e">wakuPolling</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuPolling</span>} <span style="color:#a6e22e">setShowPollCreation</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setShowPollCreation</span>} <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>}/&gt;
-            )}
-            {
-                &lt;<span style="color:#f92672">CreateButton</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{<span style="color:#a6e22e">backgroundColor</span>: <span style="color:#66d9ef">disabled</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;lightgrey&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">theme</span>.<span style="color:#a6e22e">primaryColor</span>}} <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>}
-                              <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">disabled</span>}
-                              <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">setShowPollCreation</span>(<span style="color:#66d9ef">true</span>)}&gt;
-                    <span style="color:#a6e22e">Create</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">poll</span>
-                &lt;/<span style="color:#f92672">CreateButton</span>&gt;
-            }
-        &lt;/<span style="color:#f92672">Wrapper</span>&gt;
-    )
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">Wrapper</span>&gt;
+      {<span style="color:#a6e22e">showPollCreation</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">signer</span> <span style="color:#f92672">&amp;&amp;</span> (
+        &lt;<span style="color:#f92672">PollCreation</span>
+          <span style="color:#a6e22e">wakuPolling</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuPolling</span>}
+          <span style="color:#a6e22e">setShowPollCreation</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setShowPollCreation</span>}
+          <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>}
+        /&gt;
+      )}
+      {
+        &lt;<span style="color:#f92672">CreateButton</span>
+          <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{
+            <span style="color:#a6e22e">backgroundColor</span>: <span style="color:#66d9ef">disabled</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;lightgrey&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">theme</span>.<span style="color:#a6e22e">primaryColor</span>,
+          }}
+          <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>}
+          <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">disabled</span>}
+          <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">setShowPollCreation</span>(<span style="color:#66d9ef">true</span>)}
+        &gt;
+          <span style="color:#a6e22e">Create</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">poll</span>
+        &lt;/<span style="color:#f92672">CreateButton</span>&gt;
+      }
+    &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+  );
 }
 </code></pre></div><p>Then pass them in <code>PollPage</code>.</p>
 <p>In this example, we use <code>demo-poll-dapp</code> for the app name and the mainnet SNT token contract for the token address.
 Replace those with your own.</p>
 <p><code>index.tsx</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">PollPage() {</span>
-    <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span>, <span style="color:#a6e22e">chainId</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">useEthers</span>()
-    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>)
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span>, <span style="color:#a6e22e">chainId</span> } <span style="color:#f92672">=</span>
+    <span style="color:#a6e22e">useEthers</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>);
 
-    <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
-        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
-            <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>())
-        } <span style="color:#66d9ef">else</span> {
-            <span style="color:#75715e">// Deactivate signer if signed out
-</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>)
-        }
-    }, [<span style="color:#a6e22e">account</span>])
+  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
+      <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>());
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// Deactivate signer if signed out
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>);
+    }
+  }, [<span style="color:#a6e22e">account</span>]);
 
-    <span style="color:#66d9ef">return</span> (
-        &lt;<span style="color:#f92672">div</span>&gt;
-            &lt;<span style="color:#f92672">TopBar</span>
-                <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
-                <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
-                <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Poll dApp&#39;</span>}
-                <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
-                <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
-                <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
-                <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
-            /&gt;
-            &lt;<span style="color:#f92672">Poll</span> <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>} <span style="color:#a6e22e">appName</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;demo-poll-dapp&#39;</span>} <span style="color:#a6e22e">library</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">library</span>} <span style="color:#a6e22e">signer</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">signer</span>} <span style="color:#a6e22e">chainId</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">chainId</span>}
-                  <span style="color:#a6e22e">tokenAddress</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;0x744d70FDBE2Ba4CF95131626614a1763DF805B9E&#39;</span>}/&gt;
-        &lt;/<span style="color:#f92672">div</span>&gt;
-    )
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">TopBar</span>
+        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
+        <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;Poll dApp&#34;</span>}
+        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
+        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
+        <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
+        <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
+      /&gt;
+      &lt;<span style="color:#f92672">Poll</span>
+        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
+        <span style="color:#a6e22e">appName</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;demo-poll-dapp&#34;</span>}
+        <span style="color:#a6e22e">library</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">library</span>}
+        <span style="color:#a6e22e">signer</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">signer</span>}
+        <span style="color:#a6e22e">chainId</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">chainId</span>}
+        <span style="color:#a6e22e">tokenAddress</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;0x744d70FDBE2Ba4CF95131626614a1763DF805B9E&#34;</span>}
+      /&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
 }
 </code></pre></div><p>You can now see the poll creation modal when clicking on the button:</p>
 <p><img src="/assets/poll_sdk/create-a-poll-component.png" alt="Create a poll modal" /></p>
@@ -639,9 +667,9 @@ Replace those with your own.</p>
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/e3b7cf9a3d3290ff28648aedc59817ff66c50fc6" title='Last modified by F | Jan 6, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/41bc0a9d8058006de8bf56562b5ac5e50ab00a2f" title='Last modified by Franck R | Jan 24, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jan 6, 2022</span>
+      <span>Jan 24, 2022</span>
     </a>
   </div>
 
