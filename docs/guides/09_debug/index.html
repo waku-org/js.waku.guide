@@ -3,24 +3,31 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="How to Use the Waku Connect Poll SDK #  To demonstrate how to use the Waku Connect Poll SDK in your dApp, we will create a TypeScript React app from scratch.
-You can then adapt the steps depending on your dApp configuration and build setup.
-The resulting code of this guide can be found at https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/examples/mainnet-poll.
-Here is a preview of the end result:
-Get Started  ">
+<meta name="description" content="How to Debug your Waku dApp #  JS-Waku and its most relevant dependencies (libp2p) uses debug to handle logs.
+NodeJS #  To enable debug logs when running js-waku with NodeJS, simply set the DEBUG environment variable.
+To only enable js-waku debug logs:
+export DEBUG=waku* To enable js-waku and libp2p debug logs:
+export DEBUG=waku*,libp2p* To enable all debug logs:
+export DEBUG=* Browser #  To see the debug logs in your browser&rsquo;s console, you need to modify the local storage and add debug key.">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Poll SDK" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="How to Debug your Waku dApp" />
+<meta property="og:description" content="How to Debug your Waku dApp #  JS-Waku and its most relevant dependencies (libp2p) uses debug to handle logs.
+NodeJS #  To enable debug logs when running js-waku with NodeJS, simply set the DEBUG environment variable.
+To only enable js-waku debug logs:
+export DEBUG=waku* To enable js-waku and libp2p debug logs:
+export DEBUG=waku*,libp2p* To enable all debug logs:
+export DEBUG=* Browser #  To see the debug logs in your browser&rsquo;s console, you need to modify the local storage and add debug key." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/09_debug/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-01-31T00:00:00+01:00" />
+<meta property="article:modified_time" content="2022-01-31T10:56:57+11:00" />
 
-<title>Poll SDK | Waku Connect Docs</title>
+<title>How to Debug your Waku dApp | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.ee0f6cf0db0a81ce685772349e44ee73614cacece3ea562857541eeebf445bc7.js" integrity="sha256-7g9s8NsKgc5oV3I0nkTuc2FMrOzj6lYoV1Qe7r9EW8c=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/index.xml" title="Waku Connect Docs" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -282,7 +289,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/09_debug/" class="">How to Debug your Waku dApp</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/09_debug/" class=" active">How to Debug your Waku dApp</a>
   
 
         </li>
@@ -308,7 +315,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class=" active">Poll SDK</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
   
 
           
@@ -499,7 +506,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Poll SDK</strong>
+  <strong>How to Debug your Waku dApp</strong>
 
   <label for="toc-control">
     
@@ -515,7 +522,12 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#how-to-use-the-waku-connect-poll-sdk">How to Use the Waku Connect Poll SDK</a></li>
+    <li><a href="#how-to-debug-your-waku-dapp">How to Debug your Waku dApp</a>
+      <ul>
+        <li><a href="#nodejs">NodeJS</a></li>
+        <li><a href="#browser">Browser</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -528,26 +540,58 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="how-to-use-the-waku-connect-poll-sdk">
-  How to Use the Waku Connect Poll SDK
-  <a class="anchor" href="#how-to-use-the-waku-connect-poll-sdk">#</a>
+  <article class="markdown"><h1 id="how-to-debug-your-waku-dapp">
+  How to Debug your Waku dApp
+  <a class="anchor" href="#how-to-debug-your-waku-dapp">#</a>
 </h1>
-<p>To demonstrate how to use the Waku Connect Poll SDK in your dApp, we will create a TypeScript React app from scratch.</p>
-<p>You can then adapt the steps depending on your dApp configuration and build setup.</p>
-<p>The resulting code of this guide can be found at
-<a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/examples/mainnet-poll">https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/examples/mainnet-poll</a>.</p>
-<p>Here is a preview of the end result:</p>
-<p><img src="/assets/poll_sdk/wakuconnect-poll-demo.gif" alt="Poll demo" /></p>
-
-
-
-
-  
-
-<a  href="/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/"   class="book-btn">
-  Get Started
-</a>
-
+<p>JS-Waku and its most relevant dependencies (libp2p) uses <a href="https://www.npmjs.com/package/debug">debug</a> to handle logs.</p>
+<h2 id="nodejs">
+  NodeJS
+  <a class="anchor" href="#nodejs">#</a>
+</h2>
+<p>To enable debug logs when running js-waku with NodeJS, simply set the <code>DEBUG</code> environment variable.</p>
+<p>To only enable js-waku debug logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export DEBUG<span style="color:#f92672">=</span>waku*
+</code></pre></div><p>To enable js-waku and libp2p debug logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export DEBUG<span style="color:#f92672">=</span>waku*,libp2p*
+</code></pre></div><p>To enable <strong>all</strong> debug logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export DEBUG<span style="color:#f92672">=</span>*
+</code></pre></div><h2 id="browser">
+  Browser
+  <a class="anchor" href="#browser">#</a>
+</h2>
+<p>To see the debug logs in your browser&rsquo;s console, you need to modify the local storage and add <code>debug</code> key.</p>
+<p>Here are guides for some modern browsers:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector/Local_Storage_Session_Storage">Firefox</a></li>
+<li><a href="https://developer.chrome.com/docs/devtools/storage/localstorage/">Chrome</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+<th>effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>debug</code></td>
+<td><code>waku*</code></td>
+<td>enable js-waku debug logs</td>
+</tr>
+<tr>
+<td><code>debug</code></td>
+<td><code>waku*,libp2p*</code></td>
+<td>enable js-waku and libp2p debug logs</td>
+</tr>
+<tr>
+<td><code>debug</code></td>
+<td><code>*</code></td>
+<td>enable <strong>all</strong> debug logs</td>
+</tr>
+</tbody>
+</table>
 </article>
  
       
@@ -557,16 +601,16 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/02d5ab77d041a7324a534578b8604b82cc61deec" title='Last modified by Franck R | Jan 27, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/f2e22d0cd0d84dcb7a009346dccca6f013380a0e" title='Last modified by Franck R | Jan 30, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jan 27, 2022</span>
+      <span>Jan 30, 2022</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/poll_sdk/_index.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/09_debug.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -602,7 +646,12 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#how-to-use-the-waku-connect-poll-sdk">How to Use the Waku Connect Poll SDK</a></li>
+    <li><a href="#how-to-debug-your-waku-dapp">How to Debug your Waku dApp</a>
+      <ul>
+        <li><a href="#nodejs">NodeJS</a></li>
+        <li><a href="#browser">Browser</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
