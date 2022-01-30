@@ -4,9 +4,10 @@ weight: 30
 
 # Guides
 
-## Waku Concepts
+## General Concepts
 
 - [How to Choose a Content Topic](./01_choose_content_topic/)
+- [How to Debug your Waku dApp](./09_debug/)
 
 ## JavaScript
 
