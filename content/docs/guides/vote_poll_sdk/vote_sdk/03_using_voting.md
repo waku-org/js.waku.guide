@@ -137,9 +137,14 @@ ReactDOM.render(
 )
 ```
 
-Gif with proposal creation:
+After starting a page you should be able to see a main page that looks like this:
+![Main Page](/assets/voting_sdk/Voting_Main_Page.png)
 
-TODO
 
+Creating proposal should be as seen in this gif:
+![Proposal creation](/assets/voting_sdk/proposal_creation.gif)
+
+After voting with a second account on proposal the proposal card should look like this:
+![Proposal Card](/assets/voting_sdk/proposal_card.png)
 
 {{< button relref="./02_voting_creation"  >}}Back{{< /button >}}
