@@ -50,7 +50,7 @@ whereas the token holders do not spend gas when voting.
 
 You can find more information about the Vote SDK's properties in the [README](https://github.com/status-im/wakuconnect-vote-poll-sdk#wakuconnect-vote-sdk).
 
-A working example dApp that includes voting feature can be found in the [repo](https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/master/examples/ropsten-voting).
+See [How to Use the Waku Connect Vote SDK](./vote_sdk).
 
 ## Waku Connect Poll SDK
 
