@@ -1,7 +1,7 @@
 ---
 title: Create the DApp and Install Dependencies
 date: 2022-01-03T11:00:00+1100
-weight: 11
+weight: 1
 ---
 
 # Create the DApp and Install Dependencies

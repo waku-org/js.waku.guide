@@ -1,7 +1,7 @@
 ---
 title: Connect to the Ethereum Wallet
 date: 2022-01-03T11:00:00+1100
-weight: 12
+weight: 2
 ---
 
 # Connect to the Ethereum Wallet
