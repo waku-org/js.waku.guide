@@ -48,21 +48,9 @@ whereas the token holders do not spend gas when voting.
 
 ### Documentation
 
-{{< hint info >}}
-The documentation effort is currently in progress.
-It is tracked with [status-im/wakuconnect-vote-poll-sdk#11](https://github.com/status-im/wakuconnect-vote-poll-sdk/issues/11).
-Contributions are welcome.
-{{< /hint >}}
-
 You can find more information about the Vote SDK's properties in the [README](https://github.com/status-im/wakuconnect-vote-poll-sdk#wakuconnect-vote-sdk).
 
-A working example dApp that includes voting feature can be found in the [repo](https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/packages/example).
-
-{{< hint warning >}}
-As the example is part of the yarn workspace,
-there may be issues with undeclared dependencies with this example.
-Tracked with [status-im/wakuconnect-vote-poll-sdk#11](https://github.com/status-im/wakuconnect-vote-poll-sdk/issues/11).
-{{< /hint >}}
+A working example dApp that includes voting feature can be found in the [repo](https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/master/examples/ropsten-voting).
 
 ## Waku Connect Poll SDK
 
