@@ -4,9 +4,9 @@ date: 2022-01-06T11:00:00+1100
 weight: 1
 ---
 
-# How to Use the WakuConnect Vote SDK
+# How to Use the Waku Connect Vote SDK
 
-To demonstrate how to use the WakuConnect Vote SDK in your dApp,
+To demonstrate how to use the Waku Connect Vote SDK in your dApp,
 we will create a TypeScript React app from scratch.
 
 You can then adapt the steps depending on your dApp configuration and build setup.
@@ -21,7 +21,8 @@ Here is a preview of the end result:
 
 TODO
 
-After following a dapp creation guide you should have a dapp that can connect to wallet ready. We will continue from this point.
+After following a dapp creation guide you should have a dapp that can connect to wallet ready.
+We will continue from this point.
 
 Before starting first add poll packages:
 

@@ -1,13 +1,18 @@
 ---
-title: Creating Voting component
+title: Use Voting component
 date: 2022-01-03T11:00:00+1100
-weight: 13
+weight: 3
 ---
 
-# Defining config
+# Use Voting Component
 
-First thing we need to do is to set address of multicall smart contract and voting smart contract.
-And also your dapp name.
+## Define Configuration
+
+Configure the dApp by setting:
+
+- Address of the multicall smart contract of the target chain,
+- Address of the voting smart contract,
+- Your dApp name.
 
 ```tsx
 const VOTING_ADDRESS = 'VOTING_ADDRESS'
@@ -15,62 +20,65 @@ const MULTICALL_ADDRESS = 'MULTICALL_ADDRESS'
 const DAPP_NAME = 'YOUR_DAPP_NAME'
 ```
 
-# Using waku voting
+## Using Waku Voting
 
-Now we need to have a waku voting object to do that we simply call `useWakuVoting`:
+Now, we need a Waku voting object.
+For that, call `useWakuVoting`:
 
 ```tsx
-import { useWakuVoting } from '@waku/vote-sdk-react-hooks'
+import {useWakuVoting} from '@waku/vote-sdk-react-hooks'
 
 export function MainPage() {
-  const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID)
-  const wakuVoting = useWakuVoting(
-    DAPP_NAME,
-    VOTING_ADDRESS,
-    provider,
-    MULTICALL_ADDRESS
-  )
+    const {activate, deactivate, account, provider} = useWeb3Connect(SUPPORTED_CHAIN_ID)
+    const wakuVoting = useWakuVoting(
+        DAPP_NAME,
+        VOTING_ADDRESS,
+        provider,
+        MULTICALL_ADDRESS
+    )
+}
 ```
 
-# Showing Voting component 
+## Display Voting Component 
 
-Now we can modify what `MainPage` returns so that it shows a Voting component, before showing Voting component we need to check if wakuVoting has initialized:
+Modify the `MainPage` to render a Voting component.
+Before rendering the component, check if `wakuVoting` has initialized:
 
 ```tsx
-  return (
+return (
     <Wrapper>
-      <TopBar
-        logo={''}
-        logoWidth={84}
-        title={'WakuConnect Vote Demo'}
-        theme={blueTheme}
-        activate={activate}
-        account={account}
-        deactivate={deactivate}
-      />
-      {wakuVoting &&
-        <Voting
-          wakuVoting={wakuVoting}
-          account={account}
-          activate={activate}
-        />}
+        <TopBar
+            logo={''}
+            logoWidth={84}
+            title={'WakuConnect Vote Demo'}
+            theme={blueTheme}
+            activate={activate}
+            account={account}
+            deactivate={deactivate}
+        />
+        {wakuVoting &&
+            <Voting
+                wakuVoting={wakuVoting}
+                account={account}
+                activate={activate}
+            />}
     </Wrapper>
-  )
+)
 ```
 
-# Final look of index file
+## Resulting `index.tsx` File
 
-After all that `index.tsx` should look similar to this:
+Your `index.tsx` should now look like:
 
 ```tsx
 import React from 'react'
 import styled from 'styled-components'
-import { GlobalStyle, TopBar } from '@waku/vote-poll-sdk-react-components'
-import { blueTheme } from '@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes'
+import {GlobalStyle, TopBar} from '@waku/vote-poll-sdk-react-components'
+import {blueTheme} from '@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes'
 import ReactDOM from 'react-dom'
-import { useWeb3Connect } from './hooks/useWeb3Connect'
-import { Voting } from './components/Voting'
-import { useWakuVoting } from '@waku/vote-sdk-react-hooks'
+import {useWeb3Connect} from './hooks/useWeb3Connect'
+import {Voting} from './components/Voting'
+import {useWakuVoting} from '@waku/vote-sdk-react-hooks'
 
 const VOTING_ADDRESS = '0xCA4093D66280Ec1242b660088188b50fDC14dcC4'
 const MULTICALL_ADDRESS = '0x53c43764255c17bd724f74c4ef150724ac50a3ed'
@@ -78,42 +86,42 @@ const DAPP_NAME = 'test'
 const SUPPORTED_CHAIN_ID = 3
 
 export function MainPage() {
-  const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID)
-  const wakuVoting = useWakuVoting(
-    DAPP_NAME,
-    VOTING_ADDRESS,
-    provider,
-    MULTICALL_ADDRESS
-  )
+    const {activate, deactivate, account, provider} = useWeb3Connect(SUPPORTED_CHAIN_ID)
+    const wakuVoting = useWakuVoting(
+        DAPP_NAME,
+        VOTING_ADDRESS,
+        provider,
+        MULTICALL_ADDRESS
+    )
 
-  return (
-    <Wrapper>
-      <TopBar
-        logo={''}
-        logoWidth={84}
-        title={'WakuConnect Vote Demo'}
-        theme={blueTheme}
-        activate={activate}
-        account={account}
-        deactivate={deactivate}
-      />
-      {wakuVoting &&
-        <Voting
-          wakuVoting={wakuVoting}
-          account={account}
-          activate={activate}
-        />}
-    </Wrapper>
-  )
+    return (
+        <Wrapper>
+            <TopBar
+                logo={''}
+                logoWidth={84}
+                title={'WakuConnect Vote Demo'}
+                theme={blueTheme}
+                activate={activate}
+                account={account}
+                deactivate={deactivate}
+            />
+            {wakuVoting &&
+                <Voting
+                    wakuVoting={wakuVoting}
+                    account={account}
+                    activate={activate}
+                />}
+        </Wrapper>
+    )
 }
 
 export function App() {
-  return (
-    <Wrapper>
-      <GlobalStyle />
-      <MainPage />
-    </Wrapper>
-  )
+    return (
+        <Wrapper>
+            <GlobalStyle/>
+            <MainPage/>
+        </Wrapper>
+    )
 }
 
 const Wrapper = styled.div`
@@ -122,17 +130,16 @@ const Wrapper = styled.div`
 `
 
 ReactDOM.render(
-  <div style={{ height: '100%' }}>
-    <App />
-  </div>,
-  document.getElementById('root')
+    <div style={{height: '100%'}}>
+        <App/>
+    </div>,
+    document.getElementById('root')
 )
 ```
 
 Gif with proposal creation:
 
+TODO
 
 
 {{< button relref="./02_voting_creation"  >}}Back{{< /button >}}
-{{< button relref="./"  >}}Back{{< /button >}}
-

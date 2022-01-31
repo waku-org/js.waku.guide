@@ -1,21 +1,24 @@
 ---
 title: Creating Voting component
 date: 2022-01-03T11:00:00+1100
-weight: 13
+weight: 2
 ---
 
-With smart contract deployed we can go back to our dapp.
+# Create Voting component
 
-On this step base dapp with wallet connection should be done if not please refer to `dapp creation`.
+With the smart contract deployed we can go back to our dApp.
 
-# Creating Voting component
+We assume that the skeleton for the dApp with connection to the wallet is already done, if not please go
+to [dApp creation](/docs/guides/vote_poll_sdk/dapp_creation/).
+
+## Create components
 
 Let's start by creating a new folder `components` with file named `Voting.tsx` inside.
 
 After that we can start with styling and defining which theme we will be using:
 
 ```tsx
-import { blueTheme } from '@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes'
+import {blueTheme} from '@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes'
 import styled from 'styled-components'
 
 const THEME = blueTheme;
@@ -40,60 +43,56 @@ const Wrapper = styled.div`
 `
 ```
 
-# Adding react component
+## Adding react component
 
-Now 
+Now, create a `Voting` component that uses the components from the Vote SDK.
 
 ```tsx
-import React, { useCallback, useState } from 'react'
-import {
-  VotingRoomListHeader,
-  VotingRoomList,
-  NewVotingRoomModal,
-} from '@waku/vote-sdk-react-components'
-import { WakuVoting } from '@waku/vote-poll-sdk-core'
-import { useVotingRoomsId } from '@waku/vote-sdk-react-hooks'
-import { useTokenBalance } from '@waku/vote-poll-sdk-react-components'
+import React, {useCallback, useState} from 'react'
+import {NewVotingRoomModal, VotingRoomList, VotingRoomListHeader,} from '@waku/vote-sdk-react-components'
+import {WakuVoting} from '@waku/vote-poll-sdk-core'
+import {useVotingRoomsId} from '@waku/vote-sdk-react-hooks'
+import {useTokenBalance} from '@waku/vote-poll-sdk-react-components'
 
 type VotingProps = {
-  wakuVoting: WakuVoting
-  account: string | null | undefined
-  activate: () => void
+    wakuVoting: WakuVoting
+    account: string | null | undefined
+    activate: () => void
 }
 
-export function Voting({ wakuVoting, account, activate }: VotingProps) {
-  const [showNewVoteModal, setShowNewVoteModal] = useState(false)
-  const onCreateClick = useCallback(() => {
-    setShowNewVoteModal(true)
-  }, [])
+export function Voting({wakuVoting, account, activate}: VotingProps) {
+    const [showNewVoteModal, setShowNewVoteModal] = useState(false)
+    const onCreateClick = useCallback(() => {
+        setShowNewVoteModal(true)
+    }, [])
 
-  const votes = useVotingRoomsId(wakuVoting)
-  const tokenBalance = useTokenBalance(account, wakuVoting)
+    const votes = useVotingRoomsId(wakuVoting)
+    const tokenBalance = useTokenBalance(account, wakuVoting)
 
-  return (
-    <Wrapper>
-      <NewVotingRoomModal
-        theme={THEME}
-        availableAmount={tokenBalance}
-        setShowModal={setShowNewVoteModal}
-        showModal={showNewVoteModal}
-        wakuVoting={wakuVoting}
-      />
-      <VotingRoomListHeader
-        account={account}
-        theme={THEME}
-        onConnectClick={activate}
-        onCreateClick={onCreateClick}
-      />
-        <VotingRoomList
-          account={account}
-          theme={THEME}
-          wakuVoting={wakuVoting}
-          votes={votes}
-          availableAmount={tokenBalance}
-        />
-    </Wrapper>
-  )
+    return (
+        <Wrapper>
+            <NewVotingRoomModal
+                theme={THEME}
+                availableAmount={tokenBalance}
+                setShowModal={setShowNewVoteModal}
+                showModal={showNewVoteModal}
+                wakuVoting={wakuVoting}
+            />
+            <VotingRoomListHeader
+                account={account}
+                theme={THEME}
+                onConnectClick={activate}
+                onCreateClick={onCreateClick}
+            />
+            <VotingRoomList
+                account={account}
+                theme={THEME}
+                wakuVoting={wakuVoting}
+                votes={votes}
+                availableAmount={tokenBalance}
+            />
+        </Wrapper>
+    )
 }
 ```
 

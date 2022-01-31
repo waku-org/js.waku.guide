@@ -1,10 +1,12 @@
 ---
-title: Deploying smart contract
+title: Deploy smart contract
 date: 2022-01-03T11:00:00+1100
-weight: 13
+weight: 1
 ---
 
-# Creating new package
+# Deploy smart contract
+
+## Creating new package
 
 For this deployment we will create a new package.
 
@@ -17,7 +19,7 @@ yarn add @waku/vote-sdk-contracts ethers ts-node typescript
 
 Create a `tsconfig.json` with:
 
-```
+```json
 {
   "compilerOptions": {
     "target": "es2020",
@@ -33,20 +35,21 @@ Create a `tsconfig.json` with:
 And now we can add a deploy script `index.ts`:
 
 ```js
-import {ContractFactory, Wallet, getDefaultProvider} from 'ethers';
+import {ContractFactory, getDefaultProvider, Wallet} from 'ethers';
 import VotingContract from '@waku/vote-sdk-contracts/build/VotingContract.json';
 import readline from 'readline';
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-const prompt = (query:string) => new Promise(resolve => rl.question(query, resolve));
 
-try{
+const rl = readline.createInterface({input: process.stdin, output: process.stdout});
+const prompt = (query: string) => new Promise(resolve => rl.question(query, resolve));
+
+try {
     const privateKey = process.argv[2];
     const providerName = process.argv[3];
     const tokenAddress = process.argv[4];
     const voteDuration = process.argv[5];
     const provider = getDefaultProvider(providerName)
-    const wallet = new Wallet(privateKey,provider)
-    const contract = ContractFactory.fromSolidity(VotingContract,wallet)
+    const wallet = new Wallet(privateKey, provider)
+    const contract = ContractFactory.fromSolidity(VotingContract, wallet)
 
     new Promise(async () => {
         console.log("\x1b[1m")
@@ -59,7 +62,7 @@ try{
         console.log('Please verify that above parameters are correct')
         console.log('WARNING: this operation WILL use ether')
         const answer = await prompt('If you are sure that you want to continue write [yes]:')
-        if(answer === 'yes' || answer === 'Yes'){
+        if (answer === 'yes' || answer === 'Yes') {
             const deployedContract = await contract.deploy(tokenAddress, voteDuration ?? 1000)
             console.log(`contract deployed with address ${deployedContract.address}`)
         } else {
@@ -73,7 +76,7 @@ try{
 }
 ```
 
-# Running script
+## Running script
 
 To run deploying script we call in shell:
 
@@ -81,19 +84,20 @@ To run deploying script we call in shell:
 yarn ts-node index.ts WALLET_PRIVATE_KEY PROVIDER_NAME TOKEN_ADDRESS VOTING_DURATION
 ```
 
-you need to subsitute parameters:
-    - WALLET_PRIVATE_KEY: private key of wallet that will deploy smart contract
-    - PROVIDER_NAME: a name of network for example `mainnet`, `ropsten` or a url to network
-    - TOKEN_ADDRESS: address of a token that is to be used by voting contract
-    - VOTING_DURATION: how long proposals will be open to accept votes
+you need to substitute parameters:
 
-After that the information with input parameters will be displayed and you will be asked to verify them and accept them.
+- WALLET_PRIVATE_KEY: private key of wallet that will deploy smart contract
+- PROVIDER_NAME: a name of network for example `mainnet`, `ropsten` or an url to network
+- TOKEN_ADDRESS: address of a token that is to be used by voting contract
+- VOTING_DURATION: how long proposals will be open to accept votes
 
-# Getting smart contract address
+After that the information with input parameters will be displayed,
+and you will be asked to verify them and accept them.
 
-When script is complete smart contract address will be printet in the shell.
+## Getting smart contract address
 
-However if you missed it it's not a problem you can check last wallet interaction on etherscan and there you can also find new smart contract address.
+When the script is complete smart contract address will be printed in the shell.
+If you missed it, you can check last wallet interaction on Etherscan and there you can also find new smart contract address.
 
-{{< button relref="./01_deploying_smart_contract"  >}}Back{{< /button >}}
-{{< button relref="./02_voting_creation"  >}}Next: Creating Voting component{{< /button >}}
+{{< button relref="./"  >}}Back{{< /button >}}
+{{< button relref="./02_voting_creation"  >}}Next: Create Voting component{{< /button >}}
