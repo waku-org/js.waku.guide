@@ -1,7 +1,7 @@
 ---
 title: Vote SDK
 date: 2022-01-06T11:00:00+1100
-weight: 1
+weight: 3
 ---
 
 # How to Use the Waku Connect Vote SDK

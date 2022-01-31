@@ -15,3 +15,5 @@ You can then adapt the steps depending on your dApp configuration and build setu
 The Poll & Vote SDK features can only be used by token holders,
 you must pass the ERC20 token contract of your choice when using the SDK.
 Hence, you need to have an ERC-20 token contract address ready.
+
+{{< button relref="./01_create_dapp"  >}}Get Started{{< /button >}}

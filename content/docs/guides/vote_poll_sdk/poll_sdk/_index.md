@@ -1,7 +1,7 @@
 ---
 title: Poll SDK
 date: 2022-01-03T11:00:00+1100
-weight: 1
+weight: 2
 ---
 
 # How to Use the Waku Connect Poll SDK

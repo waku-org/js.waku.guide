@@ -14,6 +14,11 @@ to vote (commitment to the blockchain) or poll (no interaction with the blockcha
 For both functionalities, only ERC-20 token holders can create or answer polls/votes.
 The developer using the SDK can configure which ERC-20 token contract is used.
 
+## Documentation
+
+For either SDKs, you need to start by creating a dApp.
+To do so, you can follow the [Create a DApp](./dapp_creation) instructions.
+
 ## Packages
 
 ### Common
