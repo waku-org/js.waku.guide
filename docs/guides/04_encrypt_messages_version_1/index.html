@@ -14,14 +14,14 @@ See Cryptographic Libraries for more details on the cryptographic libraries used
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
-<meta property="article:modified_time" content="2022-01-24T12:17:00+11:00" />
+<meta property="article:modified_time" content="2022-02-02T11:56:14+11:00" />
 
 <title>Encrypt Messages Using Waku Message Version 1 | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.ee0f6cf0db0a81ce685772349e44ee73614cacece3ea562857541eeebf445bc7.js" integrity="sha256-7g9s8NsKgc5oV3I0nkTuc2FMrOzj6lYoV1Qe7r9EW8c=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.529c80d1e911ec8f549a29bff1dd2c31fc706122b64f877c8a14e63ba53421c7.js" integrity="sha256-UpyA0ekR7I9Umim/8d0sMfxwYSK2T4d8ihTmO6U0Icc=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -738,12 +738,12 @@ If a message was not successfully decrypted, then it will be dropped from the re
   Code Example
   <a class="anchor" href="#code-example">#</a>
 </h2>
-<p>The <a href="https://github.com/status-im/js-waku/tree/main/examples/eth-pm">Eth-PM</a> Web App example demonstrates both the use of symmetric and asymmetric encryption.</p>
+<p>The <a href="https://github.com/status-im/js-waku/tree/main/examples/eth-pm/">Eth-PM</a> Web App example demonstrates both the use of symmetric and asymmetric encryption.</p>
 <p>Asymmetric encryption is used for private messages so that only the intended recipient can read said messages.</p>
 <p>Symmetric encryption is used for the public key messages.
 In this instance, the same key is used for all users: the Keccak-256 hash of the content topic (which results in 32 bytes array).
 While this does not add functional value, it does demonstrate the usage of symmetric encryption in a web app.</p>
-<p>A live version of Eth-PM can be found at <a href="https://status-im.github.io/js-waku/eth-pm/">https://status-im.github.io/js-waku/eth-pm/</a>.</p>
+<p>A live version of Eth-PM can be found at <a href="https://js-waku.wakuconnect.dev/examples/eth-pm">https://js-waku.wakuconnect.dev/examples/eth-pm</a>.</p>
 <p>The specifications of the protocol it implements can be found at <a href="https://rfc.vac.dev/spec/20/">20/TOY-ETH-PM</a>.</p>
 </article>
  
@@ -754,9 +754,9 @@ While this does not add functional value, it does demonstrate the usage of symme
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/41bc0a9d8058006de8bf56562b5ac5e50ab00a2f" title='Last modified by Franck R | Jan 24, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/9f9d3eb6b803b31e514a75d7b047eeb81268e76b" title='Last modified by Franck R | Feb 2, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jan 24, 2022</span>
+      <span>Feb 2, 2022</span>
     </a>
   </div>
 
