@@ -239,7 +239,7 @@ waku.relay.addObserver(
 
 ## Code Example
 
-The [Eth-PM](https://github.com/status-im/js-waku/tree/main/examples/eth-pm) Web App example demonstrates both the use of symmetric and asymmetric encryption.
+The [Eth-PM](https://github.com/status-im/js-waku/tree/main/examples/eth-pm/) Web App example demonstrates both the use of symmetric and asymmetric encryption.
 
 Asymmetric encryption is used for private messages so that only the intended recipient can read said messages.
 
@@ -247,6 +247,6 @@ Symmetric encryption is used for the public key messages.
 In this instance, the same key is used for all users: the Keccak-256 hash of the content topic (which results in 32 bytes array).
 While this does not add functional value, it does demonstrate the usage of symmetric encryption in a web app.
 
-A live version of Eth-PM can be found at https://status-im.github.io/js-waku/eth-pm/.
+A live version of Eth-PM can be found at https://js-waku.wakuconnect.dev/examples/eth-pm.
 
 The specifications of the protocol it implements can be found at [20/TOY-ETH-PM](https://rfc.vac.dev/spec/20/).
