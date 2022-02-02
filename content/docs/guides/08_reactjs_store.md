@@ -530,7 +530,7 @@ However, it can only select a connected node, which is why the bootstrapping is 
 It will throw an error if no store node is available.
 
 If no message are returned,
-then you can use https://status-im.github.io/js-waku/ to send some messages on the
+then you can use https://js-waku.wakuconnect.dev/examples/web-chat/ to send some messages on the
 toy chat topic and refresh your app.
 
 ## Filter messages by send time

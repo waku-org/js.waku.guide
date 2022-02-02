@@ -44,6 +44,7 @@ Demonstrates:
 ## Web Chat App
 
 Repo: [web-chat](https://github.com/status-im/js-waku/tree/main/examples/web-chat).
+Live: https://js-waku.wakuconnect.dev/examples/web-chat/
 
 Demonstrates:
 
@@ -56,6 +57,7 @@ Demonstrates:
 ## Ethereum Private Message Web App
 
 Repo: [eth-pm](https://github.com/status-im/js-waku/tree/main/examples/eth-pm).
+Live: https://js-waku.wakuconnect.dev/examples/eth-pm/ 
 
 Demonstrates:
 
@@ -70,6 +72,7 @@ Demonstrates:
 ## Ethereum Private Message Using Web3 Wallet Encryption API Web App
 
 Repo: [eth-pm-wallet-encryption](https://github.com/status-im/js-waku/tree/main/examples/eth-pm-wallet-encryption).
+Live: https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption/
 
 Demonstrates:
 
