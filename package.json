@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "fix": "prettier \"content*/**/*.md\" \"./*.json\" --write",
-    "test": "prettier \"content*/**/*.md\" \"./*.json\" --list-different"
+    "test": "prettier \"content*/**/*.md\" \"./*.json\" --list-different",
+    "serve": "hugo server"
   },
   "dependencies": {
     "prettier": "^2.5.1"
