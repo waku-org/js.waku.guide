@@ -37,7 +37,7 @@ You can also try out some of the examples at the following locations:
 - [eth-pm](https://js-waku.wakuconnect.dev/examples/eth-pm): End-to-end encrypted private messages
   ([docs](/docs/examples/#ethereum-private-message-web-app)).
 - [eth-pm-wallet-encryption](https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption): Eth-pm using Web3 wallet encryption API
-- ([dosc](/docs/examples/#ethereum-private-message-using-web3-wallet-encryption-api-web-app)).
+  ([docs](/docs/examples/#ethereum-private-message-using-web3-wallet-encryption-api-web-app)).
 
 Finally, if you want to learn how Waku works under the hoods, check the specs at [rfc.vac.dev](https://rfc.vac.dev/).
 
