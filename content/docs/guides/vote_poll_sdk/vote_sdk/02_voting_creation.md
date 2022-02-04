@@ -99,5 +99,5 @@ export function Voting({wakuVoting, account, activate}: VotingProps) {
 With that voting component is complete now we can use it in our `MainPage`
 
 {{< button relref="./01_deploying_smart_contract"  >}}Back{{< /button >}}
-{{< button relref="./03_using_voting"  >}}Next: Using Voting{{< /button >}}
+{{< button relref="./03_using_voting"  >}}Next: Use Voting Component{{< /button >}}
 

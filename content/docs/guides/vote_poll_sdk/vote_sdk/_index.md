@@ -14,17 +14,21 @@ You can then adapt the steps depending on your dApp configuration and build setu
 Only token holders can create, vote and finalize proposals.
 Hence, you need to have an ERC-20 token contract address ready.
 
-The resulting code of this guide can be found at
-TODO.
+The resulting code of this guide can be found in the repo at
+[examples/ropsten-voting](https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/master/examples/ropsten-voting).
 
 Here is a preview of the end result:
 
-TODO
+Create a proposal:
+![Proposal creation](/assets/voting_sdk/proposal_creation.gif)
 
-After following a dapp creation guide you should have a dapp that can connect to wallet ready.
+Proposal card:
+![Proposal Card](/assets/voting_sdk/proposal_card.png)
+
+After following the [create a dApp guide](../dapp_creation/) you should have a dapp that can connect to wallet ready.
 We will continue from this point.
 
-Before starting first add poll packages:
+First, add the Vote SDK packages:
 
 ```shell
 yarn add \
