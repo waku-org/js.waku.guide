@@ -58,31 +58,36 @@ Upon clicking the button, we set `showPollCreation` to true.
 `components/Poll.tsx`:
 
 ```tsx
-import {useMemo, useState} from 'react'
-import {Web3Provider} from '@ethersproject/providers'
-import {CreateButton} from '@waku/vote-poll-sdk-react-components'
-import {Theme} from '@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes'
+import { useMemo, useState } from "react";
+import { Web3Provider } from "@ethersproject/providers";
+import { CreateButton } from "@waku/vote-poll-sdk-react-components";
+import { Theme } from "@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes";
 
 type PollProps = {
-    account: string | null | undefined
-    theme: Theme
-}
+  account: string | null | undefined;
+  theme: Theme;
+};
 
-export function Poll({account, theme}: PollProps) {
-    const [showPollCreation, setShowPollCreation] = useState(false)
-    const disabled = useMemo(() => !account, [account])
+export function Poll({ account, theme }: PollProps) {
+  const [showPollCreation, setShowPollCreation] = useState(false);
+  const disabled = useMemo(() => !account, [account]);
 
-    return (
-        <Wrapper>
-            {
-                <CreateButton style={{backgroundColor: disabled ? "lightgrey" : theme.primaryColor}} theme={theme}
-                              disabled={disabled}
-                              onClick={() => setShowPollCreation(true)}>
-                    Create a poll
-                </CreateButton>
-            }
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      {
+        <CreateButton
+          style={{
+            backgroundColor: disabled ? "lightgrey" : theme.primaryColor,
+          }}
+          theme={theme}
+          disabled={disabled}
+          onClick={() => setShowPollCreation(true)}
+        >
+          Create a poll
+        </CreateButton>
+      }
+    </Wrapper>
+  );
 }
 ```
 
@@ -92,22 +97,23 @@ Now update the `MainPage` component to render the new `Poll` component:
 
 ```tsx
 export function MainPage() {
-    const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID)
+  const { activate, deactivate, account, provider } =
+    useWeb3Connect(SUPPORTED_CHAIN_ID);
 
-    return (
-        <div>
-            <TopBar
-                logo={""}
-                logoWidth={84}
-                title={'Poll dApp'}
-                theme={orangeTheme}
-                activate={activateBrowserWallet}
-                account={account}
-                deactivate={deactivate}
-            />
-            <Poll theme={orangeTheme} signer={signer}/>
-        </div>
-    )
+  return (
+    <div>
+      <TopBar
+        logo={""}
+        logoWidth={84}
+        title={"Poll dApp"}
+        theme={orangeTheme}
+        activate={activateBrowserWallet}
+        account={account}
+        deactivate={deactivate}
+      />
+      <Poll theme={orangeTheme} signer={signer} />
+    </div>
+  );
 }
 ```
 

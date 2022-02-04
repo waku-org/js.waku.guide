@@ -75,22 +75,22 @@ export function PollPage() {
 Create a `config` variable that contains the Ethereum network parameters:
 
 ```tsx
-import {ChainId, DAppProvider, useEthers} from '@usedapp/core';
+import { ChainId, DAppProvider, useEthers } from "@usedapp/core";
 
 const config = {
-    readOnlyChainId: ChainId.Mainnet,
-    readOnlyUrls: {
-        [ChainId.Mainnet]: 'https://mainnet.infura.io/v3/your-infura-token',
-    },
-    multicallAddresses: {
-        1: '0xeefba1e63905ef1d7acba5a8513c70307c1ce441',
-        3: '0x53c43764255c17bd724f74c4ef150724ac50a3ed',
-    },
-    notifications: {
-        checkInterval: 500,
-        expirationPeriod: 50000,
-    },
-}
+  readOnlyChainId: ChainId.Mainnet,
+  readOnlyUrls: {
+    [ChainId.Mainnet]: "https://mainnet.infura.io/v3/your-infura-token",
+  },
+  multicallAddresses: {
+    1: "0xeefba1e63905ef1d7acba5a8513c70307c1ce441",
+    3: "0x53c43764255c17bd724f74c4ef150724ac50a3ed",
+  },
+  notifications: {
+    checkInterval: 500,
+    expirationPeriod: 50000,
+  },
+};
 ```
 
 Replace `your-infura-token` with your [Infura API token](https://infura.io/docs/ethereum).
@@ -115,82 +115,82 @@ Finally, create the `App` component:
 
 ```tsx
 function App() {
-    return (
-        <Wrapper>
-            <GlobalStyle/>
-            <DAppProvider config={config}>
-                <PollPage/>
-            </DAppProvider>
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      <GlobalStyle />
+      <DAppProvider config={config}>
+        <PollPage />
+      </DAppProvider>
+    </Wrapper>
+  );
 }
 ```
 
 Your `index.tsx` should now be:
 
 ```tsx
-import {ChainId, DAppProvider, useEthers} from '@usedapp/core';
-import {GlobalStyle, TopBar} from '@waku/vote-poll-sdk-react-components';
-import React, {useEffect, useState} from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import {JsonRpcSigner} from "@ethersproject/providers";
-import {orangeTheme} from "@waku/vote-poll-sdk-react-components/dist/cjs/src/style/themes";
-import styled from 'styled-components'
+import { ChainId, DAppProvider, useEthers } from "@usedapp/core";
+import { GlobalStyle, TopBar } from "@waku/vote-poll-sdk-react-components";
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { JsonRpcSigner } from "@ethersproject/providers";
+import { orangeTheme } from "@waku/vote-poll-sdk-react-components/dist/cjs/src/style/themes";
+import styled from "styled-components";
 
 const config = {
-    readOnlyChainId: ChainId.Mainnet,
-    readOnlyUrls: {
-        [ChainId.Mainnet]: 'https://mainnet.infura.io/v3/your-infura-token',
-    },
-    multicallAddresses: {
-        1: '0xeefba1e63905ef1d7acba5a8513c70307c1ce441',
-        3: '0x53c43764255c17bd724f74c4ef150724ac50a3ed',
-    },
-    notifications: {
-        checkInterval: 500,
-        expirationPeriod: 50000,
-    },
-}
+  readOnlyChainId: ChainId.Mainnet,
+  readOnlyUrls: {
+    [ChainId.Mainnet]: "https://mainnet.infura.io/v3/your-infura-token",
+  },
+  multicallAddresses: {
+    1: "0xeefba1e63905ef1d7acba5a8513c70307c1ce441",
+    3: "0x53c43764255c17bd724f74c4ef150724ac50a3ed",
+  },
+  notifications: {
+    checkInterval: 500,
+    expirationPeriod: 50000,
+  },
+};
 
 function PollPage() {
-    const {account, library, activateBrowserWallet, deactivate} = useEthers()
-    const [signer, setSigner] = useState<undefined | JsonRpcSigner>(undefined)
+  const { account, library, activateBrowserWallet, deactivate } = useEthers();
+  const [signer, setSigner] = useState<undefined | JsonRpcSigner>(undefined);
 
-    useEffect(() => {
-        if (account) {
-            setSigner(library?.getSigner())
-        } else {
-            // Deactivate signer if signed out
-            setSigner(undefined)
-        }
-    }, [account])
+  useEffect(() => {
+    if (account) {
+      setSigner(library?.getSigner());
+    } else {
+      // Deactivate signer if signed out
+      setSigner(undefined);
+    }
+  }, [account]);
 
-    return (
-        <div>
-            <TopBar
-                logo={""}
-                logoWidth={84}
-                title={'Poll dApp'}
-                theme={orangeTheme}
-                activate={activateBrowserWallet}
-                account={account}
-                deactivate={deactivate}
-            />
-            //Place for poll or vote component
-        </div>
-    )
+  return (
+    <div>
+      <TopBar
+        logo={""}
+        logoWidth={84}
+        title={"Poll dApp"}
+        theme={orangeTheme}
+        activate={activateBrowserWallet}
+        account={account}
+        deactivate={deactivate}
+      />
+      //Place for poll or vote component
+    </div>
+  );
 }
 
 function App() {
-    return (
-        <Wrapper>
-            <GlobalStyle/>
-            <DAppProvider config={config}>
-                <PollPage/>
-            </DAppProvider>
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      <GlobalStyle />
+      <DAppProvider config={config}>
+        <PollPage />
+      </DAppProvider>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`

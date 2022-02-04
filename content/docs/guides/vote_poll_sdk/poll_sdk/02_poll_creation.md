@@ -24,42 +24,63 @@ Add these parameters to `PollProps` and call `useWakuPolling`.
 `components/Poll.tsx`
 
 ```tsx
-import React, { useMemo, useState } from 'react'
-import styled from 'styled-components'
-import { PollCreation } from '@waku/poll-sdk-react-components'
-import { Web3Provider } from '@ethersproject/providers'
-import { useWakuPolling } from '@waku/poll-sdk-react-hooks'
-import { CreateButton } from '@waku/vote-poll-sdk-react-components'
-import { Theme } from '@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes'
+import React, { useMemo, useState } from "react";
+import styled from "styled-components";
+import { PollCreation } from "@waku/poll-sdk-react-components";
+import { Web3Provider } from "@ethersproject/providers";
+import { useWakuPolling } from "@waku/poll-sdk-react-hooks";
+import { CreateButton } from "@waku/vote-poll-sdk-react-components";
+import { Theme } from "@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes";
 
 type PollProps = {
-  appName: string
-  library: Web3Provider | undefined
-  account: string | null | undefined
-  theme: Theme
-  tokenAddress: string
-  multicallAddress: string
-}
+  appName: string;
+  library: Web3Provider | undefined;
+  account: string | null | undefined;
+  theme: Theme;
+  tokenAddress: string;
+  multicallAddress: string;
+};
 
-export function Poll({appName, library, signer, chainId, theme, tokenAddress}: PollProps) {
-    const [showPollCreation, setShowPollCreation] = useState(false)
-    const wakuPolling = useWakuPolling(appName, tokenAddress, library, multicallAddress)
-    const disabled = useMemo(() => !account, [account])
+export function Poll({
+  appName,
+  library,
+  signer,
+  chainId,
+  theme,
+  tokenAddress,
+}: PollProps) {
+  const [showPollCreation, setShowPollCreation] = useState(false);
+  const wakuPolling = useWakuPolling(
+    appName,
+    tokenAddress,
+    library,
+    multicallAddress
+  );
+  const disabled = useMemo(() => !account, [account]);
 
-    return (
-        <Wrapper>
-            {showPollCreation && signer && (
-                <PollCreation wakuPolling={wakuPolling} setShowPollCreation={setShowPollCreation} theme={theme}/>
-            )}
-            {
-                <CreateButton style={{backgroundColor: disabled ? "lightgrey" : theme.primaryColor}} theme={theme}
-                              disabled={disabled}
-                              onClick={() => setShowPollCreation(true)}>
-                    Create a poll
-                </CreateButton>
-            }
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      {showPollCreation && signer && (
+        <PollCreation
+          wakuPolling={wakuPolling}
+          setShowPollCreation={setShowPollCreation}
+          theme={theme}
+        />
+      )}
+      {
+        <CreateButton
+          style={{
+            backgroundColor: disabled ? "lightgrey" : theme.primaryColor,
+          }}
+          theme={theme}
+          disabled={disabled}
+          onClick={() => setShowPollCreation(true)}
+        >
+          Create a poll
+        </CreateButton>
+      }
+    </Wrapper>
+  );
 }
 ```
 
@@ -73,32 +94,33 @@ Replace those with your own.
 `index.tsx`
 
 ```tsx
-const TOKEN_ADDRESS = '0x744d70FDBE2Ba4CF95131626614a1763DF805B9E'
-const MULTICALL_ADDRESS = '0xeefba1e63905ef1d7acba5a8513c70307c1ce441'
+const TOKEN_ADDRESS = "0x744d70FDBE2Ba4CF95131626614a1763DF805B9E";
+const MULTICALL_ADDRESS = "0xeefba1e63905ef1d7acba5a8513c70307c1ce441";
 export function MainPage() {
-    const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID)
+  const { activate, deactivate, account, provider } =
+    useWeb3Connect(SUPPORTED_CHAIN_ID);
 
-    return (
-        <div>
-            <TopBar
-                logo={""}
-                logoWidth={84}
-                title={'Poll dApp'}
-                theme={orangeTheme}
-                activate={activateBrowserWallet}
-                account={account}
-                deactivate={deactivate}
-            />
-            <Poll
-                theme={orangeTheme}
-                appName={'demo-poll-dapp'}
-                library={provider}
-                account={account}
-                tokenAddress={TOKEN_ADDRESS}
-                multicallAddress={MULTICALL_ADDRESS}
-            />
-        </div>
-    )
+  return (
+    <div>
+      <TopBar
+        logo={""}
+        logoWidth={84}
+        title={"Poll dApp"}
+        theme={orangeTheme}
+        activate={activateBrowserWallet}
+        account={account}
+        deactivate={deactivate}
+      />
+      <Poll
+        theme={orangeTheme}
+        appName={"demo-poll-dapp"}
+        library={provider}
+        account={account}
+        tokenAddress={TOKEN_ADDRESS}
+        multicallAddress={MULTICALL_ADDRESS}
+      />
+    </div>
+  );
 }
 ```
 

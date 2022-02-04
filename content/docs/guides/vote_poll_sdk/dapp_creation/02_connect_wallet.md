@@ -43,25 +43,24 @@ The component uses `ethers` to connect to the user's wallet:
 
 `MULTICALL_ADDRESS` is an address to mutical smart contract that allows aggregating multiple contract calls into one, thus reducing number of calls to blockchain needed.
 
-Example multicall addresses: 
-    - Mainnet: `0xeefba1e63905ef1d7acba5a8513c70307c1ce441`,
-    - Ropsten: `0x53c43764255c17bd724f74c4ef150724ac50a3ed`
+Example multicall addresses: - Mainnet: `0xeefba1e63905ef1d7acba5a8513c70307c1ce441`, - Ropsten: `0x53c43764255c17bd724f74c4ef150724ac50a3ed`
 
 But if you want you can deploy your own multicall smart contract.
 
 ```tsx
-const MULTICALL_ADDRESS = '0xeefba1e63905ef1d7acba5a8513c70307c1ce441'
-const SUPPORTED_CHAIN_ID = 1
+const MULTICALL_ADDRESS = "0xeefba1e63905ef1d7acba5a8513c70307c1ce441";
+const SUPPORTED_CHAIN_ID = 1;
 
 export function MainPage() {
-  const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID)
+  const { activate, deactivate, account, provider } =
+    useWeb3Connect(SUPPORTED_CHAIN_ID);
 
   return (
     <Wrapper>
       <TopBar
         logo={pollingIcon}
         logoWidth={84}
-        title={'WakuConnect Poll Demo'}
+        title={"WakuConnect Poll Demo"}
         theme={orangeTheme}
         activate={activate}
         account={account}
@@ -69,7 +68,7 @@ export function MainPage() {
       />
       //Place for poll or vote component
     </Wrapper>
-  )
+  );
 }
 ```
 
@@ -81,12 +80,12 @@ export function MainPage() {
 Create a `Wrapper` variable to use in the page component:
 
 ```tsx
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   height: 100%;
   width: 100%;
-`
+`;
 ```
 
 ### Render
@@ -98,38 +97,39 @@ export function App() {
   return (
     <Wrapper>
       <GlobalStyle />
-      <MainPage/>
+      <MainPage />
     </Wrapper>
-  )
+  );
 }
 ```
 
 Your `index.tsx` should now be:
 
 ```tsx
-import React from 'react'
-import styled from 'styled-components'
-import { Poll } from './components/Poll'
-import { GlobalStyle, TopBar } from '@waku/vote-poll-sdk-react-components'
-import pollingIcon from './assets/images/pollingIcon.png'
-import { orangeTheme } from '@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes'
-import ReactDOM from 'react-dom'
-import { BrowserRouter, useLocation } from 'react-router-dom'
-import { Route, Switch } from 'react-router'
-import { useWeb3Connect } from './hooks/useWeb3Connect'
+import React from "react";
+import styled from "styled-components";
+import { Poll } from "./components/Poll";
+import { GlobalStyle, TopBar } from "@waku/vote-poll-sdk-react-components";
+import pollingIcon from "./assets/images/pollingIcon.png";
+import { orangeTheme } from "@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes";
+import ReactDOM from "react-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
+import { Route, Switch } from "react-router";
+import { useWeb3Connect } from "./hooks/useWeb3Connect";
 
-const MULTICALL_ADDRESS = '0xeefba1e63905ef1d7acba5a8513c70307c1ce441'
-const SUPPORTED_CHAIN_ID = 1
+const MULTICALL_ADDRESS = "0xeefba1e63905ef1d7acba5a8513c70307c1ce441";
+const SUPPORTED_CHAIN_ID = 1;
 
 export function MainPage({ tokenAddress }: { tokenAddress: string }) {
-  const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID)
+  const { activate, deactivate, account, provider } =
+    useWeb3Connect(SUPPORTED_CHAIN_ID);
 
   return (
     <Wrapper>
       <TopBar
         logo={pollingIcon}
         logoWidth={84}
-        title={'WakuConnect Poll Demo'}
+        title={"WakuConnect Poll Demo"}
         theme={orangeTheme}
         activate={activate}
         account={account}
@@ -137,36 +137,36 @@ export function MainPage({ tokenAddress }: { tokenAddress: string }) {
       />
       //Place for poll or vote component
     </Wrapper>
-  )
+  );
 }
 
 export function App() {
-  const location = useLocation()
-  const tokenAddress = new URLSearchParams(location.search).get('token')
+  const location = useLocation();
+  const tokenAddress = new URLSearchParams(location.search).get("token");
 
   return (
     <Wrapper>
       <GlobalStyle />
       <MainPage tokenAddress={tokenAddress ?? TOKEN_ADDRESS} />
     </Wrapper>
-  )
+  );
 }
 
 const Wrapper = styled.div`
   height: 100%;
   width: 100%;
-`
+`;
 
 ReactDOM.render(
-  <div style={{ height: '100%' }}>
+  <div style={{ height: "100%" }}>
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={App} />
       </Switch>
     </BrowserRouter>
   </div>,
-  document.getElementById('root')
-)
+  document.getElementById("root")
+);
 ```
 
 {{< button relref="./01_create_dapp"  >}}Back{{< /button >}}

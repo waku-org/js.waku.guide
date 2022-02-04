@@ -50,15 +50,15 @@ Passing the `bootstrap` option will connect your node to predefined Waku nodes.
 If you want to bootstrap to your own nodes, you can pass an array of multiaddresses instead:
 
 ```js
-import {Waku} from "js-waku";
+import { Waku } from "js-waku";
 
 const waku = await Waku.create({
-    bootstrap: {
-        peers: [
-            "/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm",
-            "/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ",
-        ]
-    },
+  bootstrap: {
+    peers: [
+      "/dns4/node-01.ac-cn-hongkong-c.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAkvWiyFsgRhuJEb9JfjYxEkoHLgnUQmr1N5mKWnYjxYRVm",
+      "/dns4/node-01.do-ams3.wakuv2.test.statusim.net/tcp/443/wss/p2p/16Uiu2HAmPLe7Mzm8TsYUubgCAW1aJoeFScxrLj8ppHFivPo97bUZ",
+    ],
+  },
 });
 ```
 
