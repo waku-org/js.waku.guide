@@ -1,7 +1,7 @@
 ---
 title: Create the DApp and Install Dependencies
 date: 2022-01-03T11:00:00+1100
-weight: 11
+weight: 1
 ---
 
 # Create the DApp and Install Dependencies
@@ -11,23 +11,7 @@ weight: 11
 Create the new React app using the `typescript` template.
 Install the Waku Poll SDK packages.
 
-In this guide, we use [useDApp](https://usedapp.io/) to access the blockchain.
-
-```shell
-yarn create react-app poll-dapp-ts --template typescript
-cd poll-dapp-ts
-yarn add \
-@waku/poll-sdk-react-components @waku/poll-sdk-react-hooks @waku/vote-poll-sdk-react-components \
-@usedapp/core@0.4.7
-yarn add -D @types/styled-components
-```
-
-{{< hint warning >}}
-`@usedapp/core` must be frozen to version `0.4.7` due to incompatibility between minor versions of `ethers`.
-
-Waku Connect Vote & Poll SDK will be upgraded to the latest version of `@usedapp/core` and `ethers` once `ethereum-waffle`
-is released with the [latest version of `ethers`](https://github.com/EthWorks/Waffle/pull/603).
-{{< /hint >}}
+To connect dapp with Wallet you can use any package that is compatible with ethers Web3Provider (e.g. `@usedapp`, `web3-react`).
 
 ## Setup polyfills
 

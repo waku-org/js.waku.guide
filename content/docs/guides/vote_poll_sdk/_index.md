@@ -14,6 +14,11 @@ to vote (commitment to the blockchain) or poll (no interaction with the blockcha
 For both functionalities, only ERC-20 token holders can create or answer polls/votes.
 The developer using the SDK can configure which ERC-20 token contract is used.
 
+## Documentation
+
+For either SDKs, you need to start by creating a dApp.
+To do so, you can follow the [Create a DApp](./dapp_creation) instructions.
+
 ## Packages
 
 ### Common
@@ -48,21 +53,9 @@ whereas the token holders do not spend gas when voting.
 
 ### Documentation
 
-{{< hint info >}}
-The documentation effort is currently in progress.
-It is tracked with [status-im/wakuconnect-vote-poll-sdk#11](https://github.com/status-im/wakuconnect-vote-poll-sdk/issues/11).
-Contributions are welcome.
-{{< /hint >}}
-
 You can find more information about the Vote SDK's properties in the [README](https://github.com/status-im/wakuconnect-vote-poll-sdk#wakuconnect-vote-sdk).
 
-A working example dApp that includes voting feature can be found in the [repo](https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/packages/example).
-
-{{< hint warning >}}
-As the example is part of the yarn workspace,
-there may be issues with undeclared dependencies with this example.
-Tracked with [status-im/wakuconnect-vote-poll-sdk#11](https://github.com/status-im/wakuconnect-vote-poll-sdk/issues/11).
-{{< /hint >}}
+See [How to Use the Waku Connect Vote SDK](./vote_sdk).
 
 ## Waku Connect Poll SDK
 
