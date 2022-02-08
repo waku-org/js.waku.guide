@@ -213,7 +213,7 @@ export default App;
 
 When using the `bootstrap` option, it may take some time to connect to other peers.
 To ensure that you have relay peers available to send and receive messages,
-use the `Waku.waitForConnectedPeer()` async function:
+use the `Waku.waitForRemotePeer()` async function:
 
 ```js
 React.useEffect(() => {
@@ -225,7 +225,7 @@ React.useEffect(() => {
   Waku.create({ bootstrap: { default: true } }).then((waku) => {
     setWaku(waku);
     setWakuStatus("Connecting");
-    waku.waitForConnectedPeer().then(() => {
+    waku.waitForRemotePeer().then(() => {
       setWakuStatus("Ready");
     });
   });

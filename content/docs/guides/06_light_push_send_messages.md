@@ -69,7 +69,7 @@ To ensure that you have a light push peer available to send messages to,
 use the following function:
 
 ```js
-await waku.waitForConnectedPeer();
+await waku.waitForRemotePeer();
 ```
 
 The returned `Promise` will resolve once you are connected to a Waku peer.

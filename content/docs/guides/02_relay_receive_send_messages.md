@@ -55,7 +55,7 @@ To ensure that you have relay peers available to send and receive messages,
 use the following function:
 
 ```js
-await waku.waitForConnectedPeer();
+await waku.waitForRemotePeer();
 ```
 
 The returned `Promise` will resolve once you are connected to a Waku Relay peer.

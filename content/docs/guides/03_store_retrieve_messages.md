@@ -69,7 +69,7 @@ To ensure that you have store peers available to retrieve historical messages fr
 use the following function:
 
 ```js
-await waku.waitForConnectedPeer();
+await waku.waitForRemotePeer();
 ```
 
 The returned Promise will resolve once you are connected to a Waku Store peer.
