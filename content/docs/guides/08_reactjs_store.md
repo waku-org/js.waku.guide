@@ -239,7 +239,7 @@ export default App;
 
 When using the `bootstrap` option, it may take some time to connect to other peers.
 To ensure that you have store peers available to retrieve messages from,
-use the `Waku.waitForConnectedPeer()` async function:
+use the `Waku.waitForRemotePeer()` async function:
 
 ```js
 React.useEffect(() => {
@@ -247,7 +247,7 @@ React.useEffect(() => {
 
   if (wakuStatus === "Connected") return;
 
-  waku.waitForConnectedPeer().then(() => {
+  waku.waitForRemotePeer().then(() => {
     setWakuStatus("Connected");
   });
 }, [waku, wakuStatus]);
@@ -447,7 +447,7 @@ function App() {
 
     if (wakuStatus === "Connected") return;
 
-    waku.waitForConnectedPeer().then(() => {
+    waku.waitForRemotePeer().then(() => {
       setWakuStatus("Connected");
     });
   }, [waku, wakuStatus]);
