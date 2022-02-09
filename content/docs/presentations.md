@@ -6,6 +6,10 @@ weight: 22
 
 # Presentations & Videos
 
+## 27 Jan 2022 - Web 3.0 Conference
+
+{{< youtube 1QjxqrLO8WA >}}
+
 ## 21 Jul 2021 - EthCC 2021
 
 _Note: DappConnect is now named Waku Connect._
