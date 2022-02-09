@@ -6,24 +6,24 @@
 <meta name="description" content="Poll List Component #  To display existing polls, the PollList component is provided.
 Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
 components/Poll.tsx:
-import { useState } from &#34;react&#34;; import { useConfig } from &#34;@usedapp/core&#34;; import { PollCreation, PollList } from &#34;@waku/poll-sdk-react-components&#34;; import { JsonRpcSigner, Web3Provider } from &#34;@ethersproject/providers&#34;; import { useWakuPolling } from &#34;@waku/poll-sdk-react-hooks&#34;; import { CreateButton } from &#34;@waku/vote-poll-sdk-react-components&#34;; import { Theme } from &#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#34;; import { ChainId } from &#34;@usedapp/core/src/constants&#34;; type PollProps = { appName: string; library: Web3Provider | undefined; signer: JsonRpcSigner | undefined; chainId: ChainId | undefined; account: string | null | undefined; theme: Theme; tokenAddress: string; }; export function Poll({ appName, library, signer, chainId, account, theme, tokenAddress, }: PollProps) { const config = useConfig(); const [showPollCreation, setShowPollCreation] = useState(false); const wakuPolling = useWakuPolling( appName, tokenAddress, library, config?">
+import React, { useMemo, useState } from &#39;react&#39; import styled from &#39;styled-components&#39; import { PollCreation, PollList } from &#39;@waku/poll-sdk-react-components&#39; import { Web3Provider } from &#39;@ethersproject/providers&#39; import { useWakuPolling } from &#39;@waku/poll-sdk-react-hooks&#39; import { CreateButton } from &#39;@waku/vote-poll-sdk-react-components&#39; import { Theme } from &#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#39; type PollProps = { appName: string library: Web3Provider | undefined account: string | null | undefined theme: Theme tokenAddress: string multicallAddress: string } export function Poll({ appName, library, account, theme, tokenAddress, multicallAddress }: PollProps) { const [showPollCreation, setShowPollCreation] = useState(false) const wakuPolling = useWakuPolling(appName, tokenAddress, library, multicallAddress) const disabled = useMemo(() =&gt; !">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Poll List Component" />
 <meta property="og:description" content="Poll List Component #  To display existing polls, the PollList component is provided.
 Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
 components/Poll.tsx:
-import { useState } from &#34;react&#34;; import { useConfig } from &#34;@usedapp/core&#34;; import { PollCreation, PollList } from &#34;@waku/poll-sdk-react-components&#34;; import { JsonRpcSigner, Web3Provider } from &#34;@ethersproject/providers&#34;; import { useWakuPolling } from &#34;@waku/poll-sdk-react-hooks&#34;; import { CreateButton } from &#34;@waku/vote-poll-sdk-react-components&#34;; import { Theme } from &#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#34;; import { ChainId } from &#34;@usedapp/core/src/constants&#34;; type PollProps = { appName: string; library: Web3Provider | undefined; signer: JsonRpcSigner | undefined; chainId: ChainId | undefined; account: string | null | undefined; theme: Theme; tokenAddress: string; }; export function Poll({ appName, library, signer, chainId, account, theme, tokenAddress, }: PollProps) { const config = useConfig(); const [showPollCreation, setShowPollCreation] = useState(false); const wakuPolling = useWakuPolling( appName, tokenAddress, library, config?" />
+import React, { useMemo, useState } from &#39;react&#39; import styled from &#39;styled-components&#39; import { PollCreation, PollList } from &#39;@waku/poll-sdk-react-components&#39; import { Web3Provider } from &#39;@ethersproject/providers&#39; import { useWakuPolling } from &#39;@waku/poll-sdk-react-hooks&#39; import { CreateButton } from &#39;@waku/vote-poll-sdk-react-components&#39; import { Theme } from &#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#39; type PollProps = { appName: string library: Web3Provider | undefined account: string | null | undefined theme: Theme tokenAddress: string multicallAddress: string } export function Poll({ appName, library, account, theme, tokenAddress, multicallAddress }: PollProps) { const [showPollCreation, setShowPollCreation] = useState(false) const wakuPolling = useWakuPolling(appName, tokenAddress, library, multicallAddress) const disabled = useMemo(() =&gt; !" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-01-03T11:00:00+11:00" />
-<meta property="article:modified_time" content="2022-01-24T12:17:00+11:00" />
+<meta property="article:modified_time" content="2022-02-04T03:44:23+01:00" />
 
 <title>Poll List Component | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.529c80d1e911ec8f549a29bff1dd2c31fc706122b64f877c8a14e63ba53421c7.js" integrity="sha256-UpyA0ekR7I9Umim/8d0sMfxwYSK2T4d8ihTmO6U0Icc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1ab911b43534094f35fca7ff8b4e9ec387e474fb768f8cefee49c175a03e45a7.js" integrity="sha256-GrkRtDU0CU81/Kf/i06ew4fkdPt2j4zv7knBdaA&#43;Rac=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -311,6 +311,63 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/" class="">Create a DApp</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/" class="">Connect to the Ethereum Wallet useDapp</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
   
 
@@ -324,7 +381,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/" class="">Create-A-Poll Button</a>
   
 
         </li>
@@ -337,7 +394,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/" class="">Poll Creation Component</a>
   
 
         </li>
@@ -350,7 +407,38 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/" class="">Create-A-Poll Button</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/" class=" active">Poll List Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/" class="">Vote SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/" class="">Deploy smart contract</a>
   
 
         </li>
@@ -363,7 +451,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/" class="">Poll Creation Component</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/" class="">Creating Voting component</a>
   
 
         </li>
@@ -376,7 +464,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/" class=" active">Poll List Component</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/" class="">Use Voting Component</a>
   
 
         </li>
@@ -539,59 +627,36 @@ https://github.com/alex-shpak/hugo-book
 <p>Simply add it to the <code>Poll</code> function to render it.
 It needs the <code>account</code> variable that can be passed as a property to <code>Poll</code>:</p>
 <p><code>components/Poll.tsx</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useConfig</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PollCreation</span>, <span style="color:#a6e22e">PollList</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/poll-sdk-react-components&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">JsonRpcSigner</span>, <span style="color:#a6e22e">Web3Provider</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ethersproject/providers&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useWakuPolling</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/poll-sdk-react-hooks&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CreateButton</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Theme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core/src/constants&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useMemo</span>, <span style="color:#a6e22e">useState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styled</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;styled-components&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PollCreation</span>, <span style="color:#a6e22e">PollList</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/poll-sdk-react-components&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Web3Provider</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@ethersproject/providers&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useWakuPolling</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/poll-sdk-react-hooks&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CreateButton</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-poll-sdk-react-components&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Theme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#39;</span>
 
 <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PollProps</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">appName</span>: <span style="color:#66d9ef">string</span>;
-  <span style="color:#a6e22e">library</span>: <span style="color:#66d9ef">Web3Provider</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
-  <span style="color:#a6e22e">signer</span>: <span style="color:#66d9ef">JsonRpcSigner</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
-  <span style="color:#a6e22e">chainId</span>: <span style="color:#66d9ef">ChainId</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
-  <span style="color:#a6e22e">account</span>: <span style="color:#66d9ef">string</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
-  <span style="color:#a6e22e">theme</span>: <span style="color:#66d9ef">Theme</span>;
-  <span style="color:#a6e22e">tokenAddress</span>: <span style="color:#66d9ef">string</span>;
-};
+  <span style="color:#a6e22e">appName</span>: <span style="color:#66d9ef">string</span>
+  <span style="color:#a6e22e">library</span>: <span style="color:#66d9ef">Web3Provider</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>
+  <span style="color:#a6e22e">account</span>: <span style="color:#66d9ef">string</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>
+  <span style="color:#a6e22e">theme</span>: <span style="color:#66d9ef">Theme</span>
+  <span style="color:#a6e22e">tokenAddress</span>: <span style="color:#66d9ef">string</span>
+  <span style="color:#a6e22e">multicallAddress</span>: <span style="color:#66d9ef">string</span>
+}
 
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Poll</span>({
-  <span style="color:#a6e22e">appName</span>,
-  <span style="color:#a6e22e">library</span>,
-  <span style="color:#a6e22e">signer</span>,
-  <span style="color:#a6e22e">chainId</span>,
-  <span style="color:#a6e22e">account</span>,
-  <span style="color:#a6e22e">theme</span>,
-  <span style="color:#a6e22e">tokenAddress</span>,
-}<span style="color:#f92672">:</span> <span style="color:#a6e22e">PollProps</span>) {
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useConfig</span>();
-  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">showPollCreation</span>, <span style="color:#a6e22e">setShowPollCreation</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>);
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuPolling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useWakuPolling</span>(
-    <span style="color:#a6e22e">appName</span>,
-    <span style="color:#a6e22e">tokenAddress</span>,
-    <span style="color:#a6e22e">library</span>,
-    <span style="color:#a6e22e">config</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">?</span>.[<span style="color:#a6e22e">chainId</span> <span style="color:#f92672">??</span> <span style="color:#ae81ff">1337</span>]
-  );
-
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">disabled</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">signer</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Poll</span>({ <span style="color:#a6e22e">appName</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">theme</span>, <span style="color:#a6e22e">tokenAddress</span>, <span style="color:#a6e22e">multicallAddress</span> }<span style="color:#f92672">:</span> <span style="color:#a6e22e">PollProps</span>) {
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">showPollCreation</span>, <span style="color:#a6e22e">setShowPollCreation</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>)
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuPolling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useWakuPolling</span>(<span style="color:#a6e22e">appName</span>, <span style="color:#a6e22e">tokenAddress</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">multicallAddress</span>)
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">disabled</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useMemo</span>(() <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">account</span>, [<span style="color:#a6e22e">account</span>])
 
   <span style="color:#66d9ef">return</span> (
     &lt;<span style="color:#f92672">Wrapper</span>&gt;
-      {<span style="color:#a6e22e">showPollCreation</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">signer</span> <span style="color:#f92672">&amp;&amp;</span> (
-        &lt;<span style="color:#f92672">PollCreation</span>
-          <span style="color:#a6e22e">wakuPolling</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuPolling</span>}
-          <span style="color:#a6e22e">setShowPollCreation</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setShowPollCreation</span>}
-          <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>}
-        /&gt;
+      {<span style="color:#a6e22e">showPollCreation</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">&amp;&amp;</span> (
+        &lt;<span style="color:#f92672">PollCreation</span> <span style="color:#a6e22e">wakuPolling</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuPolling</span>} <span style="color:#a6e22e">setShowPollCreation</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setShowPollCreation</span>} <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>} /&gt;
       )}
       {
         &lt;<span style="color:#f92672">CreateButton</span>
-          <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{
-            <span style="color:#a6e22e">backgroundColor</span>: <span style="color:#66d9ef">disabled</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;lightgrey&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">theme</span>.<span style="color:#a6e22e">primaryColor</span>,
-          }}
+          <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">backgroundColor</span>: <span style="color:#66d9ef">disabled</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;lightgrey&#39;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">theme</span>.<span style="color:#a6e22e">primaryColor</span> }}
           <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>}
           <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">disabled</span>}
           <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">setShowPollCreation</span>(<span style="color:#66d9ef">true</span>)}
@@ -601,18 +666,8 @@ It needs the <code>account</code> variable that can be passed as a property to <
       }
       &lt;<span style="color:#f92672">PollList</span> <span style="color:#a6e22e">wakuPolling</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuPolling</span>} <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>} <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>} /&gt;
     &lt;/<span style="color:#f92672">Wrapper</span>&gt;
-  );
+  )
 }
-</code></pre></div><p>Pass the <code>account</code> to <code>Poll</code> in <code>index.tsx</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx">&lt;<span style="color:#f92672">Poll</span>
-  <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
-  <span style="color:#a6e22e">appName</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;demo-poll-dapp&#34;</span>}
-  <span style="color:#a6e22e">library</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">library</span>}
-  <span style="color:#a6e22e">signer</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">signer</span>}
-  <span style="color:#a6e22e">chainId</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">chainId</span>}
-  <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
-  <span style="color:#a6e22e">tokenAddress</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;0x744d70FDBE2Ba4CF95131626614a1763DF805B9E&#34;</span>}
-/&gt;
 </code></pre></div><p>Et voila!
 The <code>PollList</code> component handles the display of polls:</p>
 <p><img src="/assets/poll_sdk/listed-polls.png" alt="Poll List" /></p>
@@ -632,7 +687,7 @@ It also allows passing a token contract address in the url, as described in the 
 
   
 
-<a  href="/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/"   class="book-btn">
+<a  href="/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/"   class="book-btn">
   Back
 </a>
 
@@ -645,16 +700,16 @@ It also allows passing a token contract address in the url, as described in the 
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/41bc0a9d8058006de8bf56562b5ac5e50ab00a2f" title='Last modified by Franck R | Jan 24, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/be6692ea9b943e8e023aa9fbe6337f051eafa004" title='Last modified by Szymon Szlachtowicz | Feb 4, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jan 24, 2022</span>
+      <span>Feb 4, 2022</span>
     </a>
   </div>
 
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>

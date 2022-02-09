@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Create Voting component #  With the smart contract deployed we can go back to our dApp.
+We assume that the skeleton for the dApp with connection to the wallet is already done, if not please go to dApp creation.
+Create components #  Let&rsquo;s start by creating a new folder components with file named Voting.tsx inside.
+After that we can start with styling and defining which theme we will be using:">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Creating Voting component" />
+<meta property="og:description" content="Create Voting component #  With the smart contract deployed we can go back to our dApp.
+We assume that the skeleton for the dApp with connection to the wallet is already done, if not please go to dApp creation.
+Create components #  Let&rsquo;s start by creating a new folder components with file named Voting.tsx inside.
+After that we can start with styling and defining which theme we will be using:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-01-03T11:00:00+11:00" />
+<meta property="article:modified_time" content="2022-02-04T03:44:23+01:00" />
+
+<title>Creating Voting component | Waku Connect Docs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.1ab911b43534094f35fca7ff8b4e9ec387e474fb768f8cefee49c175a03e45a7.js" integrity="sha256-GrkRtDU0CU81/Kf/i06ew4fkdPt2j4zv7knBdaA&#43;Rac=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Waku Connect Docs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/es/">
+          Español
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/pt/">
+          Português
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/introduction/" class="">Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/quick_start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/use_cases/" class="">Use Cases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/presentations/" class="">Presentations &amp; Videos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/" class="">Guides</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/" class="">How to Choose a Content Topic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/" class="">Receive and Send Messages Using Waku Relay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" class="">Retrieve Messages Using Waku Store</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/" class="">Encrypt Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/" class="">Sign Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" class="">Send Messages Using Waku Light Push</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" class="">Receive and Send Messages Using Waku Relay With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/" class="">Retrieve Messages Using Waku Store With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/09_debug/" class="">How to Debug your Waku dApp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/" class="">Vote Poll Sdk</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/" class="">Create a DApp</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/" class="">Connect to the Ethereum Wallet useDapp</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/" class="">Create-A-Poll Button</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/" class="">Poll Creation Component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/" class="">Poll List Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/" class="">Vote SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/" class="">Deploy smart contract</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/" class=" active">Creating Voting component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/" class="">Use Voting Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/crypto_libraries/" class="">Cryptographic Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/waku_protocols/" class="">Implemented Waku Protocols</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://js-waku.wakuconnect.dev/" target="_blank" rel="noopener">
+        JS-Waku API Doc
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://vac.dev/" target="_blank" rel="noopener">
+        Vac Team
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://rfc.vac.dev/" target="_blank" rel="noopener">
+        Vac RFCs
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://status.im/" target="_blank" rel="noopener">
+        Status.im
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Creating Voting component</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-voting-component">Create Voting component</a>
+      <ul>
+        <li><a href="#create-components">Create components</a></li>
+        <li><a href="#adding-react-component">Adding react component</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="create-voting-component">
+  Create Voting component
+  <a class="anchor" href="#create-voting-component">#</a>
+</h1>
+<p>With the smart contract deployed we can go back to our dApp.</p>
+<p>We assume that the skeleton for the dApp with connection to the wallet is already done, if not please go
+to <a href="/docs/guides/vote_poll_sdk/dapp_creation/">dApp creation</a>.</p>
+<h2 id="create-components">
+  Create components
+  <a class="anchor" href="#create-components">#</a>
+</h2>
+<p>Let&rsquo;s start by creating a new folder <code>components</code> with file named <code>Voting.tsx</code> inside.</p>
+<p>After that we can start with styling and defining which theme we will be using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">blueTheme</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styled</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;styled-components&#39;</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">THEME</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">blueTheme</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Wrapper</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>.<span style="color:#a6e22e">div</span><span style="color:#e6db74">`
+</span><span style="color:#e6db74">  display: flex;
+</span><span style="color:#e6db74">  flex-direction: column;
+</span><span style="color:#e6db74">  align-items: center;
+</span><span style="color:#e6db74">  max-width: 1000px;
+</span><span style="color:#e6db74">  margin: 0 auto;
+</span><span style="color:#e6db74">  padding: 150px 32px 50px;
+</span><span style="color:#e6db74">  width: 100%;
+</span><span style="color:#e6db74">  min-height: 100vh;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  @media (max-width: 600px) {
+</span><span style="color:#e6db74">    padding: 132px 16px 32px;
+</span><span style="color:#e6db74">  }
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  @media (max-width: 425px) {
+</span><span style="color:#e6db74">    padding: 64px 16px 84px;
+</span><span style="color:#e6db74">  }
+</span><span style="color:#e6db74">`</span>
+</code></pre></div><h2 id="adding-react-component">
+  Adding react component
+  <a class="anchor" href="#adding-react-component">#</a>
+</h2>
+<p>Now, create a <code>Voting</code> component that uses the components from the Vote SDK.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, {<span style="color:#a6e22e">useCallback</span>, <span style="color:#a6e22e">useState</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">NewVotingRoomModal</span>, <span style="color:#a6e22e">VotingRoomList</span>, <span style="color:#a6e22e">VotingRoomListHeader</span>,} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-sdk-react-components&#39;</span>
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">WakuVoting</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-poll-sdk-core&#39;</span>
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">useVotingRoomsId</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-sdk-react-hooks&#39;</span>
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">useTokenBalance</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-poll-sdk-react-components&#39;</span>
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">VotingProps</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">wakuVoting</span>: <span style="color:#66d9ef">WakuVoting</span>
+    <span style="color:#a6e22e">account</span>: <span style="color:#66d9ef">string</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>
+    <span style="color:#a6e22e">activate</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">void</span>
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Voting</span>({<span style="color:#a6e22e">wakuVoting</span>, <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">activate</span>}<span style="color:#f92672">:</span> <span style="color:#a6e22e">VotingProps</span>) {
+    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">showNewVoteModal</span>, <span style="color:#a6e22e">setShowNewVoteModal</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onCreateClick</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useCallback</span>(() <span style="color:#f92672">=&gt;</span> {
+        <span style="color:#a6e22e">setShowNewVoteModal</span>(<span style="color:#66d9ef">true</span>)
+    }, [])
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">votes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useVotingRoomsId</span>(<span style="color:#a6e22e">wakuVoting</span>)
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tokenBalance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useTokenBalance</span>(<span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">wakuVoting</span>)
+
+    <span style="color:#66d9ef">return</span> (
+        &lt;<span style="color:#f92672">Wrapper</span>&gt;
+            &lt;<span style="color:#f92672">NewVotingRoomModal</span>
+                <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">THEME</span>}
+                <span style="color:#a6e22e">availableAmount</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">tokenBalance</span>}
+                <span style="color:#a6e22e">setShowModal</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setShowNewVoteModal</span>}
+                <span style="color:#a6e22e">showModal</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">showNewVoteModal</span>}
+                <span style="color:#a6e22e">wakuVoting</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuVoting</span>}
+            /&gt;
+            &lt;<span style="color:#f92672">VotingRoomListHeader</span>
+                <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
+                <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">THEME</span>}
+                <span style="color:#a6e22e">onConnectClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activate</span>}
+                <span style="color:#a6e22e">onCreateClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">onCreateClick</span>}
+            /&gt;
+            &lt;<span style="color:#f92672">VotingRoomList</span>
+                <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
+                <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">THEME</span>}
+                <span style="color:#a6e22e">wakuVoting</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuVoting</span>}
+                <span style="color:#a6e22e">votes</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">votes</span>}
+                <span style="color:#a6e22e">availableAmount</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">tokenBalance</span>}
+            /&gt;
+        &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+    )
+}
+</code></pre></div><p>With that voting component is complete now we can use it in our <code>MainPage</code></p>
+<p>
+
+
+
+  
+
+<a  href="/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/"   class="book-btn">
+  Back
+</a>
+
+
+
+
+
+  
+
+<a  href="/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/"   class="book-btn">
+  Next: Use Voting Component
+</a>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/be6692ea9b943e8e023aa9fbe6337f051eafa004" title='Last modified by Szymon Szlachtowicz | Feb 4, 2022' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Feb 4, 2022</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-voting-component">Create Voting component</a>
+      <ul>
+        <li><a href="#create-components">Create components</a></li>
+        <li><a href="#adding-react-component">Adding react component</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="How to Use the Waku Connect Poll SDK #  To demonstrate how to use the Waku Connect Poll SDK in your dApp, we will create a TypeScript React app from scratch.
+<meta name="description" content="Create a DApp #  This part is the same for both Poll and Vote SDK.
+To demonstrate how to use the Waku Connect Poll/Vote SDK in your dApp, we will create a TypeScript React app from scratch.
 You can then adapt the steps depending on your dApp configuration and build setup.
-Only token holders can create &amp; answer polls. Hence, you need to have an ERC-20 token contract address ready.
-The resulting code of this guide can be found at https://github.">
+The Poll &amp; Vote SDK features can only be used by token holders, you must pass the ERC20 token contract of your choice when using the SDK.">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Poll SDK" />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Create a DApp" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/" />
 
-<title>Poll SDK | Waku Connect Docs</title>
+<title>Create a DApp | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
   <script defer src="/en.search.min.1ab911b43534094f35fca7ff8b4e9ec387e474fb768f8cefee49c175a03e45a7.js" integrity="sha256-GrkRtDU0CU81/Kf/i06ew4fkdPt2j4zv7knBdaA&#43;Rac=" crossorigin="anonymous"></script>
-<link rel="alternate" type="application/rss+xml" href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/index.xml" title="Waku Connect Docs" />
+<link rel="alternate" type="application/rss+xml" href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/index.xml" title="Waku Connect Docs" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -307,7 +307,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/" class="">Create a DApp</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/" class=" active">Create a DApp</a>
   
 
           
@@ -364,7 +364,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class=" active">Poll SDK</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
   
 
           
@@ -586,7 +586,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Poll SDK</strong>
+  <strong>Create a DApp</strong>
 
   <label for="toc-control">
     
@@ -602,7 +602,7 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#how-to-use-the-waku-connect-poll-sdk">How to Use the Waku Connect Poll SDK</a></li>
+    <li><a href="#create-a-dapp">Create a DApp</a></li>
   </ul>
 </nav>
 
@@ -615,29 +615,23 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="how-to-use-the-waku-connect-poll-sdk">
-  How to Use the Waku Connect Poll SDK
-  <a class="anchor" href="#how-to-use-the-waku-connect-poll-sdk">#</a>
+  <article class="markdown"><h1 id="create-a-dapp">
+  Create a DApp
+  <a class="anchor" href="#create-a-dapp">#</a>
 </h1>
-<p>To demonstrate how to use the Waku Connect Poll SDK in your dApp, we will create a TypeScript React app from scratch.</p>
+<p>This part is the same for both Poll and Vote SDK.</p>
+<p>To demonstrate how to use the Waku Connect Poll/Vote SDK in your dApp, we will create a TypeScript React app from scratch.</p>
 <p>You can then adapt the steps depending on your dApp configuration and build setup.</p>
-<p>Only token holders can create &amp; answer polls.
+<p>The Poll &amp; Vote SDK features can only be used by token holders,
+you must pass the ERC20 token contract of your choice when using the SDK.
 Hence, you need to have an ERC-20 token contract address ready.</p>
-<p>The resulting code of this guide can be found at
-<a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/examples/mainnet-poll">https://github.com/status-im/wakuconnect-vote-poll-sdk/tree/main/examples/mainnet-poll</a>.</p>
-<p>Here is a preview of the end result:</p>
-<p><img src="/assets/poll_sdk/wakuconnect-poll-demo.gif" alt="Poll demo" /></p>
-<p>After following a dapp creation guide you should have a dapp that can connect to wallet ready. We will continue from this point.</p>
-<p>Before starting first add poll packages:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn add <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>@waku/poll-sdk-react-components @waku/poll-sdk-react-hooks @waku/vote-poll-sdk-react-components
-</code></pre></div>
+
 
 
 
   
 
-<a  href="/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/"   class="book-btn">
+<a  href="/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/"   class="book-btn">
   Get Started
 </a>
 
@@ -659,7 +653,7 @@ Hence, you need to have an ERC-20 token contract address ready.</p>
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/poll_sdk/_index.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/dapp_creation/_index.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -695,7 +689,7 @@ Hence, you need to have an ERC-20 token contract address ready.</p>
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#how-to-use-the-waku-connect-poll-sdk">How to Use the Waku Connect Poll SDK</a></li>
+    <li><a href="#create-a-dapp">Create a DApp</a></li>
   </ul>
 </nav>
 

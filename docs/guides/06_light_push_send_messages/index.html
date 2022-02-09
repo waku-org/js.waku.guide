@@ -12,14 +12,14 @@ The Waku Relay protocol sends messages to connected peers but does not provide a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
-<meta property="article:modified_time" content="2022-01-31T10:39:20+11:00" />
+<meta property="article:modified_time" content="2022-02-08T23:06:38+00:00" />
 
 <title>Send Messages Using Waku Light Push | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.529c80d1e911ec8f549a29bff1dd2c31fc706122b64f877c8a14e63ba53421c7.js" integrity="sha256-UpyA0ekR7I9Umim/8d0sMfxwYSK2T4d8ihTmO6U0Icc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1ab911b43534094f35fca7ff8b4e9ec387e474fb768f8cefee49c175a03e45a7.js" integrity="sha256-GrkRtDU0CU81/Kf/i06ew4fkdPt2j4zv7knBdaA&#43;Rac=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -307,6 +307,63 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/" class="">Create a DApp</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/" class="">Connect to the Ethereum Wallet useDapp</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
   
 
@@ -320,7 +377,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/" class="">Create-A-Poll Button</a>
   
 
         </li>
@@ -333,7 +390,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/" class="">Poll Creation Component</a>
   
 
         </li>
@@ -346,7 +403,38 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/" class="">Create-A-Poll Button</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/" class="">Poll List Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/" class="">Vote SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/" class="">Deploy smart contract</a>
   
 
         </li>
@@ -359,7 +447,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/" class="">Poll Creation Component</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/" class="">Creating Voting component</a>
   
 
         </li>
@@ -372,7 +460,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/" class="">Poll List Component</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/" class="">Use Voting Component</a>
   
 
         </li>
@@ -586,7 +674,7 @@ If you want to bootstrap to your own nodes, you can pass an array of multiaddres
 <p>When using the <code>bootstrap</code> option, it may take some time to connect to other peers.
 To ensure that you have a light push peer available to send messages to,
 use the following function:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForConnectedPeer</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForRemotePeer</span>();
 </code></pre></div><p>The returned <code>Promise</code> will resolve once you are connected to a Waku peer.</p>
 <h1 id="send-messages">
   Send messages
@@ -616,9 +704,9 @@ The peer is selected among the dApp&rsquo;s connected peers.</p>
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/b8e0400a02fe55879897187c3582d8844fa6a9b2" title='Last modified by Franck R | Jan 30, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/bba925848c6b5ba0e275b79a275cc3bc3ee22a8b" title='Last modified by jemboh | Feb 8, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Jan 30, 2022</span>
+      <span>Feb 8, 2022</span>
     </a>
   </div>
 
