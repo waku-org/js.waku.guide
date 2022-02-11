@@ -32,7 +32,7 @@ First, add the Vote SDK packages:
 
 ```shell
 yarn add \
-@waku/vote-sdk-react-components @waku/vote-sdk-react-hooks @waku/vote-poll-sdk-react-components 
+@waku/vote-sdk-react-components @waku/vote-sdk-react-hooks @waku/vote-poll-sdk-react-components
 ```
 
 {{< button relref="./01_deploying_smart_contract"  >}}Get Started{{< /button >}}

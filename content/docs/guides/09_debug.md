@@ -39,9 +39,8 @@ Here are guides for some modern browsers:
 - [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector/Local_Storage_Session_Storage)
 - [Chrome](https://developer.chrome.com/docs/devtools/storage/localstorage/)
 
-
 | key     | value           | effect                               |
-|---------|-----------------|--------------------------------------|
-| `debug` | `waku*`         | enable js-waku debug logs            |  
+| ------- | --------------- | ------------------------------------ |
+| `debug` | `waku*`         | enable js-waku debug logs            |
 | `debug` | `waku*,libp2p*` | enable js-waku and libp2p debug logs |
 | `debug` | `*`             | enable **all** debug logs            |

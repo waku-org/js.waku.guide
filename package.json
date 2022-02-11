@@ -1,0 +1,17 @@
+{
+  "name": "docs.wakuconnect.dev",
+  "version": "1.0.0",
+  "main": "\"\"",
+  "repository": "git@github.com:vacp2p/docs.wakuconnect.dev.git",
+  "author": "Franck Royer <franck@status.im>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "fix": "prettier \"content*/**/*.md\" \"./*.json\" --write",
+    "test": "prettier \"content*/**/*.md\" \"./*.json\" --list-different",
+    "serve": "hugo server"
+  },
+  "dependencies": {
+    "prettier": "^2.5.1"
+  }
+}

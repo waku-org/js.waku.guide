@@ -57,7 +57,7 @@ Demonstrates:
 ## Ethereum Private Message Web App
 
 Repo: [eth-pm](https://github.com/status-im/js-waku/tree/main/examples/eth-pm).
-Live: https://js-waku.wakuconnect.dev/examples/eth-pm/ 
+Live: https://js-waku.wakuconnect.dev/examples/eth-pm/
 
 Demonstrates:
 
