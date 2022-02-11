@@ -56,7 +56,7 @@ This may not be necessary if you do not use `react-scripts` or if you use webpac
 Start by installing the polyfill libraries:
 
 ```shell
-npm install assert buffer crypto-browserify stream-browserify
+npm install assert buffer crypto-browserify process stream-browserify
 ```
 
 ### Webpack 5
