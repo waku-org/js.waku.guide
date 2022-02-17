@@ -7,13 +7,16 @@ weight: 7
 # Send and Receive Messages Using Waku Relay With Angular v13
 
 It is easy to use Waku Connect with Angular v13.
-In this guide, we will demonstrate how your Angular dApp can use Waku Relay to send and receive messages.
+
+In this guide, we will demonstrate how your Angular dApp can use Waku Relay
+to send and receive messages.
 
 Before starting, you need to choose a _Content Topic_ for your dApp.
 Check out the [how to choose a content topic guide](/docs/guides/01_choose_content_topic/) to learn more about content topics.
+
 For this guide, we are using a single content topic: `/relay-angular-chat/1/chat/proto`.
 
-# Setup
+## Setup
 
 Create a new Angular app:
 
@@ -23,7 +26,7 @@ ng new relay-angular-chat
 cd relay-angular-chat
 ```
 
-## `BigInt`
+### `BigInt`
 
 Some of js-waku's dependencies use [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
 that is [only supported by modern browsers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#browser_compatibility).
@@ -44,9 +47,9 @@ To ensure that Angular properly transpiles your webapp code, add the following c
 }
 ```
 
-## Polyfills
+### Polyfills
 
-A number of Web3 dependencies need polyfills.
+A number of Web3 and libp2p dependencies need polyfills.
 These must be explicitly declared when using webpack 5.
 
 The latest `Angular` version (v13) uses webpack 5.
@@ -74,12 +77,14 @@ Now tell Angular where to find these libraries by adding the following to `tscon
 under `"compilerOptions"`:
 
 ```json
-"paths": {
-  "assert": ["node_modules/assert"],
-  "buffer": ["node_modules/buffer"],
-  "crypto": ["node_modules/crypto-browserify"],
-  "stream": ["node_modules/stream-browserify"]
-},
+{
+	  "paths": {
+	    "assert": ["node_modules/assert"],
+	    "buffer": ["node_modules/buffer"],
+	    "crypto": ["node_modules/crypto-browserify"],
+	    "stream": ["node_modules/stream-browserify"]
+	  },
+}
 ```
 
 Now under `"angularCompilerOptions"`, add:
@@ -90,7 +95,7 @@ Now under `"angularCompilerOptions"`, add:
 
 Finally, set the `"target"` to be `"es2020"` due to the aforementioned `BigInt` usage.
 
-## Module loading warnings
+### Module loading warnings
 
 There will be some warnings due to module loading. 
 We can fix them by setting the `"allowedCommonJsDependencies"` key under 
@@ -123,7 +128,7 @@ We can fix them by setting the `"allowedCommonJsDependencies"` key under
 ]
 ```
 
-## Types
+### Types
 
 There are some type definitions we need to install and some that we don't have.
 
@@ -167,7 +172,7 @@ declare module "time-cache" {
 }
 ```
 
-## js-waku
+### js-waku
 
 Then, install [js-waku](https://npmjs.com/package/js-waku):
 
@@ -181,64 +186,122 @@ Start the dev server and open the dApp in your browser:
 yarn run start
 ```
 
-# Create Waku Instance
+## Create Waku Instance
 
-In order to interact with the Waku network, you first need a Waku instance.
-Go to `app.component.ts` and add the following import:
+In order to interact with the Waku network, you first need a Waku instance. 
+We're going to wrap the `js-waku` library in a Service so we can inject it to different components when needed.
 
-```js
-import { Waku, WakuMessage } from 'js-waku';
+Generate the Waku service:
+
+```shell
+ng generate service waku
 ```
 
-
-replace the `AppComponent` class with the following:
+Go to `waku.service.ts` and add the following imports:
 
 ```js
-export class AppComponent {
-  
-  title: string = 'relay-angular-chat';
-  waku!: Waku;
-  wakuStatus: string = 'None';
+import { Waku } from 'js-waku';
+import { ReplaySubject } from 'rxjs';
+```
 
-  ngOnInit(): void {
-    Waku.create({ bootstrap: { default: true } }).then((waku) => {
-      this.wakuStatus = 'Connecting...'
+replace the `WakuService` class with the following:
+
+```js
+export class WakuService {
+  
+  // Create Subject Observable to 'store' the Waku instance
+  private wakuSubject = new Subject<Waku>();
+  public waku = this.wakuSubject.asObservable();
+
+  // Create BehaviorSubject Observable to 'store' the Waku status
+  private wakuStatusSubject = new BehaviorSubject('');
+  public wakuStatus = this.wakuStatusSubject.asObservable();
+
+  constructor() { }
+
+  init() {
+    // Connect node
+    Waku.create({ bootstrap: { default: true } }).then(waku => {
+      // Update Observable values 
+      this.wakuSubject.next(waku);
+      this.wakuStatusSubject.next('Connecting...');
+	   
+	   //
+      waku.waitForRemotePeer().then(() => {
+        // Update Observable value
+        this.wakuStatusSubject.next('Connected');
+      });
     });
   }
 }
+```
 
+When using the `bootstrap` option, it may take some time to connect to other peers.
+That's why we use the `waku.waitForRemotePeer` function to ensure that there are relay peers available to send and receive messages.
+
+Now we can inject the `WakuService` in to the `AppComponent` class to initialise the node and
+subscribe to any status changes.
+
+Firstly, import the `WakuService`:
+
+```js
+import { WakuService } from './waku.service';
+```
+
+Then update the `AppComponent` class with the following:
+
+```js
+export class AppComponent {
+
+  title: string = 'relay-angular-chat';
+  wakuStatus!: string;
+  
+  // Inject the service
+  constructor(private wakuService: WakuService) {}
+  
+  ngOnInit(): void {
+    // Call the `init` function on the service
+    this.wakuService.init();
+    // Subscribe to the `wakuStatus` Observable and update the property when it changes
+    this.wakuService.wakuStatus.subscribe(wakuStatus => {
+      this.wakuStatus = wakuStatus;
+    });
+  }
+}
 ```
 
 Add the following HTML to the `app.component.html` to show the title and render the connection status:
 
-```html
+```tsx
 <h1>{{title}}</h1>
 <p>Waku node's status: {{ wakuStatus }}</p>
 ```
 
-# Wait to be connected
+## Messages
 
-When using the `bootstrap` option, it may take some time to connect to other peers.
-To ensure that you have relay peers available to send and receive messages,
-use the `Waku.waitForRemotePeer()` async function. Add the following to the 
-`Waku.create()` function:
+Now we need to create a component to send, receive and render the messages.
 
-```js
-waku.waitForRemotePeer().then(() => {
-  this.wakuStatus = 'Connected';
-  this.waku = waku;
-});
+```shell
+ng generate component messages
 ```
 
-# Define Message Format
+You might need to add this to `NgModule` for Angular to pick up the new component.
+Import and add `MessagesComponent` to the `declarations` array in `app.module.ts`.
 
-We've already installed [protons](https://www.npmjs.com/package/protons).
-Let's use it to define the Protobuf message format with two fields: 
+We're going to need the `WakuService` again but also the `Waku` and `WakuMessage` classes from `js-waku`.
+We already installed [protons](https://www.npmjs.com/package/protons)
+and we're going to use that here so we'll need to import it.
+
+```js
+import { WakuService } from '../waku.service';
+import { Waku, WakuMessage } from 'js-waku';
+import protons from 'protons';
+```
+
+Let's use `protons` to define the Protobuf message format with two fields: 
 `timestamp` and `text`:
 
 ```js
-import protons from 'protons';
-
 const proto = protons(`
 message SimpleChatMessage {
   uint64 timestamp = 1;
@@ -248,7 +311,7 @@ message SimpleChatMessage {
 
 ```
 
-Let's also define an `interface` for use with TypeScript.
+Let's also define a message `interface`:
 
 
 ```js
@@ -258,63 +321,81 @@ interface MessageInterface {
 }
 ```
 
-# Send Messages
+## Send Messages
 
 In order to send a message, we need to define a few things.
 
-The `contentTopic` is the topic we want subscribe to and
-the `payload` is the message. We've also defined a `timestamp`
-so let's create that.
+The `contentTopic` is the topic we want subscribe to and the `payload` is the message. 
+We've also defined a `timestamp` so let's create that.
 
 The `messageCount` property is just to distinguish between messages.
 
+We also need our `waku` instance and `wakuStatus` property.
+We will subscribe to the `waku` and `wakuStatus` Observables from the `WakuService` to get them.
+
 ```js
-export class AppComponent {
+export class MessagesComponent {
   
   contentTopic: string = `/relay-angular-chat/1/chat/proto`;
   messageCount: number = 0;
+  waku!: Waku;
 
   // ...
   
-  send(message: string, waku: object, timestamp: Date) {
-    const time = timestamp.getTime();
+  // Inject the `WakuService`
+  constructor(private wakuService: WakuService) { }
+
+  ngOnInit(): void {
+    // Subscribe to the `wakuStatus` Observable and update the property when it changes
+    this.wakuService.wakuStatus.subscribe(wakuStatus => {
+      this.wakuStatus = wakuStatus;
+    });
+    
+    // Subscribe to the `waku` Observable and update the property when it changes
+    this.wakuService.waku.subscribe(waku => {
+      this.waku = waku;
+    });
+  }
+
+  sendMessage(): void {
+    const time = new Date().getTime();
 
     const payload = proto.SimpleChatMessage.encode({
       timestamp: time,
-      text: message,
+      text: `Here is a message #${this.messageCount}`,
     });
 
-    return WakuMessage.fromBytes(payload, this.contentTopic).then((wakuMessage) => {
-      this.waku.relay.send(wakuMessage);
-    });
-  }
-  
-  sendMessageOnClick(): void {
-    this.send(`Here is a message #${this.messageCount}`, this.waku, new Date()).then(() => {
-      console.log(`Message #${this.messageCount} sent`);
-      this.messageCount += 1;
+    WakuMessage.fromBytes(payload, this.contentTopic).then(wakuMessage => {
+      this.waku.relay.send(wakuMessage).then(() => {
+        console.log(`Message #${this.messageCount} sent`);
+        this.messageCount += 1;
+      });
     });
   }
 }
 ```
 
-Then, add a button to the `app.component.html` file to wire it up
-to the `sendMessageOnClick()` function:
+Then, add a button to the `messages.component.html` file to wire it up to the `sendMessage()` function.
+It will also disable the button until the node is connected.
 
-```html
-<button (click)="sendMessageOnClick()" [disabled]="wakuStatus !== 'Connected'">Send Message</button>
+
+```tsx
+<button (click)="sendMessage()" [disabled]="wakuStatus !== 'Connected'">Send Message</button>
 ```
 
-# Receive Messages
+## Receive Messages
 
 To process incoming messages, you need to register an observer on Waku Relay.
 First, you need to define the observer function which decodes the message 
-and pushes it in to our `messages` array:
+and pushes it in to the `messages` array.
+
+Again, in the `messages.component.ts`:
 
 ```js
-export class AppComponent {
+export class MessagesComponent {
   
   // ...
+  // Store the messages in an array
   messages: MessageInterface[] = [];
   // ...
   
@@ -343,7 +424,14 @@ ngOnDestroy(): void {
 }
 ```
 
-# Display Messages
+Angular won't delete the observer when the page reloads so we'll have to hook that up ourselves.
+Add the following to the `ngOnInit()` function:
+
+```js
+window.onbeforeunload = () => this.ngOnDestroy();
+```
+
+## Display Messages
 
 Congratulations! The Waku work is now done.
 Your dApp is able to send and receive messages using Waku.
@@ -352,13 +440,13 @@ For the sake of completeness, let's display received messages on the page.
 We've already added the `messages` array and pushed the incoming message to it.
 So all we have to do now is render them to the page.
 
-In the `app.component.html`, add the following under the `button`:
+In the `messages.component.html`, add the following under the `button`:
 
-```html
+```tsx
 <h2>Messages</h2>
 <ul class="messages">
   <li *ngFor="let message of messages">
-      <span>{{ message.timestamp }} {{ message.text }}</span>
+    <span>{{ message.timestamp }} {{ message.text }}</span>
   </li>
 </ul>
 ```
