@@ -78,12 +78,12 @@ under `"compilerOptions"`:
 
 ```json
 {
-	  "paths": {
-	    "assert": ["node_modules/assert"],
-	    "buffer": ["node_modules/buffer"],
-	    "crypto": ["node_modules/crypto-browserify"],
-	    "stream": ["node_modules/stream-browserify"]
-	  },
+  "paths": {
+    "assert": ["node_modules/assert"],
+    "buffer": ["node_modules/buffer"],
+    "crypto": ["node_modules/crypto-browserify"],
+    "stream": ["node_modules/stream-browserify"]
+  }
 }
 ```
 
@@ -97,8 +97,8 @@ Finally, set the `"target"` to be `"es2020"` due to the aforementioned `BigInt` 
 
 ### Module loading warnings
 
-There will be some warnings due to module loading. 
-We can fix them by setting the `"allowedCommonJsDependencies"` key under 
+There will be some warnings due to module loading.
+We can fix them by setting the `"allowedCommonJsDependencies"` key under
 `architect -> build -> options` with the following:
 
 ```json
@@ -159,7 +159,7 @@ declare module "time-cache" {
 
   interface TimeCacheInterface {
     put(key: string, value: any, validity: number): void;
-    get(key: string): any;  
+    get(key: string): any;
     has(key: string): boolean;
   }
 
@@ -188,7 +188,7 @@ yarn run start
 
 ## Create Waku Instance
 
-In order to interact with the Waku network, you first need a Waku instance. 
+In order to interact with the Waku network, you first need a Waku instance.
 We're going to wrap the `js-waku` library in a Service so we can inject it to different components when needed.
 
 Generate the Waku service:
@@ -200,15 +200,15 @@ ng generate service waku
 Go to `waku.service.ts` and add the following imports:
 
 ```js
-import { Waku } from 'js-waku';
-import { ReplaySubject } from 'rxjs';
+import { Waku } from "js-waku";
+import { ReplaySubject } from "rxjs";
 ```
 
 replace the `WakuService` class with the following:
 
 ```js
 export class WakuService {
-  
+
   // Create Subject Observable to 'store' the Waku instance
   private wakuSubject = new Subject<Waku>();
   public waku = this.wakuSubject.asObservable();
@@ -222,10 +222,10 @@ export class WakuService {
   init() {
     // Connect node
     Waku.create({ bootstrap: { default: true } }).then(waku => {
-      // Update Observable values 
+      // Update Observable values
       this.wakuSubject.next(waku);
       this.wakuStatusSubject.next('Connecting...');
-	   
+
 	   //
       waku.waitForRemotePeer().then(() => {
         // Update Observable value
@@ -245,7 +245,7 @@ subscribe to any status changes.
 Firstly, import the `WakuService`:
 
 ```js
-import { WakuService } from './waku.service';
+import { WakuService } from "./waku.service";
 ```
 
 Then update the `AppComponent` class with the following:
@@ -255,10 +255,10 @@ export class AppComponent {
 
   title: string = 'relay-angular-chat';
   wakuStatus!: string;
-  
+
   // Inject the service
   constructor(private wakuService: WakuService) {}
-  
+
   ngOnInit(): void {
     // Call the `init` function on the service
     this.wakuService.init();
@@ -293,12 +293,12 @@ We already installed [protons](https://www.npmjs.com/package/protons)
 and we're going to use that here so we'll need to import it.
 
 ```js
-import { WakuService } from '../waku.service';
-import { Waku, WakuMessage } from 'js-waku';
-import protons from 'protons';
+import { WakuService } from "../waku.service";
+import { Waku, WakuMessage } from "js-waku";
+import protons from "protons";
 ```
 
-Let's use `protons` to define the Protobuf message format with two fields: 
+Let's use `protons` to define the Protobuf message format with two fields:
 `timestamp` and `text`:
 
 ```js
@@ -308,16 +308,14 @@ message SimpleChatMessage {
   string text = 2;
 }
 `);
-
 ```
 
 Let's also define a message `interface`:
 
-
 ```js
 interface MessageInterface {
-  timestamp: Date,
-  text: string
+  timestamp: Date;
+  text: string;
 }
 ```
 
@@ -325,7 +323,7 @@ interface MessageInterface {
 
 In order to send a message, we need to define a few things.
 
-The `contentTopic` is the topic we want subscribe to and the `payload` is the message. 
+The `contentTopic` is the topic we want subscribe to and the `payload` is the message.
 We've also defined a `timestamp` so let's create that.
 
 The `messageCount` property is just to distinguish between messages.
@@ -335,13 +333,13 @@ We will subscribe to the `waku` and `wakuStatus` Observables from the `WakuServi
 
 ```js
 export class MessagesComponent {
-  
+
   contentTopic: string = `/relay-angular-chat/1/chat/proto`;
   messageCount: number = 0;
   waku!: Waku;
 
   // ...
-  
+
   // Inject the `WakuService`
   constructor(private wakuService: WakuService) { }
 
@@ -350,7 +348,7 @@ export class MessagesComponent {
     this.wakuService.wakuStatus.subscribe(wakuStatus => {
       this.wakuStatus = wakuStatus;
     });
-    
+
     // Subscribe to the `waku` Observable and update the property when it changes
     this.wakuService.waku.subscribe(waku => {
       this.waku = waku;
@@ -378,7 +376,6 @@ export class MessagesComponent {
 Then, add a button to the `messages.component.html` file to wire it up to the `sendMessage()` function.
 It will also disable the button until the node is connected.
 
-
 ```tsx
 <button (click)="sendMessage()" [disabled]="wakuStatus !== 'Connected'">Send Message</button>
 ```
@@ -386,39 +383,38 @@ It will also disable the button until the node is connected.
 ## Receive Messages
 
 To process incoming messages, you need to register an observer on Waku Relay.
-First, you need to define the observer function which decodes the message 
+First, you need to define the observer function which decodes the message
 and pushes it in to the `messages` array.
 
 Again, in the `messages.component.ts`:
 
 ```js
 export class MessagesComponent {
-  
   // ...
   // Store the messages in an array
   messages: MessageInterface[] = [];
   // ...
-  
+
   processIncomingMessages = (wakuMessage: WakuMessage) => {
     if (!wakuMessage.payload) return;
 
     const { timestamp, text } = proto.SimpleChatMessage.decode(
       wakuMessage.payload
     );
-    
+
     const time = new Date();
     time.setTime(timestamp);
     const message = { text, timestamp: time };
 
     this.messages.push(message);
-  }
+  };
 }
 ```
 
 We'll also need to delete the observer when the component gets destroyed
 to avoid memory leaks:
 
-```js 
+```js
 ngOnDestroy(): void {
   this.waku.relay.deleteObserver(this.processIncomingMessages, [this.contentTopic]);
 }
