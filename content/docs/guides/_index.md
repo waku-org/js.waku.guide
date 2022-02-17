@@ -21,3 +21,7 @@ weight: 30
 
 - [Receive and Send Messages Using Waku Relay With ReactJS](./07_reactjs_relay/)
 - [Retrieve Messages Using Waku Store With ReactJS](./08_reactjs_store/)
+
+## Angular
+
+- [Receive and Send Messages Using Waku Relay With ReactJS](./10_angular_relay/)
