@@ -65,12 +65,11 @@ yarn add assert buffer crypto-browserify process stream-browserify
 
 Then add the following code to `src/polyfills.ts`:
 
-```
+```js
 import * as process from 'process';
 (window as any).process = process;
 (window as any).global = window;
 global.Buffer = global.Buffer || require('buffer').Buffer;
-
 ```
 
 Now tell Angular where to find these libraries by adding the following to `tsconfig.json`
@@ -102,30 +101,32 @@ We can fix them by setting the `"allowedCommonJsDependencies"` key under
 `architect -> build -> options` with the following:
 
 ```json
-"allowedCommonJsDependencies": [
-  "libp2p-gossipsub/src/utils",
-  "rlp",
-  "multiaddr/src/convert",
-  "varint",
-  "multihashes",
-  "@chainsafe/libp2p-noise/dist/src/noise",
-  "debug",
-  "libp2p",
-  "libp2p-bootstrap",
-  "libp2p-crypto",
-  "libp2p-websockets",
-  "libp2p-websockets/src/filters",
-  "libp2p/src/ping",
-  "multiaddr",
-  "peer-id",
-  "buffer",
-  "crypto",
-  "ecies-geth",
-  "secp256k1",
-  "libp2p-gossipsub",
-  "it-concat",
-  "protons"
-]
+{
+  "allowedCommonJsDependencies": [
+    "libp2p-gossipsub/src/utils",
+    "rlp",
+    "multiaddr/src/convert",
+    "varint",
+    "multihashes",
+    "@chainsafe/libp2p-noise/dist/src/noise",
+    "debug",
+    "libp2p",
+    "libp2p-bootstrap",
+    "libp2p-crypto",
+    "libp2p-websockets",
+    "libp2p-websockets/src/filters",
+    "libp2p/src/ping",
+    "multiaddr",
+    "peer-id",
+    "buffer",
+    "crypto",
+    "ecies-geth",
+    "secp256k1",
+    "libp2p-gossipsub",
+    "it-concat",
+    "protons"
+  ]
+}
 ```
 
 ### Types
@@ -138,7 +139,7 @@ yarn add @types/bl protons
 
 Create a new folder under `src` named `@types` with the following structure:
 
-```
+```shell
 src/@types
 ├── protons
 │   └── types.d.ts
@@ -168,7 +169,6 @@ declare module "time-cache" {
   function TimeCache(options: object): TimeCache;
 
   export = TimeCache;
-
 }
 ```
 
@@ -226,7 +226,6 @@ export class WakuService {
       this.wakuSubject.next(waku);
       this.wakuStatusSubject.next('Connecting...');
 
-	   //
       waku.waitForRemotePeer().then(() => {
         // Update Observable value
         this.wakuStatusSubject.next('Connected');
@@ -272,7 +271,7 @@ export class AppComponent {
 
 Add the following HTML to the `app.component.html` to show the title and render the connection status:
 
-```tsx
+```html
 <h1>{{title}}</h1>
 <p>Waku node's status: {{ wakuStatus }}</p>
 ```
@@ -376,7 +375,7 @@ export class MessagesComponent {
 Then, add a button to the `messages.component.html` file to wire it up to the `sendMessage()` function.
 It will also disable the button until the node is connected.
 
-```tsx
+```
 <button (click)="sendMessage()" [disabled]="wakuStatus !== 'Connected'">Send Message</button>
 ```
 
@@ -438,7 +437,7 @@ So all we have to do now is render them to the page.
 
 In the `messages.component.html`, add the following under the `button`:
 
-```tsx
+```html
 <h2>Messages</h2>
 <ul class="messages">
   <li *ngFor="let message of messages">
