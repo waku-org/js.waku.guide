@@ -11,7 +11,7 @@ To run or studies the example, click on the _repo_ links.
 
 ## Minimal ReactJS Chat App
 
-Repo: [relay-reactjs-chat](https://github.com/status-im/js-waku/tree/main/examples/relay-reactjs-chat).
+Repo: [relay-reactjs-chat](https://github.com/status-im/js-waku/tree/master/examples/relay-reactjs-chat).
 
 Demonstrates:
 
@@ -23,7 +23,7 @@ Demonstrates:
 
 ## Minimal ReactJS Waku Store App
 
-Repo: [store-reactjs-chat](https://github.com/status-im/js-waku/tree/main/examples/store-reactjs-chat).
+Repo: [store-reactjs-chat](https://github.com/status-im/js-waku/tree/master/examples/store-reactjs-chat).
 
 Demonstrates:
 
@@ -33,7 +33,7 @@ Demonstrates:
 
 ## Minimal Angular Chat App
 
-Repo: [relay-angular-chat](https://github.com/status-im/js-waku/tree/main/examples/relay-angular-chat).
+Repo: [relay-angular-chat](https://github.com/status-im/js-waku/tree/master/examples/relay-angular-chat).
 
 Demonstrates:
 
