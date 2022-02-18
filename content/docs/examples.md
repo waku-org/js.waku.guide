@@ -11,7 +11,7 @@ To run or studies the example, click on the _repo_ links.
 
 ## Minimal ReactJS Chat App
 
-Repo: [min-react-js-chat](https://github.com/status-im/js-waku/tree/main/examples/min-react-js-chat).
+Repo: [relay-reactjs-chat](https://github.com/status-im/js-waku/tree/master/examples/relay-reactjs-chat).
 
 Demonstrates:
 
@@ -23,13 +23,26 @@ Demonstrates:
 
 ## Minimal ReactJS Waku Store App
 
-Repo: [store-reactjs-chat](https://github.com/status-im/js-waku/tree/main/examples/store-reactjs-chat).
+Repo: [store-reactjs-chat](https://github.com/status-im/js-waku/tree/master/examples/store-reactjs-chat).
 
 Demonstrates:
 
 - Waku Store
 - React/JavaScript
 - Protobuf using [protons](https://www.npmjs.com/package/protons)
+
+## Minimal Angular Chat App
+
+Repo: [relay-angular-chat](https://github.com/status-im/js-waku/tree/master/examples/relay-angular-chat).
+
+Demonstrates:
+
+- Group chat
+- Angular/JavaScript
+- Waku Relay
+- Protobuf using [protons](https://www.npmjs.com/package/protons)
+- No async/await syntax
+- Observables
 
 ## Vanilla Javascript Using Minified Library
 
