@@ -25,3 +25,7 @@ weight: 30
 ## Angular
 
 - [Receive and Send Messages Using Waku Relay With ReactJS](./10_angular_relay/)
+
+## Service Nodes
+
+- [Nwaku Service Node](./11_nwaku/)
