@@ -1,7 +1,7 @@
 ---
 title: Send and Receive Messages Using Waku Relay With Angular v13
 date: 2022-02-15T09:00:00+01:00
-weight: 7
+weight: 9
 ---
 
 # Send and Receive Messages Using Waku Relay With Angular v13

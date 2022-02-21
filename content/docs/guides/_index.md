@@ -7,7 +7,7 @@ weight: 30
 ## General Concepts
 
 - [How to Choose a Content Topic](./01_choose_content_topic/)
-- [How to Debug your Waku dApp](./09_debug/)
+- [How to Debug your Waku dApp](./debug/)
 
 ## JavaScript
 
@@ -24,8 +24,8 @@ weight: 30
 
 ## Angular
 
-- [Receive and Send Messages Using Waku Relay With ReactJS](./10_angular_relay/)
+- [Receive and Send Messages Using Waku Relay With ReactJS](./angular_relay/)
 
 ## Service Nodes
 
-- [Nwaku Service Node](./11_nwaku/)
+- [Nwaku Service Node](./nwaku/)

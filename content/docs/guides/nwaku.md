@@ -1,7 +1,7 @@
 ---
 title: Nwaku Service Node
 date: 2022-02-17T00:00:00+01:00
-weight: 11
+weight: 10
 ---
 
 # Nwaku Service Node
