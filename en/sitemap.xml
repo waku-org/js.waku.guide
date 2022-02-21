@@ -47,17 +47,17 @@
     <loc>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</loc>
     <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
-    <loc>https://docs.wakuconnect.dev/docs/guides/10_angular_relay/</loc>
-    <lastmod>2022-02-18T09:38:14+00:00</lastmod>
-  </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</loc>
     <lastmod>2022-02-08T23:06:38+00:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/</loc>
     <lastmod>2022-02-08T23:06:38+00:00</lastmod>
   </url><url>
-    <loc>https://docs.wakuconnect.dev/docs/guides/09_debug/</loc>
-    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
+    <loc>https://docs.wakuconnect.dev/docs/guides/angular_relay/</loc>
+    <lastmod>2022-02-21T11:44:39+11:00</lastmod>
+  </url><url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/nwaku/</loc>
+    <lastmod>2022-02-21T11:44:39+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/introduction/</loc>
     <lastmod>2022-02-11T22:11:16+11:00</lastmod>
@@ -98,9 +98,6 @@
                 href="https://docs.wakuconnect.dev/docs/"
                 />
   </url><url>
-    <loc>https://docs.wakuconnect.dev/docs/guides/11_nwaku/</loc>
-    <lastmod>2022-02-21T11:24:40+11:00</lastmod>
-  </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</loc>
     <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
@@ -109,6 +106,9 @@
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/</loc>
     <lastmod>2022-02-11T22:11:16+11:00</lastmod>
+  </url><url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/debug/</loc>
+    <lastmod>2022-02-21T11:44:39+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/quick_start/</loc>
     <lastmod>2022-01-24T12:17:00+11:00</lastmod>
@@ -120,7 +120,7 @@
     <lastmod>2022-02-10T10:33:56+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/</loc>
-    <lastmod>2022-02-21T11:24:40+11:00</lastmod>
+    <lastmod>2022-02-21T11:44:39+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/examples/</loc>
     <lastmod>2022-02-18T09:38:14+00:00</lastmod>

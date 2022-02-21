@@ -75,18 +75,6 @@ The Waku Relay protocol sends messages to connected peers but does not provide a
     </item>
     
     <item>
-      <title>Send and Receive Messages Using Waku Relay With Angular v13</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/10_angular_relay/</link>
-      <pubDate>Tue, 15 Feb 2022 09:00:00 +0100</pubDate>
-      
-      <guid>https://docs.wakuconnect.dev/docs/guides/10_angular_relay/</guid>
-      <description>Send and Receive Messages Using Waku Relay With Angular v13 #  It is easy to use Waku Connect with Angular v13.
-In this guide, we will demonstrate how your Angular dApp can use Waku Relay to send and receive messages.
-Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
-For this guide, we are using a single content topic: /relay-angular-chat/1/chat/proto.</description>
-    </item>
-    
-    <item>
       <title>Receive and Send Messages Using Waku Relay With ReactJS</title>
       <link>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
@@ -108,29 +96,41 @@ Waku Relay is a gossip protocol. As a user, it means that your peers forward you
     </item>
     
     <item>
+      <title>Send and Receive Messages Using Waku Relay With Angular v13</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/angular_relay/</link>
+      <pubDate>Tue, 15 Feb 2022 09:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/angular_relay/</guid>
+      <description>Send and Receive Messages Using Waku Relay With Angular v13 #  It is easy to use Waku Connect with Angular v13.
+In this guide, we will demonstrate how your Angular dApp can use Waku Relay to send and receive messages.
+Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
+For this guide, we are using a single content topic: /relay-angular-chat/1/chat/proto.</description>
+    </item>
+    
+    <item>
+      <title>Nwaku Service Node</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/nwaku/</link>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/nwaku/</guid>
+      <description>Nwaku Service Node #  JS-Waku nodes join the Waku network by connecting to service nodes using secure websocket.
+Nwaku (prev. nim-waku) is the reference implementation of the Waku v2 protocol and can be used as a service node.
+When using { bootstrap: { default: true } }, the js-waku node connects to a fleet of nwaku nodes operated by Status.
+It is also possible to deploy your own nwaku node by following these instructions.</description>
+    </item>
+    
+    <item>
       <title>How to Debug your Waku dApp</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/09_debug/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/debug/</link>
       <pubDate>Mon, 31 Jan 2022 00:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/09_debug/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/debug/</guid>
       <description>How to Debug your Waku dApp #  JS-Waku and its most relevant dependencies (libp2p) uses debug to handle logs.
 NodeJS #  To enable debug logs when running js-waku with NodeJS, simply set the DEBUG environment variable.
 To only enable js-waku debug logs:
 export DEBUG=waku* To enable js-waku and libp2p debug logs:
 export DEBUG=waku*,libp2p* To enable all debug logs:
 export DEBUG=* Browser #  To see the debug logs in your browser&amp;rsquo;s console, you need to modify the local storage and add debug key.</description>
-    </item>
-    
-    <item>
-      <title>Nwaku Service Node</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/11_nwaku/</link>
-      <pubDate>Thu, 17 Feb 2022 00:00:00 +0100</pubDate>
-      
-      <guid>https://docs.wakuconnect.dev/docs/guides/11_nwaku/</guid>
-      <description>Nwaku Service Node #  JS-Waku nodes join the Waku network by connecting to service nodes using secure websocket.
-Nwaku (prev. nim-waku) is the reference implementation of the Waku v2 protocol and can be used as a service node.
-When using { bootstrap: { default: true } }, the js-waku node connects to a fleet of nwaku nodes operated by Status.
-It is also possible to deploy your own nwaku node by following these instructions.</description>
     </item>
     
   </channel>
