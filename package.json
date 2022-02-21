@@ -9,9 +9,11 @@
   "scripts": {
     "fix": "prettier \"content*/**/*.md\" \"./*.json\" --write",
     "test": "prettier \"content*/**/*.md\" \"./*.json\" --list-different",
+    "test:spelling": "cspell content/**/*.md",
     "serve": "hugo server"
   },
   "dependencies": {
+    "cspell": "^5.18.5",
     "prettier": "^2.5.1"
   }
 }
