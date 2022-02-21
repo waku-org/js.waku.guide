@@ -9,34 +9,34 @@
     <lastmod>2022-02-04T03:44:23+01:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/</loc>
     <lastmod>2022-01-27T11:18:41+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/</loc>
     <lastmod>2022-02-04T03:44:23+01:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</loc>
-    <lastmod>2022-02-08T23:06:38+00:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/</loc>
-    <lastmod>2022-02-08T23:06:38+00:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/</loc>
     <lastmod>2022-02-02T11:56:14+11:00</lastmod>
@@ -45,7 +45,10 @@
     <lastmod>2022-01-24T12:17:00+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</loc>
-    <lastmod>2022-02-08T23:06:38+00:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
+  </url><url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/10_angular_relay/</loc>
+    <lastmod>2022-02-18T09:38:14+00:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</loc>
     <lastmod>2022-02-08T23:06:38+00:00</lastmod>
@@ -54,13 +57,13 @@
     <lastmod>2022-02-08T23:06:38+00:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/09_debug/</loc>
-    <lastmod>2022-01-31T10:56:57+11:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/introduction/</loc>
-    <lastmod>2022-02-02T11:56:14+11:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/</loc>
-    <lastmod>2022-02-02T11:56:14+11:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -78,7 +81,7 @@
                 />
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/</loc>
-    <lastmod>2022-02-02T11:56:14+11:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -95,14 +98,17 @@
                 href="https://docs.wakuconnect.dev/docs/"
                 />
   </url><url>
+    <loc>https://docs.wakuconnect.dev/docs/guides/11_nwaku/</loc>
+    <lastmod>2022-02-21T11:24:40+11:00</lastmod>
+  </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/</loc>
-    <lastmod>2022-02-04T03:44:23+01:00</lastmod>
+    <lastmod>2022-02-11T22:11:16+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/quick_start/</loc>
     <lastmod>2022-01-24T12:17:00+11:00</lastmod>
@@ -114,10 +120,10 @@
     <lastmod>2022-02-10T10:33:56+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/guides/</loc>
-    <lastmod>2022-01-31T10:56:57+11:00</lastmod>
+    <lastmod>2022-02-21T11:24:40+11:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/examples/</loc>
-    <lastmod>2022-02-02T11:56:14+11:00</lastmod>
+    <lastmod>2022-02-18T09:38:14+00:00</lastmod>
   </url><url>
     <loc>https://docs.wakuconnect.dev/docs/crypto_libraries/</loc>
     <lastmod>2022-01-24T12:17:00+11:00</lastmod>

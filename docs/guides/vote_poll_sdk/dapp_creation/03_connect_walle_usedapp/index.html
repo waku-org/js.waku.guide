@@ -12,14 +12,14 @@ yarn add @usedapp/core@0.4.7 @usedapp/core must be frozen to version 0.4.7 due t
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-01-03T11:00:00+11:00" />
-<meta property="article:modified_time" content="2022-02-04T03:44:23+01:00" />
+<meta property="article:modified_time" content="2022-02-11T22:11:16+11:00" />
 
 <title>Connect to the Ethereum Wallet useDapp | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.1ab911b43534094f35fca7ff8b4e9ec387e474fb768f8cefee49c175a03e45a7.js" integrity="sha256-GrkRtDU0CU81/Kf/i06ew4fkdPt2j4zv7knBdaA&#43;Rac=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0d177fc31f8c8c2725b8432ee3b9a0c2b844f8660d18295053409cfed9db3843.js" integrity="sha256-DRd/wx&#43;MjCcluEMu47mgwrhE&#43;GYNGClQU0Cc/tnbOEM=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -255,6 +255,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://docs.wakuconnect.dev/docs/guides/10_angular_relay/" class="">Send and Receive Messages Using Waku Relay With Angular v13</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" class="">Receive and Send Messages Using Waku Relay With ReactJS</a>
   
 
@@ -282,6 +295,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://docs.wakuconnect.dev/docs/guides/09_debug/" class="">How to Debug your Waku dApp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/11_nwaku/" class="">Nwaku Service Node</a>
   
 
         </li>
@@ -691,22 +717,22 @@ The component uses <code>ethers</code> to connect to the user&rsquo;s wallet:</p
   <a class="anchor" href="#usedapp">#</a>
 </h3>
 <p>Create a <code>config</code> variable that contains the Ethereum network parameters:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">ChainId</span>, <span style="color:#a6e22e">DAppProvider</span>, <span style="color:#a6e22e">useEthers</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@usedapp/core&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span>, <span style="color:#a6e22e">DAppProvider</span>, <span style="color:#a6e22e">useEthers</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">readOnlyChainId</span>: <span style="color:#66d9ef">ChainId.Mainnet</span>,
-    <span style="color:#a6e22e">readOnlyUrls</span><span style="color:#f92672">:</span> {
-        [<span style="color:#a6e22e">ChainId</span>.<span style="color:#a6e22e">Mainnet</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://mainnet.infura.io/v3/your-infura-token&#39;</span>,
-    },
-    <span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">:</span> {
-        <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#39;</span>,
-        <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0x53c43764255c17bd724f74c4ef150724ac50a3ed&#39;</span>,
-    },
-    <span style="color:#a6e22e">notifications</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">checkInterval</span>: <span style="color:#66d9ef">500</span>,
-        <span style="color:#a6e22e">expirationPeriod</span>: <span style="color:#66d9ef">50000</span>,
-    },
-}
+  <span style="color:#a6e22e">readOnlyChainId</span>: <span style="color:#66d9ef">ChainId.Mainnet</span>,
+  <span style="color:#a6e22e">readOnlyUrls</span><span style="color:#f92672">:</span> {
+    [<span style="color:#a6e22e">ChainId</span>.<span style="color:#a6e22e">Mainnet</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://mainnet.infura.io/v3/your-infura-token&#34;</span>,
+  },
+  <span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">:</span> {
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#34;</span>,
+    <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0x53c43764255c17bd724f74c4ef150724ac50a3ed&#34;</span>,
+  },
+  <span style="color:#a6e22e">notifications</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">checkInterval</span>: <span style="color:#66d9ef">500</span>,
+    <span style="color:#a6e22e">expirationPeriod</span>: <span style="color:#66d9ef">50000</span>,
+  },
+};
 </code></pre></div><p>Replace <code>your-infura-token</code> with your <a href="https://infura.io/docs/ethereum">Infura API token</a>.</p>
 <h3 id="styled-components">
   Styled-components
@@ -726,78 +752,78 @@ Create a <code>Wrapper</code> variable to use in the page component:</p>
 </h3>
 <p>Finally, create the <code>App</code> component:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
-    <span style="color:#66d9ef">return</span> (
-        &lt;<span style="color:#f92672">Wrapper</span>&gt;
-            &lt;<span style="color:#f92672">GlobalStyle</span>/&gt;
-            &lt;<span style="color:#f92672">DAppProvider</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">config</span>}&gt;
-                &lt;<span style="color:#f92672">PollPage</span>/&gt;
-            &lt;/<span style="color:#f92672">DAppProvider</span>&gt;
-        &lt;/<span style="color:#f92672">Wrapper</span>&gt;
-    )
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">Wrapper</span>&gt;
+      &lt;<span style="color:#f92672">GlobalStyle</span> /&gt;
+      &lt;<span style="color:#f92672">DAppProvider</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">config</span>}&gt;
+        &lt;<span style="color:#f92672">PollPage</span> /&gt;
+      &lt;/<span style="color:#f92672">DAppProvider</span>&gt;
+    &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+  );
 }
 </code></pre></div><p>Your <code>index.tsx</code> should now be:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">ChainId</span>, <span style="color:#a6e22e">DAppProvider</span>, <span style="color:#a6e22e">useEthers</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@usedapp/core&#39;</span>;
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">GlobalStyle</span>, <span style="color:#a6e22e">TopBar</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@waku/vote-poll-sdk-react-components&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, {<span style="color:#a6e22e">useEffect</span>, <span style="color:#a6e22e">useState</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react-dom&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./index.css&#39;</span>;
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">JsonRpcSigner</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ethersproject/providers&#34;</span>;
-<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">orangeTheme</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components/dist/cjs/src/style/themes&#34;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styled</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;styled-components&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span>, <span style="color:#a6e22e">DAppProvider</span>, <span style="color:#a6e22e">useEthers</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GlobalStyle</span>, <span style="color:#a6e22e">TopBar</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useEffect</span>, <span style="color:#a6e22e">useState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;./index.css&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">JsonRpcSigner</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ethersproject/providers&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">orangeTheme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components/dist/cjs/src/style/themes&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styled</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;styled-components&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">readOnlyChainId</span>: <span style="color:#66d9ef">ChainId.Mainnet</span>,
-    <span style="color:#a6e22e">readOnlyUrls</span><span style="color:#f92672">:</span> {
-        [<span style="color:#a6e22e">ChainId</span>.<span style="color:#a6e22e">Mainnet</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://mainnet.infura.io/v3/your-infura-token&#39;</span>,
-    },
-    <span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">:</span> {
-        <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#39;</span>,
-        <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0x53c43764255c17bd724f74c4ef150724ac50a3ed&#39;</span>,
-    },
-    <span style="color:#a6e22e">notifications</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">checkInterval</span>: <span style="color:#66d9ef">500</span>,
-        <span style="color:#a6e22e">expirationPeriod</span>: <span style="color:#66d9ef">50000</span>,
-    },
-}
+  <span style="color:#a6e22e">readOnlyChainId</span>: <span style="color:#66d9ef">ChainId.Mainnet</span>,
+  <span style="color:#a6e22e">readOnlyUrls</span><span style="color:#f92672">:</span> {
+    [<span style="color:#a6e22e">ChainId</span>.<span style="color:#a6e22e">Mainnet</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://mainnet.infura.io/v3/your-infura-token&#34;</span>,
+  },
+  <span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">:</span> {
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#34;</span>,
+    <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0x53c43764255c17bd724f74c4ef150724ac50a3ed&#34;</span>,
+  },
+  <span style="color:#a6e22e">notifications</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">checkInterval</span>: <span style="color:#66d9ef">500</span>,
+    <span style="color:#a6e22e">expirationPeriod</span>: <span style="color:#66d9ef">50000</span>,
+  },
+};
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">PollPage() {</span>
-    <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span>} <span style="color:#f92672">=</span> <span style="color:#a6e22e">useEthers</span>()
-    <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>)
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useEthers</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>);
 
-    <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
-        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
-            <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>())
-        } <span style="color:#66d9ef">else</span> {
-            <span style="color:#75715e">// Deactivate signer if signed out
-</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>)
-        }
-    }, [<span style="color:#a6e22e">account</span>])
+  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
+      <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>());
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// Deactivate signer if signed out
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>);
+    }
+  }, [<span style="color:#a6e22e">account</span>]);
 
-    <span style="color:#66d9ef">return</span> (
-        &lt;<span style="color:#f92672">div</span>&gt;
-            &lt;<span style="color:#f92672">TopBar</span>
-                <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
-                <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
-                <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Poll dApp&#39;</span>}
-                <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
-                <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
-                <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
-                <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
-            /&gt;
-            <span style="color:#75715e">//Place for poll or vote component
-</span><span style="color:#75715e"></span>        &lt;/<span style="color:#f92672">div</span>&gt;
-    )
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">TopBar</span>
+        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
+        <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;Poll dApp&#34;</span>}
+        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
+        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
+        <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
+        <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
+      /&gt;
+      <span style="color:#75715e">//Place for poll or vote component
+</span><span style="color:#75715e"></span>    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
 }
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
-    <span style="color:#66d9ef">return</span> (
-        &lt;<span style="color:#f92672">Wrapper</span>&gt;
-            &lt;<span style="color:#f92672">GlobalStyle</span>/&gt;
-            &lt;<span style="color:#f92672">DAppProvider</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">config</span>}&gt;
-                &lt;<span style="color:#f92672">PollPage</span>/&gt;
-            &lt;/<span style="color:#f92672">DAppProvider</span>&gt;
-        &lt;/<span style="color:#f92672">Wrapper</span>&gt;
-    )
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">Wrapper</span>&gt;
+      &lt;<span style="color:#f92672">GlobalStyle</span> /&gt;
+      &lt;<span style="color:#f92672">DAppProvider</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">config</span>}&gt;
+        &lt;<span style="color:#f92672">PollPage</span> /&gt;
+      &lt;/<span style="color:#f92672">DAppProvider</span>&gt;
+    &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+  );
 }
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Wrapper</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>.<span style="color:#a6e22e">div</span><span style="color:#e6db74">`
@@ -830,9 +856,9 @@ Create a <code>Wrapper</code> variable to use in the page component:</p>
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/be6692ea9b943e8e023aa9fbe6337f051eafa004" title='Last modified by Szymon Szlachtowicz | Feb 4, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/da15b6b74dab744fb436e9f8c10395c4f857c152" title='Last modified by Franck R | Feb 11, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 4, 2022</span>
+      <span>Feb 11, 2022</span>
     </a>
   </div>
 

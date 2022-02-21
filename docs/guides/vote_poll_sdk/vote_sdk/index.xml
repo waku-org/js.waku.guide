@@ -16,7 +16,7 @@
       <description>Deploy smart contract #  Creating new package #  For this deployment we will create a new package.
 mkdir contract-deployment cd contract-deployment yarn init yarn add @waku/vote-sdk-contracts ethers ts-node typescript Create a tsconfig.json with:
 { &amp;#34;compilerOptions&amp;#34;: { &amp;#34;target&amp;#34;: &amp;#34;es2020&amp;#34;, &amp;#34;module&amp;#34;: &amp;#34;commonJS&amp;#34;, &amp;#34;esModuleInterop&amp;#34;: true, &amp;#34;moduleResolution&amp;#34;: &amp;#34;node&amp;#34;, &amp;#34;resolveJsonModule&amp;#34;: true, &amp;#34;noEmit&amp;#34;: true } } And now we can add a deploy script index.ts:
-import {ContractFactory, getDefaultProvider, Wallet} from &amp;#39;ethers&amp;#39;; import VotingContract from &amp;#39;@waku/vote-sdk-contracts/build/VotingContract.</description>
+import { ContractFactory, getDefaultProvider, Wallet } from &amp;#34;ethers&amp;#34;; import VotingContract from &amp;#34;@waku/vote-sdk-contracts/build/VotingContract.</description>
     </item>
     
     <item>
@@ -38,8 +38,8 @@ After that we can start with styling and defining which theme we will be using:<
       
       <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</guid>
       <description>Use Voting Component #  Define Configuration #  Configure the dApp by setting:
- Address of the multicall smart contract of the target chain, Address of the voting smart contract, Your dApp name.  const VOTING_ADDRESS = &amp;#39;VOTING_ADDRESS&amp;#39; const MULTICALL_ADDRESS = &amp;#39;MULTICALL_ADDRESS&amp;#39; const DAPP_NAME = &amp;#39;YOUR_DAPP_NAME&amp;#39; Use Waku Voting #  Now, we need a Waku voting object. For that, call useWakuVoting:
-import {useWakuVoting} from &amp;#39;@waku/vote-sdk-react-hooks&amp;#39; export function MainPage() { const {activate, deactivate, account, provider} = useWeb3Connect(SUPPORTED_CHAIN_ID) const wakuVoting = useWakuVoting( DAPP_NAME, VOTING_ADDRESS, provider, MULTICALL_ADDRESS ) } Display Voting Component #  Modify the MainPage to render a Voting component.</description>
+ Address of the multicall smart contract of the target chain, Address of the voting smart contract, Your dApp name.  const VOTING_ADDRESS = &amp;#34;VOTING_ADDRESS&amp;#34;; const MULTICALL_ADDRESS = &amp;#34;MULTICALL_ADDRESS&amp;#34;; const DAPP_NAME = &amp;#34;YOUR_DAPP_NAME&amp;#34;; Use Waku Voting #  Now, we need a Waku voting object. For that, call useWakuVoting:
+import { useWakuVoting } from &amp;#34;@waku/vote-sdk-react-hooks&amp;#34;; export function MainPage() { const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID); const wakuVoting = useWakuVoting( DAPP_NAME, VOTING_ADDRESS, provider, MULTICALL_ADDRESS ); } Display Voting Component #  Modify the MainPage to render a Voting component.</description>
     </item>
     
   </channel>

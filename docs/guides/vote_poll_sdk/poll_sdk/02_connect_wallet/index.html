@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&rsquo;s wallet.  Delete the template App component:
+rm -f App.tsx App.css App.test.tsx Top bar #  Use TopBar component to display wallet information. For that, create a PollPage component that includes the top bar and will include the poll elements. The component uses ethers to connect to the user&rsquo;s wallet:">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Connect to the Ethereum Wallet" />
+<meta property="og:description" content="Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&rsquo;s wallet.  Delete the template App component:
+rm -f App.tsx App.css App.test.tsx Top bar #  Use TopBar component to display wallet information. For that, create a PollPage component that includes the top bar and will include the poll elements. The component uses ethers to connect to the user&rsquo;s wallet:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-01-03T11:00:00+11:00" />
+<meta property="article:modified_time" content="2022-01-24T12:17:00+11:00" />
+
+<title>Connect to the Ethereum Wallet | Waku Connect Docs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.529c80d1e911ec8f549a29bff1dd2c31fc706122b64f877c8a14e63ba53421c7.js" integrity="sha256-UpyA0ekR7I9Umim/8d0sMfxwYSK2T4d8ihTmO6U0Icc=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Waku Connect Docs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/es/">
+          Español
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/pt/">
+          Português
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/introduction/" class="">Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/quick_start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/use_cases/" class="">Use Cases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/presentations/" class="">Presentations &amp; Videos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/" class="">Guides</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/" class="">How to Choose a Content Topic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/" class="">Receive and Send Messages Using Waku Relay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" class="">Retrieve Messages Using Waku Store</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/" class="">Encrypt Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/" class="">Sign Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" class="">Send Messages Using Waku Light Push</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" class="">Receive and Send Messages Using Waku Relay With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/" class="">Retrieve Messages Using Waku Store With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/09_debug/" class="">How to Debug your Waku dApp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/" class="">Vote Poll Sdk</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/" class=" active">Connect to the Ethereum Wallet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/" class="">Create-A-Poll Button</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/" class="">Poll Creation Component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/" class="">Poll List Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/crypto_libraries/" class="">Cryptographic Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/waku_protocols/" class="">Implemented Waku Protocols</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://js-waku.wakuconnect.dev/" target="_blank" rel="noopener">
+        JS-Waku API Doc
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://vac.dev/" target="_blank" rel="noopener">
+        Vac Team
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://rfc.vac.dev/" target="_blank" rel="noopener">
+        Vac RFCs
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://status.im/" target="_blank" rel="noopener">
+        Status.im
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Connect to the Ethereum Wallet</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#connect-to-the-ethereum-wallet">Connect to the Ethereum Wallet</a>
+      <ul>
+        <li><a href="#top-bar">Top bar</a></li>
+        <li><a href="#page">Page</a>
+          <ul>
+            <li><a href="#usedapp">UseDApp</a></li>
+            <li><a href="#styled-components">Styled-components</a></li>
+            <li><a href="#render">Render</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="connect-to-the-ethereum-wallet">
+  Connect to the Ethereum Wallet
+  <a class="anchor" href="#connect-to-the-ethereum-wallet">#</a>
+</h1>
+<blockquote class="book-hint info">
+  This section may be skipped if you are adding the poll feature to an existing dApp
+that already connects to the user&rsquo;s wallet.
+</blockquote>
+
+<p>Delete the template <code>App</code> component:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rm -f App.tsx App.css App.test.tsx
+</code></pre></div><h2 id="top-bar">
+  Top bar
+  <a class="anchor" href="#top-bar">#</a>
+</h2>
+<p>Use <code>TopBar</code> component to display wallet information.
+For that, create a <code>PollPage</code> component that includes the top bar and will include the poll elements.
+The component uses <code>ethers</code> to connect to the user&rsquo;s wallet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">PollPage() {</span>
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useEthers</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>);
+
+  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
+      <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>());
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// Deactivate signer if signed out
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>);
+    }
+  }, [<span style="color:#a6e22e">account</span>]);
+
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">TopBar</span>
+        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
+        <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;Poll dApp&#34;</span>}
+        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
+        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
+        <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
+        <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
+      /&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
+}
+</code></pre></div><h2 id="page">
+  Page
+  <a class="anchor" href="#page">#</a>
+</h2>
+<h3 id="usedapp">
+  UseDApp
+  <a class="anchor" href="#usedapp">#</a>
+</h3>
+<p>Create a <code>config</code> variable that contains the Ethereum network parameters:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span>, <span style="color:#a6e22e">DAppProvider</span>, <span style="color:#a6e22e">useEthers</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">DEFAULT_CONFIG</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core/dist/cjs/src/model/config/default&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">readOnlyChainId</span>: <span style="color:#66d9ef">ChainId.Mainnet</span>,
+  <span style="color:#a6e22e">readOnlyUrls</span><span style="color:#f92672">:</span> {
+    [<span style="color:#a6e22e">ChainId</span>.<span style="color:#a6e22e">Mainnet</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://mainnet.infura.io/v3/your-infura-token&#34;</span>,
+  },
+  <span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">:</span> {
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#34;</span>,
+    <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0x53c43764255c17bd724f74c4ef150724ac50a3ed&#34;</span>,
+    <span style="color:#a6e22e">1337</span>:
+      <span style="color:#66d9ef">process.env.GANACHE_MULTICALL_CONTRACT</span> <span style="color:#f92672">??</span>
+      <span style="color:#e6db74">&#34;0x0000000000000000000000000000000000000000&#34;</span>,
+  },
+  <span style="color:#a6e22e">supportedChains</span><span style="color:#f92672">:</span> [...<span style="color:#a6e22e">DEFAULT_CONFIG</span>.<span style="color:#a6e22e">supportedChains</span>, <span style="color:#ae81ff">1337</span>],
+  <span style="color:#a6e22e">notifications</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">checkInterval</span>: <span style="color:#66d9ef">500</span>,
+    <span style="color:#a6e22e">expirationPeriod</span>: <span style="color:#66d9ef">50000</span>,
+  },
+};
+</code></pre></div><p>Replace <code>your-infura-token</code> with your <a href="https://infura.io/docs/ethereum">Infura API token</a>.</p>
+<h3 id="styled-components">
+  Styled-components
+  <a class="anchor" href="#styled-components">#</a>
+</h3>
+<p><a href="https://styled-components.com/"><code>styled-components</code></a> is used for easy styling.
+Create a <code>Wrapper</code> variable to use in the page component:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styled</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;styled-components&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Wrapper</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>.<span style="color:#a6e22e">div</span><span style="color:#e6db74">`
+</span><span style="color:#e6db74">  height: 100%;
+</span><span style="color:#e6db74">  width: 100%;
+</span><span style="color:#e6db74">`</span>;
+</code></pre></div><h3 id="render">
+  Render
+  <a class="anchor" href="#render">#</a>
+</h3>
+<p>Finally, create the <code>App</code> component:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">Wrapper</span>&gt;
+      &lt;<span style="color:#f92672">GlobalStyle</span> /&gt;
+      &lt;<span style="color:#f92672">DAppProvider</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">config</span>}&gt;
+        &lt;<span style="color:#f92672">PollPage</span> /&gt;
+      &lt;/<span style="color:#f92672">DAppProvider</span>&gt;
+    &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+  );
+}
+</code></pre></div><p>Your <code>index.tsx</code> should now be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span>, <span style="color:#a6e22e">DAppProvider</span>, <span style="color:#a6e22e">useEthers</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GlobalStyle</span>, <span style="color:#a6e22e">TopBar</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useEffect</span>, <span style="color:#a6e22e">useState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;./index.css&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">JsonRpcSigner</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ethersproject/providers&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">orangeTheme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components/dist/cjs/src/style/themes&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">DEFAULT_CONFIG</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core/dist/cjs/src/model/config/default&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styled</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;styled-components&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">readOnlyChainId</span>: <span style="color:#66d9ef">ChainId.Mainnet</span>,
+  <span style="color:#a6e22e">readOnlyUrls</span><span style="color:#f92672">:</span> {
+    [<span style="color:#a6e22e">ChainId</span>.<span style="color:#a6e22e">Mainnet</span>]<span style="color:#f92672">:</span>
+      <span style="color:#e6db74">&#34;https://mainnet.infura.io/v3/b4451d780cc64a078ccf2181e872cfcf&#34;</span>,
+  },
+  <span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">:</span> {
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#34;</span>,
+    <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0x53c43764255c17bd724f74c4ef150724ac50a3ed&#34;</span>,
+    <span style="color:#a6e22e">1337</span>:
+      <span style="color:#66d9ef">process.env.GANACHE_MULTICALL_CONTRACT</span> <span style="color:#f92672">??</span>
+      <span style="color:#e6db74">&#34;0x0000000000000000000000000000000000000000&#34;</span>,
+  },
+  <span style="color:#a6e22e">supportedChains</span><span style="color:#f92672">:</span> [...<span style="color:#a6e22e">DEFAULT_CONFIG</span>.<span style="color:#a6e22e">supportedChains</span>, <span style="color:#ae81ff">1337</span>],
+  <span style="color:#a6e22e">notifications</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">checkInterval</span>: <span style="color:#66d9ef">500</span>,
+    <span style="color:#a6e22e">expirationPeriod</span>: <span style="color:#66d9ef">50000</span>,
+  },
+};
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">PollPage() {</span>
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useEthers</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>);
+
+  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
+      <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>());
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// Deactivate signer if signed out
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>);
+    }
+  }, [<span style="color:#a6e22e">account</span>]);
+
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">TopBar</span>
+        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
+        <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;Poll dApp&#34;</span>}
+        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
+        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
+        <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
+        <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
+      /&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">Wrapper</span>&gt;
+      &lt;<span style="color:#f92672">GlobalStyle</span> /&gt;
+      &lt;<span style="color:#f92672">DAppProvider</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">config</span>}&gt;
+        &lt;<span style="color:#f92672">PollPage</span> /&gt;
+      &lt;/<span style="color:#f92672">DAppProvider</span>&gt;
+    &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+  );
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Wrapper</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">styled</span>.<span style="color:#a6e22e">div</span><span style="color:#e6db74">`
+</span><span style="color:#e6db74">  height: 100%;
+</span><span style="color:#e6db74">  width: 100%;
+</span><span style="color:#e6db74">`</span>;
+
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+  &lt;<span style="color:#f92672">React.StrictMode</span>&gt;
+    &lt;<span style="color:#f92672">App</span> /&gt;
+  &lt;/<span style="color:#f92672">React.StrictMode</span>&gt;,
+  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;root&#34;</span>)
+);
+</code></pre></div><p>
+
+
+
+  
+
+<a  href="/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/"   class="book-btn">
+  Back
+</a>
+
+
+
+
+
+  
+
+<a  href="/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/"   class="book-btn">
+  Next: Create-A-Poll Button
+</a>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/41bc0a9d8058006de8bf56562b5ac5e50ab00a2f" title='Last modified by Franck R | Jan 24, 2022' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jan 24, 2022</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#connect-to-the-ethereum-wallet">Connect to the Ethereum Wallet</a>
+      <ul>
+        <li><a href="#top-bar">Top bar</a></li>
+        <li><a href="#page">Page</a>
+          <ul>
+            <li><a href="#usedapp">UseDApp</a></li>
+            <li><a href="#styled-components">Styled-components</a></li>
+            <li><a href="#render">Render</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

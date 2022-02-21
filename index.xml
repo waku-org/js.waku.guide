@@ -28,7 +28,7 @@ The latest react-scripts version uses webpack 5.</description>
       <description>Deploy smart contract #  Creating new package #  For this deployment we will create a new package.
 mkdir contract-deployment cd contract-deployment yarn init yarn add @waku/vote-sdk-contracts ethers ts-node typescript Create a tsconfig.json with:
 { &amp;#34;compilerOptions&amp;#34;: { &amp;#34;target&amp;#34;: &amp;#34;es2020&amp;#34;, &amp;#34;module&amp;#34;: &amp;#34;commonJS&amp;#34;, &amp;#34;esModuleInterop&amp;#34;: true, &amp;#34;moduleResolution&amp;#34;: &amp;#34;node&amp;#34;, &amp;#34;resolveJsonModule&amp;#34;: true, &amp;#34;noEmit&amp;#34;: true } } And now we can add a deploy script index.ts:
-import {ContractFactory, getDefaultProvider, Wallet} from &amp;#39;ethers&amp;#39;; import VotingContract from &amp;#39;@waku/vote-sdk-contracts/build/VotingContract.</description>
+import { ContractFactory, getDefaultProvider, Wallet } from &amp;#34;ethers&amp;#34;; import VotingContract from &amp;#34;@waku/vote-sdk-contracts/build/VotingContract.</description>
     </item>
     
     <item>
@@ -93,8 +93,8 @@ yarn add @usedapp/core@0.4.7 @usedapp/core must be frozen to version 0.4.7 due t
       
       <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</guid>
       <description>Use Voting Component #  Define Configuration #  Configure the dApp by setting:
- Address of the multicall smart contract of the target chain, Address of the voting smart contract, Your dApp name.  const VOTING_ADDRESS = &amp;#39;VOTING_ADDRESS&amp;#39; const MULTICALL_ADDRESS = &amp;#39;MULTICALL_ADDRESS&amp;#39; const DAPP_NAME = &amp;#39;YOUR_DAPP_NAME&amp;#39; Use Waku Voting #  Now, we need a Waku voting object. For that, call useWakuVoting:
-import {useWakuVoting} from &amp;#39;@waku/vote-sdk-react-hooks&amp;#39; export function MainPage() { const {activate, deactivate, account, provider} = useWeb3Connect(SUPPORTED_CHAIN_ID) const wakuVoting = useWakuVoting( DAPP_NAME, VOTING_ADDRESS, provider, MULTICALL_ADDRESS ) } Display Voting Component #  Modify the MainPage to render a Voting component.</description>
+ Address of the multicall smart contract of the target chain, Address of the voting smart contract, Your dApp name.  const VOTING_ADDRESS = &amp;#34;VOTING_ADDRESS&amp;#34;; const MULTICALL_ADDRESS = &amp;#34;MULTICALL_ADDRESS&amp;#34;; const DAPP_NAME = &amp;#34;YOUR_DAPP_NAME&amp;#34;; Use Waku Voting #  Now, we need a Waku voting object. For that, call useWakuVoting:
+import { useWakuVoting } from &amp;#34;@waku/vote-sdk-react-hooks&amp;#34;; export function MainPage() { const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID); const wakuVoting = useWakuVoting( DAPP_NAME, VOTING_ADDRESS, provider, MULTICALL_ADDRESS ); } Display Voting Component #  Modify the MainPage to render a Voting component.</description>
     </item>
     
     <item>
@@ -139,6 +139,18 @@ Create new keypair #  Generate a new keypair to sign your messages:</description
       <guid>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</guid>
       <description>Send Messages Using Waku Light Push #  Waku Light Push enables a client to receive a confirmation when sending a message.
 The Waku Relay protocol sends messages to connected peers but does not provide any information on whether said peers have received messages. This can be an issue when facing potential connectivity issues. For example, when the connection drops easily, or it is connected to a small number of relay peers.</description>
+    </item>
+    
+    <item>
+      <title>Send and Receive Messages Using Waku Relay With Angular v13</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/10_angular_relay/</link>
+      <pubDate>Tue, 15 Feb 2022 09:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/10_angular_relay/</guid>
+      <description>Send and Receive Messages Using Waku Relay With Angular v13 #  It is easy to use Waku Connect with Angular v13.
+In this guide, we will demonstrate how your Angular dApp can use Waku Relay to send and receive messages.
+Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
+For this guide, we are using a single content topic: /relay-angular-chat/1/chat/proto.</description>
     </item>
     
     <item>
@@ -188,6 +200,18 @@ Waku can be used for chat purposes and for many machine-to-machine use cases.</d
     </item>
     
     <item>
+      <title>Nwaku Service Node</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/11_nwaku/</link>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/11_nwaku/</guid>
+      <description>Nwaku Service Node #  JS-Waku nodes join the Waku network by connecting to service nodes using secure websocket.
+Nwaku (prev. nim-waku) is the reference implementation of the Waku v2 protocol and can be used as a service node.
+When using { bootstrap: { default: true } }, the js-waku node connects to a fleet of nwaku nodes operated by Status.
+It is also possible to deploy your own nwaku node by following these instructions.</description>
+    </item>
+    
+    <item>
       <title>Create-A-Poll Button</title>
       <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
@@ -218,7 +242,7 @@ useWakuPolling takes:
       <description>Poll List Component #  To display existing polls, the PollList component is provided.
 Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
 components/Poll.tsx:
-import React, { useMemo, useState } from &amp;#39;react&amp;#39; import styled from &amp;#39;styled-components&amp;#39; import { PollCreation, PollList } from &amp;#39;@waku/poll-sdk-react-components&amp;#39; import { Web3Provider } from &amp;#39;@ethersproject/providers&amp;#39; import { useWakuPolling } from &amp;#39;@waku/poll-sdk-react-hooks&amp;#39; import { CreateButton } from &amp;#39;@waku/vote-poll-sdk-react-components&amp;#39; import { Theme } from &amp;#39;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&amp;#39; type PollProps = { appName: string library: Web3Provider | undefined account: string | null | undefined theme: Theme tokenAddress: string multicallAddress: string } export function Poll({ appName, library, account, theme, tokenAddress, multicallAddress }: PollProps) { const [showPollCreation, setShowPollCreation] = useState(false) const wakuPolling = useWakuPolling(appName, tokenAddress, library, multicallAddress) const disabled = useMemo(() =&amp;gt; !</description>
+import React, { useMemo, useState } from &amp;#34;react&amp;#34;; import styled from &amp;#34;styled-components&amp;#34;; import { PollCreation, PollList } from &amp;#34;@waku/poll-sdk-react-components&amp;#34;; import { Web3Provider } from &amp;#34;@ethersproject/providers&amp;#34;; import { useWakuPolling } from &amp;#34;@waku/poll-sdk-react-hooks&amp;#34;; import { CreateButton } from &amp;#34;@waku/vote-poll-sdk-react-components&amp;#34;; import { Theme } from &amp;#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&amp;#34;; type PollProps = { appName: string; library: Web3Provider | undefined; account: string | null | undefined; theme: Theme; tokenAddress: string; multicallAddress: string; }; export function Poll({ appName, library, account, theme, tokenAddress, multicallAddress, }: PollProps) { const [showPollCreation, setShowPollCreation] = useState(false); const wakuPolling = useWakuPolling( appName, tokenAddress, library, multicallAddress ); const disabled = useMemo(() =&amp;gt; !</description>
     </item>
     
     <item>
@@ -267,11 +291,11 @@ Legend:
       
       <guid>https://docs.wakuconnect.dev/docs/examples/</guid>
       <description>Examples #  Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the repo links.
-Minimal ReactJS Chat App #  Repo: min-react-js-chat.
+Minimal ReactJS Chat App #  Repo: relay-reactjs-chat.
 Demonstrates:
  Group chat React/JavaScript Waku Relay Protobuf using protons No async/await syntax  Minimal ReactJS Waku Store App #  Repo: store-reactjs-chat.
 Demonstrates:
- Waku Store React/JavaScript Protobuf using protons  Vanilla Javascript Using Minified Library #  Repo: unpkg-js-store.</description>
+ Waku Store React/JavaScript Protobuf using protons  Minimal Angular Chat App #  Repo: relay-angular-chat.</description>
     </item>
     
     <item>

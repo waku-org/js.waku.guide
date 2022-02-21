@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Poll Creation Component #  The Poll SDK provides an off-the-shelf component to create a new poll: PollCreation. It takes in a WakuPolling hook that can created with useWakuPolling.
+useWakuPolling takes:
+ appName: Your app name. It is used to generate a unique content topic for your polls. See How to Choose a Content Topic for more information. tokenAddress: The address of your ERC-20 token. Only token holders can create and answer polls.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Poll Creation Component" />
+<meta property="og:description" content="Poll Creation Component #  The Poll SDK provides an off-the-shelf component to create a new poll: PollCreation. It takes in a WakuPolling hook that can created with useWakuPolling.
+useWakuPolling takes:
+ appName: Your app name. It is used to generate a unique content topic for your polls. See How to Choose a Content Topic for more information. tokenAddress: The address of your ERC-20 token. Only token holders can create and answer polls." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-01-03T11:00:00+11:00" />
+<meta property="article:modified_time" content="2022-01-24T12:17:00+11:00" />
+
+<title>Poll Creation Component | Waku Connect Docs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.529c80d1e911ec8f549a29bff1dd2c31fc706122b64f877c8a14e63ba53421c7.js" integrity="sha256-UpyA0ekR7I9Umim/8d0sMfxwYSK2T4d8ihTmO6U0Icc=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Waku Connect Docs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/es/">
+          Español
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/pt/">
+          Português
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/introduction/" class="">Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/quick_start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/use_cases/" class="">Use Cases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/presentations/" class="">Presentations &amp; Videos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/" class="">Guides</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/" class="">How to Choose a Content Topic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/" class="">Receive and Send Messages Using Waku Relay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" class="">Retrieve Messages Using Waku Store</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/" class="">Encrypt Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/" class="">Sign Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" class="">Send Messages Using Waku Light Push</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" class="">Receive and Send Messages Using Waku Relay With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/" class="">Retrieve Messages Using Waku Store With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/09_debug/" class="">How to Debug your Waku dApp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/" class="">Vote Poll Sdk</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/" class="">Create-A-Poll Button</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation/" class=" active">Poll Creation Component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/" class="">Poll List Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/crypto_libraries/" class="">Cryptographic Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/waku_protocols/" class="">Implemented Waku Protocols</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://js-waku.wakuconnect.dev/" target="_blank" rel="noopener">
+        JS-Waku API Doc
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://vac.dev/" target="_blank" rel="noopener">
+        Vac Team
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://rfc.vac.dev/" target="_blank" rel="noopener">
+        Vac RFCs
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://status.im/" target="_blank" rel="noopener">
+        Status.im
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Poll Creation Component</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#poll-creation-component">Poll Creation Component</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="poll-creation-component">
+  Poll Creation Component
+  <a class="anchor" href="#poll-creation-component">#</a>
+</h1>
+<p>The Poll SDK provides an off-the-shelf component to create a new poll: <code>PollCreation</code>.
+It takes in a <code>WakuPolling</code> hook that can created with <code>useWakuPolling</code>.</p>
+<p><code>useWakuPolling</code> takes:</p>
+<ul>
+<li><code>appName</code>: Your app name.
+It is used to generate a unique content topic for your polls.
+See <a href="/docs/guides/01_choose_content_topic/">How to Choose a Content Topic</a> for more information.</li>
+<li><code>tokenAddress</code>: The address of your ERC-20 token.
+Only token holders can create and answer polls.</li>
+<li><code>provider</code>: The Web3 provider to access the blockchain.</li>
+<li><code>multicallAddress</code>: Address to this blockchain&rsquo;s multicall contract.</li>
+</ul>
+<p>Add these parameters to <code>PollProps</code> and call <code>useWakuPolling</code>.</p>
+<p><code>components/Poll.tsx</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useConfig</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PollCreation</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/poll-sdk-react-components&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">JsonRpcSigner</span>, <span style="color:#a6e22e">Web3Provider</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ethersproject/providers&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useWakuPolling</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/poll-sdk-react-hooks&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">CreateButton</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Theme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core/src/constants&#34;</span>;
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PollProps</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">appName</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#a6e22e">library</span>: <span style="color:#66d9ef">Web3Provider</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
+  <span style="color:#a6e22e">signer</span>: <span style="color:#66d9ef">JsonRpcSigner</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
+  <span style="color:#a6e22e">chainId</span>: <span style="color:#66d9ef">ChainId</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>;
+  <span style="color:#a6e22e">theme</span>: <span style="color:#66d9ef">Theme</span>;
+  <span style="color:#a6e22e">tokenAddress</span>: <span style="color:#66d9ef">string</span>;
+};
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Poll</span>({
+  <span style="color:#a6e22e">appName</span>,
+  <span style="color:#a6e22e">library</span>,
+  <span style="color:#a6e22e">signer</span>,
+  <span style="color:#a6e22e">chainId</span>,
+  <span style="color:#a6e22e">theme</span>,
+  <span style="color:#a6e22e">tokenAddress</span>,
+}<span style="color:#f92672">:</span> <span style="color:#a6e22e">PollProps</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useConfig</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">showPollCreation</span>, <span style="color:#a6e22e">setShowPollCreation</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wakuPolling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useWakuPolling</span>(
+    <span style="color:#a6e22e">appName</span>,
+    <span style="color:#a6e22e">tokenAddress</span>,
+    <span style="color:#a6e22e">library</span>,
+    <span style="color:#a6e22e">config</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">?</span>.[<span style="color:#a6e22e">chainId</span> <span style="color:#f92672">??</span> <span style="color:#ae81ff">1337</span>]
+  );
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">disabled</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">signer</span>;
+
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">Wrapper</span>&gt;
+      {<span style="color:#a6e22e">showPollCreation</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">signer</span> <span style="color:#f92672">&amp;&amp;</span> (
+        &lt;<span style="color:#f92672">PollCreation</span>
+          <span style="color:#a6e22e">wakuPolling</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">wakuPolling</span>}
+          <span style="color:#a6e22e">setShowPollCreation</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setShowPollCreation</span>}
+          <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>}
+        /&gt;
+      )}
+      {
+        &lt;<span style="color:#f92672">CreateButton</span>
+          <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{
+            <span style="color:#a6e22e">backgroundColor</span>: <span style="color:#66d9ef">disabled</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;lightgrey&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">theme</span>.<span style="color:#a6e22e">primaryColor</span>,
+          }}
+          <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">theme</span>}
+          <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">disabled</span>}
+          <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">setShowPollCreation</span>(<span style="color:#66d9ef">true</span>)}
+        &gt;
+          <span style="color:#a6e22e">Create</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">poll</span>
+        &lt;/<span style="color:#f92672">CreateButton</span>&gt;
+      }
+    &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+  );
+}
+</code></pre></div><p>Then pass them in <code>PollPage</code>.</p>
+<p>In this example, we use <code>demo-poll-dapp</code> for the app name and the mainnet SNT token contract for the token address.
+Replace those with your own.</p>
+<p><code>index.tsx</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">PollPage() {</span>
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span>, <span style="color:#a6e22e">chainId</span> } <span style="color:#f92672">=</span>
+    <span style="color:#a6e22e">useEthers</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>);
+
+  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
+      <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>());
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// Deactivate signer if signed out
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>);
+    }
+  }, [<span style="color:#a6e22e">account</span>]);
+
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">TopBar</span>
+        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
+        <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;Poll dApp&#34;</span>}
+        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
+        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
+        <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
+        <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
+      /&gt;
+      &lt;<span style="color:#f92672">Poll</span>
+        <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
+        <span style="color:#a6e22e">appName</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;demo-poll-dapp&#34;</span>}
+        <span style="color:#a6e22e">library</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">library</span>}
+        <span style="color:#a6e22e">signer</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">signer</span>}
+        <span style="color:#a6e22e">chainId</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">chainId</span>}
+        <span style="color:#a6e22e">tokenAddress</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;0x744d70FDBE2Ba4CF95131626614a1763DF805B9E&#34;</span>}
+      /&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
+}
+</code></pre></div><p>You can now see the poll creation modal when clicking on the button:</p>
+<p><img src="/assets/poll_sdk/create-a-poll-component.png" alt="Create a poll modal" /></p>
+<p><img src="/assets/poll_sdk/poll-created.png" alt="Confirmation modal" /></p>
+<p>
+
+
+
+  
+
+<a  href="/docs/guides/vote_poll_sdk/poll_sdk/03_create-a-poll_button/"   class="book-btn">
+  Back
+</a>
+
+
+
+
+
+  
+
+<a  href="/docs/guides/vote_poll_sdk/poll_sdk/05_poll_list/"   class="book-btn">
+  Next: Poll List Component
+</a>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/41bc0a9d8058006de8bf56562b5ac5e50ab00a2f" title='Last modified by Franck R | Jan 24, 2022' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Jan 24, 2022</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/poll_sdk/04_poll_creation.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#poll-creation-component">Poll Creation Component</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
