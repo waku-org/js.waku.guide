@@ -1,7 +1,7 @@
 ---
 title: How to Debug your Waku dApp
 date: 2022-01-31T00:00:00+01:00
-weight: 9
+weight: 20
 ---
 
 # How to Debug your Waku dApp
