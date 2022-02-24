@@ -161,11 +161,7 @@ Use the following function to do so:
 ```ts
 import * as sigUtil from "eth-sig-util";
 import { keccak256 } from "ethers/lib/utils";
-import {
-  hexToBytes,
-  equalByteArrays,
-  bytesToHex,
-} from "js-waku/build/esm/lib/utils";
+import { hexToBytes, equalByteArrays, bytesToHex } from "js-waku/lib/utils";
 
 interface PublicKeyMessage {
   encryptionPublicKey: Uint8Array;
@@ -177,14 +173,14 @@ function validatePublicKeyMessage(msg: PublicKeyMessage): boolean {
   const recovered = sigUtil.recoverTypedSignature_v4({
     data: JSON.parse(
       buildMsgParams(
-        bytesToHex(msg.encryptionPublicKey),
-        "0x" + bytesToHex(msg.ethAddress)
+        utils.bytesToHex(msg.encryptionPublicKey),
+        "0x" + utils.bytesToHex(msg.ethAddress)
       )
     ),
-    sig: "0x" + bytesToHex(msg.signature),
+    sig: "0x" + utils.bytesToHex(msg.signature),
   });
 
-  return equalByteArrays(recovered, msg.ethAddress);
+  return utils.equalByteArrays(recovered, msg.ethAddress);
 }
 ```
 
