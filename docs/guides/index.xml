@@ -52,6 +52,17 @@ See Cryptographic Libraries for more details on the cryptographic libraries used
     </item>
     
     <item>
+      <title>Sign Messages Using a Web3 Wallet (EIP-712)</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/sign_messages_web3_eip712/</link>
+      <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/sign_messages_web3_eip712/</guid>
+      <description>Sign Messages Using a Web3 Wallet (EIP-712) #  Depending on your use case, you may need users to certify the ownership of their Ethereum account. They can do so by using their wallet to sign data.
+In this guide, we demonstrate how to use the Ethers.js library to request the user to sign typed data (EIP-712) and then broadcast the signature over Waku.
+For this guide, we are build a dApp that implements 20/TOY-ETH-PM: A simple protocols for end-to-end encrypted messages where Ethereum accounts are used as identity.</description>
+    </item>
+    
+    <item>
       <title>Sign Messages Using Waku Message Version 1</title>
       <link>https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>

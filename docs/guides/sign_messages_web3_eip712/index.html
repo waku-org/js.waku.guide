@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sign Messages Using a Web3 Wallet (EIP-712) #  Depending on your use case, you may need users to certify the ownership of their Ethereum account. They can do so by using their wallet to sign data.
+In this guide, we demonstrate how to use the Ethers.js library to request the user to sign typed data (EIP-712) and then broadcast the signature over Waku.
+For this guide, we are build a dApp that implements 20/TOY-ETH-PM: A simple protocols for end-to-end encrypted messages where Ethereum accounts are used as identity.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Sign Messages Using a Web3 Wallet (EIP-712)" />
+<meta property="og:description" content="Sign Messages Using a Web3 Wallet (EIP-712) #  Depending on your use case, you may need users to certify the ownership of their Ethereum account. They can do so by using their wallet to sign data.
+In this guide, we demonstrate how to use the Ethers.js library to request the user to sign typed data (EIP-712) and then broadcast the signature over Waku.
+For this guide, we are build a dApp that implements 20/TOY-ETH-PM: A simple protocols for end-to-end encrypted messages where Ethereum accounts are used as identity." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/sign_messages_web3_eip712/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
+<meta property="article:modified_time" content="2022-02-24T16:49:46+11:00" />
+
+<title>Sign Messages Using a Web3 Wallet (EIP-712) | Waku Connect Docs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.5e83bf04e893fa1e3be0cc685b6d954db2182e1bc337707df7f86bcb08af65cb.js" integrity="sha256-XoO/BOiT&#43;h474MxoW22VTbIYLhvDN3B99/hrywivZcs=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Waku Connect Docs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/es/">
+          Español
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/pt/">
+          Português
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/introduction/" class="">Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/quick_start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/use_cases/" class="">Use Cases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/presentations/" class="">Presentations &amp; Videos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/" class="">Guides</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/" class="">How to Choose a Content Topic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/" class="">Receive and Send Messages Using Waku Relay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" class="">Retrieve Messages Using Waku Store</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/" class="">Encrypt Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/sign_messages_web3_eip712/" class=" active">Sign Messages Using a Web3 Wallet (EIP-712)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/" class="">Sign Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" class="">Send Messages Using Waku Light Push</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" class="">Receive and Send Messages Using Waku Relay With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/" class="">Retrieve Messages Using Waku Store With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/angular_relay/" class="">Send and Receive Messages Using Waku Relay With Angular v13</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/nwaku/" class="">Nwaku Service Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/debug/" class="">How to Debug your Waku dApp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/" class="">Vote Poll Sdk</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/" class="">Create a DApp</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/" class="">Connect to the Ethereum Wallet useDapp</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/" class="">Create-A-Poll Button</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/" class="">Poll Creation Component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/" class="">Poll List Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/" class="">Vote SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/" class="">Deploy smart contract</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/" class="">Creating Voting component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/" class="">Use Voting Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/crypto_libraries/" class="">Cryptographic Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/waku_protocols/" class="">Implemented Waku Protocols</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://js-waku.wakuconnect.dev/" target="_blank" rel="noopener">
+        JS-Waku API Doc
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://vac.dev/" target="_blank" rel="noopener">
+        Vac Team
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://rfc.vac.dev/" target="_blank" rel="noopener">
+        Vac RFCs
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://status.im/" target="_blank" rel="noopener">
+        Status.im
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Sign Messages Using a Web3 Wallet (EIP-712)</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sign-messages-using-a-web3-wallet-eip-712">Sign Messages Using a Web3 Wallet (EIP-712)</a>
+      <ul>
+        <li><a href="#signing-data">Signing Data</a></li>
+        <li><a href="#sign-operation">Sign operation</a></li>
+        <li><a href="#send-signature">Send Signature</a></li>
+        <li><a href="#validate-signature">Validate Signature</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="sign-messages-using-a-web3-wallet-eip-712">
+  Sign Messages Using a Web3 Wallet (EIP-712)
+  <a class="anchor" href="#sign-messages-using-a-web3-wallet-eip-712">#</a>
+</h1>
+<p>Depending on your use case, you may need users to certify the ownership of their Ethereum account.
+They can do so by using their wallet to sign data.</p>
+<p>In this guide, we demonstrate how to use the <a href="https://github.com/ethers-io/ethers.js#readme">Ethers.js</a>
+library to request the user to sign typed data (<a href="https://eips.ethereum.org/EIPS/eip-712">EIP-712</a>)
+and then broadcast the signature over Waku.</p>
+<p>For this guide, we are build a dApp that implements <a href="https://rfc.vac.dev/spec/20/">20/TOY-ETH-PM</a>:
+A simple protocols for end-to-end encrypted messages where Ethereum accounts are used as identity.</p>
+<p>Alice owns an Ethereum account <em>A</em>.
+She wants other Ethereum users to find her and contact her using her Ethereum address <em>A</em>.
+For example, Alice could be the pseudonym creator of an NFT series and wants to open her DMs.</p>
+<p>Hence, Alice generates a public key <em>K</em> to be used for encryption purposes.</p>
+<p>Alice will need to certify that the public key <em>K</em> can be used to contact her,
+the owner of Ethereum address <em>A</em>.</p>
+<h2 id="signing-data">
+  Signing Data
+  <a class="anchor" href="#signing-data">#</a>
+</h2>
+<p>First, you need to determine what data a user must sign.</p>
+<p>In our current example, Alice needs to certify that her encryption public key <em>K</em> can be used to contact her,
+owner of Ethereum address <em>A</em>.</p>
+<p>Hence, she will need to sign <em>K</em> using her Ethereum account <em>A</em>.</p>
+<p>Also, Alice does not want her signature to be used on other dApps,
+so she will need to sign some context data, referred to as <em>domain</em> data in the EIP-712 spec.</p>
+<p>Hence, the data to sign:</p>
+<ul>
+<li><code>name: &quot;My Cool Ethereum Private Message App&quot;</code>: A unique name to bind the signature to your dApp,</li>
+<li><code>version: &quot;1&quot;</code>: The version of the signature scheme for your dApp,</li>
+<li><code>encryptionPublicKey</code>: The encryption public key of the user,</li>
+<li><code>ownerAddress</code>: The Ethereum address used to sign and owner of the encryption public key,</li>
+<li><code>message</code>: A human-readable message to provide instructions to the user.</li>
+</ul>
+<p>Write the following function to build the data to sign.
+The data must be formatted as defined in EIP-712:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">buildMsgParams</span>(
+  <span style="color:#a6e22e">encryptionPublicKeyHex</span>: <span style="color:#66d9ef">string</span>,
+  <span style="color:#a6e22e">ownerAddressHex</span>: <span style="color:#66d9ef">string</span>
+) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({
+    <span style="color:#a6e22e">domain</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;My Cool Ethereum Private Message App&#34;</span>,
+      <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1&#34;</span>,
+    },
+    <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span>
+        <span style="color:#e6db74">&#34;By signing this message you certify that messages addressed to `ownerAddress` must be encrypted with `encryptionPublicKey`&#34;</span>,
+      <span style="color:#a6e22e">encryptionPublicKey</span>: <span style="color:#66d9ef">encryptionPublicKeyHex</span>,
+      <span style="color:#a6e22e">ownerAddress</span>: <span style="color:#66d9ef">ownerAddressHex</span>,
+    },
+    <span style="color:#a6e22e">primaryType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;PublishEncryptionPublicKey&#34;</span>,
+    <span style="color:#a6e22e">types</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">EIP712Domain</span><span style="color:#f92672">:</span> [
+        { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span> },
+        { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;version&#34;</span>, <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span> },
+      ],
+      <span style="color:#a6e22e">PublishEncryptionPublicKey</span><span style="color:#f92672">:</span> [
+        { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;message&#34;</span>, <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span> },
+        { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;encryptionPublicKey&#34;</span>, <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span> },
+        { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ownerAddress&#34;</span>, <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span> },
+      ],
+    },
+  });
+}
+</code></pre></div><p>The function takes two parameters:</p>
+<ul>
+<li><code>encryptionPublicKeyHex</code>: The public key of the user, as a hex string,</li>
+<li><code>ownerAddressHex</code>: The Ethereum address of the user, as a hex string.</li>
+</ul>
+<h2 id="sign-operation">
+  Sign operation
+  <a class="anchor" href="#sign-operation">#</a>
+</h2>
+<p>To sign the data using ethers, define the following function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">signEncryptionKey</span>(
+  <span style="color:#a6e22e">encryptionPublicKeyHex</span>: <span style="color:#66d9ef">string</span>,
+  <span style="color:#a6e22e">ownerAddressHex</span>: <span style="color:#66d9ef">string</span>,
+  <span style="color:#a6e22e">providerRequest</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">method</span>: <span style="color:#66d9ef">string</span>;
+    <span style="color:#a6e22e">params?</span>: <span style="color:#66d9ef">Array</span>&lt;<span style="color:#f92672">any</span>&gt;;
+  }) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">any</span>&gt;
+)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Promise</span>&lt;<span style="color:#f92672">string</span>&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">msgParams</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">buildMsgParams</span>(<span style="color:#a6e22e">encryptionPublicKeyHex</span>, <span style="color:#a6e22e">ownerAddressHex</span>);
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">providerRequest</span>({
+    <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;eth_signTypedData_v4&#34;</span>,
+    <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">ownerAddressHex</span>, <span style="color:#a6e22e">msgParams</span>],
+    <span style="color:#66d9ef">from</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ownerAddressHex</span>,
+  });
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+}
+</code></pre></div><p>This function takes 3 arguments:</p>
+<ul>
+<li><code>encryptionPublicKeyHex</code>: Alice&rsquo;s encryption public key <em>K</em>,</li>
+<li><code>ownerAddressHex</code>: Alice&rsquo;s Ethereum address,</li>
+<li><code>providerRequest</code>: Ethers' request object.</li>
+</ul>
+<p>Instantiate the <code>providerRequest</code> when you connect to the wallet.
+You can read <a href="/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/">Create a DApp</a>
+to learn how to connect to a wallet.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ethers</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;ethers&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">web3Provider</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ethers</span>.<span style="color:#a6e22e">providers</span>.<span style="color:#a6e22e">Web3Provider</span>(window.<span style="color:#a6e22e">ethereum</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">providerRequest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">web3Provider</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">provider</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">request</span>;
+</code></pre></div><p><code>signEncryptionKey</code> returns the signature in hex format.
+You can now add this signature to your Waku payload.</p>
+<h2 id="send-signature">
+  Send Signature
+  <a class="anchor" href="#send-signature">#</a>
+</h2>
+<p>You can use <a href="/docs/guides/02_relay_receive_send_messages/">Waku Relay to send and receive messages</a>
+or <a href="/docs/guides/06_light_push_send_messages/">Waku Light Push to send messages</a>.</p>
+<p>Follow the guides above and replace their <a href="/docs/guides/02_relay_receive_send_messages/#protobuf-definition">protobuf message definition</a>
+with the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-protobuf" data-lang="protobuf">syntax <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proto3&#34;</span>;<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">PublicKeyMessage</span> {<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">bytes</span> encryptionPublicKey <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">bytes</span> ethAddress <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>  <span style="color:#66d9ef">bytes</span> signature <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>}<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>Note: You can use the <a href="https://js-waku.wakuconnect.dev/modules/utils.html#hexToBytes"><code>hexToBytes</code></a>
+function to convert the signature from hex string to byte array.</p>
+<h2 id="validate-signature">
+  Validate Signature
+  <a class="anchor" href="#validate-signature">#</a>
+</h2>
+<p>Users that wishes to encrypt messages for Alice need to ensure that the signature is indeed valid and was generated from
+Alice&rsquo;s Ethereum account <em>A</em>.</p>
+<p>Use the following function to do so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">sigUtil</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;eth-sig-util&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">keccak256</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;ethers/lib/utils&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">hexToBytes</span>, <span style="color:#a6e22e">equalByteArrays</span>, <span style="color:#a6e22e">bytesToHex</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;js-waku/lib/utils&#34;</span>;
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">PublicKeyMessage</span> {
+  <span style="color:#a6e22e">encryptionPublicKey</span>: <span style="color:#66d9ef">Uint8Array</span>;
+  <span style="color:#a6e22e">ethAddress</span>: <span style="color:#66d9ef">Uint8Array</span>;
+  <span style="color:#a6e22e">signature</span>: <span style="color:#66d9ef">Uint8Array</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">validatePublicKeyMessage</span>(<span style="color:#a6e22e">msg</span>: <span style="color:#66d9ef">PublicKeyMessage</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span> {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">recovered</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sigUtil</span>.<span style="color:#a6e22e">recoverTypedSignature_v4</span>({
+    <span style="color:#a6e22e">data</span>: <span style="color:#66d9ef">JSON.parse</span>(
+      <span style="color:#a6e22e">buildMsgParams</span>(
+        <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">bytesToHex</span>(<span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">encryptionPublicKey</span>),
+        <span style="color:#e6db74">&#34;0x&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">bytesToHex</span>(<span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">ethAddress</span>)
+      )
+    ),
+    <span style="color:#a6e22e">sig</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0x&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">bytesToHex</span>(<span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">signature</span>),
+  });
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">equalByteArrays</span>(<span style="color:#a6e22e">recovered</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">ethAddress</span>);
+}
+</code></pre></div><p>If the function returns <code>true</code> then the signature can be trusted and the encryption public key can be used to encrypt messages.</p>
+<h2 id="conclusion">
+  Conclusion
+  <a class="anchor" href="#conclusion">#</a>
+</h2>
+<p>We reviewed how to use Web3 wallet signature to certify the authenticity of an encryption public key sent over Waku.</p>
+<p>The <a href="/docs/examples/#ethereum-private-message-web-app">Ethereum Private Message Web App</a> example demonstrates this guide.
+Relevant code is in the <a href="https://github.com/status-im/js-waku/blob/master/examples/eth-pm/src/crypto.ts">crypto.ts</a> file.</p>
+<p>The WakuConnect Vote Poll SDK implements a <a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/60e17d454cbd658bd8fec0aa382b2920e834b4f0/packages/core/src/models/VoteMsg.ts">similar logic</a>
+where the signature is then used in a <a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/60e17d454cbd658bd8fec0aa382b2920e834b4f0/packages/contracts/contracts/VotingContract.sol">smart contract</a>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/557b39a3f2ee6c8543ba271af1b785589a103632" title='Last modified by Franck R | Feb 24, 2022' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Feb 24, 2022</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/sign_messages_web3_eip712.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sign-messages-using-a-web3-wallet-eip-712">Sign Messages Using a Web3 Wallet (EIP-712)</a>
+      <ul>
+        <li><a href="#signing-data">Signing Data</a></li>
+        <li><a href="#sign-operation">Sign operation</a></li>
+        <li><a href="#send-signature">Send Signature</a></li>
+        <li><a href="#validate-signature">Validate Signature</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
