@@ -20,6 +20,16 @@ The format for content topics is as follows:
     </item>
     
     <item>
+      <title>Discovery &amp; Bootstrap Nodes</title>
+      <link>https://docs.wakuconnect.dev/docs/guides/discovery_bootstrap/</link>
+      <pubDate>Thu, 17 Feb 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/guides/discovery_bootstrap/</guid>
+      <description>Discovery &amp;amp; Bootstrap Nodes #  This guide explains the discovery and bootstrap mechanisms currently available in js-waku, their benefits and caveats and how to use them.
+Node discovery is the mechanism that enables a Waku node to find other nodes. Waku is a modular protocol, several discovery mechanisms are and will be included in Waku so that developers can select the best mechanism(s) based for their use case and the user&amp;rsquo;s environment (e.</description>
+    </item>
+    
+    <item>
       <title>Receive and Send Messages Using Waku Relay</title>
       <link>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>

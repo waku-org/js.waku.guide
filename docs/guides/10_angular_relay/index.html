@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Send and Receive Messages Using Waku Relay With Angular v13 #  It is easy to use Waku Connect with Angular v13.
+In this guide, we will demonstrate how your Angular dApp can use Waku Relay to send and receive messages.
+Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
+For this guide, we are using a single content topic: /relay-angular-chat/1/chat/proto.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Send and Receive Messages Using Waku Relay With Angular v13" />
+<meta property="og:description" content="Send and Receive Messages Using Waku Relay With Angular v13 #  It is easy to use Waku Connect with Angular v13.
+In this guide, we will demonstrate how your Angular dApp can use Waku Relay to send and receive messages.
+Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
+For this guide, we are using a single content topic: /relay-angular-chat/1/chat/proto." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/10_angular_relay/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-02-15T09:00:00+01:00" />
+<meta property="article:modified_time" content="2022-02-18T09:38:14+00:00" />
+
+<title>Send and Receive Messages Using Waku Relay With Angular v13 | Waku Connect Docs</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.0d177fc31f8c8c2725b8432ee3b9a0c2b844f8660d18295053409cfed9db3843.js" integrity="sha256-DRd/wx&#43;MjCcluEMu47mgwrhE&#43;GYNGClQU0Cc/tnbOEM=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Waku Connect Docs</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/es/">
+          Español
+        </a>
+      </li>
+      
+      <li>
+        <a href="https://docs.wakuconnect.dev/pt/">
+          Português
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/introduction/" class="">Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/quick_start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/use_cases/" class="">Use Cases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/presentations/" class="">Presentations &amp; Videos</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/" class="">Guides</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/" class="">How to Choose a Content Topic</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/" class="">Receive and Send Messages Using Waku Relay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/" class="">Retrieve Messages Using Waku Store</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/" class="">Encrypt Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/" class="">Sign Messages Using Waku Message Version 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/" class="">Send Messages Using Waku Light Push</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/10_angular_relay/" class=" active">Send and Receive Messages Using Waku Relay With Angular v13</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/" class="">Receive and Send Messages Using Waku Relay With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/" class="">Retrieve Messages Using Waku Store With ReactJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/09_debug/" class="">How to Debug your Waku dApp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/11_nwaku/" class="">Nwaku Service Node</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/" class="">Vote Poll Sdk</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/" class="">Create a DApp</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/" class="">Create the DApp and Install Dependencies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/" class="">Connect to the Ethereum Wallet useDapp</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/" class="">Poll SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/" class="">Create-A-Poll Button</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/" class="">Poll Creation Component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/" class="">Poll List Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/" class="">Vote SDK</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/" class="">Deploy smart contract</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/" class="">Creating Voting component</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/" class="">Use Voting Component</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/crypto_libraries/" class="">Cryptographic Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/waku_protocols/" class="">Implemented Waku Protocols</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://js-waku.wakuconnect.dev/" target="_blank" rel="noopener">
+        JS-Waku API Doc
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://vac.dev/" target="_blank" rel="noopener">
+        Vac Team
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://rfc.vac.dev/" target="_blank" rel="noopener">
+        Vac RFCs
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://status.im/" target="_blank" rel="noopener">
+        Status.im
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Send and Receive Messages Using Waku Relay With Angular v13</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#send-and-receive-messages-using-waku-relay-with-angular-v13">Send and Receive Messages Using Waku Relay With Angular v13</a>
+      <ul>
+        <li><a href="#setup">Setup</a>
+          <ul>
+            <li><a href="#bigint"><code>BigInt</code></a></li>
+            <li><a href="#polyfills">Polyfills</a></li>
+            <li><a href="#module-loading-warnings">Module loading warnings</a></li>
+            <li><a href="#types">Types</a></li>
+            <li><a href="#js-waku">js-waku</a></li>
+          </ul>
+        </li>
+        <li><a href="#create-waku-instance">Create Waku Instance</a></li>
+        <li><a href="#messages">Messages</a></li>
+        <li><a href="#send-messages">Send Messages</a></li>
+        <li><a href="#receive-messages">Receive Messages</a></li>
+        <li><a href="#display-messages">Display Messages</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="send-and-receive-messages-using-waku-relay-with-angular-v13">
+  Send and Receive Messages Using Waku Relay With Angular v13
+  <a class="anchor" href="#send-and-receive-messages-using-waku-relay-with-angular-v13">#</a>
+</h1>
+<p>It is easy to use Waku Connect with Angular v13.</p>
+<p>In this guide, we will demonstrate how your Angular dApp can use Waku Relay
+to send and receive messages.</p>
+<p>Before starting, you need to choose a <em>Content Topic</em> for your dApp.
+Check out the <a href="/docs/guides/01_choose_content_topic/">how to choose a content topic guide</a> to learn more about content topics.</p>
+<p>For this guide, we are using a single content topic: <code>/relay-angular-chat/1/chat/proto</code>.</p>
+<h2 id="setup">
+  Setup
+  <a class="anchor" href="#setup">#</a>
+</h2>
+<p>Create a new Angular app:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install -g @angular/cli
+ng new relay-angular-chat
+cd relay-angular-chat
+</code></pre></div><h3 id="bigint">
+  <code>BigInt</code>
+  <a class="anchor" href="#bigint">#</a>
+</h3>
+<p>Some of js-waku&rsquo;s dependencies use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"><code>BigInt</code></a>
+that is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#browser_compatibility">only supported by modern browsers</a>.</p>
+<p>To ensure that Angular properly transpiles your webapp code, add the following configuration to the <code>package.json</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;browserslist&#34;</span>: {
+    <span style="color:#f92672">&#34;production&#34;</span>: [
+      <span style="color:#e6db74">&#34;&gt;0.2%&#34;</span>,
+      <span style="color:#e6db74">&#34;not ie &lt;= 99&#34;</span>,
+      <span style="color:#e6db74">&#34;not android &lt;= 4.4.4&#34;</span>,
+      <span style="color:#e6db74">&#34;not dead&#34;</span>,
+      <span style="color:#e6db74">&#34;not op_mini all&#34;</span>
+    ]
+  }
+}
+</code></pre></div><h3 id="polyfills">
+  Polyfills
+  <a class="anchor" href="#polyfills">#</a>
+</h3>
+<p>A number of Web3 and libp2p dependencies need polyfills.
+These must be explicitly declared when using webpack 5.</p>
+<p>The latest <code>Angular</code> version (v13) uses webpack 5.</p>
+<p>We will describe below a method to configure polyfills when using <code>Angular v13 / webpack v5</code>.
+This may not be necessary if you use webpack 4.</p>
+<p>Start by installing the polyfill libraries:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn add assert buffer crypto-browserify process stream-browserify
+</code></pre></div><p>Then add the following code to <code>src/polyfills.ts</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">process</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;process&#39;</span>;
+(window <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">any</span>).<span style="color:#a6e22e">process</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>;
+(window <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">any</span>).<span style="color:#a6e22e">global</span> <span style="color:#f92672">=</span> window;
+<span style="color:#a6e22e">global</span>.<span style="color:#a6e22e">Buffer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">global</span>.<span style="color:#a6e22e">Buffer</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;buffer&#39;</span>).<span style="color:#a6e22e">Buffer</span>;
+</code></pre></div><p>Now tell Angular where to find these libraries by adding the following to <code>tsconfig.json</code>
+under <code>&quot;compilerOptions&quot;</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;paths&#34;</span>: {
+    <span style="color:#f92672">&#34;assert&#34;</span>: [<span style="color:#e6db74">&#34;node_modules/assert&#34;</span>],
+    <span style="color:#f92672">&#34;buffer&#34;</span>: [<span style="color:#e6db74">&#34;node_modules/buffer&#34;</span>],
+    <span style="color:#f92672">&#34;crypto&#34;</span>: [<span style="color:#e6db74">&#34;node_modules/crypto-browserify&#34;</span>],
+    <span style="color:#f92672">&#34;stream&#34;</span>: [<span style="color:#e6db74">&#34;node_modules/stream-browserify&#34;</span>]
+  }
+}
+</code></pre></div><p>Now under <code>&quot;angularCompilerOptions&quot;</code>, add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;allowSyntheticDefaultImports&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#66d9ef">true</span>
+</code></pre></div><p>Finally, set the <code>&quot;target&quot;</code> to be <code>&quot;es2020&quot;</code> due to the aforementioned <code>BigInt</code> usage.</p>
+<h3 id="module-loading-warnings">
+  Module loading warnings
+  <a class="anchor" href="#module-loading-warnings">#</a>
+</h3>
+<p>There will be some warnings due to module loading.
+We can fix them by setting the <code>&quot;allowedCommonJsDependencies&quot;</code> key under
+<code>architect -&gt; build -&gt; options</code> with the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;allowedCommonJsDependencies&#34;</span>: [
+    <span style="color:#e6db74">&#34;libp2p-gossipsub/src/utils&#34;</span>,
+    <span style="color:#e6db74">&#34;rlp&#34;</span>,
+    <span style="color:#e6db74">&#34;multiaddr/src/convert&#34;</span>,
+    <span style="color:#e6db74">&#34;varint&#34;</span>,
+    <span style="color:#e6db74">&#34;multihashes&#34;</span>,
+    <span style="color:#e6db74">&#34;@chainsafe/libp2p-noise/dist/src/noise&#34;</span>,
+    <span style="color:#e6db74">&#34;debug&#34;</span>,
+    <span style="color:#e6db74">&#34;libp2p&#34;</span>,
+    <span style="color:#e6db74">&#34;libp2p-bootstrap&#34;</span>,
+    <span style="color:#e6db74">&#34;libp2p-crypto&#34;</span>,
+    <span style="color:#e6db74">&#34;libp2p-websockets&#34;</span>,
+    <span style="color:#e6db74">&#34;libp2p-websockets/src/filters&#34;</span>,
+    <span style="color:#e6db74">&#34;libp2p/src/ping&#34;</span>,
+    <span style="color:#e6db74">&#34;multiaddr&#34;</span>,
+    <span style="color:#e6db74">&#34;peer-id&#34;</span>,
+    <span style="color:#e6db74">&#34;buffer&#34;</span>,
+    <span style="color:#e6db74">&#34;crypto&#34;</span>,
+    <span style="color:#e6db74">&#34;ecies-geth&#34;</span>,
+    <span style="color:#e6db74">&#34;secp256k1&#34;</span>,
+    <span style="color:#e6db74">&#34;libp2p-gossipsub&#34;</span>,
+    <span style="color:#e6db74">&#34;it-concat&#34;</span>,
+    <span style="color:#e6db74">&#34;protons&#34;</span>
+  ]
+}
+</code></pre></div><h3 id="types">
+  Types
+  <a class="anchor" href="#types">#</a>
+</h3>
+<p>There are some type definitions we need to install and some that we don&rsquo;t have.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn add @types/bl protons
+</code></pre></div><p>Create a new folder under <code>src</code> named <code>@types</code> with the following structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">src/@types
+├── protons
+│   └── types.d.ts
+└── time-cache
+    └── types.d.ts
+</code></pre></div><p>In the <code>protons/types.d.ts</code> file add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">declare</span> <span style="color:#a6e22e">module</span> <span style="color:#e6db74">&#39;protons&#39;</span>;
+</code></pre></div><p>In the <code>time-cache/types.d.ts</code> file add:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">declare</span> <span style="color:#a6e22e">module</span> <span style="color:#e6db74">&#34;time-cache&#34;</span> {
+
+  <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">TimeCacheInterface</span> {
+    <span style="color:#a6e22e">put</span>(<span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>, <span style="color:#a6e22e">validity</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span>;
+    <span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>;
+    <span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span>;
+  }
+
+  <span style="color:#a6e22e">type</span> <span style="color:#a6e22e">TimeCache</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">TimeCacheInterface</span>;
+
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">TimeCache</span>(<span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">object</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">TimeCache</span>;
+
+  <span style="color:#66d9ef">export</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">TimeCache</span>;
+}
+</code></pre></div><h3 id="js-waku">
+  js-waku
+  <a class="anchor" href="#js-waku">#</a>
+</h3>
+<p>Then, install <a href="https://npmjs.com/package/js-waku">js-waku</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn add js-waku
+</code></pre></div><p>Start the dev server and open the dApp in your browser:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn run start
+</code></pre></div><h2 id="create-waku-instance">
+  Create Waku Instance
+  <a class="anchor" href="#create-waku-instance">#</a>
+</h2>
+<p>In order to interact with the Waku network, you first need a Waku instance.
+We&rsquo;re going to wrap the <code>js-waku</code> library in a Service so we can inject it to different components when needed.</p>
+<p>Generate the Waku service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ng generate service waku
+</code></pre></div><p>Go to <code>waku.service.ts</code> and add the following imports:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;js-waku&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ReplaySubject</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;rxjs&#34;</span>;
+</code></pre></div><p>replace the <code>WakuService</code> class with the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WakuService</span> {
+
+  <span style="color:#75715e">// Create Subject Observable to &#39;store&#39; the Waku instance
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">wakuSubject</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Subject</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Waku</span><span style="color:#f92672">&gt;</span>();
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">waku</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuSubject</span>.<span style="color:#a6e22e">asObservable</span>();
+
+  <span style="color:#75715e">// Create BehaviorSubject Observable to &#39;store&#39; the Waku status
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">wakuStatusSubject</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">BehaviorSubject</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuStatusSubject</span>.<span style="color:#a6e22e">asObservable</span>();
+
+  <span style="color:#a6e22e">constructor</span>() { }
+
+  <span style="color:#a6e22e">init</span>() {
+    <span style="color:#75715e">// Connect node
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Waku</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> { <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> } }).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">waku</span> =&gt; {
+      <span style="color:#75715e">// Update Observable values
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuSubject</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">waku</span>);
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuStatusSubject</span>.<span style="color:#a6e22e">next</span>(<span style="color:#e6db74">&#39;Connecting...&#39;</span>);
+
+      <span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">waitForRemotePeer</span>().<span style="color:#a6e22e">then</span>(() =&gt; {
+        <span style="color:#75715e">// Update Observable value
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuStatusSubject</span>.<span style="color:#a6e22e">next</span>(<span style="color:#e6db74">&#39;Connected&#39;</span>);
+      });
+    });
+  }
+}
+</code></pre></div><p>When using the <code>bootstrap</code> option, it may take some time to connect to other peers.
+That&rsquo;s why we use the <code>waku.waitForRemotePeer</code> function to ensure that there are relay peers available to send and receive messages.</p>
+<p>Now we can inject the <code>WakuService</code> in to the <code>AppComponent</code> class to initialise the node and
+subscribe to any status changes.</p>
+<p>Firstly, import the <code>WakuService</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuService</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./waku.service&#34;</span>;
+</code></pre></div><p>Then update the <code>AppComponent</code> class with the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppComponent</span> {
+
+  <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;relay-angular-chat&#39;</span>;
+  <span style="color:#a6e22e">wakuStatus</span><span style="color:#f92672">!:</span> <span style="color:#a6e22e">string</span>;
+
+  <span style="color:#75715e">// Inject the service
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#66d9ef">private</span> <span style="color:#a6e22e">wakuService</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">WakuService</span>) {}
+
+  <span style="color:#a6e22e">ngOnInit</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
+    <span style="color:#75715e">// Call the `init` function on the service
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuService</span>.<span style="color:#a6e22e">init</span>();
+    <span style="color:#75715e">// Subscribe to the `wakuStatus` Observable and update the property when it changes
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuService</span>.<span style="color:#a6e22e">wakuStatus</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">wakuStatus</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wakuStatus</span>;
+    });
+  }
+}
+</code></pre></div><p>Add the following HTML to the <code>app.component.html</code> to show the title and render the connection status:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h1</span>&gt;{{title}}&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">p</span>&gt;Waku node&#39;s status: {{ wakuStatus }}&lt;/<span style="color:#f92672">p</span>&gt;
+</code></pre></div><h2 id="messages">
+  Messages
+  <a class="anchor" href="#messages">#</a>
+</h2>
+<p>Now we need to create a component to send, receive and render the messages.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ng generate component messages
+</code></pre></div><p>You might need to add this to <code>NgModule</code> for Angular to pick up the new component.
+Import and add <code>MessagesComponent</code> to the <code>declarations</code> array in <code>app.module.ts</code>.</p>
+<p>We&rsquo;re going to need the <code>WakuService</code> again but also the <code>Waku</code> and <code>WakuMessage</code> classes from <code>js-waku</code>.
+We already installed <a href="https://www.npmjs.com/package/protons">protons</a>
+and we&rsquo;re going to use that here so we&rsquo;ll need to import it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuService</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../waku.service&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Waku</span>, <span style="color:#a6e22e">WakuMessage</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;js-waku&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">protons</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;protons&#34;</span>;
+</code></pre></div><p>Let&rsquo;s use <code>protons</code> to define the Protobuf message format with two fields:
+<code>timestamp</code> and <code>text</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">proto</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">protons</span>(<span style="color:#e6db74">`
+</span><span style="color:#e6db74">message SimpleChatMessage {
+</span><span style="color:#e6db74">  uint64 timestamp = 1;
+</span><span style="color:#e6db74">  string text = 2;
+</span><span style="color:#e6db74">}
+</span><span style="color:#e6db74">`</span>);
+</code></pre></div><p>Let&rsquo;s also define a message <code>interface</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">MessageInterface</span> {
+  <span style="color:#a6e22e">timestamp</span><span style="color:#f92672">:</span> Date;
+  <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>;
+}
+</code></pre></div><h2 id="send-messages">
+  Send Messages
+  <a class="anchor" href="#send-messages">#</a>
+</h2>
+<p>In order to send a message, we need to define a few things.</p>
+<p>The <code>contentTopic</code> is the topic we want subscribe to and the <code>payload</code> is the message.
+We&rsquo;ve also defined a <code>timestamp</code> so let&rsquo;s create that.</p>
+<p>The <code>messageCount</code> property is just to distinguish between messages.</p>
+<p>We also need our <code>waku</code> instance and <code>wakuStatus</code> property.
+We will subscribe to the <code>waku</code> and <code>wakuStatus</code> Observables from the <code>WakuService</code> to get them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MessagesComponent</span> {
+
+  <span style="color:#a6e22e">contentTopic</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`/relay-angular-chat/1/chat/proto`</span>;
+  <span style="color:#a6e22e">messageCount</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#a6e22e">waku</span><span style="color:#f92672">!:</span> <span style="color:#a6e22e">Waku</span>;
+
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// Inject the `WakuService`
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">constructor</span>(<span style="color:#66d9ef">private</span> <span style="color:#a6e22e">wakuService</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">WakuService</span>) { }
+
+  <span style="color:#a6e22e">ngOnInit</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
+    <span style="color:#75715e">// Subscribe to the `wakuStatus` Observable and update the property when it changes
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuService</span>.<span style="color:#a6e22e">wakuStatus</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">wakuStatus</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuStatus</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wakuStatus</span>;
+    });
+
+    <span style="color:#75715e">// Subscribe to the `waku` Observable and update the property when it changes
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wakuService</span>.<span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">waku</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">waku</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">waku</span>;
+    });
+  }
+
+  <span style="color:#a6e22e">sendMessage</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">getTime</span>();
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payload</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">proto</span>.<span style="color:#a6e22e">SimpleChatMessage</span>.<span style="color:#a6e22e">encode</span>({
+      <span style="color:#a6e22e">timestamp</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">time</span>,
+      <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Here is a message #</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">messageCount</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>,
+    });
+
+    <span style="color:#a6e22e">WakuMessage</span>.<span style="color:#a6e22e">fromBytes</span>(<span style="color:#a6e22e">payload</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">contentTopic</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">wakuMessage</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">wakuMessage</span>).<span style="color:#a6e22e">then</span>(() =&gt; {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Message #</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">messageCount</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> sent`</span>);
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">messageCount</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+      });
+    });
+  }
+}
+</code></pre></div><p>Then, add a button to the <code>messages.component.html</code> file to wire it up to the <code>sendMessage()</code> function.
+It will also disable the button until the node is connected.</p>
+<pre tabindex="0"><code>&lt;button (click)=&quot;sendMessage()&quot; [disabled]=&quot;wakuStatus !== 'Connected'&quot;&gt;Send Message&lt;/button&gt;
+</code></pre><h2 id="receive-messages">
+  Receive Messages
+  <a class="anchor" href="#receive-messages">#</a>
+</h2>
+<p>To process incoming messages, you need to register an observer on Waku Relay.
+First, you need to define the observer function which decodes the message
+and pushes it in to the <code>messages</code> array.</p>
+<p>Again, in the <code>messages.component.ts</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MessagesComponent</span> {
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Store the messages in an array
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">messages</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">MessageInterface</span>[] <span style="color:#f92672">=</span> [];
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+  <span style="color:#a6e22e">processIncomingMessages</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">wakuMessage</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">WakuMessage</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">payload</span>) <span style="color:#66d9ef">return</span>;
+
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">timestamp</span>, <span style="color:#a6e22e">text</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">proto</span>.<span style="color:#a6e22e">SimpleChatMessage</span>.<span style="color:#a6e22e">decode</span>(
+      <span style="color:#a6e22e">wakuMessage</span>.<span style="color:#a6e22e">payload</span>
+    );
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+    <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">setTime</span>(<span style="color:#a6e22e">timestamp</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">timestamp</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">time</span> };
+
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">message</span>);
+  };
+}
+</code></pre></div><p>We&rsquo;ll also need to delete the observer when the component gets destroyed
+to avoid memory leaks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">ngOnDestroy</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">waku</span>.<span style="color:#a6e22e">relay</span>.<span style="color:#a6e22e">deleteObserver</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">processIncomingMessages</span>, [<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">contentTopic</span>]);
+}
+</code></pre></div><p>Angular won&rsquo;t delete the observer when the page reloads so we&rsquo;ll have to hook that up ourselves.
+Add the following to the <code>ngOnInit()</code> function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">window.<span style="color:#a6e22e">onbeforeunload</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">ngOnDestroy</span>();
+</code></pre></div><h2 id="display-messages">
+  Display Messages
+  <a class="anchor" href="#display-messages">#</a>
+</h2>
+<p>Congratulations! The Waku work is now done.
+Your dApp is able to send and receive messages using Waku.
+For the sake of completeness, let&rsquo;s display received messages on the page.</p>
+<p>We&rsquo;ve already added the <code>messages</code> array and pushed the incoming message to it.
+So all we have to do now is render them to the page.</p>
+<p>In the <code>messages.component.html</code>, add the following under the <code>button</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">h2</span>&gt;Messages&lt;/<span style="color:#f92672">h2</span>&gt;
+&lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;messages&#34;</span>&gt;
+  &lt;<span style="color:#f92672">li</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngFor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;let message of messages&#34;</span>&gt;
+    &lt;<span style="color:#f92672">span</span>&gt;{{ message.timestamp }} {{ message.text }}&lt;/<span style="color:#f92672">span</span>&gt;
+  &lt;/<span style="color:#f92672">li</span>&gt;
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><p>And Voilà! You should now be able to send and receive messages.
+Try it out by opening the app from different browsers!</p>
+<p>You can see the complete code in the <a href="https://github.com/status-im/js-waku/tree/main/examples/relay-angular-chat">Relay Angular Chat Example App</a>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/22eab4285b3e581ee3daf5338c33d71008e7b82e" title='Last modified by jemboh | Feb 18, 2022' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>Feb 18, 2022</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/10_angular_relay.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#send-and-receive-messages-using-waku-relay-with-angular-v13">Send and Receive Messages Using Waku Relay With Angular v13</a>
+      <ul>
+        <li><a href="#setup">Setup</a>
+          <ul>
+            <li><a href="#bigint"><code>BigInt</code></a></li>
+            <li><a href="#polyfills">Polyfills</a></li>
+            <li><a href="#module-loading-warnings">Module loading warnings</a></li>
+            <li><a href="#types">Types</a></li>
+            <li><a href="#js-waku">js-waku</a></li>
+          </ul>
+        </li>
+        <li><a href="#create-waku-instance">Create Waku Instance</a></li>
+        <li><a href="#messages">Messages</a></li>
+        <li><a href="#send-messages">Send Messages</a></li>
+        <li><a href="#receive-messages">Receive Messages</a></li>
+        <li><a href="#display-messages">Display Messages</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
