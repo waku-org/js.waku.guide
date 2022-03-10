@@ -15,15 +15,15 @@ so that developers can select the best mechanism(s) based for their use case and
 (e.g. mobile phone, desktop browser, server, etc).
 
 When starting a Waku node,
-it needs to connect to other nodes to join the network and be able to send, receive and retrieve messages.
+it needs to connect to other nodes to be able to send, receive and retrieve messages.
 Which means there needs to be a discovery mechanism that enable finding other nodes when not connected to any node.
-This is called _bootstrap_.
+This is called _bootstrapping_.
 
-Once connected, the node needs to find other peers for several reasons:
+Once connected, the node needs to find additional peers to have:
 
-- Having enough peers in the Waku Relay mesh (target is 6),
-- Having available peers in case current peers are too busy or become unavailable,
-- Having peers with specific Waku capabilities (e.g. Store, Light Push, Filter).
+- Enough peers in the Waku Relay mesh (target is 6),
+- Enough peers in reserve, in case current peers are overloaded or go offline,
+- Peers with specific Waku capabilities (e.g. Store, Light Push, Filter).
 
 For now, we are focusing in making bootstrap discovery protocols available,
 research of other discovery protocols is in progress.
