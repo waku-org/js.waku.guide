@@ -71,7 +71,7 @@ They can be accessed via the `getPredefinedBootstrapNodes` function.
 
 ### Nwaku Prod Fleet
 
-The nwaku prod fleet run the latest [nwaku](github.com/status-im/nim-waku/) release.
+The nwaku prod fleet run the latest [nwaku](https://github.com/status-im/nim-waku/) release.
 The fleet aims to provide a stable, yet not warranted, service.
 
 ```ts
@@ -86,7 +86,7 @@ const waku = await Waku.create({
 
 ### Nwaku Test Fleet
 
-The nwaku test fleet run the latest commit from [nwaku](github.com/status-im/nim-waku/)'s master branch.
+The nwaku test fleet run the latest commit from [nwaku](https://github.com/status-im/nim-waku/)'s master branch.
 The fleet is subject to frequent database reset,
 hence messages are generally kept in store nodes for a few days at a time.
 
@@ -102,7 +102,7 @@ const waku = await Waku.create({
 
 ## Use your own nodes
 
-Developers have the choice to run their own [nwaku](<[nim-waku](github.com/status-im/nim-waku/)>) nodes
+Developers have the choice to run their own [nwaku](https://github.com/status-im/nim-waku/) nodes
 and use them to bootstrap js-waku nodes.
 
 There are two ways to set bootstrap nodes:
