@@ -161,7 +161,7 @@ Use the following function to do so:
 ```ts
 import * as sigUtil from "eth-sig-util";
 import { keccak256 } from "ethers/lib/utils";
-import { hexToBytes, equalByteArrays, bytesToHex } from "js-waku/lib/utils";
+import { utils } from "js-waku";
 
 interface PublicKeyMessage {
   encryptionPublicKey: Uint8Array;

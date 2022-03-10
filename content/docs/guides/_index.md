@@ -7,6 +7,7 @@ weight: 30
 ## General Concepts
 
 - [How to Choose a Content Topic](./01_choose_content_topic/)
+- [Discovery & Bootstrap Nodes](./discovery_bootstrap/)
 - [How to Debug your Waku dApp](./debug/)
 
 ## JavaScript
