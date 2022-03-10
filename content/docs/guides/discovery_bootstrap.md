@@ -67,12 +67,12 @@ They can be accessed via the `getPredefinedBootstrapNodes` function.
 
 - Prone to censorship: node ips can be blocked,
 - Limited: Static number of nodes,
-- Poor maintainability: Code needs to be updated to update the list.
+- Poor maintainability: Code needs to be changed to update the list.
 
 ### Nwaku Prod Fleet
 
 The nwaku prod fleet run the latest [nwaku](github.com/status-im/nim-waku/) release.
-The fleet aims to provide a stable service.
+The fleet aims to provide a stable, yet not warranted, service.
 
 ```ts
 import { Waku } from "js-waku";
@@ -88,7 +88,7 @@ const waku = await Waku.create({
 
 The nwaku test fleet run the latest commit from [nwaku](github.com/status-im/nim-waku/)'s master branch.
 The fleet is subject to frequent database reset,
-hence messages are generally kept for less than 30 days.
+hence messages are generally kept in store nodes for a few days at a time.
 
 ```ts
 import { Waku, discovery } from "js-waku";
@@ -105,9 +105,9 @@ const waku = await Waku.create({
 Developers have the choice to run their own [nwaku](<[nim-waku](github.com/status-im/nim-waku/)>) nodes
 and use them to bootstrap js-waku nodes.
 
-There are two ways to pass bootstrap nodes:
+There are two ways to set bootstrap nodes:
 
-1. Using an array of multiaddr (as `string` or `Multiaddr`)
+1. Using an array of multiaddrs (as `string` or `Multiaddr`):
 
 ```ts
 import { Waku } from "js-waku";
@@ -121,7 +121,7 @@ const waku = await Waku.create({
 });
 ```
 
-2. Passing a async function that returns an array of multiaddr (as `string` or `Multiaddr`)
+2. Passing an async function that returns an array of multiaddr (as `string` or `Multiaddr`):
 
 ```ts
 import { Waku } from "js-waku";
@@ -130,7 +130,7 @@ const waku = await Waku.create({
   bootstrap: {
     getPeers: async () => {
       const addrs = [];
-      // Fetch the multiaddr from somewhere...
+      // Fetch the multiaddrs from somewhere...
       return addrs;
     },
   },
@@ -148,13 +148,15 @@ Read [Nwaku Service Node](/docs/guides/nwaku/) to learn how to run your own node
 [EIP-1459: Node Discovery via DNS](https://eips.ethereum.org/EIPS/eip-1459) has been implemented in js-waku, nwaku and go-waku
 with some modification on the [ENR format](https://rfc.vac.dev/spec/31/).
 
-DNS Discovery enables anyone to register a tree of node connection details in the `TXT` field of a domain name.
+DNS Discovery enables anyone to register an ENR tree in the `TXT` field of a domain name.
+
+_ENR_ is the format used to store node connection details (ip, port, multiaddr, etc).
 
 This enables a separation of software development and operations
-as dApp developer can include one or several domain names to use for DNS discovery,
-while operator can handle the update of the dns record.
+as dApp developers can include one or several domain names to use for DNS discovery,
+while operators can handle the update of the dns record.
 
-It enables more decentralized bootstrapping as anyone can register a domain name and publish it for other to use.
+It also enables more decentralized bootstrapping as anyone can register a domain name and publish it for others to use.
 
 {{< hint warning >}}
 While this method is implemented in js-waku,
@@ -167,14 +169,20 @@ instance deployed alongside nwaku, acting as a work around the nwaku websocket [
 **Pros:**
 
 - Low latency, low resource requirements,
-- Nodes can be updated by updating a domain name: no code change needed,
-- Can reference a greater list of nodes by pointing to other domain names in the code or in the domain name.
+- Bootstrap list can be updated by editing a domain name: no code change is needed,
+- Can reference to a greater list of nodes by pointing to other domain names in the code or in the ENR tree.
 
 **Cons:**
 
-- Prone to censorship: domain name can be blocked,
-- Limited: Static number of nodes.
+- Prone to censorship: domain names can be blocked,
+- Limited: Static number of nodes, operators must provide their ENR to the domain owner to get their node listed.
 
 ## Other Discovery Mechanisms
 
 Other discovery mechanisms such as gossipsub peer exchange, discv5, etc are currently being research and developed.
+
+They aim to improve the current _status quo_ in the following aspects:
+
+- More decentralized mechanisms: Less reliance on specific entities,
+- Less setup for node operators: Enabling their nodes to be discovered by connecting to bootstrap nodes,
+  without having to update a domain name.
