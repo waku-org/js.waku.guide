@@ -10,6 +10,14 @@ weight: 22
 
 {{< youtube 1QjxqrLO8WA >}}
 
+## 17 Sep 2021 - EthOnline
+
+Pre-recorded video for hackathon participants.
+
+{{< youtube ooRyn4aXsrM >}}
+
+Slides: https://notes.status.im/eth-global-2021
+
 ## 21 Jul 2021 - EthCC 2021
 
 _Note: DappConnect is now named Waku Connect._
@@ -25,11 +33,3 @@ _Note: DappConnect is now named Waku Connect._
 {{< youtube CBknF-6Z-Ds >}}
 
 Slides: https://notes.status.im/dappconnect-pres
-
-## 17 Sep 2021 - EthOnline
-
-Pre-recorded video for hackathon participants.
-
-{{< youtube ooRyn4aXsrM >}}
-
-Slides: https://notes.status.im/eth-global-2021
