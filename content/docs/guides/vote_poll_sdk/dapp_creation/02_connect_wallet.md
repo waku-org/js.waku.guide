@@ -20,7 +20,7 @@ yarn add ethers@5.4.6
 ```
 
 {{< hint warning >}}
-The SDK use `ethers` version 5.4.6 due to incompatibility between minor versions it is recomended to use this version.
+The SDK use `ethers` version 5.4.6 due to incompatibility between minor versions it is recommended to use this version.
 {{< /hint >}}
 
 Delete the template `App` component:
@@ -41,7 +41,7 @@ Use `TopBar` component to display wallet information.
 For that, create a `PollPage` component that includes the top bar and will include the poll elements.
 The component uses `ethers` to connect to the user's wallet:
 
-`MULTICALL_ADDRESS` is an address to mutical smart contract that allows aggregating multiple contract calls into one, thus reducing number of calls to blockchain needed.
+`MULTICALL_ADDRESS` is an address to multicall smart contract that allows aggregating multiple contract calls into one, thus reducing number of calls to blockchain needed.
 
 Example multicall addresses: - Mainnet: `0xeefba1e63905ef1d7acba5a8513c70307c1ce441`, - Ropsten: `0x53c43764255c17bd724f74c4ef150724ac50a3ed`
 
@@ -170,4 +170,4 @@ ReactDOM.render(
 ```
 
 {{< button relref="./01_create_dapp"  >}}Back{{< /button >}}
-{{< button relref="./03_connect_walle_useDapp"  >}}Next: Connect using useDapp{{< /button >}}
+{{< button relref="./03_connect_wallet_useDapp"  >}}Next: Connect using useDapp{{< /button >}}

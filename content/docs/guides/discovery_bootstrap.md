@@ -46,7 +46,7 @@ As the current strategy is to connect to nodes operated by Status,
 we want to ensure that developers consciously opt-in
 while providing a friendly developer experience.
 
-We intend to change this in the future and enable boostrap by default
+We intend to change this in the future and enable bootstrap by default
 once we have implemented more decentralized strategies.
 {{< /hint >}}
 
@@ -129,9 +129,9 @@ import { Waku } from "js-waku";
 const waku = await Waku.create({
   bootstrap: {
     getPeers: async () => {
-      const addrs = [];
+      const addresses = [];
       // Fetch the multiaddrs from somewhere...
-      return addrs;
+      return addresses;
     },
   },
 });
