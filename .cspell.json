@@ -5,10 +5,12 @@
   "words": [
     "backoff",
     "backoffs",
+    "barebones",
     "bitjson",
     "bitauth",
     "Bojda",
     "bufbuild",
+    "browserslist",
     "chainsafe",
     "cimg",
     "ciphertext",
@@ -17,6 +19,7 @@
     "commitlint",
     "dependabot",
     "dingpu",
+    "discv5",
     "Dlazy",
     "dnsaddr",
     "Dout",
@@ -49,6 +52,7 @@
     "jdev",
     "jswaku",
     "keccak",
+    "keypair",
     "lastpub",
     "libauth",
     "libp",
@@ -61,11 +65,14 @@
     "multiaddrs",
     "multicodecs",
     "mplex",
+    "multicall",
     "multihashes",
     "muxed",
     "muxer",
     "mvps",
     "nodekey",
+    "nwaku",
+    "onbeforeunload",
     "opendns",
     "peerhave",
     "portfinder",
@@ -74,7 +81,9 @@
     "protobuf",
     "protoc",
     "reactjs",
+    "readline",
     "recid",
+    "relref",
     "rlnrelay",
     "roadmap",
     "sandboxed",
@@ -90,12 +99,14 @@
     "submodules",
     "supercrypto",
     "transpiled",
+    "transpiles",
     "typedoc",
     "unencrypted",
     "unmount",
     "unmounts",
     "untracked",
     "upgrader",
+    "usedapp",
     "vacp",
     "varint",
     "waku",
@@ -105,6 +116,7 @@
     "wakuv",
     "webfonts",
     "websockets",
+    "websockify",
     "wifi",
     "xsalsa20"
   ],
@@ -114,7 +126,14 @@
     "package-lock.json",
     "yarn.lock",
     "tsconfig.json",
-    "presentations.md", // contains youtube links
     "node_modules/**"
-  ]
+  ],
+  "patterns": [
+    { "name": "multiaddr", "pattern": "/p2p.*/" },
+    {
+      "name": "youtube-link",
+      "pattern": "/< youtube.*/"
+    }
+  ],
+  "ignoreRegExpList": ["multiaddr", "youtube-link"]
 }

@@ -238,7 +238,7 @@ export class WakuService {
 When using the `bootstrap` option, it may take some time to connect to other peers.
 That's why we use the `waku.waitForRemotePeer` function to ensure that there are relay peers available to send and receive messages.
 
-Now we can inject the `WakuService` in to the `AppComponent` class to initialise the node and
+Now we can inject the `WakuService` in to the `AppComponent` class to initialize the node and
 subscribe to any status changes.
 
 Firstly, import the `WakuService`:

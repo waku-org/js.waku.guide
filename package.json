@@ -7,10 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "fix": "prettier \"content*/**/*.md\" \"./*.json\" --write",
-    "test": "run-p test:*",
-    "test:format": "prettier \"content*/**/*.md\" \"./*.json\" --list-different",
-    "test:spelling": "cspell content/**/*.md",
+    "fix": "prettier \"*.md\" \"./*.json\" --write",
+    "test": "run-p 'test:*'",
+    "test:format": "prettier \"*.md\" \"./*.json\" --list-different",
+    "test:spelling": "cspell \"content/**/*.md\" \"content/*.md\"",
     "serve": "hugo server"
   },
   "dependencies": {
