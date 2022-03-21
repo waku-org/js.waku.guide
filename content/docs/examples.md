@@ -54,6 +54,16 @@ Demonstrates:
 - Use minified bundle from unpkg.com
 - Pure JavaScript application
 
+## Using Waku Relay in JavaScript With Minified Library
+
+Repo: [relay-js](https://github.com/status-im/js-waku/tree/master/examples/relay-js).
+
+Demonstrates:
+
+- Waku Relay: Send and receive messages using Waku Relay
+- Use minified bundle from unpkg.com
+- Pure JavaScript application
+
 ## Web Chat App
 
 Repo: [web-chat](https://github.com/status-im/js-waku/tree/master/examples/web-chat).
