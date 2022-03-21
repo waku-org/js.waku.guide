@@ -46,7 +46,7 @@ Demonstrates:
 
 ## Vanilla Javascript Using Minified Library
 
-Repo: [unpkg-js-store](https://github.com/status-im/js-waku/tree/main/examples/unpkg-js-store).
+Repo: [unpkg-js-store](https://github.com/status-im/js-waku/tree/master/examples/unpkg-js-store).
 
 Demonstrates:
 
@@ -56,7 +56,7 @@ Demonstrates:
 
 ## Web Chat App
 
-Repo: [web-chat](https://github.com/status-im/js-waku/tree/main/examples/web-chat).
+Repo: [web-chat](https://github.com/status-im/js-waku/tree/master/examples/web-chat).
 Live: https://js-waku.wakuconnect.dev/examples/web-chat/
 
 Demonstrates:
@@ -69,7 +69,7 @@ Demonstrates:
 
 ## Ethereum Private Message Web App
 
-Repo: [eth-pm](https://github.com/status-im/js-waku/tree/main/examples/eth-pm).
+Repo: [eth-pm](https://github.com/status-im/js-waku/tree/master/examples/eth-pm).
 Live: https://js-waku.wakuconnect.dev/examples/eth-pm/
 
 Demonstrates:
@@ -84,7 +84,7 @@ Demonstrates:
 
 ## Ethereum Private Message Using Web3 Wallet Encryption API Web App
 
-Repo: [eth-pm-wallet-encryption](https://github.com/status-im/js-waku/tree/main/examples/eth-pm-wallet-encryption).
+Repo: [eth-pm-wallet-encryption](https://github.com/status-im/js-waku/tree/master/examples/eth-pm-wallet-encryption).
 Live: https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption/
 
 Demonstrates:
