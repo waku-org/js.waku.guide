@@ -4,6 +4,9 @@ weight: 30
 
 # Guides
 
+Can't find what you are looking for?
+Check out the [examples](/docs/examples/).
+
 ## General Concepts
 
 - [How to Choose a Content Topic](./01_choose_content_topic/)
