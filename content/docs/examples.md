@@ -44,9 +44,9 @@ Demonstrates:
 - No async/await syntax
 - Observables
 
-## Vanilla Javascript Using Minified Library
+## Using Waku Store in JavaScript With Minified Library
 
-Repo: [unpkg-js-store](https://github.com/status-im/js-waku/tree/master/examples/unpkg-js-store).
+Repo: [store-js](https://github.com/status-im/js-waku/tree/master/examples/store-js).
 
 Demonstrates:
 
