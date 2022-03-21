@@ -51,8 +51,8 @@ Repo: [store-js](https://github.com/status-im/js-waku/tree/master/examples/store
 Demonstrates:
 
 - How to stop retrieving results from Waku Store on condition
-- Use minified bundle from Unpkg.com
-- Vanilla JavaScript application
+- Use minified bundle from unpkg.com
+- Pure JavaScript application
 
 ## Web Chat App
 
