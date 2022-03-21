@@ -17,7 +17,7 @@ weight: 30
 - [Send Messages Using Waku Light Push](./06_light_push_send_messages/)
 - [Encrypt Messages Using Waku Message Version 1](./04_encrypt_messages_version_1/)
 - [Sign Messages Using Waku Message Version 1](./05_sign_messages_version_1/)
-- [ Sign Messages Using a Web3 Wallet (EIP-712)](./sign_messages_web3_eip712/)
+- [Sign Messages Using a Web3 Wallet (EIP-712)](./sign_messages_web3_eip712/)
 
 ## ReactJS
 
