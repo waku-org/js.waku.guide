@@ -88,10 +88,10 @@ For this guide, we are using a single content topic: /relay-guide/1/chat/proto.<
     
     <item>
       <title>Connect to the Ethereum Wallet useDapp</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</guid>
       <description>Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&amp;rsquo;s wallet. This section can be used instead of previous step. It demonstrates how to use @useDapp for wallet connection.  In this guide, we use useDApp to access the blockchain.
 yarn add @usedapp/core@0.4.7 @usedapp/core must be frozen to version 0.4.7 due to incompatibility between minor versions of ethers.</description>
     </item>
@@ -276,6 +276,18 @@ export DEBUG=* Browser #  To see the debug logs in your browser&amp;rsquo;s cons
 A more in depth guide for Waku Relay can be found here.
 Install #  Install the js-waku package:
 npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import { Waku } from &amp;#34;js-waku&amp;#34;; const waku = await Waku.create({ bootstrap: { default: true } }); Listen for messages #  The contentTopic is a metadata string that allows categorization of messages on the waku network.</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://docs.wakuconnect.dev/docs/faq/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +1000</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/faq/</guid>
+      <description>FAQ #  Frequently Asked Questions for developers using js-waku:
+1. Why should I build a frontend only webapp (no NodeJS backend)? #  Waku enables dApp to add communication, e.g. interaction between users, in a fully decentralized manner. A webapp that uses NodeJS as a backend implies that a party runs said NodeJS software in a centralized infrastructure.
+Despite using Waku &amp;amp; Ethereum, such webapp cannot become decentralized.
+By building a frontend only webapp, that entirely runs in the browser, one can distribute the frontend code in many manners: host it, mirror it, have it on GitHub, deploy it on IPFS, etc.</description>
     </item>
     
     <item>

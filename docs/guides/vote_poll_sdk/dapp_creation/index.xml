@@ -30,10 +30,10 @@ The latest react-scripts version uses webpack 5.</description>
     
     <item>
       <title>Connect to the Ethereum Wallet useDapp</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/</link>
+      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/</guid>
+      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</guid>
       <description>Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&amp;rsquo;s wallet. This section can be used instead of previous step. It demonstrates how to use @useDapp for wallet connection.  In this guide, we use useDApp to access the blockchain.
 yarn add @usedapp/core@0.4.7 @usedapp/core must be frozen to version 0.4.7 due to incompatibility between minor versions of ethers.</description>
     </item>

@@ -31,6 +31,18 @@ npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import 
     </item>
     
     <item>
+      <title>FAQ</title>
+      <link>https://docs.wakuconnect.dev/docs/faq/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +1000</pubDate>
+      
+      <guid>https://docs.wakuconnect.dev/docs/faq/</guid>
+      <description>FAQ #  Frequently Asked Questions for developers using js-waku:
+1. Why should I build a frontend only webapp (no NodeJS backend)? #  Waku enables dApp to add communication, e.g. interaction between users, in a fully decentralized manner. A webapp that uses NodeJS as a backend implies that a party runs said NodeJS software in a centralized infrastructure.
+Despite using Waku &amp;amp; Ethereum, such webapp cannot become decentralized.
+By building a frontend only webapp, that entirely runs in the browser, one can distribute the frontend code in many manners: host it, mirror it, have it on GitHub, deploy it on IPFS, etc.</description>
+    </item>
+    
+    <item>
       <title>Use Cases</title>
       <link>https://docs.wakuconnect.dev/docs/use_cases/</link>
       <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>

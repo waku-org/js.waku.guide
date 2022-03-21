@@ -16,14 +16,14 @@ For this guide, we are using a single content topic: /relay-angular-chat/1/chat/
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/angular_relay/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-02-15T09:00:00+01:00" />
-<meta property="article:modified_time" content="2022-02-21T11:44:39+11:00" />
+<meta property="article:modified_time" content="2022-03-17T14:27:11+11:00" />
 
 <title>Send and Receive Messages Using Waku Relay With Angular v13 | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.2d414475108b0708bd2955d30a13437695aab7adf00a77c1f016a9511b504ac6.js" integrity="sha256-LUFEdRCLBwi9KVXTChNDdpWqt63wCnfB8BapURtQSsY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.134b8d542f82e1a09ca5b0e232cf363493908dd62624bc6d02c9722253ff3da3.js" integrity="sha256-E0uNVC&#43;C4aCcpbDiMs82NJOQjdYmJLxtAslyIlP/PaM=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -130,6 +130,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://docs.wakuconnect.dev/docs/quick_start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://docs.wakuconnect.dev/docs/faq/" class="">FAQ</a>
   
 
         </li>
@@ -402,7 +415,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_walle_usedapp/" class="">Connect to the Ethereum Wallet useDapp</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/" class="">Connect to the Ethereum Wallet useDapp</a>
   
 
         </li>
@@ -863,7 +876,7 @@ We&rsquo;re going to wrap the <code>js-waku</code> library in a Service so we ca
 }
 </code></pre></div><p>When using the <code>bootstrap</code> option, it may take some time to connect to other peers.
 That&rsquo;s why we use the <code>waku.waitForRemotePeer</code> function to ensure that there are relay peers available to send and receive messages.</p>
-<p>Now we can inject the <code>WakuService</code> in to the <code>AppComponent</code> class to initialise the node and
+<p>Now we can inject the <code>WakuService</code> in to the <code>AppComponent</code> class to initialize the node and
 subscribe to any status changes.</p>
 <p>Firstly, import the <code>WakuService</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">WakuService</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./waku.service&#34;</span>;
@@ -1031,9 +1044,9 @@ Try it out by opening the app from different browsers!</p>
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/fcb7a984ce0ea083556225b58b76f91e6ba583f2" title='Last modified by Franck R | Feb 21, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/e2e21a3cbbf8abf6f36c2f94ecb614c3c5f2f2f0" title='Last modified by Franck R | Mar 17, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Feb 21, 2022</span>
+      <span>Mar 17, 2022</span>
     </a>
   </div>
 

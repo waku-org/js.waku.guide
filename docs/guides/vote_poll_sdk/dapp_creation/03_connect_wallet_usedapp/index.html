@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&rsquo;s wallet. If you want to use ethers as a package to connect to web3 wallet you can follow this guide and skip the next step. Next step demonstrates how to use @useDapp for this purpose.  In this we will use ethers to keep amount of dependencies to minimum but feel free to use other packages.">
+<meta name="description" content="Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&rsquo;s wallet. This section can be used instead of previous step. It demonstrates how to use @useDapp for wallet connection.  In this guide, we use useDApp to access the blockchain.
+yarn add @usedapp/core@0.4.7 @usedapp/core must be frozen to version 0.4.7 due to incompatibility between minor versions of ethers.">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="Connect to the Ethereum Wallet" />
-<meta property="og:description" content="Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&rsquo;s wallet. If you want to use ethers as a package to connect to web3 wallet you can follow this guide and skip the next step. Next step demonstrates how to use @useDapp for this purpose.  In this we will use ethers to keep amount of dependencies to minimum but feel free to use other packages." />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Connect to the Ethereum Wallet useDapp" />
+<meta property="og:description" content="Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&rsquo;s wallet. This section can be used instead of previous step. It demonstrates how to use @useDapp for wallet connection.  In this guide, we use useDApp to access the blockchain.
+yarn add @usedapp/core@0.4.7 @usedapp/core must be frozen to version 0.4.7 due to incompatibility between minor versions of ethers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-01-03T11:00:00+11:00" />
 <meta property="article:modified_time" content="2022-03-17T14:27:11+11:00" />
 
-<title>Connect to the Ethereum Wallet | Waku Connect Docs</title>
+<title>Connect to the Ethereum Wallet useDapp | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
@@ -396,7 +398,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/" class=" active">Connect to the Ethereum Wallet</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/" class="">Connect to the Ethereum Wallet</a>
   
 
         </li>
@@ -409,7 +411,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/" class="">Connect to the Ethereum Wallet useDapp</a>
+    <a href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/" class=" active">Connect to the Ethereum Wallet useDapp</a>
   
 
         </li>
@@ -649,7 +651,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Connect to the Ethereum Wallet</strong>
+  <strong>Connect to the Ethereum Wallet useDapp</strong>
 
   <label for="toc-control">
     
@@ -667,10 +669,10 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#connect-to-the-ethereum-wallet">Connect to the Ethereum Wallet</a>
       <ul>
-        <li><a href="#hook-for-connecting-to-wallet">Hook for connecting to Wallet</a></li>
         <li><a href="#top-bar">Top bar</a></li>
         <li><a href="#page">Page</a>
           <ul>
+            <li><a href="#usedapp">UseDApp</a></li>
             <li><a href="#styled-components">Styled-components</a></li>
             <li><a href="#render">Render</a></li>
           </ul>
@@ -696,60 +698,81 @@ https://github.com/alex-shpak/hugo-book
 <blockquote class="book-hint info">
   This section may be skipped if you are adding the poll feature to an existing dApp
 that already connects to the user&rsquo;s wallet.
-If you want to use <code>ethers</code> as a package to connect to web3 wallet you can follow this guide and skip the next step.
-Next step demonstrates how to use <code>@useDapp</code> for this purpose.
+This section can be used instead of previous step.
+It demonstrates how to use <code>@useDapp</code> for wallet connection.
 </blockquote>
 
-<p>In this we will use <code>ethers</code> to keep amount of dependencies to minimum but feel free to use other packages.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn add ethers@5.4.6
+<p>In this guide, we use <a href="https://usedapp.io/">useDApp</a> to access the blockchain.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn add @usedapp/core@0.4.7
 </code></pre></div><blockquote class="book-hint warning">
-  The SDK use <code>ethers</code> version 5.4.6 due to incompatibility between minor versions it is recommended to use this version.
+  <p><code>@usedapp/core</code> must be frozen to version <code>0.4.7</code> due to incompatibility between minor versions of <code>ethers</code>.</p>
+<p>Waku Connect Vote &amp; Poll SDK will be upgraded to the latest version of <code>@usedapp/core</code> and <code>ethers</code> once <code>ethereum-waffle</code>
+is released with the <a href="https://github.com/EthWorks/Waffle/pull/603">latest version of <code>ethers</code></a>.</p>
+
 </blockquote>
 
 <p>Delete the template <code>App</code> component:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rm -f App.tsx App.css App.test.tsx
-</code></pre></div><h2 id="hook-for-connecting-to-wallet">
-  Hook for connecting to Wallet
-  <a class="anchor" href="#hook-for-connecting-to-wallet">#</a>
-</h2>
-<p>In this example we will use this <a href="https://github.com/status-im/wakuconnect-vote-poll-sdk/blob/12bcd17c963106e9207b06182bc5f6379f771b99/examples/mainnet-poll/src/hooks/useWeb3Connect.ts">hook</a> to connect to a Wallet.</p>
-<p>Keep in mind this hook is barebones and can&rsquo;t handle multiple networks, in next chapter it will be shown how to use different web3 connector.</p>
-<h2 id="top-bar">
+</code></pre></div><h2 id="top-bar">
   Top bar
   <a class="anchor" href="#top-bar">#</a>
 </h2>
 <p>Use <code>TopBar</code> component to display wallet information.
 For that, create a <code>PollPage</code> component that includes the top bar and will include the poll elements.
 The component uses <code>ethers</code> to connect to the user&rsquo;s wallet:</p>
-<p><code>MULTICALL_ADDRESS</code> is an address to multicall smart contract that allows aggregating multiple contract calls into one, thus reducing number of calls to blockchain needed.</p>
-<p>Example multicall addresses: - Mainnet: <code>0xeefba1e63905ef1d7acba5a8513c70307c1ce441</code>, - Ropsten: <code>0x53c43764255c17bd724f74c4ef150724ac50a3ed</code></p>
-<p>But if you want you can deploy your own multicall smart contract.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MULTICALL_ADDRESS</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#34;</span>;
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SUPPORTED_CHAIN_ID</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">PollPage() {</span>
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useEthers</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>);
 
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">MainPage() {</span>
-  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">activate</span>, <span style="color:#a6e22e">deactivate</span>, <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">provider</span> } <span style="color:#f92672">=</span>
-    <span style="color:#a6e22e">useWeb3Connect</span>(<span style="color:#a6e22e">SUPPORTED_CHAIN_ID</span>);
+  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
+      <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>());
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// Deactivate signer if signed out
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>);
+    }
+  }, [<span style="color:#a6e22e">account</span>]);
 
   <span style="color:#66d9ef">return</span> (
-    &lt;<span style="color:#f92672">Wrapper</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
       &lt;<span style="color:#f92672">TopBar</span>
-        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">pollingIcon</span>}
+        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
         <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
-        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;WakuConnect Poll Demo&#34;</span>}
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;Poll dApp&#34;</span>}
         <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
-        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activate</span>}
+        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
         <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
         <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
       /&gt;
-      <span style="color:#75715e">//Place for poll or vote component
-</span><span style="color:#75715e"></span>    &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
   );
 }
 </code></pre></div><h2 id="page">
   Page
   <a class="anchor" href="#page">#</a>
 </h2>
+<h3 id="usedapp">
+  UseDApp
+  <a class="anchor" href="#usedapp">#</a>
+</h3>
+<p>Create a <code>config</code> variable that contains the Ethereum network parameters:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span>, <span style="color:#a6e22e">DAppProvider</span>, <span style="color:#a6e22e">useEthers</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">readOnlyChainId</span>: <span style="color:#66d9ef">ChainId.Mainnet</span>,
+  <span style="color:#a6e22e">readOnlyUrls</span><span style="color:#f92672">:</span> {
+    [<span style="color:#a6e22e">ChainId</span>.<span style="color:#a6e22e">Mainnet</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://mainnet.infura.io/v3/your-infura-token&#34;</span>,
+  },
+  <span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">:</span> {
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#34;</span>,
+    <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0x53c43764255c17bd724f74c4ef150724ac50a3ed&#34;</span>,
+  },
+  <span style="color:#a6e22e">notifications</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">checkInterval</span>: <span style="color:#66d9ef">500</span>,
+    <span style="color:#a6e22e">expirationPeriod</span>: <span style="color:#66d9ef">50000</span>,
+  },
+};
+</code></pre></div><p>Replace <code>your-infura-token</code> with your <a href="https://infura.io/docs/ethereum">Infura API token</a>.</p>
 <h3 id="styled-components">
   Styled-components
   <a class="anchor" href="#styled-components">#</a>
@@ -767,57 +790,77 @@ Create a <code>Wrapper</code> variable to use in the page component:</p>
   <a class="anchor" href="#render">#</a>
 </h3>
 <p>Finally, create the <code>App</code> component:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
   <span style="color:#66d9ef">return</span> (
     &lt;<span style="color:#f92672">Wrapper</span>&gt;
       &lt;<span style="color:#f92672">GlobalStyle</span> /&gt;
-      &lt;<span style="color:#f92672">MainPage</span> /&gt;
+      &lt;<span style="color:#f92672">DAppProvider</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">config</span>}&gt;
+        &lt;<span style="color:#f92672">PollPage</span> /&gt;
+      &lt;/<span style="color:#f92672">DAppProvider</span>&gt;
     &lt;/<span style="color:#f92672">Wrapper</span>&gt;
   );
 }
 </code></pre></div><p>Your <code>index.tsx</code> should now be:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styled</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;styled-components&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Poll</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./components/Poll&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ChainId</span>, <span style="color:#a6e22e">DAppProvider</span>, <span style="color:#a6e22e">useEthers</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@usedapp/core&#34;</span>;
 <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">GlobalStyle</span>, <span style="color:#a6e22e">TopBar</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components&#34;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">pollingIcon</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./assets/images/pollingIcon.png&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">orangeTheme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useEffect</span>, <span style="color:#a6e22e">useState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span>, <span style="color:#a6e22e">useLocation</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Route</span>, <span style="color:#a6e22e">Switch</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react-router&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useWeb3Connect</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./hooks/useWeb3Connect&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;./index.css&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">JsonRpcSigner</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ethersproject/providers&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">orangeTheme</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@waku/vote-poll-sdk-react-components/dist/cjs/src/style/themes&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">styled</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;styled-components&#34;</span>;
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MULTICALL_ADDRESS</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#34;</span>;
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SUPPORTED_CHAIN_ID</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">readOnlyChainId</span>: <span style="color:#66d9ef">ChainId.Mainnet</span>,
+  <span style="color:#a6e22e">readOnlyUrls</span><span style="color:#f92672">:</span> {
+    [<span style="color:#a6e22e">ChainId</span>.<span style="color:#a6e22e">Mainnet</span>]<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://mainnet.infura.io/v3/your-infura-token&#34;</span>,
+  },
+  <span style="color:#a6e22e">multicallAddresses</span><span style="color:#f92672">:</span> {
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0xeefba1e63905ef1d7acba5a8513c70307c1ce441&#34;</span>,
+    <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;0x53c43764255c17bd724f74c4ef150724ac50a3ed&#34;</span>,
+  },
+  <span style="color:#a6e22e">notifications</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">checkInterval</span>: <span style="color:#66d9ef">500</span>,
+    <span style="color:#a6e22e">expirationPeriod</span>: <span style="color:#66d9ef">50000</span>,
+  },
+};
 
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">MainPage</span>({ <span style="color:#a6e22e">tokenAddress</span> }<span style="color:#f92672">:</span> { <span style="color:#a6e22e">tokenAddress</span>: <span style="color:#66d9ef">string</span> }) {
-  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">activate</span>, <span style="color:#a6e22e">deactivate</span>, <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">provider</span> } <span style="color:#f92672">=</span>
-    <span style="color:#a6e22e">useWeb3Connect</span>(<span style="color:#a6e22e">SUPPORTED_CHAIN_ID</span>);
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">PollPage() {</span>
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">account</span>, <span style="color:#a6e22e">library</span>, <span style="color:#a6e22e">activateBrowserWallet</span>, <span style="color:#a6e22e">deactivate</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useEthers</span>();
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">signer</span>, <span style="color:#a6e22e">setSigner</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>&lt;<span style="color:#f92672">undefined</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">JsonRpcSigner</span>&gt;(<span style="color:#66d9ef">undefined</span>);
+
+  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">account</span>) {
+      <span style="color:#a6e22e">setSigner</span>(<span style="color:#a6e22e">library</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">getSigner</span>());
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#75715e">// Deactivate signer if signed out
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">setSigner</span>(<span style="color:#66d9ef">undefined</span>);
+    }
+  }, [<span style="color:#a6e22e">account</span>]);
 
   <span style="color:#66d9ef">return</span> (
-    &lt;<span style="color:#f92672">Wrapper</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
       &lt;<span style="color:#f92672">TopBar</span>
-        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">pollingIcon</span>}
+        <span style="color:#a6e22e">logo</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;&#34;</span>}
         <span style="color:#a6e22e">logoWidth</span><span style="color:#f92672">=</span>{<span style="color:#ae81ff">84</span>}
-        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;WakuConnect Poll Demo&#34;</span>}
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;Poll dApp&#34;</span>}
         <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">orangeTheme</span>}
-        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activate</span>}
+        <span style="color:#a6e22e">activate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">activateBrowserWallet</span>}
         <span style="color:#a6e22e">account</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">account</span>}
         <span style="color:#a6e22e">deactivate</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">deactivate</span>}
       /&gt;
       <span style="color:#75715e">//Place for poll or vote component
-</span><span style="color:#75715e"></span>    &lt;/<span style="color:#f92672">Wrapper</span>&gt;
+</span><span style="color:#75715e"></span>    &lt;/<span style="color:#f92672">div</span>&gt;
   );
 }
 
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">location</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useLocation</span>();
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tokenAddress</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">URLSearchParams</span>(<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">search</span>).<span style="color:#66d9ef">get</span>(<span style="color:#e6db74">&#34;token&#34;</span>);
-
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App() {</span>
   <span style="color:#66d9ef">return</span> (
     &lt;<span style="color:#f92672">Wrapper</span>&gt;
       &lt;<span style="color:#f92672">GlobalStyle</span> /&gt;
-      &lt;<span style="color:#f92672">MainPage</span> <span style="color:#a6e22e">tokenAddress</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">tokenAddress</span> <span style="color:#f92672">??</span> <span style="color:#a6e22e">TOKEN_ADDRESS</span>} /&gt;
+      &lt;<span style="color:#f92672">DAppProvider</span> <span style="color:#a6e22e">config</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">config</span>}&gt;
+        &lt;<span style="color:#f92672">PollPage</span> /&gt;
+      &lt;/<span style="color:#f92672">DAppProvider</span>&gt;
     &lt;/<span style="color:#f92672">Wrapper</span>&gt;
   );
 }
@@ -828,35 +871,21 @@ Create a <code>Wrapper</code> variable to use in the page component:</p>
 </span><span style="color:#e6db74">`</span>;
 
 <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
-  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span> }}&gt;
-    &lt;<span style="color:#f92672">BrowserRouter</span>&gt;
-      &lt;<span style="color:#f92672">Switch</span>&gt;
-        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">exact</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">App</span>} /&gt;
-      &lt;/<span style="color:#f92672">Switch</span>&gt;
-    &lt;/<span style="color:#f92672">BrowserRouter</span>&gt;
-  &lt;/<span style="color:#f92672">div</span>&gt;,
+  &lt;<span style="color:#f92672">React.StrictMode</span>&gt;
+    &lt;<span style="color:#f92672">App</span> /&gt;
+  &lt;/<span style="color:#f92672">React.StrictMode</span>&gt;,
   document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;root&#34;</span>)
 );
-</code></pre></div><p>
+</code></pre></div>
 
 
 
   
 
-<a  href="/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/"   class="book-btn">
+<a  href="/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/"   class="book-btn">
   Back
 </a>
 
-
-
-
-
-  
-
-<a  href="/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/"   class="book-btn">
-  Next: Connect using useDapp
-</a>
-</p>
 </article>
  
       
@@ -875,7 +904,7 @@ Create a <code>Wrapper</code> variable to use in the page component:</p>
 
 
   <div>
-    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/edit/develop/content/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_useDapp.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -913,10 +942,10 @@ Create a <code>Wrapper</code> variable to use in the page component:</p>
   <ul>
     <li><a href="#connect-to-the-ethereum-wallet">Connect to the Ethereum Wallet</a>
       <ul>
-        <li><a href="#hook-for-connecting-to-wallet">Hook for connecting to Wallet</a></li>
         <li><a href="#top-bar">Top bar</a></li>
         <li><a href="#page">Page</a>
           <ul>
+            <li><a href="#usedapp">UseDApp</a></li>
             <li><a href="#styled-components">Styled-components</a></li>
             <li><a href="#render">Render</a></li>
           </ul>
