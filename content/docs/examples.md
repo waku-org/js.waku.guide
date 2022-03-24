@@ -7,11 +7,11 @@ weight: 40
 # Examples
 
 Here is the list of the code examples and the features they demonstrate.
-To run or studies the example, click on the _repo_ links.
+To run or studies the example, click on the _code_ links.
 
 ## Minimal ReactJS Chat App
 
-Repo: [relay-reactjs-chat](https://github.com/status-im/js-waku/tree/master/examples/relay-reactjs-chat).
+Code: [relay-reactjs-chat](https://github.com/status-im/js-waku/tree/master/examples/relay-reactjs-chat).
 
 Demonstrates:
 
@@ -23,7 +23,7 @@ Demonstrates:
 
 ## Minimal ReactJS Waku Store App
 
-Repo: [store-reactjs-chat](https://github.com/status-im/js-waku/tree/master/examples/store-reactjs-chat).
+Code: [store-reactjs-chat](https://github.com/status-im/js-waku/tree/master/examples/store-reactjs-chat).
 
 Demonstrates:
 
@@ -33,7 +33,7 @@ Demonstrates:
 
 ## Minimal Angular Chat App
 
-Repo: [relay-angular-chat](https://github.com/status-im/js-waku/tree/master/examples/relay-angular-chat).
+Code: [relay-angular-chat](https://github.com/status-im/js-waku/tree/master/examples/relay-angular-chat).
 
 Demonstrates:
 
@@ -44,19 +44,29 @@ Demonstrates:
 - No async/await syntax
 - Observables
 
-## Vanilla Javascript Using Minified Library
+## Using Waku Store in JavaScript With Minified Library
 
-Repo: [unpkg-js-store](https://github.com/status-im/js-waku/tree/main/examples/unpkg-js-store).
+Code: [store-js](https://github.com/status-im/js-waku/tree/master/examples/store-js).
 
 Demonstrates:
 
 - How to stop retrieving results from Waku Store on condition
-- Use minified bundle from Unpkg.com
-- Vanilla JavaScript application
+- Use minified bundle from unpkg.com
+- Pure JavaScript application
+
+## Using Waku Relay in JavaScript With Minified Library
+
+Code: [relay-js](https://github.com/status-im/js-waku/tree/master/examples/relay-js).
+
+Demonstrates:
+
+- Waku Relay: Send and receive messages using Waku Relay
+- Use minified bundle from unpkg.com
+- Pure JavaScript application
 
 ## Web Chat App
 
-Repo: [web-chat](https://github.com/status-im/js-waku/tree/main/examples/web-chat).
+Code: [web-chat](https://github.com/status-im/js-waku/tree/master/examples/web-chat).
 Live: https://js-waku.wakuconnect.dev/examples/web-chat/
 
 Demonstrates:
@@ -69,7 +79,7 @@ Demonstrates:
 
 ## Ethereum Private Message Web App
 
-Repo: [eth-pm](https://github.com/status-im/js-waku/tree/main/examples/eth-pm).
+Code: [eth-pm](https://github.com/status-im/js-waku/tree/master/examples/eth-pm).
 Live: https://js-waku.wakuconnect.dev/examples/eth-pm/
 
 Demonstrates:
@@ -84,7 +94,7 @@ Demonstrates:
 
 ## Ethereum Private Message Using Web3 Wallet Encryption API Web App
 
-Repo: [eth-pm-wallet-encryption](https://github.com/status-im/js-waku/tree/main/examples/eth-pm-wallet-encryption).
+Code: [eth-pm-wallet-encryption](https://github.com/status-im/js-waku/tree/master/examples/eth-pm-wallet-encryption).
 Live: https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption/
 
 Demonstrates:
@@ -99,7 +109,7 @@ Demonstrates:
 
 ## Uber-like minimalistic car sharing app suing Vue.js
 
-Repo: [TheBojda/waku-uber](https://github.com/TheBojda/waku-uber).
+Code: [TheBojda/waku-uber](https://github.com/TheBojda/waku-uber).
 
 Article: [Decentralized Uber: Here's How I Built It With Status.im, Waku, and Vue.js](https://hackernoon.com/decentralized-uber-heres-how-i-built-it-with-statusim-waku-and-vuejs).
 
