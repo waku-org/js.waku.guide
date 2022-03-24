@@ -323,12 +323,12 @@ Legend:
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/examples/</guid>
-      <description>Examples #  Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the repo links.
-Minimal ReactJS Chat App #  Repo: relay-reactjs-chat.
+      <description>Examples #  Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the code links.
+Minimal ReactJS Chat App #  Code: relay-reactjs-chat.
 Demonstrates:
- Group chat React/JavaScript Waku Relay Protobuf using protons No async/await syntax  Minimal ReactJS Waku Store App #  Repo: store-reactjs-chat.
+ Group chat React/JavaScript Waku Relay Protobuf using protons No async/await syntax  Minimal ReactJS Waku Store App #  Code: store-reactjs-chat.
 Demonstrates:
- Waku Store React/JavaScript Protobuf using protons  Minimal Angular Chat App #  Repo: relay-angular-chat.</description>
+ Waku Store React/JavaScript Protobuf using protons  Minimal Angular Chat App #  Code: relay-angular-chat.</description>
     </item>
     
     <item>
