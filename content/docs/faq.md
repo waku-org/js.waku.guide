@@ -77,3 +77,13 @@ npm i --save-dev @babel/preset-env@7.14
 rm -rf node_modules package-lock.json
 npm install
 ```
+
+### 3. Store nodes only keep 30 days of messages by default, what if I need to keep messages permanently?
+
+`nwaku` and `go-waku` default value for the number of days messages are kept (`--store-days`) is 30.
+It is possible for operators to run their own store node and set a higher value.
+
+We do not believe Waku Store is appropriate to handle archived messages.
+However, we do not have an out-of-the-box solution at this stage.
+
+Some research on this topic has been done and is documented [here](https://github.com/vacp2p/research/milestone/8).
