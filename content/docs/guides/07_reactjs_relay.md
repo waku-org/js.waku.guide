@@ -56,7 +56,7 @@ This may not be necessary if you do not use `react-scripts` or if you use webpac
 Start by installing the polyfill libraries:
 
 ```shell
-npm install assert buffer crypto-browserify process stream-browserify
+npm install --save assert buffer crypto-browserify process stream-browserify
 ```
 
 ### Webpack 5
@@ -157,7 +157,7 @@ Use `cra-webpack-rewired` in the `package.json`, instead of `react-scripts`:
 Then, install [js-waku](https://npmjs.com/package/js-waku):
 
 ```shell
-npm install js-waku
+npm install --save js-waku
 ```
 
 Start the dev server and open the dApp in your browser:
