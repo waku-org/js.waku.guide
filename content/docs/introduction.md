@@ -13,7 +13,7 @@ It enables you to add communication features to your dApp in a decentralized man
 ensuring to your users that they will not be censored or de-platformed.
 
 Waku can be used for chat purposes and for many machine-to-machine use cases.
-You can learn more about Waku at [wakunetwork.com](https://wakunetwork.com).
+You can learn more about Waku at [waku.org](https://waku.org).
 
 JS-Waku is the TypeScript implementation of the Waku protocol,
 built for browser environment.
