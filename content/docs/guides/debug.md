@@ -51,26 +51,31 @@ Here are guides for some modern browsers:
 
 Nwaku natively supports WebSocket (ws) and WebSocket Secure (wss).
 
-These are currently the only transport supported to connect to the Waku network from a browser.
+These are currently the only transports supported to connect to the Waku network from a browser.
 
-Modern browsers are restrictive around the usage of WebSocket:
+Modern browsers are restrictive with the usage of WebSocket:
 
-- Within a secure context insecure subroutines are disallowed: On a `https://` webpage, only `wss` connections are allowed, not `ws`,
-- Certificate validation checks are the same for `https` and `wss`: Certificate must not be expired, certificate needs to come from a CA pre-installed on the system (no self-signed cert, no ip cert),
-- Failed subroutines are not show to the user: If a WebSocket connection fails because it is not secure or because the certificate is invalid, the user will not be informed, you need to check the `console`.
+- Within a secure context insecure subroutines are disallowed:
+  On a `https://` webpage, only `wss` connections are allowed, not `ws`,
+- Certificate validation checks are the same for `https` and `wss`:
+  Certificate must not be expired,
+  certificate needs to come from a CA recognize by the browser or system (no self-signed cert, no ip cert),
+  domain name must match, etc,
+- Subroutines errors are not displayed to the user:
+  If a WebSocket connection fails, the user will not be informed, you need to check the browser's console.
 
-Finally, these rules do not apply if the webpage is hosted locally (ie, on `localhost` or `127.0.0.1`).
+Finally, these rules do not apply if the webpage is served locally (ie, on `localhost` or `127.0.0.1`).
 
 If you have difficulties to connect to a remote node via `wss`:
 
-1. Check that the certificate is valid by opening the `wss` connection directly in the browser:
+**1. Check that the certificate is valid by opening the `wss` connection directly in the browser:**
 
 If the multiaddr is `/dns4/nwakunode.com/tcp/1234/wss/p2p/16...` then open `https://nwakunode.com:1234` in a modern browser.
 If you get a certificate error, then check why the browser returns this certificate error as this is the issue.
 
 If you get a blank page, or any other error, go to step 2.
 
-2. Try to connect with [`websocat`](https://github.com/vi/websocat):
+**2. Try to connect with [`websocat`](https://github.com/vi/websocat):**
 
 Check if you can connect to the WebSocket port using `websocat`:
 
@@ -85,7 +90,7 @@ websockat -v wss://nwakunode.com:1234
 If the last line is `/multistream/1.0.0` then it works! In this case, the issue might be somewhere in your code.
 Do not hesitate to get support on the [Vac Discord](https://discord.gg/9DgykdmpZ6).
 
-If you get an error, try with option `-k, --insecure    Accept invalid certificates and hostnames while connecting to TLS`"
+If you get an error, try with option `-k, --insecure    Accept invalid certificates and hostnames while connecting to TLS`:
 
 ```shell
 websockat -vk wss://nwakunode.com:1234
@@ -97,7 +102,7 @@ If it works, then you certificate being invalid is the issue.
 
 If it does not work then indeed, your nwaku node does not accept WebSocket connections, go to 3 for a last check.
 
-3. Verify the WebSocket port is accessible:
+**3. Verify the WebSocket port is accessible:**
 
 Use `telnet` (or any other networking tool) to check that the WebSocket port is indeed open and accessible:
 
