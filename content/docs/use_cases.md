@@ -33,7 +33,7 @@ Legend:
 
 Waku can be used as the communication layer to a private, decentralized, censorship-resistant messenger.
 
-- Waku Connect Chat SDK: [repo](https://github.com/status-im/wakuconnect-chat-sdk)
+- Status Web: [repo](https://github.com/status-im/status-web)
 
 <--->
 

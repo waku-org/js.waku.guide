@@ -10,6 +10,8 @@ weight: 22
 
 {{< youtube 1QjxqrLO8WA >}}
 
+mirror: https://odysee.com/@Waku:c/2022-07-web3-conference:5
+
 ## 17 Sep 2021 - EthOnline
 
 Pre-recorded video for hackathon participants.
