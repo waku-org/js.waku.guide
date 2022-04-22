@@ -6,6 +6,12 @@ weight: 22
 
 # Presentations & Videos
 
+## 21 Apr 2022 - Secureum TrustX - Waku: Enabling a New Dimension for dApps
+
+{{< youtube id="GXU5Fd6gMVw?start=21700" >}} 
+
+Presenter: Corey Petty.
+
 ## 27 Jan 2022 - Web 3.0 Conference
 
 {{< youtube 1QjxqrLO8WA >}}
