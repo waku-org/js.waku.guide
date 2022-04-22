@@ -10,6 +10,7 @@ weight: 22
 
 {{< youtube 1QjxqrLO8WA >}}
 
+Presenter: Franck Royer.
 mirror: https://odysee.com/@Waku:c/2022-07-web3-conference:5
 
 ## 17 Sep 2021 - EthOnline
@@ -18,7 +19,8 @@ Pre-recorded video for hackathon participants.
 
 {{< youtube ooRyn4aXsrM >}}
 
-Slides: https://notes.status.im/eth-global-2021
+Presenter: Franck Royer.
+Slides: https://notes.status.im/eth-global-2021.
 
 ## 21 Jul 2021 - EthCC 2021
 
@@ -26,7 +28,8 @@ _Note: DappConnect is now named Waku Connect._
 
 {{< youtube rQOp3qoDF0g >}}
 
-Slides: https://notes.status.im/dappconnect-pres
+Presenter: Franck Royer.
+Slides: https://notes.status.im/dappconnect-pres.
 
 ## 21 Jul 2021 - Ethereum Engineering Group meetup
 
@@ -34,4 +37,5 @@ _Note: DappConnect is now named Waku Connect._
 
 {{< youtube CBknF-6Z-Ds >}}
 
-Slides: https://notes.status.im/dappconnect-pres
+Presenter: Franck Royer.
+Slides: https://notes.status.im/dappconnect-pres.
