@@ -82,7 +82,7 @@ Check if you can connect to the WebSocket port using `websocat`:
 (assuming multiaddr is `/dns4/nwakunode.com/tcp/1234/wss/p2p/16...`)
 
 ```shell
-websockat -v wss://nwakunode.com:1234
+websocat -v wss://nwakunode.com:1234
 # ...
 /multistream/1.0.0
 ```
@@ -93,12 +93,12 @@ Do not hesitate to get support on the [Vac Discord](https://discord.gg/9DgykdmpZ
 If you get an error, try with option `-k, --insecure    Accept invalid certificates and hostnames while connecting to TLS`:
 
 ```shell
-websockat -vk wss://nwakunode.com:1234
+websocat -vk wss://nwakunode.com:1234
 # ...
 /multistream/1.0.0
 ```
 
-If it works, then you certificate being invalid is the issue.
+If it works, then your certificate being invalid is the issue.
 
 If it does not work then indeed, your nwaku node does not accept WebSocket connections, go to 3 for a last check.
 

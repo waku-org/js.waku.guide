@@ -43,6 +43,7 @@
     "globby",
     "gossipsub",
     "hackathon",
+    "hostnames",
     "huilong",
     "iasked",
     "ihave",
@@ -74,6 +75,7 @@
     "mvps",
     "nodekey",
     "nwaku",
+    "nwakunode",
     "onbeforeunload",
     "opendns",
     "peerhave",
@@ -118,6 +120,7 @@
     "wakunode",
     "wakuv",
     "webfonts",
+    "websocat",
     "websockets",
     "websockify",
     "wifi",
@@ -133,10 +136,12 @@
   ],
   "patterns": [
     { "name": "multiaddr", "pattern": "/p2p.*/" },
+    { "name": "dnsMultiaddr", "pattern": "//dns4.*/" },
+    { "name": "wss", "pattern": "/wss:.*/" },
     {
       "name": "youtube-link",
       "pattern": "/< youtube.*/"
     }
   ],
-  "ignoreRegExpList": ["multiaddr", "youtube-link"]
+  "ignoreRegExpList": ["multiaddr", "dnsMultiaddr", "wss", "youtube-link"]
 }
