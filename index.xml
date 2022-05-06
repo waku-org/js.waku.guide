@@ -258,7 +258,7 @@ import React, { useMemo, useState } from &amp;#34;react&amp;#34;; import styled 
       <pubDate>Mon, 31 Jan 2022 00:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/debug/</guid>
-      <description>How to Debug your Waku dApp #  JS-Waku and its most relevant dependencies (libp2p) uses debug to handle logs.
+      <description>How to Debug your Waku dApp #  Enable Debug Logs #  JS-Waku and its most relevant dependencies (libp2p) uses debug to handle logs.
 NodeJS #  To enable debug logs when running js-waku with NodeJS, simply set the DEBUG environment variable.
 To only enable js-waku debug logs:
 export DEBUG=waku* To enable js-waku and libp2p debug logs:
@@ -309,12 +309,11 @@ Legend:
       <pubDate>Wed, 12 Jan 2022 01:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/presentations/</guid>
-      <description>Presentations &amp;amp; Videos #  27 Jan 2022 - Web 3.0 Conference #    17 Sep 2021 - EthOnline #  Pre-recorded video for hackathon participants.
-  Slides: https://notes.status.im/eth-global-2021
-21 Jul 2021 - EthCC 2021 #  Note: DappConnect is now named Waku Connect.
-  Slides: https://notes.status.im/dappconnect-pres
-21 Jul 2021 - Ethereum Engineering Group meetup #  Note: DappConnect is now named Waku Connect.
-  Slides: https://notes.</description>
+      <description>Presentations &amp;amp; Videos #  21 Apr 2022 - Secureum TrustX - Waku: Enabling a New Dimension for dApps #    Presenter: Corey Petty.
+27 Jan 2022 - Web 3.0 Conference #    Presenter: Franck Royer. mirror: https://odysee.com/@Waku:c/2022-07-web3-conference:5
+17 Sep 2021 - EthOnline #  Pre-recorded video for hackathon participants.
+  Presenter: Franck Royer. Slides: https://notes.status.im/eth-global-2021.
+21 Jul 2021 - EthCC 2021 #  Note: DappConnect is now named Waku Connect.</description>
     </item>
     
     <item>

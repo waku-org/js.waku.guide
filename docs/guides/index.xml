@@ -146,7 +146,7 @@ It is also possible to deploy your own nwaku node by following these instruction
       <pubDate>Mon, 31 Jan 2022 00:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/guides/debug/</guid>
-      <description>How to Debug your Waku dApp #  JS-Waku and its most relevant dependencies (libp2p) uses debug to handle logs.
+      <description>How to Debug your Waku dApp #  Enable Debug Logs #  JS-Waku and its most relevant dependencies (libp2p) uses debug to handle logs.
 NodeJS #  To enable debug logs when running js-waku with NodeJS, simply set the DEBUG environment variable.
 To only enable js-waku debug logs:
 export DEBUG=waku* To enable js-waku and libp2p debug logs:
