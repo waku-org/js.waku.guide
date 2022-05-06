@@ -80,10 +80,27 @@ npm install
 
 ### 3. Store nodes only keep 30 days of messages by default, what if I need to keep messages permanently?
 
-`nwaku` and `go-waku` default value for the number of days messages are kept (`--store-days`) is 30.
-It is possible for operators to run their own store node and set a higher value.
+Waku store protocol at this point does not provide a scalable solution to serve a large size archival data
+(as store nodes need to persist the entire history on their own local storage space),
+due to this, this protocol is more suitable for serving recent historical messages.
 
-We do not believe Waku Store is appropriate to handle archived messages.
-However, we do not have an out-of-the-box solution at this stage.
+Nevertheless, research on the scalability aspect has been done and documented in [here](https://github.com/vacp2p/research/milestone/8).
 
-Some research on this topic has been done and is documented [here](https://github.com/vacp2p/research/milestone/8).
+Note that it is possible for operators to run their own store node and set a higher value than the default ones:
+
+`nwaku`:
+
+```
+--store-capacity    Maximum number of messages to keep in store. [=50000].
+```
+
+`go-waku`:
+
+```
+--store-days value      maximum number of days before a message is removed from the store (default: 30)
+--store-capacity value  maximum number of messages to store (default: 50000)
+```
+
+
+
+
