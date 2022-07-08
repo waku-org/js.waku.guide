@@ -12,6 +12,12 @@ weight: 22
 
 Presenter: Corey Petty.
 
+## 22 Mar 2022 - Avalanche Summit
+
+{{< youtube id="OdXtMD-hgdg" >}}
+
+Presenter: Corey Petty.
+
 ## 27 Jan 2022 - Web 3.0 Conference
 
 {{< youtube 1QjxqrLO8WA >}}
