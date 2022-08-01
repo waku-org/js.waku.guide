@@ -42,16 +42,3 @@ params:
   BookCommitPath: 'commit'
   BookEditPath: 'edit/develop'
 
-languages:
-  en:
-    languageName: English
-    contentDir: content
-    weight: 1
-  es:
-    languageName: Español
-    contentDir: content.es
-    weight: 2
-  pt:
-    languageName: Português
-    contentDir: content.pt
-    weight: 3
