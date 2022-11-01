@@ -6,6 +6,15 @@ weight: 10
 
 # Waku Connect Docs
 
+{{< hint danger >}}
+The js-waku library has recently been refactored to achieve a number of production readiness goals.
+Hence, the code snippets present in this documentation are outdated.
+
+Until the doc is updated, the best way to learn how to use js-waku is to check out the [examples](https://github.com/waku-org/js-waku-examples) repository.
+
+Learn more about the refactoring [here](https://github.com/waku-org/js-waku/issues/802).
+{{< /hint >}}
+
 Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
 
 Waku is a decentralized, censorship-resistant, network and protocol family.
