@@ -29,7 +29,7 @@ Check out the [examples](/docs/examples/).
 
 ## Angular
 
-- [Receive and Send Messages Using Waku Relay With ReactJS](./angular_relay/)
+- [Receive and Send Messages Using Waku Relay With AngularJS](./angular_relay/)
 
 ## Service Nodes
 
