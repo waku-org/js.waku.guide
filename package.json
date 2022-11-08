@@ -1,8 +1,8 @@
 {
-  "name": "docs.wakuconnect.dev",
+  "name": "js.waku.guide",
   "version": "1.0.0",
   "main": "\"\"",
-  "repository": "git@github.com:vacp2p/docs.wakuconnect.dev.git",
+  "repository": "git@github.com:waku-org/js.waku.guide.git",
   "author": "Franck Royer <franck@status.im>",
   "license": "MIT",
   "private": true,
