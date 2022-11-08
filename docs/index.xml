@@ -13,9 +13,10 @@
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/introduction/</guid>
-      <description>Waku Connect Docs #  Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
-Waku is a decentralized, censorship-resistant, network and protocol family. It enables you to add communication features to your dApp in a decentralized manner, ensuring to your users that they will not be censored or de-platformed.
-Waku can be used for chat purposes and for many machine-to-machine use cases.</description>
+      <description>Waku Connect Docs #  The js-waku library has recently been refactored to achieve a number of production readiness goals. Hence, the code snippets present in this documentation are outdated.
+Until the doc is updated, the best way to learn how to use js-waku is to check out the examples repository.
+Learn more about the refactoring here.
+ Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.</description>
     </item>
     
     <item>
@@ -74,12 +75,13 @@ Legend:
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
       <guid>https://docs.wakuconnect.dev/docs/examples/</guid>
-      <description>Examples #  Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the code links.
-Minimal ReactJS Chat App #  Code: relay-reactjs-chat.
+      <description>Examples #  JS-Waku Examples Repository #  We maintain a number of examples in the waku-org/js-waku-examples repository.
+These examples use the latest published version of js-waku.
+Community Examples #  Here are examples from the community.
+Uber-like minimalistic car sharing app suing Vue.js #  Code: TheBojda/waku-uber.
+Article: Decentralized Uber: Here&amp;rsquo;s How I Built It With Status.im, Waku, and Vue.js.
 Demonstrates:
- Group chat React/JavaScript Waku Relay Protobuf using protons No async/await syntax  Minimal ReactJS Waku Store App #  Code: store-reactjs-chat.
-Demonstrates:
- Waku Store React/JavaScript Protobuf using protons  Minimal Angular Chat App #  Code: relay-angular-chat.</description>
+ Vue.js Waku Relay Protobuf using protons  </description>
     </item>
     
     <item>

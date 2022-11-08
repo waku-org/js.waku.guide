@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Examples #  Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the code links.
-Minimal ReactJS Chat App #  Code: relay-reactjs-chat.
+<meta name="description" content="Examples #  JS-Waku Examples Repository #  We maintain a number of examples in the waku-org/js-waku-examples repository.
+These examples use the latest published version of js-waku.
+Community Examples #  Here are examples from the community.
+Uber-like minimalistic car sharing app suing Vue.js #  Code: TheBojda/waku-uber.
+Article: Decentralized Uber: Here&rsquo;s How I Built It With Status.im, Waku, and Vue.js.
 Demonstrates:
- Group chat React/JavaScript Waku Relay Protobuf using protons No async/await syntax  Minimal ReactJS Waku Store App #  Code: store-reactjs-chat.
-Demonstrates:
- Waku Store React/JavaScript Protobuf using protons  Minimal Angular Chat App #  Code: relay-angular-chat.">
+ Vue.js Waku Relay Protobuf using protons  ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="Examples" />
-<meta property="og:description" content="Examples #  Here is the list of the code examples and the features they demonstrate. To run or studies the example, click on the code links.
-Minimal ReactJS Chat App #  Code: relay-reactjs-chat.
+<meta property="og:description" content="Examples #  JS-Waku Examples Repository #  We maintain a number of examples in the waku-org/js-waku-examples repository.
+These examples use the latest published version of js-waku.
+Community Examples #  Here are examples from the community.
+Uber-like minimalistic car sharing app suing Vue.js #  Code: TheBojda/waku-uber.
+Article: Decentralized Uber: Here&rsquo;s How I Built It With Status.im, Waku, and Vue.js.
 Demonstrates:
- Group chat React/JavaScript Waku Relay Protobuf using protons No async/await syntax  Minimal ReactJS Waku Store App #  Code: store-reactjs-chat.
-Demonstrates:
- Waku Store React/JavaScript Protobuf using protons  Minimal Angular Chat App #  Code: relay-angular-chat." />
+ Vue.js Waku Relay Protobuf using protons  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://docs.wakuconnect.dev/docs/examples/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2021-12-09T14:00:00+01:00" />
-<meta property="article:modified_time" content="2022-03-24T15:39:00+11:00" />
+<meta property="article:modified_time" content="2022-10-28T15:24:11+11:00" />
 
 <title>Examples | Waku Connect Docs</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css" integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.ccecb0ba1a1b34cd86c70b73403c457a39744d8ae2dbdf6ba029e354e916ae4e.js" integrity="sha256-zOywuhobNM2GxwtzQDxFejl0TYri299roCnjVOkWrk4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.58640ab971c50f372efc1775dd49923b5dc6b12b4e3a5655a043df4c497697d7.js" integrity="sha256-WGQKuXHFDzcu/Bd13UmSO13GsStOOlZVoEPfTEl2l9c=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -71,47 +73,6 @@ https://github.com/alex-shpak/hugo-book
   <ul id="book-search-results"></ul>
 </div>
 
-
-
-  
-
-
-
-  
-    
-  
-    
-  
-
-
-
-<ul class="book-languages">
-  <li>
-    <input type="checkbox" id="languages" class="toggle" />
-    <label for="languages" class="flex justify-between">
-      <a role="button" class="flex align-center">
-        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
-        English
-      </a>
-    </label>
-
-    <ul>
-      
-      <li>
-        <a href="https://docs.wakuconnect.dev/es/">
-          Español
-        </a>
-      </li>
-      
-      <li>
-        <a href="https://docs.wakuconnect.dev/pt/">
-          Português
-        </a>
-      </li>
-      
-    </ul>
-  </li>
-</ul>
 
 
 
@@ -694,15 +655,12 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#examples">Examples</a>
       <ul>
-        <li><a href="#minimal-reactjs-chat-app">Minimal ReactJS Chat App</a></li>
-        <li><a href="#minimal-reactjs-waku-store-app">Minimal ReactJS Waku Store App</a></li>
-        <li><a href="#minimal-angular-chat-app">Minimal Angular Chat App</a></li>
-        <li><a href="#using-waku-store-in-javascript-with-minified-library">Using Waku Store in JavaScript With Minified Library</a></li>
-        <li><a href="#using-waku-relay-in-javascript-with-minified-library">Using Waku Relay in JavaScript With Minified Library</a></li>
-        <li><a href="#web-chat-app">Web Chat App</a></li>
-        <li><a href="#ethereum-private-message-web-app">Ethereum Private Message Web App</a></li>
-        <li><a href="#ethereum-private-message-using-web3-wallet-encryption-api-web-app">Ethereum Private Message Using Web3 Wallet Encryption API Web App</a></li>
-        <li><a href="#uber-like-minimalistic-car-sharing-app-suing-vuejs">Uber-like minimalistic car sharing app suing Vue.js</a></li>
+        <li><a href="#js-waku-examples-repository">JS-Waku Examples Repository</a></li>
+        <li><a href="#community-examples">Community Examples</a>
+          <ul>
+            <li><a href="#uber-like-minimalistic-car-sharing-app-suing-vuejs">Uber-like minimalistic car sharing app suing Vue.js</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -721,118 +679,21 @@ https://github.com/alex-shpak/hugo-book
   Examples
   <a class="anchor" href="#examples">#</a>
 </h1>
-<p>Here is the list of the code examples and the features they demonstrate.
-To run or studies the example, click on the <em>code</em> links.</p>
-<h2 id="minimal-reactjs-chat-app">
-  Minimal ReactJS Chat App
-  <a class="anchor" href="#minimal-reactjs-chat-app">#</a>
+<h2 id="js-waku-examples-repository">
+  JS-Waku Examples Repository
+  <a class="anchor" href="#js-waku-examples-repository">#</a>
 </h2>
-<p>Code: <a href="https://github.com/status-im/js-waku/tree/master/examples/relay-reactjs-chat">relay-reactjs-chat</a>.</p>
-<p>Demonstrates:</p>
-<ul>
-<li>Group chat</li>
-<li>React/JavaScript</li>
-<li>Waku Relay</li>
-<li>Protobuf using <a href="https://www.npmjs.com/package/protons">protons</a></li>
-<li>No async/await syntax</li>
-</ul>
-<h2 id="minimal-reactjs-waku-store-app">
-  Minimal ReactJS Waku Store App
-  <a class="anchor" href="#minimal-reactjs-waku-store-app">#</a>
+<p>We maintain a number of examples in the <a href="https://github.com/waku-org/js-waku-examples#readme">waku-org/js-waku-examples</a> repository.</p>
+<p>These examples use the latest published version of js-waku.</p>
+<h2 id="community-examples">
+  Community Examples
+  <a class="anchor" href="#community-examples">#</a>
 </h2>
-<p>Code: <a href="https://github.com/status-im/js-waku/tree/master/examples/store-reactjs-chat">store-reactjs-chat</a>.</p>
-<p>Demonstrates:</p>
-<ul>
-<li>Waku Store</li>
-<li>React/JavaScript</li>
-<li>Protobuf using <a href="https://www.npmjs.com/package/protons">protons</a></li>
-</ul>
-<h2 id="minimal-angular-chat-app">
-  Minimal Angular Chat App
-  <a class="anchor" href="#minimal-angular-chat-app">#</a>
-</h2>
-<p>Code: <a href="https://github.com/status-im/js-waku/tree/master/examples/relay-angular-chat">relay-angular-chat</a>.</p>
-<p>Demonstrates:</p>
-<ul>
-<li>Group chat</li>
-<li>Angular/JavaScript</li>
-<li>Waku Relay</li>
-<li>Protobuf using <a href="https://www.npmjs.com/package/protons">protons</a></li>
-<li>No async/await syntax</li>
-<li>Observables</li>
-</ul>
-<h2 id="using-waku-store-in-javascript-with-minified-library">
-  Using Waku Store in JavaScript With Minified Library
-  <a class="anchor" href="#using-waku-store-in-javascript-with-minified-library">#</a>
-</h2>
-<p>Code: <a href="https://github.com/status-im/js-waku/tree/master/examples/store-js">store-js</a>.</p>
-<p>Demonstrates:</p>
-<ul>
-<li>How to stop retrieving results from Waku Store on condition</li>
-<li>Use minified bundle from unpkg.com</li>
-<li>Pure JavaScript application</li>
-</ul>
-<h2 id="using-waku-relay-in-javascript-with-minified-library">
-  Using Waku Relay in JavaScript With Minified Library
-  <a class="anchor" href="#using-waku-relay-in-javascript-with-minified-library">#</a>
-</h2>
-<p>Code: <a href="https://github.com/status-im/js-waku/tree/master/examples/relay-js">relay-js</a>.</p>
-<p>Demonstrates:</p>
-<ul>
-<li>Waku Relay: Send and receive messages using Waku Relay</li>
-<li>Use minified bundle from unpkg.com</li>
-<li>Pure JavaScript application</li>
-</ul>
-<h2 id="web-chat-app">
-  Web Chat App
-  <a class="anchor" href="#web-chat-app">#</a>
-</h2>
-<p>Code: <a href="https://github.com/status-im/js-waku/tree/master/examples/web-chat">web-chat</a>.
-Live: <a href="https://js-waku.wakuconnect.dev/examples/web-chat/">https://js-waku.wakuconnect.dev/examples/web-chat/</a></p>
-<p>Demonstrates:</p>
-<ul>
-<li>Group chat</li>
-<li>React/TypeScript</li>
-<li>Waku Relay</li>
-<li>Waku Store</li>
-<li>Protobuf using .proto files + <a href="https://github.com/bufbuild/buf">bufbuild</a> + <a href="https://www.npmjs.com/package/ts-proto">ts-proto</a></li>
-</ul>
-<h2 id="ethereum-private-message-web-app">
-  Ethereum Private Message Web App
-  <a class="anchor" href="#ethereum-private-message-web-app">#</a>
-</h2>
-<p>Code: <a href="https://github.com/status-im/js-waku/tree/master/examples/eth-pm">eth-pm</a>.
-Live: <a href="https://js-waku.wakuconnect.dev/examples/eth-pm/">https://js-waku.wakuconnect.dev/examples/eth-pm/</a></p>
-<p>Demonstrates:</p>
-<ul>
-<li>Private messaging</li>
-<li>React/TypeScript</li>
-<li>Waku Light Push</li>
-<li>Signature with Web3 Wallet</li>
-<li>Asymmetric Encryption</li>
-<li>Symmetric Encryption</li>
-<li>Protobuf using <a href="https://www.npmjs.com/package/protobufjs">protobufjs</a></li>
-</ul>
-<h2 id="ethereum-private-message-using-web3-wallet-encryption-api-web-app">
-  Ethereum Private Message Using Web3 Wallet Encryption API Web App
-  <a class="anchor" href="#ethereum-private-message-using-web3-wallet-encryption-api-web-app">#</a>
-</h2>
-<p>Code: <a href="https://github.com/status-im/js-waku/tree/master/examples/eth-pm-wallet-encryption">eth-pm-wallet-encryption</a>.
-Live: <a href="https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption/">https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption/</a></p>
-<p>Demonstrates:</p>
-<ul>
-<li>Private Messaging</li>
-<li>React/TypeScript</li>
-<li>Waku Light Push</li>
-<li>Signature with Web3 using EIP-712: <code>eth_signTypedData_v4</code></li>
-<li>Asymmetric Encryption</li>
-<li>Usage of <code>eth_decrypt</code> Web3 Wallet API</li>
-<li>Protobuf using <a href="https://www.npmjs.com/package/protobufjs">protobufjs</a></li>
-</ul>
-<h2 id="uber-like-minimalistic-car-sharing-app-suing-vuejs">
+<p>Here are examples from the community.</p>
+<h3 id="uber-like-minimalistic-car-sharing-app-suing-vuejs">
   Uber-like minimalistic car sharing app suing Vue.js
   <a class="anchor" href="#uber-like-minimalistic-car-sharing-app-suing-vuejs">#</a>
-</h2>
+</h3>
 <p>Code: <a href="https://github.com/TheBojda/waku-uber">TheBojda/waku-uber</a>.</p>
 <p>Article: <a href="https://hackernoon.com/decentralized-uber-heres-how-i-built-it-with-statusim-waku-and-vuejs">Decentralized Uber: Here&rsquo;s How I Built It With Status.im, Waku, and Vue.js</a>.</p>
 <p>Demonstrates:</p>
@@ -850,9 +711,9 @@ Live: <a href="https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption
   <div class="flex flex-wrap justify-between">
 
 
-  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/22d30fbbf2aff60362367328cf845f4441c46fc6" title='Last modified by Franck R | Mar 24, 2022' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/vacp2p/docs.wakuconnect.dev/commit/9712fae2855f2ffe7fb7e0835f7b52a7b2f0242d" title='Last modified by fryorcraken.eth | Oct 28, 2022' target="_blank" rel="noopener">
       <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>Mar 24, 2022</span>
+      <span>Oct 28, 2022</span>
     </a>
   </div>
 
@@ -897,15 +758,12 @@ Live: <a href="https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption
   <ul>
     <li><a href="#examples">Examples</a>
       <ul>
-        <li><a href="#minimal-reactjs-chat-app">Minimal ReactJS Chat App</a></li>
-        <li><a href="#minimal-reactjs-waku-store-app">Minimal ReactJS Waku Store App</a></li>
-        <li><a href="#minimal-angular-chat-app">Minimal Angular Chat App</a></li>
-        <li><a href="#using-waku-store-in-javascript-with-minified-library">Using Waku Store in JavaScript With Minified Library</a></li>
-        <li><a href="#using-waku-relay-in-javascript-with-minified-library">Using Waku Relay in JavaScript With Minified Library</a></li>
-        <li><a href="#web-chat-app">Web Chat App</a></li>
-        <li><a href="#ethereum-private-message-web-app">Ethereum Private Message Web App</a></li>
-        <li><a href="#ethereum-private-message-using-web3-wallet-encryption-api-web-app">Ethereum Private Message Using Web3 Wallet Encryption API Web App</a></li>
-        <li><a href="#uber-like-minimalistic-car-sharing-app-suing-vuejs">Uber-like minimalistic car sharing app suing Vue.js</a></li>
+        <li><a href="#js-waku-examples-repository">JS-Waku Examples Repository</a></li>
+        <li><a href="#community-examples">Community Examples</a>
+          <ul>
+            <li><a href="#uber-like-minimalistic-car-sharing-app-suing-vuejs">Uber-like minimalistic car sharing app suing Vue.js</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
