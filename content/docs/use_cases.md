@@ -12,7 +12,7 @@ It can enable numerous use cases, both person-to-person (e.g. messenger) and mac
 This is a non-exhaustive list of use cases that we have considered and their current status.
 
 If we are aware of other projects using js-waku and other use cases that could be implemented,
-feel free to open a [PR](https://github.com/vacp2p/docs.wakuconnect.dev).
+feel free to open a [PR](https://github.com/vacp2p/js.waku.guide).
 
 Legend:
 

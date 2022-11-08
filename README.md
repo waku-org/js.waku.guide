@@ -1,6 +1,6 @@
 # Description
 
-This repository is the source for https://docs.wakuconnect.dev/.
+This repository is the source for https://js.waku.guide/.
 
 It is built using [Hugo](https://gohugo.io/) static site generator.
 
@@ -24,7 +24,7 @@ Will expose the built page under http://localhost:1313/.
 
 Two branches are built by [our Jenkins instance](https://ci.status.im/):
 
-- `master` is deployed to https://docs.wakuconnect.dev/ by [CI](https://ci.status.im/job/website/job/docs.wakuconnect.dev/)
-- `develop` is deployed to https://dev-docs.wakuconnect.dev/ by [CI](https://ci.status.im/job/website/job/dev-docs.wakuconnect.dev/)
+- `master` is deployed to https://js.waku.guide/ by [CI](https://ci.status.im/job/website/job/js.waku.guide/)
+- `develop` is deployed to https://dev-js.waku.guide/ by [CI](https://ci.status.im/job/website/job/dev-js.waku.guide/)
 
 PRs should be made for `develop` branch and `master` should be [rebased](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) on `develop` once changes are verified.

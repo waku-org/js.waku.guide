@@ -1,4 +1,4 @@
-baseURL: "https://docs.wakuconnect.dev/"
+baseURL: "https://js.waku.guide/"
 languageCode: "en-us"
 defaultContentLang: en
 title: "Waku Connect Docs"
@@ -38,7 +38,7 @@ params:
   BookSearch: true
 
   # GitHub edit links
-  BookRepo: 'https://github.com/vacp2p/docs.wakuconnect.dev'
+  BookRepo: 'https://github.com/vacp2p/js.waku.guide'
   BookCommitPath: 'commit'
   BookEditPath: 'edit/develop'
 
