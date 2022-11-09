@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Create a DApp on Waku Connect Docs</title>
-    <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/</link>
+    <link>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/</link>
     <description>Recent content in Create a DApp on Waku Connect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jan 2022 11:00:00 +1100</lastBuildDate><atom:link href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 11:00:00 +1100</lastBuildDate><atom:link href="https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create the DApp and Install Dependencies</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/</guid>
       <description>Create the DApp and Install Dependencies #  Create React App #  Create the new React app using the typescript template. Install the Waku Poll SDK packages.
 To connect dapp with Wallet you can use any package that is compatible with ethers Web3Provider (e.g. @usedapp, web3-react).
 Setup polyfills #  A number of Web3 dependencies need polyfills. Said polyfills must be explicitly declared when using webpack 5.
@@ -21,19 +21,19 @@ The latest react-scripts version uses webpack 5.</description>
     
     <item>
       <title>Connect to the Ethereum Wallet</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/</guid>
       <description>Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&amp;rsquo;s wallet. If you want to use ethers as a package to connect to web3 wallet you can follow this guide and skip the next step. Next step demonstrates how to use @useDapp for this purpose.  In this we will use ethers to keep amount of dependencies to minimum but feel free to use other packages.</description>
     </item>
     
     <item>
       <title>Connect to the Ethereum Wallet useDapp</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</guid>
       <description>Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&amp;rsquo;s wallet. This section can be used instead of previous step. It demonstrates how to use @useDapp for wallet connection.  In this guide, we use useDApp to access the blockchain.
 yarn add @usedapp/core@0.4.7 @usedapp/core must be frozen to version 0.4.7 due to incompatibility between minor versions of ethers.</description>
     </item>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Poll SDK on Waku Connect Docs</title>
-    <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/</link>
+    <link>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/</link>
     <description>Recent content in Poll SDK on Waku Connect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jan 2022 11:00:00 +1100</lastBuildDate><atom:link href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 11:00:00 +1100</lastBuildDate><atom:link href="https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create-A-Poll Button</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</guid>
       <description>Create-A-Poll Button #  Create the Poll component. It will allow the user to create a new poll, view polls and answer them. We&amp;rsquo;ll start by adding a button to create a poll.
 mkdir components touch components/Poll.tsx Styled-components #  Again, create a Wrapper for styling:
 import styled from &amp;#34;styled-components&amp;#34;; const Wrapper = styled.div` display: flex; flex-direction: column; align-items: center; max-width: 1146px; position: relative; margin: 0 auto; padding: 150px 32px 50px; width: 100%; @media (max-width: 1146px) { max-width: 780px; } @media (max-width: 600px) { padding: 132px 16px 32px; } @media (max-width: 425px) { padding: 96px 16px 84px; } `; Button #  Create a button that will display the PollCreation component on click.</description>
@@ -20,10 +20,10 @@ import styled from &amp;#34;styled-components&amp;#34;; const Wrapper = styled.d
     
     <item>
       <title>Poll Creation Component</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/</guid>
       <description>Poll Creation Component #  The Poll SDK provides an off-the-shelf component to create a new poll: PollCreation. It takes in a WakuPolling hook that can created with useWakuPolling.
 useWakuPolling takes:
  appName: Your app name. It is used to generate a unique content topic for your polls. See How to Choose a Content Topic for more information. tokenAddress: The address of your ERC-20 token. Only token holders can create and answer polls.</description>
@@ -31,10 +31,10 @@ useWakuPolling takes:
     
     <item>
       <title>Poll List Component</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/</guid>
       <description>Poll List Component #  To display existing polls, the PollList component is provided.
 Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
 components/Poll.tsx:

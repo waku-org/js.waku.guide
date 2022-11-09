@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Waku Connect Docs</title>
-    <link>https://docs.wakuconnect.dev/docs/guides/</link>
+    <link>https://js.waku.guide/docs/guides/</link>
     <description>Recent content on Waku Connect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://docs.wakuconnect.dev/docs/guides/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://js.waku.guide/docs/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Choose a Content Topic</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/</link>
+      <link>https://js.waku.guide/docs/guides/01_choose_content_topic/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/01_choose_content_topic/</guid>
+      <guid>https://js.waku.guide/docs/guides/01_choose_content_topic/</guid>
       <description>How to Choose a Content Topic #  A content topic is used for content based filtering.
 It allows you to filter out the messages that your dApp processes, both when receiving live messages (Relay) or retrieving historical messages (Store).
 The format for content topics is as follows:
@@ -21,20 +21,20 @@ The format for content topics is as follows:
     
     <item>
       <title>Discovery &amp; Bootstrap Nodes</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/discovery_bootstrap/</link>
+      <link>https://js.waku.guide/docs/guides/discovery_bootstrap/</link>
       <pubDate>Thu, 17 Feb 2022 00:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/discovery_bootstrap/</guid>
+      <guid>https://js.waku.guide/docs/guides/discovery_bootstrap/</guid>
       <description>Discovery &amp;amp; Bootstrap Nodes #  This guide explains the discovery and bootstrap mechanisms currently available in js-waku, their benefits and caveats and how to use them.
 Node discovery is the mechanism that enables a Waku node to find other nodes. Waku is a modular protocol, several discovery mechanisms are and will be included in Waku so that developers can select the best mechanism(s) based for their use case and the user&amp;rsquo;s environment (e.</description>
     </item>
     
     <item>
       <title>Receive and Send Messages Using Waku Relay</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</link>
+      <link>https://js.waku.guide/docs/guides/02_relay_receive_send_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/02_relay_receive_send_messages/</guid>
+      <guid>https://js.waku.guide/docs/guides/02_relay_receive_send_messages/</guid>
       <description>Receive and Send Messages Using Waku Relay #  Waku Relay is a gossip protocol that enables you to send and receive messages. You can find Waku Relay&amp;rsquo;s specifications on Vac RFC.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
 For this guide, we are using a single content topic: /relay-guide/1/chat/proto.</description>
@@ -42,20 +42,20 @@ For this guide, we are using a single content topic: /relay-guide/1/chat/proto.<
     
     <item>
       <title>Retrieve Messages Using Waku Store</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/</link>
+      <link>https://js.waku.guide/docs/guides/03_store_retrieve_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/03_store_retrieve_messages/</guid>
+      <guid>https://js.waku.guide/docs/guides/03_store_retrieve_messages/</guid>
       <description>Retrieve Messages Using Waku Store #  DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received. If you cannot be reached by your peers, then messages are not relayed; relay peers do not save messages for later.</description>
     </item>
     
     <item>
       <title>Encrypt Messages Using Waku Message Version 1</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/</link>
+      <link>https://js.waku.guide/docs/guides/04_encrypt_messages_version_1/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/04_encrypt_messages_version_1/</guid>
+      <guid>https://js.waku.guide/docs/guides/04_encrypt_messages_version_1/</guid>
       <description>Encrypt Messages Using Waku Message Version 1 #  The Waku Message format provides an easy way to encrypt messages using symmetric or asymmetric encryption. The encryption comes with several handy design requirements: confidentiality, authenticity and integrity. It also allows the sender to sign messages, see Sign Messages Using Waku Message Version 1 to learn how.
 You can find more details about Waku Message Payload Encryption in 26/WAKU-PAYLOAD.
 See Cryptographic Libraries for more details on the cryptographic libraries used by js-waku.</description>
@@ -63,10 +63,10 @@ See Cryptographic Libraries for more details on the cryptographic libraries used
     
     <item>
       <title>Sign Messages Using a Web3 Wallet (EIP-712)</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/sign_messages_web3_eip712/</link>
+      <link>https://js.waku.guide/docs/guides/sign_messages_web3_eip712/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/sign_messages_web3_eip712/</guid>
+      <guid>https://js.waku.guide/docs/guides/sign_messages_web3_eip712/</guid>
       <description>Sign Messages Using a Web3 Wallet (EIP-712) #  Depending on your use case, you may need users to certify the ownership of their Ethereum account. They can do so by using their wallet to sign data.
 In this guide, we demonstrate how to use the Ethers.js library to request the user to sign typed data (EIP-712) and then broadcast the signature over Waku.
 For this guide, we are build a dApp that implements 20/TOY-ETH-PM: A simple protocols for end-to-end encrypted messages where Ethereum accounts are used as identity.</description>
@@ -74,10 +74,10 @@ For this guide, we are build a dApp that implements 20/TOY-ETH-PM: A simple prot
     
     <item>
       <title>Sign Messages Using Waku Message Version 1</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/</link>
+      <link>https://js.waku.guide/docs/guides/05_sign_messages_version_1/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/05_sign_messages_version_1/</guid>
+      <guid>https://js.waku.guide/docs/guides/05_sign_messages_version_1/</guid>
       <description>Sign Messages Using Waku Message Version 1 #  The Waku Message format provides an easy way to sign messages using elliptic curve cryptography.
 It also allows the sender to encrypt messages, see Encrypt Messages Using Waku Message Version 1 to learn how.
 You can find more details about Waku Message Payload Signature in 26/WAKU-PAYLOAD.
@@ -87,30 +87,30 @@ Create new keypair #  Generate a new keypair to sign your messages:</description
     
     <item>
       <title>Send Messages Using Waku Light Push</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</link>
+      <link>https://js.waku.guide/docs/guides/06_light_push_send_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/06_light_push_send_messages/</guid>
+      <guid>https://js.waku.guide/docs/guides/06_light_push_send_messages/</guid>
       <description>Send Messages Using Waku Light Push #  Waku Light Push enables a client to receive a confirmation when sending a message.
 The Waku Relay protocol sends messages to connected peers but does not provide any information on whether said peers have received messages. This can be an issue when facing potential connectivity issues. For example, when the connection drops easily, or it is connected to a small number of relay peers.</description>
     </item>
     
     <item>
       <title>Receive and Send Messages Using Waku Relay With ReactJS</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</link>
+      <link>https://js.waku.guide/docs/guides/07_reactjs_relay/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/07_reactjs_relay/</guid>
+      <guid>https://js.waku.guide/docs/guides/07_reactjs_relay/</guid>
       <description>Receive and Send Messages Using Waku Relay With ReactJS #  It is easy to use Waku Connect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics. For this guide, we are using a single content topic: /min-react-js-chat/1/chat/proto.</description>
     </item>
     
     <item>
       <title>Retrieve Messages Using Waku Store With ReactJS</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/</link>
+      <link>https://js.waku.guide/docs/guides/08_reactjs_store/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/08_reactjs_store/</guid>
+      <guid>https://js.waku.guide/docs/guides/08_reactjs_store/</guid>
       <description>Retrieve Messages Using Waku Store With ReactJS #  It is easy to use Waku Connect with ReactJS. In this guide, we will demonstrate how your ReactJS dApp can use Waku Store to retrieve messages.
 DApps running on a phone or in a browser are often offline: The browser could be closed or mobile app in the background.
 Waku Relay is a gossip protocol. As a user, it means that your peers forward you messages they just received.</description>
@@ -118,10 +118,10 @@ Waku Relay is a gossip protocol. As a user, it means that your peers forward you
     
     <item>
       <title>Send and Receive Messages Using Waku Relay With Angular v13</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/angular_relay/</link>
+      <link>https://js.waku.guide/docs/guides/angular_relay/</link>
       <pubDate>Tue, 15 Feb 2022 09:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/angular_relay/</guid>
+      <guid>https://js.waku.guide/docs/guides/angular_relay/</guid>
       <description>Send and Receive Messages Using Waku Relay With Angular v13 #  It is easy to use Waku Connect with Angular v13.
 In this guide, we will demonstrate how your Angular dApp can use Waku Relay to send and receive messages.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
@@ -130,10 +130,10 @@ For this guide, we are using a single content topic: /relay-angular-chat/1/chat/
     
     <item>
       <title>Nwaku Service Node</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/nwaku/</link>
+      <link>https://js.waku.guide/docs/guides/nwaku/</link>
       <pubDate>Thu, 17 Feb 2022 00:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/nwaku/</guid>
+      <guid>https://js.waku.guide/docs/guides/nwaku/</guid>
       <description>Nwaku Service Node #  JS-Waku nodes join the Waku network by connecting to service nodes using secure websocket.
 Nwaku (prev. nim-waku) is the reference implementation of the Waku v2 protocol and can be used as a service node.
 When using { bootstrap: { default: true } }, the js-waku node connects to a fleet of nwaku nodes operated by Status.
@@ -142,10 +142,10 @@ It is also possible to deploy your own nwaku node by following these instruction
     
     <item>
       <title>How to Debug your Waku dApp</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/debug/</link>
+      <link>https://js.waku.guide/docs/guides/debug/</link>
       <pubDate>Mon, 31 Jan 2022 00:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/debug/</guid>
+      <guid>https://js.waku.guide/docs/guides/debug/</guid>
       <description>How to Debug your Waku dApp #  Enable Debug Logs #  JS-Waku and its most relevant dependencies (libp2p) uses debug to handle logs.
 NodeJS #  To enable debug logs when running js-waku with NodeJS, simply set the DEBUG environment variable.
 To only enable js-waku debug logs:

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on Waku Connect Docs</title>
-    <link>https://docs.wakuconnect.dev/docs/</link>
+    <link>https://js.waku.guide/docs/</link>
     <description>Recent content in Introduction on Waku Connect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Dec 2021 14:00:00 +0100</lastBuildDate><atom:link href="https://docs.wakuconnect.dev/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Dec 2021 14:00:00 +0100</lastBuildDate><atom:link href="https://js.waku.guide/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>https://docs.wakuconnect.dev/docs/introduction/</link>
+      <link>https://js.waku.guide/docs/introduction/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/introduction/</guid>
-      <description>Waku Connect Docs #  The js-waku library has recently been refactored to achieve a number of production readiness goals. Hence, the code snippets present in this documentation are outdated.
+      <guid>https://js.waku.guide/docs/introduction/</guid>
+      <description>JS-Waku Docs #  The js-waku library has recently been refactored to achieve a number of production readiness goals. Hence, the code snippets present in this documentation are outdated.
 Until the doc is updated, the best way to learn how to use js-waku is to check out the examples repository.
 Learn more about the refactoring here.
  Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.</description>
@@ -21,10 +21,10 @@ Learn more about the refactoring here.
     
     <item>
       <title>Quick Start</title>
-      <link>https://docs.wakuconnect.dev/docs/quick_start/</link>
+      <link>https://js.waku.guide/docs/quick_start/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/quick_start/</guid>
+      <guid>https://js.waku.guide/docs/quick_start/</guid>
       <description>Quick Start #  In this section you will learn how to receive and send messages using Waku Relay.
 A more in depth guide for Waku Relay can be found here.
 Install #  Install the js-waku package:
@@ -33,10 +33,10 @@ npm install js-waku # or with yarn yarn add js-waku Start a waku node #  import 
     
     <item>
       <title>FAQ</title>
-      <link>https://docs.wakuconnect.dev/docs/faq/</link>
+      <link>https://js.waku.guide/docs/faq/</link>
       <pubDate>Wed, 16 Feb 2022 00:00:00 +1000</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/faq/</guid>
+      <guid>https://js.waku.guide/docs/faq/</guid>
       <description>FAQ #  Frequently Asked Questions for developers using js-waku:
 1. Why should I build a frontend only webapp (no NodeJS backend)? #  Waku enables dApp to add communication, e.g. interaction between users, in a fully decentralized manner. A webapp that uses NodeJS as a backend implies that a party runs said NodeJS software in a centralized infrastructure.
 Despite using Waku &amp;amp; Ethereum, such webapp cannot become decentralized.
@@ -45,10 +45,10 @@ By building a frontend only webapp, that entirely runs in the browser, one can d
     
     <item>
       <title>Use Cases</title>
-      <link>https://docs.wakuconnect.dev/docs/use_cases/</link>
+      <link>https://js.waku.guide/docs/use_cases/</link>
       <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/use_cases/</guid>
+      <guid>https://js.waku.guide/docs/use_cases/</guid>
       <description>Use Cases #  Waku is a generalized communication network. It can enable numerous use cases, both person-to-person (e.g. messenger) and machine-to-machine (e.g. state channels).
 This is a non-exhaustive list of use cases that we have considered and their current status.
 If we are aware of other projects using js-waku and other use cases that could be implemented, feel free to open a PR.
@@ -58,10 +58,10 @@ Legend:
     
     <item>
       <title>Presentations &amp; Videos</title>
-      <link>https://docs.wakuconnect.dev/docs/presentations/</link>
+      <link>https://js.waku.guide/docs/presentations/</link>
       <pubDate>Wed, 12 Jan 2022 01:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/presentations/</guid>
+      <guid>https://js.waku.guide/docs/presentations/</guid>
       <description>Presentations &amp;amp; Videos #  21 Apr 2022 - Secureum TrustX - Waku: Enabling a New Dimension for dApps #    Presenter: Corey Petty.
 22 Mar 2022 - Avalanche Summit #    Presenter: Corey Petty.
 27 Jan 2022 - Web 3.0 Conference #    Presenter: Franck Royer. mirror: https://odysee.com/@Waku:c/2022-07-web3-conference:5
@@ -71,10 +71,10 @@ Legend:
     
     <item>
       <title>Examples</title>
-      <link>https://docs.wakuconnect.dev/docs/examples/</link>
+      <link>https://js.waku.guide/docs/examples/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/examples/</guid>
+      <guid>https://js.waku.guide/docs/examples/</guid>
       <description>Examples #  JS-Waku Examples Repository #  We maintain a number of examples in the waku-org/js-waku-examples repository.
 These examples use the latest published version of js-waku.
 Community Examples #  Here are examples from the community.
@@ -86,10 +86,10 @@ Demonstrates:
     
     <item>
       <title>Cryptographic Libraries</title>
-      <link>https://docs.wakuconnect.dev/docs/crypto_libraries/</link>
+      <link>https://js.waku.guide/docs/crypto_libraries/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/crypto_libraries/</guid>
+      <guid>https://js.waku.guide/docs/crypto_libraries/</guid>
       <description>Cryptographic Libraries #  A note on the cryptographic libraries used as it is a not a straightforward affair.
 Asymmetric encryption #  Uses ecies-geth which in turns uses SubtleCrypto Web API (browser), secp256k1 (native binding for node) or elliptic (pure JS if none of the other libraries are available).
 Symmetric encryption #  Uses SubtleCrypto Web API (browser) or NodeJS&#39; crypto module.</description>
@@ -97,10 +97,10 @@ Symmetric encryption #  Uses SubtleCrypto Web API (browser) or NodeJS&#39; crypt
     
     <item>
       <title>Implemented Waku Protocols</title>
-      <link>https://docs.wakuconnect.dev/docs/waku_protocols/</link>
+      <link>https://js.waku.guide/docs/waku_protocols/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/waku_protocols/</guid>
+      <guid>https://js.waku.guide/docs/waku_protocols/</guid>
       <description>Waku Protocol Support #  You can track progress on the project board.
  ✔: Supported 🚧: Implementation in progress ⛔: Support is not planned     Spec Implementation Status     6/WAKU1 ⛔   7/WAKU-DATA ⛔   8/WAKU-MAIL ⛔   9/WAKU-RPC ⛔   10/WAKU2 🚧   11/WAKU2-RELAY ✔   12/WAKU2-FILTER    13/WAKU2-STORE ✔ (querying node only)   14/WAKU2-MESSAGE ✔   15/WAKU2-BRIDGE    16/WAKU2-RPC ⛔   17/WAKU2-RLNRELAY    18/WAKU2-SWAP    19/WAKU2-LIGHTPUSH ✔   20/TOY-ETH-PM ✔ (as example)   21/WAKU2-FTSTORE ✔   22/TOY-CHAT ✔ (as example)   25/LIBP2P-DNS-DISCOVERY 🚧   26/WAKU2-PAYLOAD ✔    </description>
     </item>

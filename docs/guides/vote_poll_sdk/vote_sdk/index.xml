@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vote SDK on Waku Connect Docs</title>
-    <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/</link>
+    <link>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/</link>
     <description>Recent content in Vote SDK on Waku Connect Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Jan 2022 11:00:00 +1100</lastBuildDate><atom:link href="https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jan 2022 11:00:00 +1100</lastBuildDate><atom:link href="https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deploy smart contract</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/</guid>
       <description>Deploy smart contract #  Creating new package #  For this deployment we will create a new package.
 mkdir contract-deployment cd contract-deployment yarn init yarn add @waku/vote-sdk-contracts ethers ts-node typescript Create a tsconfig.json with:
 { &amp;#34;compilerOptions&amp;#34;: { &amp;#34;target&amp;#34;: &amp;#34;es2020&amp;#34;, &amp;#34;module&amp;#34;: &amp;#34;commonJS&amp;#34;, &amp;#34;esModuleInterop&amp;#34;: true, &amp;#34;moduleResolution&amp;#34;: &amp;#34;node&amp;#34;, &amp;#34;resolveJsonModule&amp;#34;: true, &amp;#34;noEmit&amp;#34;: true } } And now we can add a deploy script index.ts:
@@ -21,10 +21,10 @@ import { ContractFactory, getDefaultProvider, Wallet } from &amp;#34;ethers&amp;
     
     <item>
       <title>Creating Voting component</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/</guid>
       <description>Create Voting component #  With the smart contract deployed we can go back to our dApp.
 We assume that the skeleton for the dApp with connection to the wallet is already done, if not please go to dApp creation.
 Create components #  Let&amp;rsquo;s start by creating a new folder components with file named Voting.tsx inside.
@@ -33,10 +33,10 @@ After that we can start with styling and defining which theme we will be using:<
     
     <item>
       <title>Use Voting Component</title>
-      <link>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</link>
+      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</link>
       <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
       
-      <guid>https://docs.wakuconnect.dev/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</guid>
+      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</guid>
       <description>Use Voting Component #  Define Configuration #  Configure the dApp by setting:
  Address of the multicall smart contract of the target chain, Address of the voting smart contract, Your dApp name.  const VOTING_ADDRESS = &amp;#34;VOTING_ADDRESS&amp;#34;; const MULTICALL_ADDRESS = &amp;#34;MULTICALL_ADDRESS&amp;#34;; const DAPP_NAME = &amp;#34;YOUR_DAPP_NAME&amp;#34;; Use Waku Voting #  Now, we need a Waku voting object. For that, call useWakuVoting:
 import { useWakuVoting } from &amp;#34;@waku/vote-sdk-react-hooks&amp;#34;; export function MainPage() { const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID); const wakuVoting = useWakuVoting( DAPP_NAME, VOTING_ADDRESS, provider, MULTICALL_ADDRESS ); } Display Voting Component #  Modify the MainPage to render a Voting component.</description>
