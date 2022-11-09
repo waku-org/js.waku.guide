@@ -9,9 +9,9 @@ menu:
   before: []
   after:
     - name: "JS-Waku API Doc"
-      url: "https://js-waku.wakuconnect.dev/"
+      url: "https://js.waku.org/"
       weight: 5
-    - name: "Vac Team"
+    - name: "Vac
       url: "https://vac.dev/"
       weight: 10
     - name: "Vac RFCs"

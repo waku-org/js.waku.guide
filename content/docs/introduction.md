@@ -4,7 +4,7 @@ date: 2021-12-09T14:00:00+01:00
 weight: 10
 ---
 
-# Waku Connect Docs
+# JS-Waku Docs
 
 {{< hint danger >}}
 The js-waku library has recently been refactored to achieve a number of production readiness goals.
@@ -43,17 +43,15 @@ Check out the [example list](/docs/examples/) to see what usage each example dem
 
 You can also try out some of the examples at the following locations:
 
-- [web-chat](https://js-waku.wakuconnect.dev/examples/web-chat): A simple public chat ([docs](/docs/examples/#web-chat-app)).
-- [eth-pm](https://js-waku.wakuconnect.dev/examples/eth-pm): End-to-end encrypted private messages
+- [web-chat](https://examples.waku.org/web-chat): A simple public chat ([docs](/docs/examples/#web-chat-app)).
+- [eth-pm](https://examples.waku.org/eth-pm): End-to-end encrypted private messages
   ([docs](/docs/examples/#ethereum-private-message-web-app)).
-- [eth-pm-wallet-encryption](https://js-waku.wakuconnect.dev/examples/eth-pm-wallet-encryption): Eth-pm using Web3 wallet encryption API
-  ([docs](/docs/examples/#ethereum-private-message-using-web3-wallet-encryption-api-web-app)).
 
 Finally, if you want to learn how Waku works under the hoods, check the specs at [rfc.vac.dev](https://rfc.vac.dev/).
 
 ## Bugs, Questions & Support
 
-If you encounter any bug or would like to propose new features, feel free to [open an issue](https://github.com/status-im/js-waku/issues/new/).
+If you encounter any bug or would like to propose new features, feel free to [open an issue](https://github.com/waku-org/js-waku/issues/new/).
 
 For general discussion, get help or latest news,
 join **#js-waku** on [Vac Discord](https://discord.gg/j5pGbn7MHZ) or the [Waku Telegram Group](https://t.me/waku_org).
