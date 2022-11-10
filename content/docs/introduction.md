@@ -46,6 +46,8 @@ You can also try out some of the examples at the following locations:
 - [web-chat](https://examples.waku.org/web-chat): A simple public chat ([docs](/docs/examples/#web-chat-app)).
 - [eth-pm](https://examples.waku.org/eth-pm): End-to-end encrypted private messages
   ([docs](/docs/examples/#ethereum-private-message-web-app)).
+- [rln-js](https://examples.waku.org/rln-js): Demonstration of [RLN](https://rfc.vac.dev/spec/32/),
+  an economic spam protection protocol that rate limit using zero-knowledge for privacy preserving purposes.
 
 Finally, if you want to learn how Waku works under the hoods, check the specs at [rfc.vac.dev](https://rfc.vac.dev/).
 
