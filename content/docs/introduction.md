@@ -49,6 +49,10 @@ You can also try out some of the examples at the following locations:
 - [rln-js](https://examples.waku.org/rln-js): Demonstration of [RLN](https://rfc.vac.dev/spec/32/),
   an economic spam protection protocol that rate limit using zero-knowledge for privacy preserving purposes.
 
+If you want to play with examples, please, use one of the following commands to easily bootstrap an example:
+- `yarn create @waku/app <project-dir>`
+- `npx @waku/create-app <project-dir>`
+
 Finally, if you want to learn how Waku works under the hoods, check the specs at [rfc.vac.dev](https://rfc.vac.dev/).
 
 ## Bugs, Questions & Support
