@@ -12,6 +12,8 @@ We maintain a number of examples in the [waku-org/js-waku-examples](https://gith
 
 These examples use the latest published version of js-waku.
 
+Any example from the repository can be bootstrapped by helper package `@waku/app`. More details here: [README.md](https://github.com/waku-org/js-waku-examples/tree/master/create-waku-app)
+
 ## Community Examples
 
 Here are examples from the community.
