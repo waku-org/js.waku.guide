@@ -15,10 +15,9 @@ Until the doc is updated, the best way to learn how to use js-waku is to check o
 Learn more about the refactoring [here](https://github.com/waku-org/js-waku/issues/802).
 {{< /hint >}}
 
-Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.
+Waku is a family of protocols designed to provide censorship-resistant, privacy preserving, surveillance prone and portable communication.
 
-Waku is a decentralized, censorship-resistant, network and protocol family.
-It enables you to add communication features to your dApp in a decentralized manner,
+The Waku software suite enables you to add communication features to your dApp in a decentralized manner,
 ensuring to your users that they will not be censored or de-platformed.
 
 Waku can be used for chat purposes and for many machine-to-machine use cases.
@@ -37,11 +36,11 @@ If you are looking for inspiration, check out the [use cases](/docs/use_cases) W
 The [guides](/docs/guides) explain specific js-waku features
 and how it can be used with popular web frameworks.
 
-The js-waku repository also holds a number of [examples](https://github.com/status-im/js-waku/tree/main/examples).
-The examples are working Proof-of-Concepts that demonstrate how to use js-waku.
+The [js-waku-examples](https://github.com/waku-org/js-waku-examples) repository also holds a number of examples.
+They are working Proof-of-Concepts that demonstrate how to use js-waku.
 Check out the [example list](/docs/examples/) to see what usage each example demonstrates.
 
-You can also try out some of the examples at the following locations:
+The examples are also deployed:
 
 - [web-chat](https://examples.waku.org/web-chat): A simple public chat ([docs](/docs/examples/#web-chat-app)).
 - [eth-pm](https://examples.waku.org/eth-pm): End-to-end encrypted private messages
@@ -50,6 +49,7 @@ You can also try out some of the examples at the following locations:
   an economic spam protection protocol that rate limit using zero-knowledge for privacy preserving purposes.
 
 If you want to play with examples, please, use one of the following commands to easily bootstrap an example:
+
 - `yarn create @waku/app <project-dir>`
 - `npx @waku/create-app <project-dir>`
 
@@ -60,4 +60,4 @@ Finally, if you want to learn how Waku works under the hoods, check the specs at
 If you encounter any bug or would like to propose new features, feel free to [open an issue](https://github.com/waku-org/js-waku/issues/new/).
 
 For general discussion, get help or latest news,
-join **#js-waku** on [Vac Discord](https://discord.gg/j5pGbn7MHZ) or the [Waku Telegram Group](https://t.me/waku_org).
+join **#js-waku** on [Vac Discord](https://discord.gg/Nrac59MfSX) or the [Waku Telegram Group](https://t.me/waku_org).
