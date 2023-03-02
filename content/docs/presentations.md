@@ -6,6 +6,24 @@ weight: 22
 
 # Presentations & Videos
 
+## 13 Oct 2022 - Using ZKP for better p2p messaging with Waku | Devcon Bogotá
+
+{{< youtube id="eJwX1JpcKQk" >}}
+
+Presenter: Oskar Thorén.
+
+## 12 Oct 2022 - How to Ethically Build Public Good Infrastructure | Devcon Bogotá
+
+{{< youtube id="yi7nS0g0Yno" >}}
+
+Presenter: Corey Petty.
+
+## 12 Oct 2022 - Building Privacy-Protecting Infrastructure | Devcon Bogotá
+
+{{< youtube id="CW1DYJifdhs" >}}
+
+Presenter: Oskar Thorén.
+
 ## 21 Apr 2022 - Secureum TrustX - Waku: Enabling a New Dimension for dApps
 
 {{< youtube id="GXU5Fd6gMVw?start=21700" >}} 
