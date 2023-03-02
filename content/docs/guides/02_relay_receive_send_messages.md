@@ -1,7 +1,7 @@
 ---
 title: Receive and Send Messages Using Waku Relay
 date: 2021-12-09T14:00:00+01:00
-weight: 2
+weight: 20
 ---
 
 # Receive and Send Messages Using Waku Relay

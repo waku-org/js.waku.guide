@@ -1,7 +1,7 @@
 ---
 title: Receive and Send Messages Using Waku Relay With ReactJS
 date: 2021-12-09T14:00:00+01:00
-weight: 7
+weight: 70
 ---
 
 # Receive and Send Messages Using Waku Relay With ReactJS

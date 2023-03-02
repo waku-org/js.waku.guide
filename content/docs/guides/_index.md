@@ -1,5 +1,5 @@
 ---
-weight: 30
+weight: 300
 ---
 
 # Guides
@@ -15,6 +15,7 @@ Check out the [examples](/docs/examples/).
 
 ## JavaScript
 
+- [Build a Chat App](./chat_app/)
 - [Receive and Send Messages Using Waku Relay](./02_relay_receive_send_messages/)
 - [Retrieve Messages Using Waku Store](./03_store_retrieve_messages/)
 - [Send Messages Using Waku Light Push](./06_light_push_send_messages/)

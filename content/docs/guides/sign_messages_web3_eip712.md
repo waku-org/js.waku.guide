@@ -1,7 +1,7 @@
 ---
 title: Sign Messages Using a Web3 Wallet (EIP-712)
 date: 2021-12-09T14:00:00+01:00
-weight: 5
+weight: 91
 ---
 
 # Sign Messages Using a Web3 Wallet (EIP-712)

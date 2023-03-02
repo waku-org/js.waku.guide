@@ -1,7 +1,7 @@
 ---
 title: Discovery & Bootstrap Nodes
 date: 2022-02-17T00:00:00+01:00
-weight: 2
+weight: 4
 ---
 
 # Discovery & Bootstrap Nodes

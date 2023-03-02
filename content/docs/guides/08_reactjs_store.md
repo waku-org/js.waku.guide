@@ -1,7 +1,7 @@
 ---
 title: Retrieve Messages Using Waku Store With ReactJS
 date: 2021-12-09T14:00:00+01:00
-weight: 8
+weight: 80
 ---
 
 # Retrieve Messages Using Waku Store With ReactJS

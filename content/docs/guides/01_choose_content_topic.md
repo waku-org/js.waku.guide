@@ -1,7 +1,7 @@
 ---
 title: How to Choose a Content Topic
 date: 2021-12-09T14:00:00+01:00
-weight: 1
+weight: 10
 ---
 
 # How to Choose a Content Topic
