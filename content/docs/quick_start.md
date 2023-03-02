@@ -6,61 +6,108 @@ weight: 20
 
 # Quick Start
 
-In this section you will learn how to receive and send messages using Waku Relay.
+In this guide you will learn how to add Waku to an **existing** JavaScript project.
 
-A more in depth guide for Waku Relay can be found [here](/docs/guides/02_relay_receive_send_messages/).
+If you want to build a Waku app from scratch, check out the [Build a Chat App](/docs/guides/chat_app/) guide.
 
-## Install
+This guide is kept succinct on purpose, check out other [guides](/docs/guides/) to learn more.
 
-Install the `js-waku` package:
+## 1. Install Waku Libraries
 
 ```shell
-npm install js-waku
-# or with yarn
-yarn add js-waku
+npm i @waku/core @waku/create
 ```
 
-### Start a waku node
+## 2. Start a Waku Node
 
-```ts
-import { Waku } from "js-waku";
+Create and start a Waku Node:
 
-const waku = await Waku.create({ bootstrap: { default: true } });
+```js
+import {createLightNode} from "@waku/create"
+
+const waku = await createLightNode({defaultBootstrap: true})
+await waku.start()
 ```
 
-### Listen for messages
+{{< hint info >}}
+The `defaultBootstrap` option enables your Waku node to connect to set a pre-defined nodes.
+This can be modified in the future.
+{{< /hint >}}
 
-The `contentTopic` is a metadata `string` that allows categorization of messages on the waku network.
-Depending on your use case, you can either create one (or several) new `contentTopic`(s)
-or look at the [RFCs](https://rfc.vac.dev/) and use an existing `contentTopic`.
+## 3. Wait to be connected
+
+The Waku node needs to first connect to bootstrap nodes to establish a connection.
+To wait for this, use the `waitForRemotePeer` function:
+
+```js
+import * as waku from "@waku/core"
+
+await waku.waitForRemotePeer(wakuNode)
+```
+
+## 4. Define a Content Topic
+
+The `contentTopic` is a metadata `string` that allows categorization of messages on the Waku network.
+Depending on your use case, you can either create one (or several) new `contentTopic`(s).
 See [How to Choose a Content Topic](/docs/guides/01_choose_content_topic/) for more details.
 
-For example, if you were to use a new `contentTopic` such as `/my-cool-app/1/my-use-case/proto`,
-here is how to listen to new messages received via [Waku v2 Relay](https://rfc.vac.dev/spec/11/):
+For now, let's use `/quick-start/1/message/utf8` for this guide.
+Note that we will be encoding our payload using `utf-8`.
+Note that Protobuf is recommended for production usage.
 
-```ts
-waku.relay.addObserver(
-  (msg) => {
-    console.log("Message received:", msg.payloadAsUtf8);
-  },
-  ["/my-cool-app/1/my-use-case/proto"]
-);
+```js
+const contentTopic = `/quick-start/1/message/utf8`
 ```
 
-### Send messages
+## 5. Create a Decoder
 
-Messages are wrapped in a `WakuMessage` envelop.
+Waku offers several encryption protocols,
+a decoder enables you to specify what content topic to use and how to decrypt messages.
 
-```ts
-import { WakuMessage } from "js-waku";
+Create a decoder for plain text decoding (no encryption), for the chose content topic:
 
-const msg = await WakuMessage.fromUtf8String(
-  "Here is a message!",
-  "/my-cool-app/1/my-use-case/proto"
-);
-await waku.relay.send(msg);
+```js
+const decoder = waku.createDecoder(contentTopic)
 ```
 
-### Building an app
+## 6. Listen for Incoming Messages
 
-Check out the [ReactJS Waku Relay guide](/docs/guides/07_reactjs_relay/) to learn how you can use the code above in a React app.
+Messages sent over the network are `Waku Message`s.
+You can check the wire format here: https://rfc.vac.dev/spec/14/#wire-format
+
+The interface for a plain text decoder is [`DecodedMessage`](https://js.waku.org/classes/_waku_core.DecodedMessage.html).
+
+For now, we will just use the `payload` field.
+It is a byte array field you can use to encode any data you want.
+We will use it to store messages as `utf-8`.
+
+Listen to messages using the decoder:
+
+```ts
+wakuNode.filter.subscribe([decoder], (message) => {
+    const str = utils.bytesToUtf8(message.payload)
+    // str is a string, render it in your app anyway you wish
+})
+```
+
+## 7. Send Messages
+
+Finally, create a `sendMessage` function that will send messages over Waku:
+
+```ts
+const encoder = waku.createEncoder(contentTopic)
+
+const sendMessage = async (textMsg) => {
+    await wakuNode.lightPush.push(encoder, {
+        payload: utils.utf8ToBytes(textMsg),
+    });
+};
+```
+
+You can use `sendMessage` in your app to send messages.
+
+## Conclusion
+
+You have added decentralized communication features to your app!
+
+Check out other [guides](/docs/guides/) to learn more or join us on [Discord](https://discord.gg/Nrac59MfSX).
