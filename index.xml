@@ -8,30 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Dec 2021 14:00:00 +0100</lastBuildDate><atom:link href="https://js.waku.guide/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Create the DApp and Install Dependencies</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/01_create_dapp/</guid>
-      <description>Create the DApp and Install Dependencies #  Create React App #  Create the new React app using the typescript template. Install the Waku Poll SDK packages.
-To connect dapp with Wallet you can use any package that is compatible with ethers Web3Provider (e.g. @usedapp, web3-react).
-Setup polyfills #  A number of Web3 dependencies need polyfills. Said polyfills must be explicitly declared when using webpack 5.
-The latest react-scripts version uses webpack 5.</description>
-    </item>
-    
-    <item>
-      <title>Deploy smart contract</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/01_deploying_smart_contract/</guid>
-      <description>Deploy smart contract #  Creating new package #  For this deployment we will create a new package.
-mkdir contract-deployment cd contract-deployment yarn init yarn add @waku/vote-sdk-contracts ethers ts-node typescript Create a tsconfig.json with:
-{ &amp;#34;compilerOptions&amp;#34;: { &amp;#34;target&amp;#34;: &amp;#34;es2020&amp;#34;, &amp;#34;module&amp;#34;: &amp;#34;commonJS&amp;#34;, &amp;#34;esModuleInterop&amp;#34;: true, &amp;#34;moduleResolution&amp;#34;: &amp;#34;node&amp;#34;, &amp;#34;resolveJsonModule&amp;#34;: true, &amp;#34;noEmit&amp;#34;: true } } And now we can add a deploy script index.ts:
-import { ContractFactory, getDefaultProvider, Wallet } from &amp;#34;ethers&amp;#34;; import VotingContract from &amp;#34;@waku/vote-sdk-contracts/build/VotingContract.</description>
-    </item>
-    
-    <item>
       <title>How to Choose a Content Topic</title>
       <link>https://js.waku.guide/docs/guides/01_choose_content_topic/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
@@ -55,27 +31,6 @@ Node discovery is the mechanism that enables a Waku node to find other nodes. Wa
     </item>
     
     <item>
-      <title>Connect to the Ethereum Wallet</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/02_connect_wallet/</guid>
-      <description>Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&amp;rsquo;s wallet. If you want to use ethers as a package to connect to web3 wallet you can follow this guide and skip the next step. Next step demonstrates how to use @useDapp for this purpose.  In this we will use ethers to keep amount of dependencies to minimum but feel free to use other packages.</description>
-    </item>
-    
-    <item>
-      <title>Creating Voting component</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/02_voting_creation/</guid>
-      <description>Create Voting component #  With the smart contract deployed we can go back to our dApp.
-We assume that the skeleton for the dApp with connection to the wallet is already done, if not please go to dApp creation.
-Create components #  Let&amp;rsquo;s start by creating a new folder components with file named Voting.tsx inside.
-After that we can start with styling and defining which theme we will be using:</description>
-    </item>
-    
-    <item>
       <title>Receive and Send Messages Using Waku Relay</title>
       <link>https://js.waku.guide/docs/guides/02_relay_receive_send_messages/</link>
       <pubDate>Thu, 09 Dec 2021 14:00:00 +0100</pubDate>
@@ -84,27 +39,6 @@ After that we can start with styling and defining which theme we will be using:<
       <description>Receive and Send Messages Using Waku Relay #  Waku Relay is a gossip protocol that enables you to send and receive messages. You can find Waku Relay&amp;rsquo;s specifications on Vac RFC.
 Before starting, you need to choose a Content Topic for your dApp. Check out the how to choose a content topic guide to learn more about content topics.
 For this guide, we are using a single content topic: /relay-guide/1/chat/proto.</description>
-    </item>
-    
-    <item>
-      <title>Connect to the Ethereum Wallet useDapp</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/dapp_creation/03_connect_wallet_usedapp/</guid>
-      <description>Connect to the Ethereum Wallet #  This section may be skipped if you are adding the poll feature to an existing dApp that already connects to the user&amp;rsquo;s wallet. This section can be used instead of previous step. It demonstrates how to use @useDapp for wallet connection.  In this guide, we use useDApp to access the blockchain.
-yarn add @usedapp/core@0.4.7 @usedapp/core must be frozen to version 0.4.7 due to incompatibility between minor versions of ethers.</description>
-    </item>
-    
-    <item>
-      <title>Use Voting Component</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/vote_sdk/03_using_voting/</guid>
-      <description>Use Voting Component #  Define Configuration #  Configure the dApp by setting:
- Address of the multicall smart contract of the target chain, Address of the voting smart contract, Your dApp name.  const VOTING_ADDRESS = &amp;#34;VOTING_ADDRESS&amp;#34;; const MULTICALL_ADDRESS = &amp;#34;MULTICALL_ADDRESS&amp;#34;; const DAPP_NAME = &amp;#34;YOUR_DAPP_NAME&amp;#34;; Use Waku Voting #  Now, we need a Waku voting object. For that, call useWakuVoting:
-import { useWakuVoting } from &amp;#34;@waku/vote-sdk-react-hooks&amp;#34;; export function MainPage() { const { activate, deactivate, account, provider } = useWeb3Connect(SUPPORTED_CHAIN_ID); const wakuVoting = useWakuVoting( DAPP_NAME, VOTING_ADDRESS, provider, MULTICALL_ADDRESS ); } Display Voting Component #  Modify the MainPage to render a Voting component.</description>
     </item>
     
     <item>
@@ -216,41 +150,7 @@ It is also possible to deploy your own nwaku node by following these instruction
       <description>JS-Waku Docs #  The js-waku library has recently been refactored to achieve a number of production readiness goals. Hence, the code snippets present in this documentation are outdated.
 Until the doc is updated, the best way to learn how to use js-waku is to check out the examples repository.
 Learn more about the refactoring here.
- Waku Connect is a suite of libraries, SDKs and documentations to help you use Waku in your dApp.</description>
-    </item>
-    
-    <item>
-      <title>Create-A-Poll Button</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/01_create-a-poll_button/</guid>
-      <description>Create-A-Poll Button #  Create the Poll component. It will allow the user to create a new poll, view polls and answer them. We&amp;rsquo;ll start by adding a button to create a poll.
-mkdir components touch components/Poll.tsx Styled-components #  Again, create a Wrapper for styling:
-import styled from &amp;#34;styled-components&amp;#34;; const Wrapper = styled.div` display: flex; flex-direction: column; align-items: center; max-width: 1146px; position: relative; margin: 0 auto; padding: 150px 32px 50px; width: 100%; @media (max-width: 1146px) { max-width: 780px; } @media (max-width: 600px) { padding: 132px 16px 32px; } @media (max-width: 425px) { padding: 96px 16px 84px; } `; Button #  Create a button that will display the PollCreation component on click.</description>
-    </item>
-    
-    <item>
-      <title>Poll Creation Component</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/02_poll_creation/</guid>
-      <description>Poll Creation Component #  The Poll SDK provides an off-the-shelf component to create a new poll: PollCreation. It takes in a WakuPolling hook that can created with useWakuPolling.
-useWakuPolling takes:
- appName: Your app name. It is used to generate a unique content topic for your polls. See How to Choose a Content Topic for more information. tokenAddress: The address of your ERC-20 token. Only token holders can create and answer polls.</description>
-    </item>
-    
-    <item>
-      <title>Poll List Component</title>
-      <link>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/</link>
-      <pubDate>Mon, 03 Jan 2022 11:00:00 +1100</pubDate>
-      
-      <guid>https://js.waku.guide/docs/guides/vote_poll_sdk/poll_sdk/03_poll_list/</guid>
-      <description>Poll List Component #  To display existing polls, the PollList component is provided.
-Simply add it to the Poll function to render it. It needs the account variable that can be passed as a property to Poll:
-components/Poll.tsx:
-import React, { useMemo, useState } from &amp;#34;react&amp;#34;; import styled from &amp;#34;styled-components&amp;#34;; import { PollCreation, PollList } from &amp;#34;@waku/poll-sdk-react-components&amp;#34;; import { Web3Provider } from &amp;#34;@ethersproject/providers&amp;#34;; import { useWakuPolling } from &amp;#34;@waku/poll-sdk-react-hooks&amp;#34;; import { CreateButton } from &amp;#34;@waku/vote-poll-sdk-react-components&amp;#34;; import { Theme } from &amp;#34;@waku/vote-poll-sdk-react-components/dist/esm/src/style/themes&amp;#34;; type PollProps = { appName: string; library: Web3Provider | undefined; account: string | null | undefined; theme: Theme; tokenAddress: string; multicallAddress: string; }; export function Poll({ appName, library, account, theme, tokenAddress, multicallAddress, }: PollProps) { const [showPollCreation, setShowPollCreation] = useState(false); const wakuPolling = useWakuPolling( appName, tokenAddress, library, multicallAddress ); const disabled = useMemo(() =&amp;gt; !</description>
+ Waku is a family of protocols designed to provide censorship-resistant, privacy preserving, surveillance prone and portable communication.</description>
     </item>
     
     <item>
@@ -325,11 +225,10 @@ Legend:
       <guid>https://js.waku.guide/docs/examples/</guid>
       <description>Examples #  JS-Waku Examples Repository #  We maintain a number of examples in the waku-org/js-waku-examples repository.
 These examples use the latest published version of js-waku.
+Any example from the repository can be bootstrapped by helper package @waku/app. More details here: README.md
 Community Examples #  Here are examples from the community.
 Uber-like minimalistic car sharing app suing Vue.js #  Code: TheBojda/waku-uber.
-Article: Decentralized Uber: Here&amp;rsquo;s How I Built It With Status.im, Waku, and Vue.js.
-Demonstrates:
- Vue.js Waku Relay Protobuf using protons  </description>
+Article: Decentralized Uber: Here&amp;rsquo;s How I Built It With Status.</description>
     </item>
     
     <item>
