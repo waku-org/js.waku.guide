@@ -73,7 +73,7 @@ Add a social media layer, allowing NFT owners to like, comments, etc.
 
 Use Waku to enable two parties to setup and maintain a state channel.
 
-- Discussion: [statechannels.org Discourse](https://statechannels.discourse.group/t/using-waku-as-communication-layer/172/3)
+- Discussion: [statechannels.org Research](https://research.statechannels.org/t/using-waku-as-communication-layer/172)
 
 <--->
 
